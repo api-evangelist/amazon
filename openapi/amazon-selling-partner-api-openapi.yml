@@ -1,0 +1,890 @@
+openapi: 3.1.0
+info:
+  title: Amazon Selling Partner API
+  description: >-
+    The Amazon Selling Partner API (SP-API) is a RESTful API that enables
+    Amazon sellers and vendors to programmatically manage their marketplace
+    operations including listings, orders, payments, reports, and fulfillment.
+    It replaces the deprecated Amazon Marketplace Web Service (MWS) and
+    provides access to region-specific endpoints for North America, Europe,
+    and Far East marketplaces.
+  version: '2026-01-01'
+  contact:
+    name: Amazon Seller Support
+    url: https://developer-docs.amazon.com/sp-api
+  termsOfService: https://developer-docs.amazon.com/sp-api/docs/terms-of-service
+externalDocs:
+  description: Amazon SP-API Documentation
+  url: https://developer-docs.amazon.com/sp-api
+servers:
+  - url: https://sellingpartnerapi-na.amazon.com
+    description: North America
+  - url: https://sellingpartnerapi-eu.amazon.com
+    description: Europe
+  - url: https://sellingpartnerapi-fe.amazon.com
+    description: Far East
+tags:
+  - name: Orders
+    description: Manage and retrieve order information
+  - name: Catalog
+    description: Search and retrieve catalog item information
+  - name: Listings
+    description: Create, update, and manage product listings
+  - name: Pricing
+    description: Retrieve product pricing and competitive data
+  - name: Inventory
+    description: Manage FBA inventory
+  - name: Reports
+    description: Request and retrieve reports
+  - name: Fulfillment
+    description: Manage fulfillment inbound shipments
+  - name: Finances
+    description: Retrieve financial transaction data
+security:
+  - bearerAuth: []
+paths:
+  /orders/2026-01-01/orders:
+    get:
+      operationId: searchOrders
+      summary: Search orders
+      description: >-
+        Returns orders created or updated during the time frame indicated by
+        the specified parameters. Supports filtering by marketplace, order
+        status, fulfillment channel, and date ranges.
+      tags:
+        - Orders
+      parameters:
+        - $ref: '#/components/parameters/MarketplaceIds'
+        - name: CreatedAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: CreatedBefore
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: OrderStatuses
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - Pending
+                - Unshipped
+                - PartiallyShipped
+                - Shipped
+                - Canceled
+                - Unfulfillable
+        - name: MaxResultsPerPage
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+        '401':
+          description: Unauthorized
+        '429':
+          description: Too many requests
+  /orders/2026-01-01/orders/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Get order details
+      description: >-
+        Returns the order indicated by the specified order ID.
+      tags:
+        - Orders
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /orders/2026-01-01/orders/{orderId}/orderItems:
+    get:
+      operationId: getOrderItems
+      summary: Get order items
+      description: >-
+        Returns detailed order item information for the order indicated by the
+        specified order ID.
+      tags:
+        - Orders
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderItemList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /catalog/2022-04-01/items:
+    get:
+      operationId: searchCatalogItems
+      summary: Search catalog items
+      description: >-
+        Search for and return a list of Amazon catalog items and associated
+        information either by identifiers or by keywords.
+      tags:
+        - Catalog
+      parameters:
+        - $ref: '#/components/parameters/MarketplaceIds'
+        - name: keywords
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: identifiers
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            maximum: 20
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogItemList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /catalog/2022-04-01/items/{asin}:
+    get:
+      operationId: getCatalogItem
+      summary: Get catalog item
+      description: >-
+        Retrieves details for an item in the Amazon catalog by ASIN.
+      tags:
+        - Catalog
+      parameters:
+        - name: asin
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogItem'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /listings/2021-08-01/items/{sellerId}/{sku}:
+    get:
+      operationId: getListingsItem
+      summary: Get listing item
+      description: >-
+        Returns details about a listing item for a selling partner.
+      tags:
+        - Listings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItem'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+    put:
+      operationId: putListingsItem
+      summary: Create or replace listing item
+      description: >-
+        Creates or replaces a listing item for a selling partner.
+      tags:
+        - Listings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListingsItemPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+    patch:
+      operationId: patchListingsItem
+      summary: Partially update listing item
+      description: >-
+        Partially updates a listing item for a selling partner.
+      tags:
+        - Listings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListingsItemPatchRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+    delete:
+      operationId: deleteListingsItem
+      summary: Delete listing item
+      description: >-
+        Deletes a listing item for a selling partner.
+      tags:
+        - Listings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+  /fba/inventory/v1/summaries:
+    get:
+      operationId: getInventorySummaries
+      summary: Get inventory summaries
+      description: >-
+        Returns a list of inventory summaries with information about condition,
+        available quantity, and fulfillment status.
+      tags:
+        - Inventory
+      parameters:
+        - $ref: '#/components/parameters/MarketplaceIds'
+        - name: granularityType
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - Marketplace
+        - name: granularityId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sellerSkus
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventorySummaries'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /reports/2021-06-30/reports:
+    get:
+      operationId: getReports
+      summary: List reports
+      description: >-
+        Returns report details for the reports that match the filters specified.
+      tags:
+        - Reports
+      parameters:
+        - name: reportTypes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: processingStatuses
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - CANCELLED
+                - DONE
+                - FATAL
+                - IN_PROGRESS
+                - IN_QUEUE
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createReport
+      summary: Create a report
+      description: >-
+        Creates a report request. Reports are generated asynchronously and can
+        be retrieved using the getReport and getReportDocument operations.
+      tags:
+        - Reports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReportSpecification'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateReportResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /reports/2021-06-30/reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Get report
+      description: >-
+        Returns report details for the report indicated by the specified
+        report ID.
+      tags:
+        - Reports
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /reports/2021-06-30/documents/{reportDocumentId}:
+    get:
+      operationId: getReportDocument
+      summary: Get report document
+      description: >-
+        Returns the information required for retrieving a report document's
+        contents.
+      tags:
+        - Reports
+      parameters:
+        - name: reportDocumentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportDocument'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /finances/2024-06-19/transactions:
+    get:
+      operationId: listTransactions
+      summary: List financial transactions
+      description: >-
+        Returns financial transaction data for the selling partner account.
+      tags:
+        - Finances
+      parameters:
+        - name: postedAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: postedBefore
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        OAuth 2.0 access token obtained via Login with Amazon (LWA)
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+    OrderId:
+      name: orderId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Order:
+      type: object
+      properties:
+        AmazonOrderId:
+          type: string
+        PurchaseDate:
+          type: string
+          format: date-time
+        LastUpdateDate:
+          type: string
+          format: date-time
+        OrderStatus:
+          type: string
+          enum:
+            - Pending
+            - Unshipped
+            - PartiallyShipped
+            - Shipped
+            - Canceled
+            - Unfulfillable
+        FulfillmentChannel:
+          type: string
+          enum:
+            - MFN
+            - AFN
+        OrderTotal:
+          $ref: '#/components/schemas/Money'
+        NumberOfItemsShipped:
+          type: integer
+        NumberOfItemsUnshipped:
+          type: integer
+        ShipServiceLevel:
+          type: string
+        MarketplaceId:
+          type: string
+    OrderList:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            Orders:
+              type: array
+              items:
+                $ref: '#/components/schemas/Order'
+            NextToken:
+              type: string
+    OrderItem:
+      type: object
+      properties:
+        ASIN:
+          type: string
+        OrderItemId:
+          type: string
+        SellerSKU:
+          type: string
+        Title:
+          type: string
+        QuantityOrdered:
+          type: integer
+        QuantityShipped:
+          type: integer
+        ItemPrice:
+          $ref: '#/components/schemas/Money'
+    OrderItemList:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            OrderItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/OrderItem'
+            NextToken:
+              type: string
+    CatalogItem:
+      type: object
+      properties:
+        asin:
+          type: string
+        attributes:
+          type: object
+        images:
+          type: array
+          items:
+            type: object
+        salesRanks:
+          type: array
+          items:
+            type: object
+    CatalogItemList:
+      type: object
+      properties:
+        numberOfResults:
+          type: integer
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogItem'
+    ListingsItem:
+      type: object
+      properties:
+        sku:
+          type: string
+        summaries:
+          type: array
+          items:
+            type: object
+        attributes:
+          type: object
+        issues:
+          type: array
+          items:
+            type: object
+        offers:
+          type: array
+          items:
+            type: object
+    ListingsItemPutRequest:
+      type: object
+      required:
+        - productType
+        - attributes
+      properties:
+        productType:
+          type: string
+        attributes:
+          type: object
+    ListingsItemPatchRequest:
+      type: object
+      required:
+        - productType
+        - patches
+      properties:
+        productType:
+          type: string
+        patches:
+          type: array
+          items:
+            type: object
+            properties:
+              op:
+                type: string
+                enum:
+                  - add
+                  - replace
+                  - delete
+              path:
+                type: string
+              value:
+                type: array
+                items:
+                  type: object
+    ListingsItemSubmissionResponse:
+      type: object
+      properties:
+        sku:
+          type: string
+        status:
+          type: string
+          enum:
+            - ACCEPTED
+            - INVALID
+        submissionId:
+          type: string
+        issues:
+          type: array
+          items:
+            type: object
+    InventorySummaries:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        inventorySummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              asin:
+                type: string
+              fnSku:
+                type: string
+              sellerSku:
+                type: string
+              condition:
+                type: string
+              inventoryDetails:
+                type: object
+                properties:
+                  fulfillableQuantity:
+                    type: integer
+                  inboundWorkingQuantity:
+                    type: integer
+                  inboundShippedQuantity:
+                    type: integer
+                  inboundReceivingQuantity:
+                    type: integer
+                  reservedQuantity:
+                    type: object
+                  unfulfillableQuantity:
+                    type: object
+    Report:
+      type: object
+      properties:
+        reportId:
+          type: string
+        reportType:
+          type: string
+        processingStatus:
+          type: string
+          enum:
+            - CANCELLED
+            - DONE
+            - FATAL
+            - IN_PROGRESS
+            - IN_QUEUE
+        reportDocumentId:
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+    ReportList:
+      type: object
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+        nextToken:
+          type: string
+    ReportDocument:
+      type: object
+      properties:
+        reportDocumentId:
+          type: string
+        url:
+          type: string
+          format: uri
+    CreateReportSpecification:
+      type: object
+      required:
+        - reportType
+        - marketplaceIds
+      properties:
+        reportType:
+          type: string
+        dataStartTime:
+          type: string
+          format: date-time
+        dataEndTime:
+          type: string
+          format: date-time
+        marketplaceIds:
+          type: array
+          items:
+            type: string
+    CreateReportResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            type: object
+            properties:
+              transactionType:
+                type: string
+              transactionId:
+                type: string
+              transactionStatus:
+                type: string
+              postedDate:
+                type: string
+                format: date-time
+              totalAmount:
+                $ref: '#/components/schemas/Money'
+        nextToken:
+          type: string
+    Money:
+      type: object
+      properties:
+        CurrencyCode:
+          type: string
+        Amount:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        previousToken:
+          type: string
+    ErrorList:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string

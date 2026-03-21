@@ -1,0 +1,706 @@
+openapi: 3.1.0
+info:
+  title: Amazon Pay API
+  description: >-
+    The Amazon Pay API enables merchants to integrate Amazon Pay for payment
+    processing on their websites and mobile applications. It supports one-time
+    purchases, subscriptions, and recurring payments. The API provides
+    checkout session management, charge operations, and refund capabilities
+    with both production and sandbox environments for testing.
+  version: '2.0'
+  contact:
+    name: Amazon Pay Developer Support
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+  termsOfService: https://pay.amazon.com/help/201751590
+externalDocs:
+  description: Amazon Pay API Documentation
+  url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+servers:
+  - url: https://pay-api.amazon.com/live/v2
+    description: US Production
+  - url: https://pay-api.amazon.com/sandbox/v2
+    description: US Sandbox
+  - url: https://pay-api.amazon.eu/live/v2
+    description: EU Production
+  - url: https://pay-api.amazon.jp/live/v2
+    description: Japan Production
+tags:
+  - name: Checkout Sessions
+    description: Manage buyer checkout sessions
+  - name: Charges
+    description: Create and manage payment charges
+  - name: Charge Permissions
+    description: Manage buyer charge authorizations
+  - name: Refunds
+    description: Process refunds on captured charges
+security:
+  - amazonPaySignature: []
+paths:
+  /checkoutSessions:
+    post:
+      operationId: createCheckoutSession
+      summary: Create checkout session
+      description: >-
+        Creates a new checkout session for a buyer to authorize payment.
+      tags:
+        - Checkout Sessions
+      parameters:
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCheckoutSessionRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /checkoutSessions/{checkoutSessionId}:
+    get:
+      operationId: getCheckoutSession
+      summary: Get checkout session
+      description: >-
+        Returns details about the specified checkout session.
+      tags:
+        - Checkout Sessions
+      parameters:
+        - name: checkoutSessionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '404':
+          description: Not found
+    patch:
+      operationId: updateCheckoutSession
+      summary: Update checkout session
+      description: >-
+        Updates the specified checkout session with new information.
+      tags:
+        - Checkout Sessions
+      parameters:
+        - name: checkoutSessionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCheckoutSessionRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+  /checkoutSessions/{checkoutSessionId}/complete:
+    post:
+      operationId: completeCheckoutSession
+      summary: Complete checkout session
+      description: >-
+        Completes the checkout session and processes the payment.
+      tags:
+        - Checkout Sessions
+      parameters:
+        - name: checkoutSessionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chargeAmount
+              properties:
+                chargeAmount:
+                  $ref: '#/components/schemas/Price'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+  /charges:
+    post:
+      operationId: createCharge
+      summary: Create a charge
+      description: >-
+        Creates a charge against a charge permission to authorize payment.
+      tags:
+        - Charges
+      parameters:
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChargeRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+  /charges/{chargeId}:
+    get:
+      operationId: getCharge
+      summary: Get charge details
+      description: >-
+        Returns details about the specified charge.
+      tags:
+        - Charges
+      parameters:
+        - name: chargeId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '404':
+          description: Not found
+  /charges/{chargeId}/capture:
+    post:
+      operationId: captureCharge
+      summary: Capture a charge
+      description: >-
+        Captures a previously authorized charge.
+      tags:
+        - Charges
+      parameters:
+        - name: chargeId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - captureAmount
+              properties:
+                captureAmount:
+                  $ref: '#/components/schemas/Price'
+                softDescriptor:
+                  type: string
+                  maxLength: 16
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+  /charges/{chargeId}/cancel:
+    delete:
+      operationId: cancelCharge
+      summary: Cancel a charge
+      description: >-
+        Cancels a previously authorized charge.
+      tags:
+        - Charges
+      parameters:
+        - name: chargeId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cancellationReason:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+  /chargePermissions/{chargePermissionId}:
+    get:
+      operationId: getChargePermission
+      summary: Get charge permission
+      description: >-
+        Returns details about the specified charge permission.
+      tags:
+        - Charge Permissions
+      parameters:
+        - name: chargePermissionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargePermission'
+        '404':
+          description: Not found
+    patch:
+      operationId: updateChargePermission
+      summary: Update charge permission
+      description: >-
+        Updates the specified charge permission.
+      tags:
+        - Charge Permissions
+      parameters:
+        - name: chargePermissionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                merchantMetadata:
+                  $ref: '#/components/schemas/MerchantMetadata'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargePermission'
+        '400':
+          description: Bad request
+  /chargePermissions/{chargePermissionId}/close:
+    delete:
+      operationId: closeChargePermission
+      summary: Close charge permission
+      description: >-
+        Closes the specified charge permission so no further charges can be made.
+      tags:
+        - Charge Permissions
+      parameters:
+        - name: chargePermissionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - closureReason
+              properties:
+                closureReason:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChargePermission'
+        '400':
+          description: Bad request
+  /refunds:
+    post:
+      operationId: createRefund
+      summary: Create a refund
+      description: >-
+        Creates a refund for a previously captured charge.
+      tags:
+        - Refunds
+      parameters:
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRefundRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+        '400':
+          description: Bad request
+  /refunds/{refundId}:
+    get:
+      operationId: getRefund
+      summary: Get refund details
+      description: >-
+        Returns details about the specified refund.
+      tags:
+        - Refunds
+      parameters:
+        - name: refundId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/PayDate'
+        - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    amazonPaySignature:
+      type: apiKey
+      in: header
+      name: authorization
+      description: >-
+        AMZN-PAY-RSASSA-PSS-V2 signature using merchant private key
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+          - us
+          - eu
+          - jp
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
+  schemas:
+    Price:
+      type: object
+      required:
+        - amount
+        - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    Buyer:
+      type: object
+      properties:
+        buyerId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+    Address:
+      type: object
+      properties:
+        name:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateOrRegion:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        phoneNumber:
+          type: string
+    CheckoutSession:
+      type: object
+      properties:
+        checkoutSessionId:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        buyer:
+          $ref: '#/components/schemas/Buyer'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+              enum:
+                - Confirm
+                - Authorize
+                - AuthorizeWithCapture
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        chargePermissionId:
+          type: string
+        chargeId:
+          type: string
+        creationTimestamp:
+          type: string
+          format: date-time
+        expirationTimestamp:
+          type: string
+          format: date-time
+    CreateCheckoutSessionRequest:
+      type: object
+      required:
+        - webCheckoutDetails
+        - storeId
+      properties:
+        webCheckoutDetails:
+          type: object
+          required:
+            - checkoutReviewReturnUrl
+          properties:
+            checkoutReviewReturnUrl:
+              type: string
+              format: uri
+            checkoutResultReturnUrl:
+              type: string
+              format: uri
+        storeId:
+          type: string
+        chargePermissionType:
+          type: string
+          enum:
+            - OneTime
+            - Recurring
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+    UpdateCheckoutSessionRequest:
+      type: object
+      properties:
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+    Charge:
+      type: object
+      properties:
+        chargeId:
+          type: string
+        chargePermissionId:
+          type: string
+        chargeAmount:
+          $ref: '#/components/schemas/Price'
+        captureAmount:
+          $ref: '#/components/schemas/Price'
+        refundedAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        creationTimestamp:
+          type: string
+          format: date-time
+        expirationTimestamp:
+          type: string
+          format: date-time
+    CreateChargeRequest:
+      type: object
+      required:
+        - chargePermissionId
+        - chargeAmount
+      properties:
+        chargePermissionId:
+          type: string
+        chargeAmount:
+          $ref: '#/components/schemas/Price'
+        captureNow:
+          type: boolean
+        softDescriptor:
+          type: string
+          maxLength: 16
+        canHandlePendingAuthorization:
+          type: boolean
+    ChargePermission:
+      type: object
+      properties:
+        chargePermissionId:
+          type: string
+        chargePermissionType:
+          type: string
+          enum:
+            - OneTime
+            - Recurring
+        buyer:
+          $ref: '#/components/schemas/Buyer'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        limits:
+          type: object
+          properties:
+            amountLimit:
+              $ref: '#/components/schemas/Price'
+            amountBalance:
+              $ref: '#/components/schemas/Price'
+        creationTimestamp:
+          type: string
+          format: date-time
+        expirationTimestamp:
+          type: string
+          format: date-time
+    Refund:
+      type: object
+      properties:
+        refundId:
+          type: string
+        chargeId:
+          type: string
+        refundAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        creationTimestamp:
+          type: string
+          format: date-time
+    CreateRefundRequest:
+      type: object
+      required:
+        - chargeId
+        - refundAmount
+      properties:
+        chargeId:
+          type: string
+        refundAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+          maxLength: 16

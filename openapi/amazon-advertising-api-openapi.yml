@@ -1,0 +1,716 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising API
+  description: >-
+    The Amazon Advertising API enables programmatic management of advertising
+    campaigns on Amazon. It provides access to Sponsored Products, Sponsored
+    Brands, and Sponsored Display campaigns across various marketplaces.
+    Developers can create, manage, and optimize advertising campaigns, access
+    reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+servers:
+  - url: https://advertising-api.amazon.com
+    description: North America
+  - url: https://advertising-api-eu.amazon.com
+    description: Europe
+  - url: https://advertising-api-fe.amazon.com
+    description: Far East
+  - url: https://advertising-api-test.amazon.com
+    description: Test/Sandbox
+tags:
+  - name: Campaigns
+    description: Campaign management operations
+  - name: Ad Groups
+    description: Ad group management operations
+  - name: Keywords
+    description: Keyword management operations
+  - name: Targets
+    description: Product targeting operations
+  - name: Reports
+    description: Reporting and analytics
+  - name: Profiles
+    description: Account profile management
+security:
+  - bearerAuth: []
+paths:
+  /v2/profiles:
+    get:
+      operationId: listProfiles
+      summary: List advertising profiles
+      description: >-
+        Returns a list of advertising profiles associated with the account.
+      tags:
+        - Profiles
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+        '401':
+          description: Unauthorized
+  /v2/sp/campaigns:
+    get:
+      operationId: listCampaigns
+      summary: List Sponsored Products campaigns
+      description: >-
+        Returns a list of Sponsored Products campaigns for the specified
+        advertiser profile.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: startIndex
+          in: query
+          schema:
+            type: integer
+        - name: count
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+        - name: stateFilter
+          in: query
+          schema:
+            type: string
+            enum:
+              - enabled
+              - paused
+              - archived
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCampaigns
+      summary: Create Sponsored Products campaigns
+      description: >-
+        Creates one or more Sponsored Products campaigns.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateCampaignRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CampaignResponse'
+        '401':
+          description: Unauthorized
+    put:
+      operationId: updateCampaigns
+      summary: Update Sponsored Products campaigns
+      description: >-
+        Updates one or more Sponsored Products campaigns.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateCampaignRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CampaignResponse'
+        '401':
+          description: Unauthorized
+  /v2/sp/campaigns/{campaignId}:
+    get:
+      operationId: getCampaign
+      summary: Get campaign details
+      description: >-
+        Returns a Sponsored Products campaign by campaign ID.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+        '404':
+          description: Not found
+    delete:
+      operationId: archiveCampaign
+      summary: Archive campaign
+      description: >-
+        Sets the campaign status to archived.
+      tags:
+        - Campaigns
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignResponse'
+        '404':
+          description: Not found
+  /v2/sp/adGroups:
+    get:
+      operationId: listAdGroups
+      summary: List ad groups
+      description: >-
+        Returns a list of ad groups for the specified advertiser profile.
+      tags:
+        - Ad Groups
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: campaignIdFilter
+          in: query
+          schema:
+            type: string
+        - name: stateFilter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdGroup'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAdGroups
+      summary: Create ad groups
+      description: >-
+        Creates one or more ad groups.
+      tags:
+        - Ad Groups
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateAdGroupRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdGroupResponse'
+        '401':
+          description: Unauthorized
+  /v2/sp/keywords:
+    get:
+      operationId: listKeywords
+      summary: List keywords
+      description: >-
+        Returns a list of keywords for the specified advertiser profile.
+      tags:
+        - Keywords
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: campaignIdFilter
+          in: query
+          schema:
+            type: string
+        - name: adGroupIdFilter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Keyword'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createKeywords
+      summary: Create keywords
+      description: >-
+        Creates one or more keywords.
+      tags:
+        - Keywords
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateKeywordRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeywordResponse'
+        '401':
+          description: Unauthorized
+  /v2/sp/targets:
+    get:
+      operationId: listTargets
+      summary: List product targets
+      description: >-
+        Returns a list of product targets for the specified advertiser profile.
+      tags:
+        - Targets
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Target'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createTargets
+      summary: Create product targets
+      description: >-
+        Creates one or more product targets.
+      tags:
+        - Targets
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateTargetRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TargetResponse'
+        '401':
+          description: Unauthorized
+  /v2/sp/{recordType}/report:
+    post:
+      operationId: requestReport
+      summary: Request a report
+      description: >-
+        Requests the creation of a performance report for the specified
+        record type.
+      tags:
+        - Reports
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: recordType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - campaigns
+              - adGroups
+              - keywords
+              - productAds
+              - asins
+              - targets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportRequest'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportRequestResponse'
+        '401':
+          description: Unauthorized
+  /v2/reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Get report status
+      description: >-
+        Returns the status and download location of a previously requested report.
+      tags:
+        - Reports
+      parameters:
+        - $ref: '#/components/parameters/ProfileId'
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportStatus'
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        OAuth 2.0 access token from Login with Amazon
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
+  schemas:
+    Profile:
+      type: object
+      properties:
+        profileId:
+          type: string
+        countryCode:
+          type: string
+        currencyCode:
+          type: string
+        accountInfo:
+          type: object
+          properties:
+            marketplaceStringId:
+              type: string
+            id:
+              type: string
+            type:
+              type: string
+              enum:
+                - seller
+                - vendor
+    Campaign:
+      type: object
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+            - enabled
+            - paused
+            - archived
+        dailyBudget:
+          type: number
+        startDate:
+          type: string
+        endDate:
+          type: string
+        targetingType:
+          type: string
+          enum:
+            - manual
+            - auto
+        premiumBidAdjustment:
+          type: boolean
+    CreateCampaignRequest:
+      type: object
+      required:
+        - name
+        - state
+        - dailyBudget
+        - startDate
+        - targetingType
+      properties:
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+            - enabled
+            - paused
+        dailyBudget:
+          type: number
+        startDate:
+          type: string
+        endDate:
+          type: string
+        targetingType:
+          type: string
+          enum:
+            - manual
+            - auto
+    UpdateCampaignRequest:
+      type: object
+      required:
+        - campaignId
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        dailyBudget:
+          type: number
+    CampaignResponse:
+      type: object
+      properties:
+        campaignId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+    AdGroup:
+      type: object
+      properties:
+        adGroupId:
+          type: string
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        defaultBid:
+          type: number
+    CreateAdGroupRequest:
+      type: object
+      required:
+        - campaignId
+        - name
+        - state
+        - defaultBid
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        defaultBid:
+          type: number
+    AdGroupResponse:
+      type: object
+      properties:
+        adGroupId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+    Keyword:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+            - broad
+            - exact
+            - phrase
+        state:
+          type: string
+        bid:
+          type: number
+    CreateKeywordRequest:
+      type: object
+      required:
+        - campaignId
+        - adGroupId
+        - keywordText
+        - matchType
+        - state
+      properties:
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+            - broad
+            - exact
+            - phrase
+        state:
+          type: string
+        bid:
+          type: number
+    KeywordResponse:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+    Target:
+      type: object
+      properties:
+        targetId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        state:
+          type: string
+        bid:
+          type: number
+        expressionType:
+          type: string
+        expression:
+          type: array
+          items:
+            type: object
+    CreateTargetRequest:
+      type: object
+      required:
+        - campaignId
+        - adGroupId
+        - state
+        - expression
+        - expressionType
+      properties:
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        state:
+          type: string
+        bid:
+          type: number
+        expression:
+          type: array
+          items:
+            type: object
+        expressionType:
+          type: string
+    TargetResponse:
+      type: object
+      properties:
+        targetId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+    ReportRequest:
+      type: object
+      properties:
+        reportDate:
+          type: string
+        metrics:
+          type: string
+        segment:
+          type: string
+    ReportRequestResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
+    ReportStatus:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
+          enum:
+            - IN_PROGRESS
+            - SUCCESS
+            - FAILURE
+        location:
+          type: string
+          format: uri
+        fileSize:
+          type: integer
