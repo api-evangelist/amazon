@@ -1,5 +1,6 @@
 aid: amazon
-url: https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml
 apis:
   - aid: amazon:selling-partner-api
     name: Amazon Selling Partner API
@@ -9,7 +10,8 @@ apis:
       - Sellers
       - Orders
       - Fulfillment
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://sellingpartnerapi-na.amazon.com
     humanURL: https://developer-docs.amazon.com/sp-api
     properties:
@@ -33,11 +35,14 @@ apis:
       - Campaigns
       - Marketing
       - Sponsored Products
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://advertising-api.amazon.com
-    humanURL: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+    humanURL: 
+      https://advertising.amazon.com/API/docs/en-us/reference/api-overview
     properties:
-      - url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+      - url: 
+          https://advertising.amazon.com/API/docs/en-us/reference/api-overview
         type: Documentation
       - url: openapi/amazon-advertising-api-openapi.yml
         type: OpenAPI
@@ -55,7 +60,8 @@ apis:
       - Affiliates
       - E-Commerce
       - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://webservices.amazon.com/paapi5
     humanURL: https://webservices.amazon.com/paapi5/documentation/
     properties:
@@ -75,11 +81,14 @@ apis:
       - Products
       - Content Creators
       - E-Commerce
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://affiliate-program.amazon.com/creatorsapi
-    humanURL: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
+    humanURL: 
+      https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
     properties:
-      - url: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
+      - url: 
+          https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
         type: Documentation
     description: >-
       The Amazon Creators API is a modern REST-based API providing programmatic
@@ -96,11 +105,14 @@ apis:
       - Checkout
       - E-Commerce
       - Subscriptions
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://pay-api.amazon.com
-    humanURL: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+    humanURL: 
+      https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
     properties:
-      - url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+      - url: 
+          https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
         type: Documentation
       - url: openapi/amazon-pay-api-openapi.yml
         type: OpenAPI
@@ -118,11 +130,14 @@ apis:
       - Alexa
       - Skills
       - Smart Home
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.amazonalexa.com
-    humanURL: https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html
+    humanURL: 
+      https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html
     properties:
-      - url: https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html
+      - url: 
+          https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html
         type: Documentation
     description: >-
       The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage,
@@ -139,11 +154,14 @@ apis:
       - Mobile
       - App Store
       - In-App Purchases
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://developer.amazon.com/api/appstore
-    humanURL: https://www.developer.amazon.com/docs/apps-and-games/documentation.html
+    humanURL: 
+      https://www.developer.amazon.com/docs/apps-and-games/documentation.html
     properties:
-      - url: https://www.developer.amazon.com/docs/apps-and-games/documentation.html
+      - url: 
+          https://www.developer.amazon.com/docs/apps-and-games/documentation.html
         type: Documentation
     description: >-
       The Amazon Appstore Developer APIs provide tools for managing app
@@ -152,3 +170,6 @@ apis:
       for revenue and promotions, and the In-App Purchasing SDK for
       implementing digital goods and subscriptions within Android and
       Fire OS applications.
+description: >-
+  Welcome to Selling Partner API Documentation. Learn how to get started and build
+  applications with Amazon's REST-based SP-API.
