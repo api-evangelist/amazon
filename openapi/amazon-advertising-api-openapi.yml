@@ -25,18 +25,18 @@ servers:
   - url: https://advertising-api-test.amazon.com
     description: Test/Sandbox
 tags:
-  - name: Campaigns
-    description: Campaign management operations
   - name: Ad Groups
     description: Ad group management operations
+  - name: Campaigns
+    description: Campaign management operations
   - name: Keywords
     description: Keyword management operations
-  - name: Targets
-    description: Product targeting operations
-  - name: Reports
-    description: Reporting and analytics
   - name: Profiles
     description: Account profile management
+  - name: Reports
+    description: Reporting and analytics
+  - name: Targets
+    description: Product targeting operations
 security:
   - bearerAuth: []
 paths:

@@ -24,22 +24,18 @@ servers:
   - url: https://sellingpartnerapi-fe.amazon.com
     description: Far East
 tags:
-  - name: Orders
-    description: Manage and retrieve order information
   - name: Catalog
     description: Search and retrieve catalog item information
-  - name: Listings
-    description: Create, update, and manage product listings
-  - name: Pricing
-    description: Retrieve product pricing and competitive data
-  - name: Inventory
-    description: Manage FBA inventory
-  - name: Reports
-    description: Request and retrieve reports
-  - name: Fulfillment
-    description: Manage fulfillment inbound shipments
   - name: Finances
     description: Retrieve financial transaction data
+  - name: Inventory
+    description: Manage FBA inventory
+  - name: Listings
+    description: Create, update, and manage product listings
+  - name: Orders
+    description: Manage and retrieve order information
+  - name: Reports
+    description: Request and retrieve reports
 security:
   - bearerAuth: []
 paths:

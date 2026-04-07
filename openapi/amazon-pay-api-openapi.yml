@@ -25,12 +25,12 @@ servers:
   - url: https://pay-api.amazon.jp/live/v2
     description: Japan Production
 tags:
-  - name: Checkout Sessions
-    description: Manage buyer checkout sessions
-  - name: Charges
-    description: Create and manage payment charges
   - name: Charge Permissions
     description: Manage buyer charge authorizations
+  - name: Charges
+    description: Create and manage payment charges
+  - name: Checkout Sessions
+    description: Manage buyer checkout sessions
   - name: Refunds
     description: Process refunds on captured charges
 security:
