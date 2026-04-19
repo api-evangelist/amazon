@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "CurrencyCode": {
+      "type": "string"
+    },
+    "Amount": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Money",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-money-schema.json",
+  "description": "Money schema from Amazon Selling Partner API"
+}

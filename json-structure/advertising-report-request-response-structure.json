@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "reportId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ReportRequestResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-report-request-response-structure.json",
+  "description": "ReportRequestResponse schema from Amazon Advertising API"
+}

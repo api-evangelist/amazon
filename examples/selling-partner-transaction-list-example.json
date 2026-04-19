@@ -1,0 +1,12 @@
+{
+  "transactions": [
+    {
+      "transactionType": "example-value",
+      "transactionId": "ABC123DEF456",
+      "transactionStatus": "ACTIVE",
+      "postedDate": "example-value",
+      "totalAmount": "example-value"
+    }
+  ],
+  "nextToken": "example-value"
+}

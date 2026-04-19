@@ -1,0 +1,130 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Advertising API"
+  description: "Programmatic management of Amazon advertising campaigns including Sponsored Products, Sponsored Brands, and Sponsored Display."
+  tags:
+    - Amazon
+    - Advertising
+    - Campaigns
+    - Marketing
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AMAZON_ADS_ACCESS_TOKEN: AMAZON_ADS_ACCESS_TOKEN
+      AMAZON_ADS_CLIENT_ID: AMAZON_ADS_CLIENT_ID
+
+capability:
+  consumes:
+    - type: http
+      namespace: advertising
+      baseUri: https://advertising-api.amazon.com
+      description: "Amazon Advertising API for campaign management."
+      authentication:
+        type: bearer
+        token: "{{AMAZON_ADS_ACCESS_TOKEN}}"
+      resources:
+        - name: campaigns
+          path: /v2/campaigns
+          description: "Manage advertising campaigns."
+          operations:
+            - name: list-campaigns
+              method: GET
+              description: "List advertising campaigns."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-campaign
+              method: POST
+              description: "Create a new advertising campaign."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  name: "{{tools.campaign_name}}"
+                  campaignType: "{{tools.campaign_type}}"
+        - name: ad-groups
+          path: /v2/adGroups
+          description: "Manage ad groups within campaigns."
+          operations:
+            - name: list-ad-groups
+              method: GET
+              description: "List ad groups."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: reports
+          path: /v2/reports
+          description: "Request advertising performance reports."
+          operations:
+            - name: request-report
+              method: POST
+              description: "Request an advertising report."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8102
+      namespace: advertising-rest
+      resources:
+        - path: /v1/campaigns
+          name: campaigns
+          description: "Campaign management."
+          operations:
+            - method: GET
+              name: list-campaigns
+              description: "List campaigns."
+              call: "advertising.list-campaigns"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9102
+      namespace: advertising-mcp
+      transport: http
+      tools:
+        - name: list-campaigns
+          description: "List Amazon advertising campaigns."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "advertising.list-campaigns"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-campaign
+          description: "Create a new Amazon advertising campaign."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "advertising.create-campaign"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: request-report
+          description: "Request an advertising performance report."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "advertising.request-report"
+          outputParameters:
+            - type: object
+              mapping: "$."

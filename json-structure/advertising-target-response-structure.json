@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "targetId": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "TargetResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-target-response-structure.json",
+  "description": "TargetResponse schema from Amazon Advertising API"
+}

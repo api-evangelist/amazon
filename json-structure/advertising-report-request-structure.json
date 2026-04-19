@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "reportDate": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "string"
+    },
+    "segment": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ReportRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-report-request-structure.json",
+  "description": "ReportRequest schema from Amazon Advertising API"
+}

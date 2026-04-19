@@ -1,0 +1,216 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon"
+  description: "Vocabulary for Amazon consumer services including Selling Partner API, Advertising API, Amazon Pay, Alexa, and more."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: selling-partner
+      name: Amazon Selling Partner API
+      version: "2022-04-01"
+      baseUrl: https://sellingpartnerapi-na.amazon.com
+      status: active
+    - namespace: advertising
+      name: Amazon Advertising API
+      version: "2"
+      baseUrl: https://advertising-api.amazon.com
+      status: active
+    - namespace: pay
+      name: Amazon Pay API
+      version: "2"
+      baseUrl: https://pay-api.amazon.com
+      status: active
+    - namespace: alexa
+      name: Amazon Alexa Skills Kit API
+      version: "1"
+      baseUrl: https://api.amazonalexa.com
+      status: active
+    - namespace: appstore
+      name: Amazon Appstore API
+      version: "1"
+      baseUrl: https://developer.amazon.com/api/appstore
+      status: active
+    - namespace: creators
+      name: Amazon Creators API
+      version: "1"
+      baseUrl: https://affiliate-program.amazon.com/creatorsapi
+      status: active
+
+  resources:
+    - name: orders
+      api: selling-partner
+      actions: [get, get-items, get-buyer-info]
+    - name: catalog-items
+      api: selling-partner
+      actions: [search, get]
+    - name: listings
+      api: selling-partner
+      actions: [get, put, delete, patch]
+    - name: campaigns
+      api: advertising
+      actions: [list, create, update, delete]
+    - name: ad-groups
+      api: advertising
+      actions: [list, create, update, delete]
+    - name: reports
+      api: advertising
+      actions: [request, get]
+    - name: checkout-sessions
+      api: pay
+      actions: [create, get, update, complete]
+    - name: charges
+      api: pay
+      actions: [create, get, capture, cancel]
+    - name: refunds
+      api: pay
+      actions: [create, get]
+    - name: skills
+      api: alexa
+      actions: [list, create, update, delete, publish]
+
+  actions:
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: get
+      httpMethods: [GET]
+      pattern: read
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: update
+      httpMethods: [PUT, PATCH]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+    - name: search
+      httpMethods: [GET]
+      pattern: read
+    - name: request
+      httpMethods: [POST]
+      pattern: write
+
+  schemas:
+    core:
+      - name: Order
+        description: An Amazon marketplace order
+        key_properties: [AmazonOrderId, OrderStatus, MarketplaceId, PurchaseDate, BuyerInfo]
+      - name: CatalogItem
+        description: A product in the Amazon catalog
+        key_properties: [asin, summaries, images, attributes]
+      - name: Campaign
+        description: An Amazon advertising campaign
+        key_properties: [campaignId, name, campaignType, state, budget]
+      - name: CheckoutSession
+        description: An Amazon Pay checkout session
+        key_properties: [checkoutSessionId, webCheckoutDetails, productType, paymentDetails]
+
+  enums:
+    order-statuses:
+      - Pending
+      - Unshipped
+      - PartiallyShipped
+      - Shipped
+      - Canceled
+    campaign-types:
+      - sponsoredProducts
+      - sponsoredBrands
+      - sponsoredDisplay
+    campaign-states:
+      - enabled
+      - paused
+      - archived
+    checkout-session-statuses:
+      - Open
+      - Completed
+      - Canceled
+
+  authentication:
+    schemes:
+      - name: LWA OAuth2
+        type: bearer
+        description: Login with Amazon OAuth 2.0 for Selling Partner API and Advertising API
+      - name: Amazon Pay Signature
+        type: apikey
+        description: RSA-SHA256 signed requests for Amazon Pay API
+
+capability:
+  workflows:
+    - name: Amazon Seller and Commerce
+      file: capabilities/amazon-seller-and-commerce.yaml
+      description: >-
+        Unified workflow for Amazon sellers, advertisers, and merchants covering
+        marketplace listings, orders, advertising campaigns, and payment processing.
+      apis: [selling-partner, advertising, pay]
+      tool_count: 9
+      personas: [Amazon Seller, Advertiser, Merchant]
+      domains: [E-Commerce, Advertising, Payments]
+
+  personas:
+    - id: amazon-seller
+      name: Amazon Seller
+      description: Manages product listings, orders, and inventory on Amazon marketplace.
+      workflows: [amazon-seller-and-commerce]
+    - id: advertiser
+      name: Advertiser
+      description: Creates and optimizes Amazon advertising campaigns.
+      workflows: [amazon-seller-and-commerce]
+    - id: merchant
+      name: Merchant
+      description: Processes payments and refunds via Amazon Pay.
+      workflows: [amazon-seller-and-commerce]
+
+  domains:
+    - name: E-Commerce
+      description: Product listings, catalog, and order management
+    - name: Advertising
+      description: Campaign management and performance reporting
+    - name: Payments
+      description: Checkout session and payment processing
+
+  namespaces:
+    consumed:
+      - selling-partner
+      - advertising
+      - pay
+    rest:
+      - name: amazon-commerce-api
+        port: 8080
+    mcp:
+      - name: amazon-commerce-mcp
+        port: 9090
+
+  binds:
+    - SP_API_ACCESS_TOKEN
+    - SP_API_REGION
+    - AMAZON_ADS_ACCESS_TOKEN
+    - AMAZON_ADS_CLIENT_ID
+    - AMAZON_PAY_PUBLIC_KEY_ID
+    - AMAZON_PAY_PRIVATE_KEY
+    - AMAZON_PAY_MERCHANT_ID
+
+crossReference:
+  - resource: orders
+    operations: [get]
+    workflows: [amazon-seller-and-commerce]
+    personas: [Amazon Seller]
+  - resource: catalog-items
+    operations: [search]
+    workflows: [amazon-seller-and-commerce]
+    personas: [Amazon Seller]
+  - resource: campaigns
+    operations: [list, create]
+    workflows: [amazon-seller-and-commerce]
+    personas: [Advertiser]
+  - resource: checkout-sessions
+    operations: [create]
+    workflows: [amazon-seller-and-commerce]
+    personas: [Merchant]
+  - resource: refunds
+    operations: [create]
+    workflows: [amazon-seller-and-commerce]
+    personas: [Merchant]

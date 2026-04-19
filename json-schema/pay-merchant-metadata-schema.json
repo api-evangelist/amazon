@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "merchantReferenceId": {
+      "type": "string"
+    },
+    "merchantStoreName": {
+      "type": "string"
+    },
+    "noteToBuyer": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MerchantMetadata",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-merchant-metadata-schema.json",
+  "description": "MerchantMetadata schema from Amazon Pay API"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Example Product",
+  "addressLine1": "example-value",
+  "addressLine2": "example-value",
+  "addressLine3": "example-value",
+  "city": "example-value",
+  "stateOrRegion": "example-value",
+  "postalCode": "example-value",
+  "countryCode": "example-value",
+  "phoneNumber": "example-value"
+}

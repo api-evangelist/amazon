@@ -1,0 +1,8 @@
+{
+  "refundId": "ABC123DEF456",
+  "chargeId": "ABC123DEF456",
+  "refundAmount": "example-value",
+  "softDescriptor": "example-value",
+  "statusDetails": "ACTIVE",
+  "creationTimestamp": "example-value"
+}

@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "checkoutSessionId": {
+      "type": "string"
+    },
+    "statusDetails": {
+      "$ref": "#/components/schemas/StatusDetails"
+    },
+    "buyer": {
+      "$ref": "#/components/schemas/Buyer"
+    },
+    "shippingAddress": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "paymentDetails": {
+      "type": "object",
+      "properties": {
+        "paymentIntent": {
+          "type": "string",
+          "enum": [
+            "Confirm",
+            "Authorize",
+            "AuthorizeWithCapture"
+          ]
+        },
+        "chargeAmount": {
+          "$ref": "#/components/schemas/Price"
+        }
+      }
+    },
+    "merchantMetadata": {
+      "$ref": "#/components/schemas/MerchantMetadata"
+    },
+    "chargePermissionId": {
+      "type": "string"
+    },
+    "chargeId": {
+      "type": "string"
+    },
+    "creationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expirationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CheckoutSession",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-checkout-session-schema.json",
+  "description": "CheckoutSession schema from Amazon Pay API"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Error"
+      }
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ErrorList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-error-list-structure.json",
+  "description": "ErrorList schema from Amazon Selling Partner API"
+}

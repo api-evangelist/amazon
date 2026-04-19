@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": [
+    "campaignId",
+    "adGroupId",
+    "state",
+    "expression",
+    "expressionType"
+  ],
+  "properties": {
+    "campaignId": {
+      "type": "string"
+    },
+    "adGroupId": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    },
+    "expression": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "expressionType": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateTargetRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-create-target-request-schema.json",
+  "description": "CreateTargetRequest schema from Amazon Advertising API"
+}

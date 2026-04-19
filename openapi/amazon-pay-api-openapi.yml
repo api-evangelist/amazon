@@ -16,38 +16,38 @@ externalDocs:
   description: Amazon Pay API Documentation
   url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
 servers:
-  - url: https://pay-api.amazon.com/live/v2
-    description: US Production
-  - url: https://pay-api.amazon.com/sandbox/v2
-    description: US Sandbox
-  - url: https://pay-api.amazon.eu/live/v2
-    description: EU Production
-  - url: https://pay-api.amazon.jp/live/v2
-    description: Japan Production
+- url: https://pay-api.amazon.com/live/v2
+  description: US Production
+- url: https://pay-api.amazon.com/sandbox/v2
+  description: US Sandbox
+- url: https://pay-api.amazon.eu/live/v2
+  description: EU Production
+- url: https://pay-api.amazon.jp/live/v2
+  description: Japan Production
 tags:
-  - name: Charge Permissions
-    description: Manage buyer charge authorizations
-  - name: Charges
-    description: Create and manage payment charges
-  - name: Checkout Sessions
-    description: Manage buyer checkout sessions
-  - name: Refunds
-    description: Process refunds on captured charges
+- name: Charge Permissions
+  description: Manage buyer charge authorizations
+- name: Charges
+  description: Create and manage payment charges
+- name: Checkout Sessions
+  description: Manage buyer checkout sessions
+- name: Refunds
+  description: Process refunds on captured charges
 security:
-  - amazonPaySignature: []
+- amazonPaySignature: []
 paths:
   /checkoutSessions:
     post:
       operationId: createCheckoutSession
-      summary: Create checkout session
+      summary: Amazon Create Checkout Session
       description: >-
         Creates a new checkout session for a buyer to authorize payment.
       tags:
-        - Checkout Sessions
+      - Checkout Sessions
       parameters:
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
-        - $ref: '#/components/parameters/IdempotencyKey'
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -68,19 +68,19 @@ paths:
   /checkoutSessions/{checkoutSessionId}:
     get:
       operationId: getCheckoutSession
-      summary: Get checkout session
+      summary: Amazon Get Checkout Session
       description: >-
         Returns details about the specified checkout session.
       tags:
-        - Checkout Sessions
+      - Checkout Sessions
       parameters:
-        - name: checkoutSessionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       responses:
         '200':
           description: Success
@@ -92,19 +92,19 @@ paths:
           description: Not found
     patch:
       operationId: updateCheckoutSession
-      summary: Update checkout session
+      summary: Amazon Update Checkout Session
       description: >-
         Updates the specified checkout session with new information.
       tags:
-        - Checkout Sessions
+      - Checkout Sessions
       parameters:
-        - name: checkoutSessionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       requestBody:
         required: true
         content:
@@ -123,20 +123,20 @@ paths:
   /checkoutSessions/{checkoutSessionId}/complete:
     post:
       operationId: completeCheckoutSession
-      summary: Complete checkout session
+      summary: Amazon Complete Checkout Session
       description: >-
         Completes the checkout session and processes the payment.
       tags:
-        - Checkout Sessions
+      - Checkout Sessions
       parameters:
-        - name: checkoutSessionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
-        - $ref: '#/components/parameters/IdempotencyKey'
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -144,7 +144,7 @@ paths:
             schema:
               type: object
               required:
-                - chargeAmount
+              - chargeAmount
               properties:
                 chargeAmount:
                   $ref: '#/components/schemas/Price'
@@ -160,15 +160,15 @@ paths:
   /charges:
     post:
       operationId: createCharge
-      summary: Create a charge
+      summary: Amazon Create a Charge
       description: >-
         Creates a charge against a charge permission to authorize payment.
       tags:
-        - Charges
+      - Charges
       parameters:
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
-        - $ref: '#/components/parameters/IdempotencyKey'
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -187,19 +187,19 @@ paths:
   /charges/{chargeId}:
     get:
       operationId: getCharge
-      summary: Get charge details
+      summary: Amazon Get Charge Details
       description: >-
         Returns details about the specified charge.
       tags:
-        - Charges
+      - Charges
       parameters:
-        - name: chargeId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       responses:
         '200':
           description: Success
@@ -212,20 +212,20 @@ paths:
   /charges/{chargeId}/capture:
     post:
       operationId: captureCharge
-      summary: Capture a charge
+      summary: Amazon Capture a Charge
       description: >-
         Captures a previously authorized charge.
       tags:
-        - Charges
+      - Charges
       parameters:
-        - name: chargeId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
-        - $ref: '#/components/parameters/IdempotencyKey'
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -233,7 +233,7 @@ paths:
             schema:
               type: object
               required:
-                - captureAmount
+              - captureAmount
               properties:
                 captureAmount:
                   $ref: '#/components/schemas/Price'
@@ -252,19 +252,19 @@ paths:
   /charges/{chargeId}/cancel:
     delete:
       operationId: cancelCharge
-      summary: Cancel a charge
+      summary: Amazon Cancel a Charge
       description: >-
         Cancels a previously authorized charge.
       tags:
-        - Charges
+      - Charges
       parameters:
-        - name: chargeId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       requestBody:
         required: true
         content:
@@ -286,19 +286,19 @@ paths:
   /chargePermissions/{chargePermissionId}:
     get:
       operationId: getChargePermission
-      summary: Get charge permission
+      summary: Amazon Get Charge Permission
       description: >-
         Returns details about the specified charge permission.
       tags:
-        - Charge Permissions
+      - Charge Permissions
       parameters:
-        - name: chargePermissionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: chargePermissionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       responses:
         '200':
           description: Success
@@ -310,19 +310,19 @@ paths:
           description: Not found
     patch:
       operationId: updateChargePermission
-      summary: Update charge permission
+      summary: Amazon Update Charge Permission
       description: >-
         Updates the specified charge permission.
       tags:
-        - Charge Permissions
+      - Charge Permissions
       parameters:
-        - name: chargePermissionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: chargePermissionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       requestBody:
         required: true
         content:
@@ -344,19 +344,19 @@ paths:
   /chargePermissions/{chargePermissionId}/close:
     delete:
       operationId: closeChargePermission
-      summary: Close charge permission
+      summary: Amazon Close Charge Permission
       description: >-
         Closes the specified charge permission so no further charges can be made.
       tags:
-        - Charge Permissions
+      - Charge Permissions
       parameters:
-        - name: chargePermissionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: chargePermissionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       requestBody:
         required: true
         content:
@@ -364,7 +364,7 @@ paths:
             schema:
               type: object
               required:
-                - closureReason
+              - closureReason
               properties:
                 closureReason:
                   type: string
@@ -380,15 +380,15 @@ paths:
   /refunds:
     post:
       operationId: createRefund
-      summary: Create a refund
+      summary: Amazon Create a Refund
       description: >-
         Creates a refund for a previously captured charge.
       tags:
-        - Refunds
+      - Refunds
       parameters:
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
-        - $ref: '#/components/parameters/IdempotencyKey'
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
       requestBody:
         required: true
         content:
@@ -407,19 +407,19 @@ paths:
   /refunds/{refundId}:
     get:
       operationId: getRefund
-      summary: Get refund details
+      summary: Amazon Get Refund Details
       description: >-
         Returns details about the specified refund.
       tags:
-        - Refunds
+      - Refunds
       parameters:
-        - name: refundId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/PayDate'
-        - $ref: '#/components/parameters/PayRegion'
+      - name: refundId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
       responses:
         '200':
           description: Success
@@ -452,9 +452,9 @@ components:
       schema:
         type: string
         enum:
-          - us
-          - eu
-          - jp
+        - us
+        - eu
+        - jp
     IdempotencyKey:
       name: x-amz-pay-idempotency-key
       in: header
@@ -465,8 +465,8 @@ components:
     Price:
       type: object
       required:
-        - amount
-        - currencyCode
+      - amount
+      - currencyCode
       properties:
         amount:
           type: string
@@ -540,9 +540,9 @@ components:
             paymentIntent:
               type: string
               enum:
-                - Confirm
-                - Authorize
-                - AuthorizeWithCapture
+              - Confirm
+              - Authorize
+              - AuthorizeWithCapture
             chargeAmount:
               $ref: '#/components/schemas/Price'
         merchantMetadata:
@@ -560,13 +560,13 @@ components:
     CreateCheckoutSessionRequest:
       type: object
       required:
-        - webCheckoutDetails
-        - storeId
+      - webCheckoutDetails
+      - storeId
       properties:
         webCheckoutDetails:
           type: object
           required:
-            - checkoutReviewReturnUrl
+          - checkoutReviewReturnUrl
           properties:
             checkoutReviewReturnUrl:
               type: string
@@ -579,8 +579,8 @@ components:
         chargePermissionType:
           type: string
           enum:
-            - OneTime
-            - Recurring
+          - OneTime
+          - Recurring
         paymentDetails:
           type: object
           properties:
@@ -630,8 +630,8 @@ components:
     CreateChargeRequest:
       type: object
       required:
-        - chargePermissionId
-        - chargeAmount
+      - chargePermissionId
+      - chargeAmount
       properties:
         chargePermissionId:
           type: string
@@ -652,8 +652,8 @@ components:
         chargePermissionType:
           type: string
           enum:
-            - OneTime
-            - Recurring
+          - OneTime
+          - Recurring
         buyer:
           $ref: '#/components/schemas/Buyer'
         shippingAddress:
@@ -694,8 +694,8 @@ components:
     CreateRefundRequest:
       type: object
       required:
-        - chargeId
-        - refundAmount
+      - chargeId
+      - refundAmount
       properties:
         chargeId:
           type: string

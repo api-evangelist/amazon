@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "OrderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderItem"
+          }
+        },
+        "NextToken": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrderItemList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-order-item-list-schema.json",
+  "description": "OrderItemList schema from Amazon Selling Partner API"
+}

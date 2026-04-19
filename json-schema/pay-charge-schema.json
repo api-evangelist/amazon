@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "chargeId": {
+      "type": "string"
+    },
+    "chargePermissionId": {
+      "type": "string"
+    },
+    "chargeAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "captureAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "refundedAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "softDescriptor": {
+      "type": "string"
+    },
+    "statusDetails": {
+      "$ref": "#/components/schemas/StatusDetails"
+    },
+    "creationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expirationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Charge",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-charge-schema.json",
+  "description": "Charge schema from Amazon Pay API"
+}

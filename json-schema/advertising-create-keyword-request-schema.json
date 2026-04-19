@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "campaignId",
+    "adGroupId",
+    "keywordText",
+    "matchType",
+    "state"
+  ],
+  "properties": {
+    "campaignId": {
+      "type": "string"
+    },
+    "adGroupId": {
+      "type": "string"
+    },
+    "keywordText": {
+      "type": "string"
+    },
+    "matchType": {
+      "type": "string",
+      "enum": [
+        "broad",
+        "exact",
+        "phrase"
+      ]
+    },
+    "state": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateKeywordRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-create-keyword-request-schema.json",
+  "description": "CreateKeywordRequest schema from Amazon Advertising API"
+}

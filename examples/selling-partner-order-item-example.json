@@ -1,0 +1,9 @@
+{
+  "ASIN": "B01EXAMPLE0",
+  "OrderItemId": "ABC123DEF456",
+  "SellerSKU": "example-value",
+  "Title": "example-value",
+  "QuantityOrdered": 42,
+  "QuantityShipped": 42,
+  "ItemPrice": "29.99"
+}

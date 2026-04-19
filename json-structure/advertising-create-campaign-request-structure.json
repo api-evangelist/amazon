@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "state",
+    "dailyBudget",
+    "startDate",
+    "targetingType"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "enabled",
+        "paused"
+      ]
+    },
+    "dailyBudget": {
+      "type": "number"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "targetingType": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "auto"
+      ]
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CreateCampaignRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-create-campaign-request-structure.json",
+  "description": "CreateCampaignRequest schema from Amazon Advertising API"
+}

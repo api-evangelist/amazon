@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "reasonDescription": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "StatusDetails",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/pay-status-details-structure.json",
+  "description": "StatusDetails schema from Amazon Pay API"
+}

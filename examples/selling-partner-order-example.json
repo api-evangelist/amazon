@@ -1,0 +1,12 @@
+{
+  "AmazonOrderId": "ABC123DEF456",
+  "PurchaseDate": "example-value",
+  "LastUpdateDate": "example-value",
+  "OrderStatus": "Pending",
+  "FulfillmentChannel": "MFN",
+  "OrderTotal": "example-value",
+  "NumberOfItemsShipped": 42,
+  "NumberOfItemsUnshipped": 42,
+  "ShipServiceLevel": "example-value",
+  "MarketplaceId": "ABC123DEF456"
+}

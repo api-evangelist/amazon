@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "OrderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/OrderItem"
+          }
+        },
+        "NextToken": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "OrderItemList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-order-item-list-structure.json",
+  "description": "OrderItemList schema from Amazon Selling Partner API"
+}

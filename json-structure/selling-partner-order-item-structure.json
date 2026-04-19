@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "ASIN": {
+      "type": "string"
+    },
+    "OrderItemId": {
+      "type": "string"
+    },
+    "SellerSKU": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "QuantityOrdered": {
+      "type": "integer"
+    },
+    "QuantityShipped": {
+      "type": "integer"
+    },
+    "ItemPrice": {
+      "$ref": "#/components/schemas/Money"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "OrderItem",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-order-item-structure.json",
+  "description": "OrderItem schema from Amazon Selling Partner API"
+}

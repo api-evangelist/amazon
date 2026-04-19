@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "buyerId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Buyer",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-buyer-schema.json",
+  "description": "Buyer schema from Amazon Pay API"
+}

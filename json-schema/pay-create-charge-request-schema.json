@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "chargePermissionId",
+    "chargeAmount"
+  ],
+  "properties": {
+    "chargePermissionId": {
+      "type": "string"
+    },
+    "chargeAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "captureNow": {
+      "type": "boolean"
+    },
+    "softDescriptor": {
+      "type": "string",
+      "maxLength": 16
+    },
+    "canHandlePendingAuthorization": {
+      "type": "boolean"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateChargeRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-create-charge-request-schema.json",
+  "description": "CreateChargeRequest schema from Amazon Pay API"
+}

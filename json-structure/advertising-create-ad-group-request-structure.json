@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "campaignId",
+    "name",
+    "state",
+    "defaultBid"
+  ],
+  "properties": {
+    "campaignId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "defaultBid": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CreateAdGroupRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-create-ad-group-request-structure.json",
+  "description": "CreateAdGroupRequest schema from Amazon Advertising API"
+}

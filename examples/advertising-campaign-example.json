@@ -1,0 +1,10 @@
+{
+  "campaignId": "ABC123DEF456",
+  "name": "Example Product",
+  "state": "enabled",
+  "dailyBudget": 29.99,
+  "startDate": "example-value",
+  "endDate": "example-value",
+  "targetingType": "manual",
+  "premiumBidAdjustment": true
+}

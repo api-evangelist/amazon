@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "required": [
+    "productType",
+    "patches"
+  ],
+  "properties": {
+    "productType": {
+      "type": "string"
+    },
+    "patches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "enum": [
+              "add",
+              "replace",
+              "delete"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ListingsItemPatchRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-listings-item-patch-request-structure.json",
+  "description": "ListingsItemPatchRequest schema from Amazon Selling Partner API"
+}

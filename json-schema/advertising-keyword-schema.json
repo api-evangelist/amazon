@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "keywordId": {
+      "type": "string"
+    },
+    "campaignId": {
+      "type": "string"
+    },
+    "adGroupId": {
+      "type": "string"
+    },
+    "keywordText": {
+      "type": "string"
+    },
+    "matchType": {
+      "type": "string",
+      "enum": [
+        "broad",
+        "exact",
+        "phrase"
+      ]
+    },
+    "state": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Keyword",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-keyword-schema.json",
+  "description": "Keyword schema from Amazon Advertising API"
+}

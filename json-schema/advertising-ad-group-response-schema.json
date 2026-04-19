@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "adGroupId": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdGroupResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-ad-group-response-schema.json",
+  "description": "AdGroupResponse schema from Amazon Advertising API"
+}

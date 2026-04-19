@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "chargeId",
+    "refundAmount"
+  ],
+  "properties": {
+    "chargeId": {
+      "type": "string"
+    },
+    "refundAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "softDescriptor": {
+      "type": "string",
+      "maxLength": 16
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CreateRefundRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/pay-create-refund-request-structure.json",
+  "description": "CreateRefundRequest schema from Amazon Pay API"
+}

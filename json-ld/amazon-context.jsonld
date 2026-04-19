@@ -1,0 +1,527 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amz": "https://amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Order": "amz:Order",
+    "AmazonOrderId": {
+      "@id": "amz:AmazonOrderId",
+      "@type": "xsd:string"
+    },
+    "PurchaseDate": {
+      "@id": "amz:PurchaseDate",
+      "@type": "xsd:string"
+    },
+    "LastUpdateDate": {
+      "@id": "amz:LastUpdateDate",
+      "@type": "xsd:string"
+    },
+    "OrderStatus": {
+      "@id": "amz:OrderStatus",
+      "@type": "xsd:string"
+    },
+    "FulfillmentChannel": {
+      "@id": "amz:FulfillmentChannel",
+      "@type": "xsd:string"
+    },
+    "OrderTotal": {
+      "@id": "amz:OrderTotal",
+      "@type": "xsd:string"
+    },
+    "NumberOfItemsShipped": {
+      "@id": "amz:NumberOfItemsShipped",
+      "@type": "xsd:string"
+    },
+    "NumberOfItemsUnshipped": {
+      "@id": "amz:NumberOfItemsUnshipped",
+      "@type": "xsd:string"
+    },
+    "ShipServiceLevel": {
+      "@id": "amz:ShipServiceLevel",
+      "@type": "xsd:string"
+    },
+    "MarketplaceId": {
+      "@id": "amz:MarketplaceId",
+      "@type": "xsd:string"
+    },
+    "OrderList": "amz:OrderList",
+    "payload": {
+      "@id": "amz:payload",
+      "@type": "xsd:string"
+    },
+    "OrderItem": "amz:OrderItem",
+    "ASIN": {
+      "@id": "amz:ASIN",
+      "@type": "xsd:string"
+    },
+    "OrderItemId": {
+      "@id": "amz:OrderItemId",
+      "@type": "xsd:string"
+    },
+    "SellerSKU": {
+      "@id": "amz:SellerSKU",
+      "@type": "xsd:string"
+    },
+    "Title": {
+      "@id": "amz:Title",
+      "@type": "xsd:string"
+    },
+    "QuantityOrdered": {
+      "@id": "amz:QuantityOrdered",
+      "@type": "xsd:string"
+    },
+    "QuantityShipped": {
+      "@id": "amz:QuantityShipped",
+      "@type": "xsd:string"
+    },
+    "ItemPrice": {
+      "@id": "amz:ItemPrice",
+      "@type": "xsd:string"
+    },
+    "OrderItemList": "amz:OrderItemList",
+    "CatalogItem": "amz:CatalogItem",
+    "asin": {
+      "@id": "amz:asin",
+      "@type": "xsd:string"
+    },
+    "attributes": {
+      "@id": "amz:attributes",
+      "@type": "xsd:string"
+    },
+    "images": {
+      "@id": "amz:images",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "salesRanks": {
+      "@id": "amz:salesRanks",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "CatalogItemList": "amz:CatalogItemList",
+    "numberOfResults": {
+      "@id": "amz:numberOfResults",
+      "@type": "xsd:string"
+    },
+    "pagination": {
+      "@id": "amz:pagination",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "amz:items",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ListingsItem": "amz:ListingsItem",
+    "sku": {
+      "@id": "amz:sku",
+      "@type": "xsd:string"
+    },
+    "summaries": {
+      "@id": "amz:summaries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "issues": {
+      "@id": "amz:issues",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "offers": {
+      "@id": "amz:offers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ListingsItemPutRequest": "amz:ListingsItemPutRequest",
+    "productType": {
+      "@id": "amz:productType",
+      "@type": "xsd:string"
+    },
+    "ListingsItemPatchRequest": "amz:ListingsItemPatchRequest",
+    "patches": {
+      "@id": "amz:patches",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ListingsItemSubmissionResponse": "amz:ListingsItemSubmissionResponse",
+    "status": {
+      "@id": "amz:status",
+      "@type": "xsd:string"
+    },
+    "submissionId": {
+      "@id": "amz:submissionId",
+      "@type": "xsd:string"
+    },
+    "InventorySummaries": "amz:InventorySummaries",
+    "inventorySummaries": {
+      "@id": "amz:inventorySummaries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Report": "amz:Report",
+    "reportId": {
+      "@id": "amz:reportId",
+      "@type": "xsd:string"
+    },
+    "reportType": {
+      "@id": "amz:reportType",
+      "@type": "xsd:string"
+    },
+    "processingStatus": {
+      "@id": "amz:processingStatus",
+      "@type": "xsd:string"
+    },
+    "reportDocumentId": {
+      "@id": "amz:reportDocumentId",
+      "@type": "xsd:string"
+    },
+    "createdTime": {
+      "@id": "amz:createdTime",
+      "@type": "xsd:string"
+    },
+    "ReportList": "amz:ReportList",
+    "reports": {
+      "@id": "amz:reports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "amz:nextToken",
+      "@type": "xsd:string"
+    },
+    "ReportDocument": "amz:ReportDocument",
+    "url": "schema:url",
+    "CreateReportSpecification": "amz:CreateReportSpecification",
+    "dataStartTime": {
+      "@id": "amz:dataStartTime",
+      "@type": "xsd:string"
+    },
+    "dataEndTime": {
+      "@id": "amz:dataEndTime",
+      "@type": "xsd:string"
+    },
+    "marketplaceIds": {
+      "@id": "amz:marketplaceIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "CreateReportResponse": "amz:CreateReportResponse",
+    "TransactionList": "amz:TransactionList",
+    "transactions": {
+      "@id": "amz:transactions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Money": "amz:Money",
+    "CurrencyCode": {
+      "@id": "amz:CurrencyCode",
+      "@type": "xsd:string"
+    },
+    "Amount": {
+      "@id": "amz:Amount",
+      "@type": "xsd:string"
+    },
+    "Pagination": "amz:Pagination",
+    "previousToken": {
+      "@id": "amz:previousToken",
+      "@type": "xsd:string"
+    },
+    "ErrorList": "amz:ErrorList",
+    "errors": {
+      "@id": "amz:errors",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Profile": "amz:Profile",
+    "profileId": {
+      "@id": "amz:profileId",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "amz:countryCode",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "amz:currencyCode",
+      "@type": "xsd:string"
+    },
+    "accountInfo": {
+      "@id": "amz:accountInfo",
+      "@type": "xsd:string"
+    },
+    "Campaign": "amz:Campaign",
+    "campaignId": {
+      "@id": "amz:campaignId",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "state": {
+      "@id": "amz:state",
+      "@type": "xsd:string"
+    },
+    "dailyBudget": {
+      "@id": "amz:dailyBudget",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "amz:startDate",
+      "@type": "xsd:string"
+    },
+    "endDate": {
+      "@id": "amz:endDate",
+      "@type": "xsd:string"
+    },
+    "targetingType": {
+      "@id": "amz:targetingType",
+      "@type": "xsd:string"
+    },
+    "premiumBidAdjustment": {
+      "@id": "amz:premiumBidAdjustment",
+      "@type": "xsd:string"
+    },
+    "CreateCampaignRequest": "amz:CreateCampaignRequest",
+    "UpdateCampaignRequest": "amz:UpdateCampaignRequest",
+    "CampaignResponse": "amz:CampaignResponse",
+    "code": {
+      "@id": "amz:code",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "AdGroup": "amz:AdGroup",
+    "adGroupId": {
+      "@id": "amz:adGroupId",
+      "@type": "xsd:string"
+    },
+    "defaultBid": {
+      "@id": "amz:defaultBid",
+      "@type": "xsd:string"
+    },
+    "CreateAdGroupRequest": "amz:CreateAdGroupRequest",
+    "AdGroupResponse": "amz:AdGroupResponse",
+    "Keyword": "amz:Keyword",
+    "keywordId": {
+      "@id": "amz:keywordId",
+      "@type": "xsd:string"
+    },
+    "keywordText": {
+      "@id": "amz:keywordText",
+      "@type": "xsd:string"
+    },
+    "matchType": {
+      "@id": "amz:matchType",
+      "@type": "xsd:string"
+    },
+    "bid": {
+      "@id": "amz:bid",
+      "@type": "xsd:string"
+    },
+    "CreateKeywordRequest": "amz:CreateKeywordRequest",
+    "KeywordResponse": "amz:KeywordResponse",
+    "Target": "amz:Target",
+    "targetId": {
+      "@id": "amz:targetId",
+      "@type": "xsd:string"
+    },
+    "expressionType": {
+      "@id": "amz:expressionType",
+      "@type": "xsd:string"
+    },
+    "expression": {
+      "@id": "amz:expression",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "CreateTargetRequest": "amz:CreateTargetRequest",
+    "TargetResponse": "amz:TargetResponse",
+    "ReportRequest": "amz:ReportRequest",
+    "reportDate": {
+      "@id": "amz:reportDate",
+      "@type": "xsd:string"
+    },
+    "metrics": {
+      "@id": "amz:metrics",
+      "@type": "xsd:string"
+    },
+    "segment": {
+      "@id": "amz:segment",
+      "@type": "xsd:string"
+    },
+    "ReportRequestResponse": "amz:ReportRequestResponse",
+    "ReportStatus": "amz:ReportStatus",
+    "location": {
+      "@id": "amz:location",
+      "@type": "xsd:string"
+    },
+    "fileSize": {
+      "@id": "amz:fileSize",
+      "@type": "xsd:string"
+    },
+    "Price": "amz:Price",
+    "amount": {
+      "@id": "amz:amount",
+      "@type": "xsd:string"
+    },
+    "MerchantMetadata": "amz:MerchantMetadata",
+    "merchantReferenceId": {
+      "@id": "amz:merchantReferenceId",
+      "@type": "xsd:string"
+    },
+    "merchantStoreName": {
+      "@id": "amz:merchantStoreName",
+      "@type": "xsd:string"
+    },
+    "noteToBuyer": {
+      "@id": "amz:noteToBuyer",
+      "@type": "xsd:string"
+    },
+    "StatusDetails": "amz:StatusDetails",
+    "reasonCode": {
+      "@id": "amz:reasonCode",
+      "@type": "xsd:string"
+    },
+    "reasonDescription": {
+      "@id": "amz:reasonDescription",
+      "@type": "xsd:string"
+    },
+    "Buyer": "amz:Buyer",
+    "buyerId": {
+      "@id": "amz:buyerId",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "amz:email",
+      "@type": "xsd:string"
+    },
+    "Address": "amz:Address",
+    "addressLine1": {
+      "@id": "amz:addressLine1",
+      "@type": "xsd:string"
+    },
+    "addressLine2": {
+      "@id": "amz:addressLine2",
+      "@type": "xsd:string"
+    },
+    "addressLine3": {
+      "@id": "amz:addressLine3",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "amz:city",
+      "@type": "xsd:string"
+    },
+    "stateOrRegion": {
+      "@id": "amz:stateOrRegion",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "amz:postalCode",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "amz:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "CheckoutSession": "amz:CheckoutSession",
+    "checkoutSessionId": {
+      "@id": "amz:checkoutSessionId",
+      "@type": "xsd:string"
+    },
+    "statusDetails": {
+      "@id": "amz:statusDetails",
+      "@type": "xsd:string"
+    },
+    "buyer": {
+      "@id": "amz:buyer",
+      "@type": "xsd:string"
+    },
+    "shippingAddress": {
+      "@id": "amz:shippingAddress",
+      "@type": "xsd:string"
+    },
+    "billingAddress": {
+      "@id": "amz:billingAddress",
+      "@type": "xsd:string"
+    },
+    "paymentDetails": {
+      "@id": "amz:paymentDetails",
+      "@type": "xsd:string"
+    },
+    "merchantMetadata": {
+      "@id": "amz:merchantMetadata",
+      "@type": "xsd:string"
+    },
+    "chargePermissionId": {
+      "@id": "amz:chargePermissionId",
+      "@type": "xsd:string"
+    },
+    "chargeId": {
+      "@id": "amz:chargeId",
+      "@type": "xsd:string"
+    },
+    "creationTimestamp": {
+      "@id": "amz:creationTimestamp",
+      "@type": "xsd:string"
+    },
+    "expirationTimestamp": {
+      "@id": "amz:expirationTimestamp",
+      "@type": "xsd:string"
+    },
+    "CreateCheckoutSessionRequest": "amz:CreateCheckoutSessionRequest",
+    "webCheckoutDetails": {
+      "@id": "amz:webCheckoutDetails",
+      "@type": "xsd:string"
+    },
+    "storeId": {
+      "@id": "amz:storeId",
+      "@type": "xsd:string"
+    },
+    "chargePermissionType": {
+      "@id": "amz:chargePermissionType",
+      "@type": "xsd:string"
+    },
+    "UpdateCheckoutSessionRequest": "amz:UpdateCheckoutSessionRequest",
+    "Charge": "amz:Charge",
+    "chargeAmount": {
+      "@id": "amz:chargeAmount",
+      "@type": "xsd:string"
+    },
+    "captureAmount": {
+      "@id": "amz:captureAmount",
+      "@type": "xsd:string"
+    },
+    "refundedAmount": {
+      "@id": "amz:refundedAmount",
+      "@type": "xsd:string"
+    },
+    "softDescriptor": {
+      "@id": "amz:softDescriptor",
+      "@type": "xsd:string"
+    },
+    "CreateChargeRequest": "amz:CreateChargeRequest",
+    "captureNow": {
+      "@id": "amz:captureNow",
+      "@type": "xsd:string"
+    },
+    "canHandlePendingAuthorization": {
+      "@id": "amz:canHandlePendingAuthorization",
+      "@type": "xsd:string"
+    },
+    "ChargePermission": "amz:ChargePermission",
+    "limits": {
+      "@id": "amz:limits",
+      "@type": "xsd:string"
+    },
+    "Refund": "amz:Refund",
+    "refundId": {
+      "@id": "amz:refundId",
+      "@type": "xsd:string"
+    },
+    "refundAmount": {
+      "@id": "amz:refundAmount",
+      "@type": "xsd:string"
+    },
+    "CreateRefundRequest": "amz:CreateRefundRequest"
+  }
+}

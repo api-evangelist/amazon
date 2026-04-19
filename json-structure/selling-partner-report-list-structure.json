@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "reports": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Report"
+      }
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ReportList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-report-list-structure.json",
+  "description": "ReportList schema from Amazon Selling Partner API"
+}

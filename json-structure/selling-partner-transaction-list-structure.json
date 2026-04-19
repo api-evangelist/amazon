@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transactionType": {
+            "type": "string"
+          },
+          "transactionId": {
+            "type": "string"
+          },
+          "transactionStatus": {
+            "type": "string"
+          },
+          "postedDate": {
+            "type": "datetime"
+          },
+          "totalAmount": {
+            "$ref": "#/components/schemas/Money"
+          }
+        }
+      }
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "TransactionList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-transaction-list-structure.json",
+  "description": "TransactionList schema from Amazon Selling Partner API"
+}

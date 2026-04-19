@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "amount",
+    "currencyCode"
+  ],
+  "properties": {
+    "amount": {
+      "type": "string"
+    },
+    "currencyCode": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "Price",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/pay-price-structure.json",
+  "description": "Price schema from Amazon Pay API"
+}

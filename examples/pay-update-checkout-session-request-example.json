@@ -1,0 +1,8 @@
+{
+  "paymentDetails": {
+    "paymentIntent": "example-value",
+    "chargeAmount": "example-value"
+  },
+  "merchantMetadata": "example-value",
+  "shippingAddress": "example-value"
+}

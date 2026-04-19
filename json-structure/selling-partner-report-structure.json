@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "reportId": {
+      "type": "string"
+    },
+    "reportType": {
+      "type": "string"
+    },
+    "processingStatus": {
+      "type": "string",
+      "enum": [
+        "CANCELLED",
+        "DONE",
+        "FATAL",
+        "IN_PROGRESS",
+        "IN_QUEUE"
+      ]
+    },
+    "reportDocumentId": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "datetime"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "Report",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-report-structure.json",
+  "description": "Report schema from Amazon Selling Partner API"
+}

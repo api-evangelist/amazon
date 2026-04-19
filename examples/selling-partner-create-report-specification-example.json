@@ -1,0 +1,8 @@
+{
+  "reportType": "example-value",
+  "dataStartTime": "example-value",
+  "dataEndTime": "example-value",
+  "marketplaceIds": [
+    "ABC123DEF456"
+  ]
+}

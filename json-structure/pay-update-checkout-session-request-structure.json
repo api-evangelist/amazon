@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "paymentDetails": {
+      "type": "object",
+      "properties": {
+        "paymentIntent": {
+          "type": "string"
+        },
+        "chargeAmount": {
+          "$ref": "#/components/schemas/Price"
+        }
+      }
+    },
+    "merchantMetadata": {
+      "$ref": "#/components/schemas/MerchantMetadata"
+    },
+    "shippingAddress": {
+      "$ref": "#/components/schemas/Address"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "UpdateCheckoutSessionRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/pay-update-checkout-session-request-structure.json",
+  "description": "UpdateCheckoutSessionRequest schema from Amazon Pay API"
+}

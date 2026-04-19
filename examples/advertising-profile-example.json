@@ -1,0 +1,10 @@
+{
+  "profileId": "ABC123DEF456",
+  "countryCode": "example-value",
+  "currencyCode": "example-value",
+  "accountInfo": {
+    "marketplaceStringId": "ABC123DEF456",
+    "id": "ABC123DEF456",
+    "type": "seller"
+  }
+}

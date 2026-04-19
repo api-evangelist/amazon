@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "keywordId": {
+      "type": "string"
+    },
+    "campaignId": {
+      "type": "string"
+    },
+    "adGroupId": {
+      "type": "string"
+    },
+    "keywordText": {
+      "type": "string"
+    },
+    "matchType": {
+      "type": "string",
+      "enum": [
+        "broad",
+        "exact",
+        "phrase"
+      ]
+    },
+    "state": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "Keyword",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-keyword-structure.json",
+  "description": "Keyword schema from Amazon Advertising API"
+}

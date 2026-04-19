@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "sku": {
+      "type": "string"
+    },
+    "summaries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "offers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListingsItem",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-listings-item-schema.json",
+  "description": "ListingsItem schema from Amazon Selling Partner API"
+}

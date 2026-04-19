@@ -1,0 +1,8 @@
+{
+  "sku": "example-value",
+  "status": "ACCEPTED",
+  "submissionId": "ABC123DEF456",
+  "issues": [
+    {}
+  ]
+}

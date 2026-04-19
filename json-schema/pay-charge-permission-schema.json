@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "chargePermissionId": {
+      "type": "string"
+    },
+    "chargePermissionType": {
+      "type": "string",
+      "enum": [
+        "OneTime",
+        "Recurring"
+      ]
+    },
+    "buyer": {
+      "$ref": "#/components/schemas/Buyer"
+    },
+    "shippingAddress": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "billingAddress": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "statusDetails": {
+      "$ref": "#/components/schemas/StatusDetails"
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "amountLimit": {
+          "$ref": "#/components/schemas/Price"
+        },
+        "amountBalance": {
+          "$ref": "#/components/schemas/Price"
+        }
+      }
+    },
+    "creationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expirationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChargePermission",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-charge-permission-schema.json",
+  "description": "ChargePermission schema from Amazon Pay API"
+}

@@ -1,0 +1,12 @@
+{
+  "productType": "example-value",
+  "patches": [
+    {
+      "op": "add",
+      "path": "example-value",
+      "value": [
+        {}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "campaignId": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CampaignResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-campaign-response-schema.json",
+  "description": "CampaignResponse schema from Amazon Advertising API"
+}

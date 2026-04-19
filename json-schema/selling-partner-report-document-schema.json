@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "reportDocumentId": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReportDocument",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-report-document-schema.json",
+  "description": "ReportDocument schema from Amazon Selling Partner API"
+}

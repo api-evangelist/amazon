@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "reportId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "IN_PROGRESS",
+        "SUCCESS",
+        "FAILURE"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "format": "uri"
+    },
+    "fileSize": {
+      "type": "integer"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReportStatus",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-report-status-schema.json",
+  "description": "ReportStatus schema from Amazon Advertising API"
+}

@@ -1,0 +1,9 @@
+{
+  "keywordId": "ABC123DEF456",
+  "campaignId": "ABC123DEF456",
+  "adGroupId": "ABC123DEF456",
+  "keywordText": "example-value",
+  "matchType": "broad",
+  "state": "example-value",
+  "bid": 29.99
+}

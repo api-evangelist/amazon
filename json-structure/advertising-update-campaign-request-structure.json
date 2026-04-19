@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": [
+    "campaignId"
+  ],
+  "properties": {
+    "campaignId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "dailyBudget": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "UpdateCampaignRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-update-campaign-request-structure.json",
+  "description": "UpdateCampaignRequest schema from Amazon Advertising API"
+}

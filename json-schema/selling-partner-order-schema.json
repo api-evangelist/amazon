@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "AmazonOrderId": {
+      "type": "string"
+    },
+    "PurchaseDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "LastUpdateDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "OrderStatus": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Unshipped",
+        "PartiallyShipped",
+        "Shipped",
+        "Canceled",
+        "Unfulfillable"
+      ]
+    },
+    "FulfillmentChannel": {
+      "type": "string",
+      "enum": [
+        "MFN",
+        "AFN"
+      ]
+    },
+    "OrderTotal": {
+      "$ref": "#/components/schemas/Money"
+    },
+    "NumberOfItemsShipped": {
+      "type": "integer"
+    },
+    "NumberOfItemsUnshipped": {
+      "type": "integer"
+    },
+    "ShipServiceLevel": {
+      "type": "string"
+    },
+    "MarketplaceId": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-order-schema.json",
+  "description": "Order schema from Amazon Selling Partner API"
+}

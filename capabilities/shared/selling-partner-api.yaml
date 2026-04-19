@@ -1,0 +1,143 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Selling Partner API"
+  description: "Programmatic access to Amazon marketplace operations including catalog items, orders, inventory, fulfillment, and financial reporting."
+  tags:
+    - Amazon
+    - E-Commerce
+    - Marketplace
+    - Sellers
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      SP_API_ACCESS_TOKEN: SP_API_ACCESS_TOKEN
+      SP_API_REGION: SP_API_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: selling-partner
+      baseUri: https://sellingpartnerapi-na.amazon.com
+      description: "Amazon SP-API for marketplace seller operations."
+      authentication:
+        type: bearer
+        token: "{{SP_API_ACCESS_TOKEN}}"
+      resources:
+        - name: orders
+          path: /orders/v0/orders
+          description: "Manage marketplace orders."
+          operations:
+            - name: get-orders
+              method: GET
+              description: "Get orders based on filters."
+              inputParameters:
+                - name: MarketplaceIds
+                  in: query
+                  type: string
+                  required: true
+                  description: "Marketplace IDs to filter orders."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: catalog-items
+          path: /catalog/2022-04-01/items
+          description: "Search and retrieve catalog items."
+          operations:
+            - name: search-catalog-items
+              method: GET
+              description: "Search Amazon catalog for items."
+              inputParameters:
+                - name: keywords
+                  in: query
+                  type: string
+                  required: false
+                  description: "Search keywords."
+                - name: marketplaceIds
+                  in: query
+                  type: string
+                  required: true
+                  description: "Marketplace IDs."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: listings
+          path: /listings/2021-08-01/items/{sellerId}
+          description: "Manage product listings."
+          operations:
+            - name: put-listings-item
+              method: PUT
+              description: "Create or update a product listing."
+              inputParameters:
+                - name: sellerId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Seller identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  productType: "{{tools.product_type}}"
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: selling-partner-rest
+      resources:
+        - path: /v1/orders
+          name: orders
+          description: "Order management."
+          operations:
+            - method: GET
+              name: get-orders
+              description: "Get orders."
+              call: "selling-partner.get-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: selling-partner-mcp
+      transport: http
+      tools:
+        - name: get-orders
+          description: "Retrieve Amazon marketplace orders."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "selling-partner.get-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-catalog-items
+          description: "Search the Amazon product catalog."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "selling-partner.search-catalog-items"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: put-listings-item
+          description: "Create or update a product listing on Amazon."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "selling-partner.put-listings-item"
+          outputParameters:
+            - type: object
+              mapping: "$."

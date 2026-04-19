@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "productType",
+    "attributes"
+  ],
+  "properties": {
+    "productType": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ListingsItemPutRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-listings-item-put-request-structure.json",
+  "description": "ListingsItemPutRequest schema from Amazon Selling Partner API"
+}

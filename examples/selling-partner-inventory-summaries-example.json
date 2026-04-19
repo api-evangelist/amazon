@@ -1,0 +1,18 @@
+{
+  "pagination": "example-value",
+  "inventorySummaries": [
+    {
+      "asin": "B01EXAMPLE0",
+      "fnSku": "example-value",
+      "sellerSku": "example-value",
+      "condition": "example-value",
+      "inventoryDetails": {
+        "fulfillableQuantity": 42,
+        "inboundWorkingQuantity": 42,
+        "inboundShippedQuantity": 42,
+        "inboundReceivingQuantity": 42,
+        "reservedQuantity": {}
+      }
+    }
+  ]
+}

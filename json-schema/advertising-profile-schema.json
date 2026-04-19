@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "profileId": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    },
+    "currencyCode": {
+      "type": "string"
+    },
+    "accountInfo": {
+      "type": "object",
+      "properties": {
+        "marketplaceStringId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "seller",
+            "vendor"
+          ]
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-profile-schema.json",
+  "description": "Profile schema from Amazon Advertising API"
+}

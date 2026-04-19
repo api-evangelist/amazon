@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transactionType": {
+            "type": "string"
+          },
+          "transactionId": {
+            "type": "string"
+          },
+          "transactionStatus": {
+            "type": "string"
+          },
+          "postedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalAmount": {
+            "$ref": "#/components/schemas/Money"
+          }
+        }
+      }
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TransactionList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-transaction-list-schema.json",
+  "description": "TransactionList schema from Amazon Selling Partner API"
+}

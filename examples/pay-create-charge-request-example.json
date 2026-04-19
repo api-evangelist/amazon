@@ -1,0 +1,7 @@
+{
+  "chargePermissionId": "ABC123DEF456",
+  "chargeAmount": "example-value",
+  "captureNow": true,
+  "softDescriptor": "example-value",
+  "canHandlePendingAuthorization": true
+}

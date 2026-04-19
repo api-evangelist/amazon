@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "required": [
+    "webCheckoutDetails",
+    "storeId"
+  ],
+  "properties": {
+    "webCheckoutDetails": {
+      "type": "object",
+      "required": [
+        "checkoutReviewReturnUrl"
+      ],
+      "properties": {
+        "checkoutReviewReturnUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "checkoutResultReturnUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "storeId": {
+      "type": "string"
+    },
+    "chargePermissionType": {
+      "type": "string",
+      "enum": [
+        "OneTime",
+        "Recurring"
+      ]
+    },
+    "paymentDetails": {
+      "type": "object",
+      "properties": {
+        "paymentIntent": {
+          "type": "string"
+        },
+        "chargeAmount": {
+          "$ref": "#/components/schemas/Price"
+        }
+      }
+    },
+    "merchantMetadata": {
+      "$ref": "#/components/schemas/MerchantMetadata"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateCheckoutSessionRequest",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-create-checkout-session-request-schema.json",
+  "description": "CreateCheckoutSessionRequest schema from Amazon Pay API"
+}

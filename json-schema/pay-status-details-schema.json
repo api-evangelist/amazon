@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "reasonDescription": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StatusDetails",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-status-details-schema.json",
+  "description": "StatusDetails schema from Amazon Pay API"
+}

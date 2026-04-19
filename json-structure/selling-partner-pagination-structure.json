@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "type": "string"
+    },
+    "previousToken": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "Pagination",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-pagination-structure.json",
+  "description": "Pagination schema from Amazon Selling Partner API"
+}

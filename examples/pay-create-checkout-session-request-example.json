@@ -1,0 +1,13 @@
+{
+  "webCheckoutDetails": {
+    "checkoutReviewReturnUrl": "https://www.amazon.com/example",
+    "checkoutResultReturnUrl": "https://www.amazon.com/example"
+  },
+  "storeId": "ABC123DEF456",
+  "chargePermissionType": "OneTime",
+  "paymentDetails": {
+    "paymentIntent": "example-value",
+    "chargeAmount": "example-value"
+  },
+  "merchantMetadata": "example-value"
+}

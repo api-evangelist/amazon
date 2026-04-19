@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "refundId": {
+      "type": "string"
+    },
+    "chargeId": {
+      "type": "string"
+    },
+    "refundAmount": {
+      "$ref": "#/components/schemas/Price"
+    },
+    "softDescriptor": {
+      "type": "string"
+    },
+    "statusDetails": {
+      "$ref": "#/components/schemas/StatusDetails"
+    },
+    "creationTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Refund",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/pay-refund-schema.json",
+  "description": "Refund schema from Amazon Pay API"
+}

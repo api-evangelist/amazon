@@ -1,0 +1,146 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Pay API"
+  description: "Programmatic access to Amazon Pay payment processing including checkout sessions, charges, and refunds."
+  tags:
+    - Amazon
+    - Payments
+    - Checkout
+    - E-Commerce
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AMAZON_PAY_PUBLIC_KEY_ID: AMAZON_PAY_PUBLIC_KEY_ID
+      AMAZON_PAY_PRIVATE_KEY: AMAZON_PAY_PRIVATE_KEY
+      AMAZON_PAY_MERCHANT_ID: AMAZON_PAY_MERCHANT_ID
+
+capability:
+  consumes:
+    - type: http
+      namespace: pay
+      baseUri: https://pay-api.amazon.com
+      description: "Amazon Pay REST API for payment processing."
+      authentication:
+        type: bearer
+        token: "{{AMAZON_PAY_PUBLIC_KEY_ID}}"
+      resources:
+        - name: checkout-sessions
+          path: /live/v2/checkoutSessions
+          description: "Manage Amazon Pay checkout sessions."
+          operations:
+            - name: create-checkout-session
+              method: POST
+              description: "Create a new checkout session."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  storeId: "{{tools.store_id}}"
+            - name: get-checkout-session
+              method: GET
+              description: "Get checkout session details."
+              inputParameters:
+                - name: checkoutSessionId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Checkout session ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: charges
+          path: /live/v2/charges
+          description: "Manage payment charges."
+          operations:
+            - name: create-charge
+              method: POST
+              description: "Create a payment charge."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: refunds
+          path: /live/v2/refunds
+          description: "Process payment refunds."
+          operations:
+            - name: create-refund
+              method: POST
+              description: "Create a refund for a charge."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8103
+      namespace: pay-rest
+      resources:
+        - path: /v1/checkout-sessions
+          name: checkout-sessions
+          description: "Checkout session management."
+          operations:
+            - method: POST
+              name: create-checkout-session
+              description: "Create checkout session."
+              call: "pay.create-checkout-session"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9103
+      namespace: pay-mcp
+      transport: http
+      tools:
+        - name: create-checkout-session
+          description: "Create a new Amazon Pay checkout session."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-checkout-session"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-checkout-session
+          description: "Get Amazon Pay checkout session details."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "pay.get-checkout-session"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-charge
+          description: "Create a payment charge via Amazon Pay."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-charge"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-refund
+          description: "Process a refund for an Amazon Pay charge."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-refund"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "reportId": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CreateReportResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-create-report-response-structure.json",
+  "description": "CreateReportResponse schema from Amazon Selling Partner API"
+}

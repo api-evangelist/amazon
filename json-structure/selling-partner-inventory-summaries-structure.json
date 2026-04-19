@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination"
+    },
+    "inventorySummaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asin": {
+            "type": "string"
+          },
+          "fnSku": {
+            "type": "string"
+          },
+          "sellerSku": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "inventoryDetails": {
+            "type": "object",
+            "properties": {
+              "fulfillableQuantity": {
+                "type": "integer"
+              },
+              "inboundWorkingQuantity": {
+                "type": "integer"
+              },
+              "inboundShippedQuantity": {
+                "type": "integer"
+              },
+              "inboundReceivingQuantity": {
+                "type": "integer"
+              },
+              "reservedQuantity": {
+                "type": "object"
+              },
+              "unfulfillableQuantity": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "InventorySummaries",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-inventory-summaries-structure.json",
+  "description": "InventorySummaries schema from Amazon Selling Partner API"
+}

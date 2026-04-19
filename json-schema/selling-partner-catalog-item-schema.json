@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "asin": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "salesRanks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CatalogItem",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-catalog-item-schema.json",
+  "description": "CatalogItem schema from Amazon Selling Partner API"
+}

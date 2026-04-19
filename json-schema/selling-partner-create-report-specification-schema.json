@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "reportType",
+    "marketplaceIds"
+  ],
+  "properties": {
+    "reportType": {
+      "type": "string"
+    },
+    "dataStartTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dataEndTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "marketplaceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateReportSpecification",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/selling-partner-create-report-specification-schema.json",
+  "description": "CreateReportSpecification schema from Amazon Selling Partner API"
+}

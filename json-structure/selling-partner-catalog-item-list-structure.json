@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "numberOfResults": {
+      "type": "integer"
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CatalogItem"
+      }
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CatalogItemList",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/selling-partner-catalog-item-list-structure.json",
+  "description": "CatalogItemList schema from Amazon Selling Partner API"
+}

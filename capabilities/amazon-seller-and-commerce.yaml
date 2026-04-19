@@ -1,0 +1,200 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Seller and Commerce Workflow"
+  description: >-
+    Unified workflow for Amazon sellers, advertisers, and merchants to manage
+    marketplace listings and orders, run advertising campaigns, and process
+    payments using Amazon Selling Partner API, Amazon Advertising API, and
+    Amazon Pay API.
+  tags:
+    - Amazon
+    - E-Commerce
+    - Marketplace
+    - Advertising
+    - Payments
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      SP_API_ACCESS_TOKEN: SP_API_ACCESS_TOKEN
+      SP_API_REGION: SP_API_REGION
+      AMAZON_ADS_ACCESS_TOKEN: AMAZON_ADS_ACCESS_TOKEN
+      AMAZON_ADS_CLIENT_ID: AMAZON_ADS_CLIENT_ID
+      AMAZON_PAY_PUBLIC_KEY_ID: AMAZON_PAY_PUBLIC_KEY_ID
+      AMAZON_PAY_PRIVATE_KEY: AMAZON_PAY_PRIVATE_KEY
+      AMAZON_PAY_MERCHANT_ID: AMAZON_PAY_MERCHANT_ID
+
+capability:
+  consumes:
+    - import: selling-partner
+      location: ./shared/selling-partner-api.yaml
+    - import: advertising
+      location: ./shared/advertising-api.yaml
+    - import: pay
+      location: ./shared/pay-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: amazon-commerce-api
+      description: "Unified REST API for Amazon seller, advertising, and payment operations."
+      resources:
+        - path: /v1/orders
+          name: orders
+          description: "Marketplace order management."
+          operations:
+            - method: GET
+              name: get-orders
+              description: "Get marketplace orders."
+              call: "selling-partner.get-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/catalog
+          name: catalog
+          description: "Product catalog search."
+          operations:
+            - method: GET
+              name: search-catalog
+              description: "Search Amazon product catalog."
+              call: "selling-partner.search-catalog-items"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/campaigns
+          name: campaigns
+          description: "Advertising campaign management."
+          operations:
+            - method: GET
+              name: list-campaigns
+              description: "List advertising campaigns."
+              call: "advertising.list-campaigns"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-campaign
+              description: "Create an advertising campaign."
+              call: "advertising.create-campaign"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/checkout-sessions
+          name: checkout-sessions
+          description: "Amazon Pay checkout sessions."
+          operations:
+            - method: POST
+              name: create-checkout-session
+              description: "Create a checkout session."
+              call: "pay.create-checkout-session"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/refunds
+          name: refunds
+          description: "Payment refund processing."
+          operations:
+            - method: POST
+              name: create-refund
+              description: "Process a payment refund."
+              call: "pay.create-refund"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: amazon-commerce-mcp
+      transport: http
+      description: "MCP server for AI-assisted Amazon seller, advertising, and commerce operations."
+      tools:
+        - name: selling-partner-get-orders
+          description: "Get Amazon marketplace orders with filters by marketplace and date range."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "selling-partner.get-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: selling-partner-search-catalog
+          description: "Search the Amazon product catalog by keywords."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "selling-partner.search-catalog-items"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: selling-partner-put-listing
+          description: "Create or update a product listing on Amazon."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "selling-partner.put-listings-item"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: advertising-list-campaigns
+          description: "List Amazon advertising campaigns across all campaign types."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "advertising.list-campaigns"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: advertising-create-campaign
+          description: "Create a new Amazon advertising campaign."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "advertising.create-campaign"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: advertising-request-report
+          description: "Request an advertising performance report."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "advertising.request-report"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: pay-create-checkout-session
+          description: "Create a new Amazon Pay checkout session for payment processing."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-checkout-session"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: pay-create-charge
+          description: "Create a payment charge via Amazon Pay."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-charge"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: pay-create-refund
+          description: "Process a refund for an Amazon Pay charge."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "pay.create-refund"
+          outputParameters:
+            - type: object
+              mapping: "$."

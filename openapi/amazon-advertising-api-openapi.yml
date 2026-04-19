@@ -16,38 +16,38 @@ externalDocs:
   description: Amazon Advertising API Documentation
   url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
 servers:
-  - url: https://advertising-api.amazon.com
-    description: North America
-  - url: https://advertising-api-eu.amazon.com
-    description: Europe
-  - url: https://advertising-api-fe.amazon.com
-    description: Far East
-  - url: https://advertising-api-test.amazon.com
-    description: Test/Sandbox
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
 tags:
-  - name: Ad Groups
-    description: Ad group management operations
-  - name: Campaigns
-    description: Campaign management operations
-  - name: Keywords
-    description: Keyword management operations
-  - name: Profiles
-    description: Account profile management
-  - name: Reports
-    description: Reporting and analytics
-  - name: Targets
-    description: Product targeting operations
+- name: Ad Groups
+  description: Ad group management operations
+- name: Campaigns
+  description: Campaign management operations
+- name: Keywords
+  description: Keyword management operations
+- name: Profiles
+  description: Account profile management
+- name: Reports
+  description: Reporting and analytics
+- name: Targets
+  description: Product targeting operations
 security:
-  - bearerAuth: []
+- bearerAuth: []
 paths:
   /v2/profiles:
     get:
       operationId: listProfiles
-      summary: List advertising profiles
+      summary: Amazon List Advertising Profiles
       description: >-
         Returns a list of advertising profiles associated with the account.
       tags:
-        - Profiles
+      - Profiles
       responses:
         '200':
           description: Success
@@ -62,31 +62,31 @@ paths:
   /v2/sp/campaigns:
     get:
       operationId: listCampaigns
-      summary: List Sponsored Products campaigns
+      summary: Amazon List Sponsored Products Campaigns
       description: >-
         Returns a list of Sponsored Products campaigns for the specified
         advertiser profile.
       tags:
-        - Campaigns
+      - Campaigns
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: startIndex
-          in: query
-          schema:
-            type: integer
-        - name: count
-          in: query
-          schema:
-            type: integer
-            maximum: 100
-        - name: stateFilter
-          in: query
-          schema:
-            type: string
-            enum:
-              - enabled
-              - paused
-              - archived
+      - $ref: '#/components/parameters/ProfileId'
+      - name: startIndex
+        in: query
+        schema:
+          type: integer
+      - name: count
+        in: query
+        schema:
+          type: integer
+          maximum: 100
+      - name: stateFilter
+        in: query
+        schema:
+          type: string
+          enum:
+          - enabled
+          - paused
+          - archived
       responses:
         '200':
           description: Success
@@ -100,13 +100,13 @@ paths:
           description: Unauthorized
     post:
       operationId: createCampaigns
-      summary: Create Sponsored Products campaigns
+      summary: Amazon Create Sponsored Products Campaigns
       description: >-
         Creates one or more Sponsored Products campaigns.
       tags:
-        - Campaigns
+      - Campaigns
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       requestBody:
         required: true
         content:
@@ -128,13 +128,13 @@ paths:
           description: Unauthorized
     put:
       operationId: updateCampaigns
-      summary: Update Sponsored Products campaigns
+      summary: Amazon Update Sponsored Products Campaigns
       description: >-
         Updates one or more Sponsored Products campaigns.
       tags:
-        - Campaigns
+      - Campaigns
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       requestBody:
         required: true
         content:
@@ -157,18 +157,18 @@ paths:
   /v2/sp/campaigns/{campaignId}:
     get:
       operationId: getCampaign
-      summary: Get campaign details
+      summary: Amazon Get Campaign Details
       description: >-
         Returns a Sponsored Products campaign by campaign ID.
       tags:
-        - Campaigns
+      - Campaigns
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: campaignId
-          in: path
-          required: true
-          schema:
-            type: string
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -180,18 +180,18 @@ paths:
           description: Not found
     delete:
       operationId: archiveCampaign
-      summary: Archive campaign
+      summary: Amazon Archive Campaign
       description: >-
         Sets the campaign status to archived.
       tags:
-        - Campaigns
+      - Campaigns
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: campaignId
-          in: path
-          required: true
-          schema:
-            type: string
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -204,21 +204,21 @@ paths:
   /v2/sp/adGroups:
     get:
       operationId: listAdGroups
-      summary: List ad groups
+      summary: Amazon List Ad Groups
       description: >-
         Returns a list of ad groups for the specified advertiser profile.
       tags:
-        - Ad Groups
+      - Ad Groups
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: campaignIdFilter
-          in: query
-          schema:
-            type: string
-        - name: stateFilter
-          in: query
-          schema:
-            type: string
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignIdFilter
+        in: query
+        schema:
+          type: string
+      - name: stateFilter
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -232,13 +232,13 @@ paths:
           description: Unauthorized
     post:
       operationId: createAdGroups
-      summary: Create ad groups
+      summary: Amazon Create Ad Groups
       description: >-
         Creates one or more ad groups.
       tags:
-        - Ad Groups
+      - Ad Groups
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       requestBody:
         required: true
         content:
@@ -261,21 +261,21 @@ paths:
   /v2/sp/keywords:
     get:
       operationId: listKeywords
-      summary: List keywords
+      summary: Amazon List Keywords
       description: >-
         Returns a list of keywords for the specified advertiser profile.
       tags:
-        - Keywords
+      - Keywords
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: campaignIdFilter
-          in: query
-          schema:
-            type: string
-        - name: adGroupIdFilter
-          in: query
-          schema:
-            type: string
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignIdFilter
+        in: query
+        schema:
+          type: string
+      - name: adGroupIdFilter
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -289,13 +289,13 @@ paths:
           description: Unauthorized
     post:
       operationId: createKeywords
-      summary: Create keywords
+      summary: Amazon Create Keywords
       description: >-
         Creates one or more keywords.
       tags:
-        - Keywords
+      - Keywords
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       requestBody:
         required: true
         content:
@@ -318,13 +318,13 @@ paths:
   /v2/sp/targets:
     get:
       operationId: listTargets
-      summary: List product targets
+      summary: Amazon List Product Targets
       description: >-
         Returns a list of product targets for the specified advertiser profile.
       tags:
-        - Targets
+      - Targets
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       responses:
         '200':
           description: Success
@@ -338,13 +338,13 @@ paths:
           description: Unauthorized
     post:
       operationId: createTargets
-      summary: Create product targets
+      summary: Amazon Create Product Targets
       description: >-
         Creates one or more product targets.
       tags:
-        - Targets
+      - Targets
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
+      - $ref: '#/components/parameters/ProfileId'
       requestBody:
         required: true
         content:
@@ -367,26 +367,26 @@ paths:
   /v2/sp/{recordType}/report:
     post:
       operationId: requestReport
-      summary: Request a report
+      summary: Amazon Request a Report
       description: >-
         Requests the creation of a performance report for the specified
         record type.
       tags:
-        - Reports
+      - Reports
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: recordType
-          in: path
-          required: true
-          schema:
-            type: string
-            enum:
-              - campaigns
-              - adGroups
-              - keywords
-              - productAds
-              - asins
-              - targets
+      - $ref: '#/components/parameters/ProfileId'
+      - name: recordType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - campaigns
+          - adGroups
+          - keywords
+          - productAds
+          - asins
+          - targets
       requestBody:
         required: true
         content:
@@ -405,18 +405,18 @@ paths:
   /v2/reports/{reportId}:
     get:
       operationId: getReport
-      summary: Get report status
+      summary: Amazon Get Report Status
       description: >-
         Returns the status and download location of a previously requested report.
       tags:
-        - Reports
+      - Reports
       parameters:
-        - $ref: '#/components/parameters/ProfileId'
-        - name: reportId
-          in: path
-          required: true
-          schema:
-            type: string
+      - $ref: '#/components/parameters/ProfileId'
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -461,8 +461,8 @@ components:
             type:
               type: string
               enum:
-                - seller
-                - vendor
+              - seller
+              - vendor
     Campaign:
       type: object
       properties:
@@ -473,9 +473,9 @@ components:
         state:
           type: string
           enum:
-            - enabled
-            - paused
-            - archived
+          - enabled
+          - paused
+          - archived
         dailyBudget:
           type: number
         startDate:
@@ -485,26 +485,26 @@ components:
         targetingType:
           type: string
           enum:
-            - manual
-            - auto
+          - manual
+          - auto
         premiumBidAdjustment:
           type: boolean
     CreateCampaignRequest:
       type: object
       required:
-        - name
-        - state
-        - dailyBudget
-        - startDate
-        - targetingType
+      - name
+      - state
+      - dailyBudget
+      - startDate
+      - targetingType
       properties:
         name:
           type: string
         state:
           type: string
           enum:
-            - enabled
-            - paused
+          - enabled
+          - paused
         dailyBudget:
           type: number
         startDate:
@@ -514,12 +514,12 @@ components:
         targetingType:
           type: string
           enum:
-            - manual
-            - auto
+          - manual
+          - auto
     UpdateCampaignRequest:
       type: object
       required:
-        - campaignId
+      - campaignId
       properties:
         campaignId:
           type: string
@@ -554,10 +554,10 @@ components:
     CreateAdGroupRequest:
       type: object
       required:
-        - campaignId
-        - name
-        - state
-        - defaultBid
+      - campaignId
+      - name
+      - state
+      - defaultBid
       properties:
         campaignId:
           type: string
@@ -590,9 +590,9 @@ components:
         matchType:
           type: string
           enum:
-            - broad
-            - exact
-            - phrase
+          - broad
+          - exact
+          - phrase
         state:
           type: string
         bid:
@@ -600,11 +600,11 @@ components:
     CreateKeywordRequest:
       type: object
       required:
-        - campaignId
-        - adGroupId
-        - keywordText
-        - matchType
-        - state
+      - campaignId
+      - adGroupId
+      - keywordText
+      - matchType
+      - state
       properties:
         campaignId:
           type: string
@@ -615,9 +615,9 @@ components:
         matchType:
           type: string
           enum:
-            - broad
-            - exact
-            - phrase
+          - broad
+          - exact
+          - phrase
         state:
           type: string
         bid:
@@ -653,11 +653,11 @@ components:
     CreateTargetRequest:
       type: object
       required:
-        - campaignId
-        - adGroupId
-        - state
-        - expression
-        - expressionType
+      - campaignId
+      - adGroupId
+      - state
+      - expression
+      - expressionType
       properties:
         campaignId:
           type: string
@@ -706,9 +706,9 @@ components:
         status:
           type: string
           enum:
-            - IN_PROGRESS
-            - SUCCESS
-            - FAILURE
+          - IN_PROGRESS
+          - SUCCESS
+          - FAILURE
         location:
           type: string
           format: uri

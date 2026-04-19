@@ -1,0 +1,16 @@
+{
+  "checkoutSessionId": "ABC123DEF456",
+  "statusDetails": "ACTIVE",
+  "buyer": "example-value",
+  "shippingAddress": "example-value",
+  "billingAddress": "example-value",
+  "paymentDetails": {
+    "paymentIntent": "Confirm",
+    "chargeAmount": "example-value"
+  },
+  "merchantMetadata": "example-value",
+  "chargePermissionId": "ABC123DEF456",
+  "chargeId": "ABC123DEF456",
+  "creationTimestamp": "example-value",
+  "expirationTimestamp": "example-value"
+}

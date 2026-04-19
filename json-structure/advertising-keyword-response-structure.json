@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "keywordId": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "KeywordResponse",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-keyword-response-structure.json",
+  "description": "KeywordResponse schema from Amazon Advertising API"
+}

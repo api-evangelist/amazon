@@ -1,0 +1,11 @@
+{
+  "targetId": "ABC123DEF456",
+  "campaignId": "ABC123DEF456",
+  "adGroupId": "ABC123DEF456",
+  "state": "example-value",
+  "bid": 29.99,
+  "expressionType": "example-value",
+  "expression": [
+    {}
+  ]
+}

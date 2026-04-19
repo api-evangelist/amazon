@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "targetId": {
+      "type": "string"
+    },
+    "campaignId": {
+      "type": "string"
+    },
+    "adGroupId": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    },
+    "expressionType": {
+      "type": "string"
+    },
+    "expression": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Target",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-schema/advertising-target-schema.json",
+  "description": "Target schema from Amazon Advertising API"
+}

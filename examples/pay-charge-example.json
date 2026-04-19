@@ -1,0 +1,11 @@
+{
+  "chargeId": "ABC123DEF456",
+  "chargePermissionId": "ABC123DEF456",
+  "chargeAmount": "example-value",
+  "captureAmount": "example-value",
+  "refundedAmount": "example-value",
+  "softDescriptor": "example-value",
+  "statusDetails": "ACTIVE",
+  "creationTimestamp": "example-value",
+  "expirationTimestamp": "example-value"
+}

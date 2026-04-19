@@ -1,0 +1,14 @@
+{
+  "chargePermissionId": "ABC123DEF456",
+  "chargePermissionType": "OneTime",
+  "buyer": "example-value",
+  "shippingAddress": "example-value",
+  "billingAddress": "example-value",
+  "statusDetails": "ACTIVE",
+  "limits": {
+    "amountLimit": "example-value",
+    "amountBalance": "example-value"
+  },
+  "creationTimestamp": "example-value",
+  "expirationTimestamp": "example-value"
+}

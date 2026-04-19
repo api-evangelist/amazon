@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "adGroupId": {
+      "type": "string"
+    },
+    "campaignId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "defaultBid": {
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "AdGroup",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/json-structure/advertising-ad-group-structure.json",
+  "description": "AdGroup schema from Amazon Advertising API"
+}
