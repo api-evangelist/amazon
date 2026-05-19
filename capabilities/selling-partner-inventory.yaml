@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Selling Partner API — Inventory
+  description: 'Amazon Selling Partner API — Inventory. 1 operations. Lead operation: Amazon Get Inventory Summaries. Self-contained
+    Naftiko capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Inventory
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: selling-partner-inventory
+    baseUri: https://sellingpartnerapi-na.amazon.com
+    description: Amazon Selling Partner API — Inventory business capability. Self-contained, no shared references.
+    resources:
+    - name: fba-inventory-v1-summaries
+      path: /fba/inventory/v1/summaries
+      operations:
+      - name: getinventorysummaries
+        method: GET
+        description: Amazon Get Inventory Summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: granularityType
+          in: query
+          type: string
+          required: true
+        - name: granularityId
+          in: query
+          type: string
+          required: true
+        - name: sellerSkus
+          in: query
+          type: array
+        - name: nextToken
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.AMAZON_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: selling-partner-inventory-rest
+    port: 8080
+    description: REST adapter for Amazon Selling Partner API — Inventory. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/fba/inventory/v1/summaries
+      name: fba-inventory-v1-summaries
+      description: REST surface for fba-inventory-v1-summaries.
+      operations:
+      - method: GET
+        name: getinventorysummaries
+        description: Amazon Get Inventory Summaries
+        call: selling-partner-inventory.getinventorysummaries
+        with:
+          granularityType: rest.granularityType
+          granularityId: rest.granularityId
+          sellerSkus: rest.sellerSkus
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: selling-partner-inventory-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Selling Partner API — Inventory. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-get-inventory-summaries
+      description: Amazon Get Inventory Summaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: selling-partner-inventory.getinventorysummaries
+      with:
+        granularityType: tools.granularityType
+        granularityId: tools.granularityId
+        sellerSkus: tools.sellerSkus
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,170 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Pay API — Charge Permissions
+  description: 'Amazon Pay API — Charge Permissions. 3 operations. Lead operation: Amazon Get Charge Permission. Self-contained
+    Naftiko capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Charge Permissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pay-charge-permissions
+    baseUri: https://pay-api.amazon.com/live/v2
+    description: Amazon Pay API — Charge Permissions business capability. Self-contained, no shared references.
+    resources:
+    - name: chargePermissions-chargePermissionId
+      path: /chargePermissions/{chargePermissionId}
+      operations:
+      - name: getchargepermission
+        method: GET
+        description: Amazon Get Charge Permission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: chargePermissionId
+          in: path
+          type: string
+          required: true
+      - name: updatechargepermission
+        method: PATCH
+        description: Amazon Update Charge Permission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: chargePermissionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: chargePermissions-chargePermissionId-close
+      path: /chargePermissions/{chargePermissionId}/close
+      operations:
+      - name: closechargepermission
+        method: DELETE
+        description: Amazon Close Charge Permission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: chargePermissionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: authorization
+      value: '{{env.AMAZON_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: pay-charge-permissions-rest
+    port: 8080
+    description: REST adapter for Amazon Pay API — Charge Permissions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/chargepermissions/{chargepermissionid}
+      name: chargepermissions-chargepermissionid
+      description: REST surface for chargePermissions-chargePermissionId.
+      operations:
+      - method: GET
+        name: getchargepermission
+        description: Amazon Get Charge Permission
+        call: pay-charge-permissions.getchargepermission
+        with:
+          chargePermissionId: rest.chargePermissionId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatechargepermission
+        description: Amazon Update Charge Permission
+        call: pay-charge-permissions.updatechargepermission
+        with:
+          chargePermissionId: rest.chargePermissionId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/chargepermissions/{chargepermissionid}/close
+      name: chargepermissions-chargepermissionid-close
+      description: REST surface for chargePermissions-chargePermissionId-close.
+      operations:
+      - method: DELETE
+        name: closechargepermission
+        description: Amazon Close Charge Permission
+        call: pay-charge-permissions.closechargepermission
+        with:
+          chargePermissionId: rest.chargePermissionId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pay-charge-permissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Pay API — Charge Permissions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-get-charge-permission
+      description: Amazon Get Charge Permission
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pay-charge-permissions.getchargepermission
+      with:
+        chargePermissionId: tools.chargePermissionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-update-charge-permission
+      description: Amazon Update Charge Permission
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pay-charge-permissions.updatechargepermission
+      with:
+        chargePermissionId: tools.chargePermissionId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-close-charge-permission
+      description: Amazon Close Charge Permission
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pay-charge-permissions.closechargepermission
+      with:
+        chargePermissionId: tools.chargePermissionId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Selling Partner API — Finances
+  description: 'Amazon Selling Partner API — Finances. 1 operations. Lead operation: Amazon List Financial Transactions. Self-contained
+    Naftiko capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Finances
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: selling-partner-finances
+    baseUri: https://sellingpartnerapi-na.amazon.com
+    description: Amazon Selling Partner API — Finances business capability. Self-contained, no shared references.
+    resources:
+    - name: finances-2024-06-19-transactions
+      path: /finances/2024-06-19/transactions
+      operations:
+      - name: listtransactions
+        method: GET
+        description: Amazon List Financial Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: postedAfter
+          in: query
+          type: string
+        - name: postedBefore
+          in: query
+          type: string
+        - name: nextToken
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.AMAZON_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: selling-partner-finances-rest
+    port: 8080
+    description: REST adapter for Amazon Selling Partner API — Finances. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/finances/2024-06-19/transactions
+      name: finances-2024-06-19-transactions
+      description: REST surface for finances-2024-06-19-transactions.
+      operations:
+      - method: GET
+        name: listtransactions
+        description: Amazon List Financial Transactions
+        call: selling-partner-finances.listtransactions
+        with:
+          postedAfter: rest.postedAfter
+          postedBefore: rest.postedBefore
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: selling-partner-finances-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Selling Partner API — Finances. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-list-financial-transactions
+      description: Amazon List Financial Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: selling-partner-finances.listtransactions
+      with:
+        postedAfter: tools.postedAfter
+        postedBefore: tools.postedBefore
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Advertising API — Reports
+  description: 'Amazon Advertising API — Reports. 2 operations. Lead operation: Amazon Get Report Status. Self-contained Naftiko
+    capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Reports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: advertising-reports
+    baseUri: https://advertising-api.amazon.com
+    description: Amazon Advertising API — Reports business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-reports-reportId
+      path: /v2/reports/{reportId}
+      operations:
+      - name: getreport
+        method: GET
+        description: Amazon Get Report Status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: reportId
+          in: path
+          type: string
+          required: true
+    - name: v2-sp-recordType-report
+      path: /v2/sp/{recordType}/report
+      operations:
+      - name: requestreport
+        method: POST
+        description: Amazon Request a Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: recordType
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AMAZON_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: advertising-reports-rest
+    port: 8080
+    description: REST adapter for Amazon Advertising API — Reports. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/reports/{reportid}
+      name: v2-reports-reportid
+      description: REST surface for v2-reports-reportId.
+      operations:
+      - method: GET
+        name: getreport
+        description: Amazon Get Report Status
+        call: advertising-reports.getreport
+        with:
+          reportId: rest.reportId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sp/{recordtype}/report
+      name: v2-sp-recordtype-report
+      description: REST surface for v2-sp-recordType-report.
+      operations:
+      - method: POST
+        name: requestreport
+        description: Amazon Request a Report
+        call: advertising-reports.requestreport
+        with:
+          recordType: rest.recordType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: advertising-reports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Advertising API — Reports. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-get-report-status
+      description: Amazon Get Report Status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: advertising-reports.getreport
+      with:
+        reportId: tools.reportId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-request-report
+      description: Amazon Request a Report
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: advertising-reports.requestreport
+      with:
+        recordType: tools.recordType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

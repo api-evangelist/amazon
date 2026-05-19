@@ -1,0 +1,118 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Advertising API — Ad Groups
+  description: 'Amazon Advertising API — Ad Groups. 2 operations. Lead operation: Amazon List Ad Groups. Self-contained Naftiko
+    capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Ad Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: advertising-ad-groups
+    baseUri: https://advertising-api.amazon.com
+    description: Amazon Advertising API — Ad Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-sp-adGroups
+      path: /v2/sp/adGroups
+      operations:
+      - name: listadgroups
+        method: GET
+        description: Amazon List Ad Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: campaignIdFilter
+          in: query
+          type: string
+        - name: stateFilter
+          in: query
+          type: string
+      - name: createadgroups
+        method: POST
+        description: Amazon Create Ad Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AMAZON_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: advertising-ad-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Advertising API — Ad Groups. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/sp/adgroups
+      name: v2-sp-adgroups
+      description: REST surface for v2-sp-adGroups.
+      operations:
+      - method: GET
+        name: listadgroups
+        description: Amazon List Ad Groups
+        call: advertising-ad-groups.listadgroups
+        with:
+          campaignIdFilter: rest.campaignIdFilter
+          stateFilter: rest.stateFilter
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createadgroups
+        description: Amazon Create Ad Groups
+        call: advertising-ad-groups.createadgroups
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: advertising-ad-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Advertising API — Ad Groups. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-list-ad-groups
+      description: Amazon List Ad Groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: advertising-ad-groups.listadgroups
+      with:
+        campaignIdFilter: tools.campaignIdFilter
+        stateFilter: tools.stateFilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-create-ad-groups
+      description: Amazon Create Ad Groups
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: advertising-ad-groups.createadgroups
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

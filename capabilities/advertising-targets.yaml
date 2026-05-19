@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Advertising API — Targets
+  description: 'Amazon Advertising API — Targets. 2 operations. Lead operation: Amazon List Product Targets. Self-contained
+    Naftiko capability covering one Amazon business surface.'
+  tags:
+  - Amazon
+  - Targets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_API_KEY: AMAZON_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: advertising-targets
+    baseUri: https://advertising-api.amazon.com
+    description: Amazon Advertising API — Targets business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-sp-targets
+      path: /v2/sp/targets
+      operations:
+      - name: listtargets
+        method: GET
+        description: Amazon List Product Targets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtargets
+        method: POST
+        description: Amazon Create Product Targets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AMAZON_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: advertising-targets-rest
+    port: 8080
+    description: REST adapter for Amazon Advertising API — Targets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2/sp/targets
+      name: v2-sp-targets
+      description: REST surface for v2-sp-targets.
+      operations:
+      - method: GET
+        name: listtargets
+        description: Amazon List Product Targets
+        call: advertising-targets.listtargets
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtargets
+        description: Amazon Create Product Targets
+        call: advertising-targets.createtargets
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: advertising-targets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Advertising API — Targets. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-list-product-targets
+      description: Amazon List Product Targets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: advertising-targets.listtargets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-create-product-targets
+      description: Amazon Create Product Targets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: advertising-targets.createtargets
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
