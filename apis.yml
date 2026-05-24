@@ -264,6 +264,8 @@ common:
       promotion.
   - name: Fire OS and Android
     description: Amazon Appstore SDK for Fire OS and Android apps with in-app purchasing and device targeting capabilities.
+- type: LLMsTxt
+  url: https://developer.amazon.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
