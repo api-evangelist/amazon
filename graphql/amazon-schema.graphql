@@ -1,0 +1,1836 @@
+"""
+Amazon Selling Partner API - Conceptual GraphQL Schema
+Derived from the Amazon Selling Partner API (SP-API) REST surface:
+  https://developer-docs.amazon.com/sp-api/
+Covers: Orders, Fulfillment, Catalog, Inventory, Reports, Feeds,
+        Finance, Notifications, Advertising, Vendors, and Account types.
+"""
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Decimal
+scalar JSON
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum OrderStatus {
+  PENDING
+  UNSHIPPED
+  PARTIALLY_SHIPPED
+  SHIPPED
+  CANCELED
+  UNFULFILLABLE
+  INVOICE_UNCONFIRMED
+  PENDING_AVAILABILITY
+}
+
+enum FulfillmentChannel {
+  AFN
+  MFN
+}
+
+enum OrderType {
+  STANDARD_ORDER
+  LONG_LEAD_TIME_ORDER
+  PRE_ORDER
+  BACK_ORDER
+  SOURCING_ON_DEMAND_ORDER
+}
+
+enum ConditionType {
+  NEW
+  USED_LIKE_NEW
+  USED_VERY_GOOD
+  USED_GOOD
+  USED_ACCEPTABLE
+  COLLECTIBLE_LIKE_NEW
+  COLLECTIBLE_VERY_GOOD
+  COLLECTIBLE_GOOD
+  COLLECTIBLE_ACCEPTABLE
+  REFURBISHED_REFURBISHED
+  CLUB_CLUB
+}
+
+enum ReportStatus {
+  CANCELLED
+  DONE
+  FATAL
+  IN_PROGRESS
+  IN_QUEUE
+}
+
+enum FeedStatus {
+  CANCELLED
+  DONE
+  FATAL
+  IN_PROGRESS
+  IN_QUEUE
+}
+
+enum NotificationEventType {
+  ANY_OFFER_CHANGED
+  FEED_PROCESSING_FINISHED
+  FBA_OUTBOUND_SHIPMENT_STATUS
+  FEE_PROMOTION
+  FULFILLMENT_ORDER_STATUS
+  ORDER_STATUS_CHANGE
+  REPORT_PROCESSING_FINISHED
+  BRANDED_ITEM_CONTENT_CHANGE
+  ITEM_PRODUCT_TYPE_CHANGE
+  LISTINGS_ITEM_STATUS_CHANGE
+  LISTINGS_ITEM_ISSUES_CHANGE
+  MFN_ORDER_STATUS_CHANGE
+  B2B_ANY_OFFER_CHANGED
+}
+
+enum DestinationType {
+  EVENT_BRIDGE
+  SQS
+}
+
+enum ShipmentStatus {
+  WORKING
+  READY_TO_SHIP
+  SHIPPED
+  RECEIVING
+  CANCELLED
+  DELETED
+  CLOSED
+  ERROR
+  IN_TRANSIT
+  DELIVERED
+  CHECKED_IN
+}
+
+enum InventorySupplySource {
+  ReservedCustomerOrders
+  InboundReceiving
+  InboundWorking
+  InboundShipped
+  InboundReceivingSpecific
+  Unfulfillable
+  Fulfillable
+}
+
+enum FinancialEventGroupStatus {
+  Open
+  Closed
+}
+
+enum VendorOrderStatus {
+  NEW
+  ACKNOWLEDGED
+  CLOSED
+}
+
+enum CurrencyCode {
+  USD
+  EUR
+  GBP
+  JPY
+  CAD
+  AUD
+  INR
+  BRL
+  MXN
+  SGD
+}
+
+# ─── Common value objects ─────────────────────────────────────────────────────
+
+type Money {
+  amount: Decimal!
+  currencyCode: CurrencyCode!
+}
+
+type Weight {
+  value: Decimal!
+  unit: String!
+}
+
+type Dimensions {
+  length: Decimal
+  width: Decimal
+  height: Decimal
+  unit: String
+}
+
+type Address {
+  name: String
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  city: String
+  county: String
+  district: String
+  stateOrRegion: String
+  postalCode: String
+  countryCode: String!
+  phone: String
+}
+
+type DateRange {
+  start: DateTime!
+  end: DateTime!
+}
+
+type PageToken {
+  nextToken: String
+}
+
+# ─── Identifiers ─────────────────────────────────────────────────────────────
+
+type ASIN {
+  value: String!
+}
+
+type EAN {
+  value: String!
+}
+
+type UPC {
+  value: String!
+}
+
+type GTIN {
+  type: String!
+  value: String!
+}
+
+# ─── Marketplace / Account ────────────────────────────────────────────────────
+
+type Marketplace {
+  id: String!
+  name: String!
+  countryCode: String!
+  defaultCurrencyCode: CurrencyCode!
+  defaultLanguageCode: String!
+  domainName: String!
+}
+
+type SellerAccount {
+  sellerId: String!
+  marketplaceParticipations: [MarketplaceParticipation!]!
+}
+
+type MarketplaceParticipation {
+  marketplace: Marketplace!
+  participation: Participation!
+}
+
+type Participation {
+  isParticipating: Boolean!
+  hasSuspendedListings: Boolean!
+}
+
+type Seller {
+  sellerId: String!
+  sellerName: String
+  feedbackRating: Decimal
+  feedbackCount: Int
+  marketplaces: [Marketplace!]
+}
+
+type SellerFeedback {
+  feedbackId: String!
+  sellerId: String!
+  buyerFeedback: String
+  rating: Int!
+  date: DateTime!
+  orderId: String
+  ratingDetail: [String!]
+}
+
+# ─── Orders ───────────────────────────────────────────────────────────────────
+
+type Order {
+  amazonOrderId: String!
+  sellerOrderId: String
+  purchaseDate: DateTime!
+  lastUpdateDate: DateTime!
+  orderStatus: OrderStatus!
+  fulfillmentChannel: FulfillmentChannel!
+  salesChannel: String
+  orderChannel: String
+  shipServiceLevel: String
+  orderTotal: Money
+  numberOfItemsShipped: Int
+  numberOfItemsUnshipped: Int
+  marketplaceId: String!
+  buyerEmail: String
+  buyerName: String
+  shipmentServiceLevelCategory: String
+  orderType: OrderType
+  earliestShipDate: DateTime
+  latestShipDate: DateTime
+  earliestDeliveryDate: DateTime
+  latestDeliveryDate: DateTime
+  isBusinessOrder: Boolean
+  isPrime: Boolean
+  isPremiumOrder: Boolean
+  isGlobalExpressEnabled: Boolean
+  replacedOrderId: String
+  isReplacementOrder: Boolean
+  promiseResponseDueDate: DateTime
+  isEstimatedShipDateSet: Boolean
+  shippingAddress: Address
+  buyerInfo: BuyerInfo
+  items: [OrderItem!]
+  fees: [OrderFee!]
+}
+
+type BuyerInfo {
+  buyerEmail: String
+  buyerName: String
+  buyerCounty: String
+  buyerTaxInfo: BuyerTaxInfo
+  purchaseOrderNumber: String
+}
+
+type BuyerTaxInfo {
+  companyLegalName: String
+  taxingRegion: String
+  taxClassifications: [TaxClassification!]
+}
+
+type TaxClassification {
+  name: String!
+  value: String!
+}
+
+type OrderItem {
+  asin: String!
+  orderItemId: String!
+  sellerSKU: String
+  title: String
+  quantityOrdered: Int!
+  quantityShipped: Int
+  productInfo: ProductInfo
+  pointsGranted: PointsGranted
+  itemPrice: Money
+  shippingPrice: Money
+  itemTax: Money
+  shippingTax: Money
+  shippingDiscount: Money
+  shippingDiscountTax: Money
+  promotionDiscount: Money
+  promotionDiscountTax: Money
+  promotionIds: [String!]
+  codFee: Money
+  codFeeDiscount: Money
+  isGift: Boolean
+  conditionNote: String
+  conditionId: ConditionType
+  conditionSubtypeId: String
+  scheduledDeliveryStartDate: DateTime
+  scheduledDeliveryEndDate: DateTime
+  priceDesignation: String
+  taxCollection: TaxCollection
+  serialNumberRequired: Boolean
+  isTransparency: Boolean
+  iossNumber: String
+  deemedResellerCategory: String
+  buyerInfo: BuyerInfo
+}
+
+type ProductInfo {
+  numberOfItems: Int
+}
+
+type PointsGranted {
+  pointsNumber: Int
+  pointsMonetaryValue: Money
+}
+
+type TaxCollection {
+  model: String
+  responsibleParty: String
+}
+
+type OrderFee {
+  name: String!
+  amount: Money!
+}
+
+type OrderShipment {
+  amazonOrderId: String!
+  shipmentId: String!
+  items: [ShipmentItem!]!
+  trackingNumber: String
+  carrier: String
+  shipDate: DateTime
+}
+
+type ShipmentItem {
+  orderItemId: String!
+  asin: String!
+  sellerSKU: String
+  title: String
+  quantityShipped: Int!
+}
+
+# ─── Fulfillment (FBA) ────────────────────────────────────────────────────────
+
+type Fulfillment {
+  fulfillmentOrderId: String!
+  displayableOrderId: String!
+  displayableOrderDate: DateTime!
+  displayableOrderComment: String
+  shippingSpeedCategory: String!
+  destinationAddress: Address!
+  fulfillmentAction: String
+  fulfillmentPolicy: String
+  receivedDate: DateTime
+  fulfillmentOrderStatus: String!
+  statusUpdatedDate: DateTime!
+  notificationEmails: [String!]
+  featureConstraints: [FeatureSettings!]
+  items: [FulfillmentItem!]
+  shipments: [FulfillmentShipment!]
+}
+
+type FulfillmentItem {
+  sellerSKU: String!
+  sellerFulfillmentOrderItemId: String!
+  quantity: Int!
+  giftMessage: String
+  displayableComment: String
+  fulfillmentNetworkSKU: String
+  orderItemDisposition: String
+  cancelledQuantity: Int
+  unfulfillableQuantity: Int
+  estimatedShipDate: DateRange
+  estimatedArrivalDate: DateRange
+  perUnitDeclaredValue: Money
+  perUnitPrice: Money
+  perUnitTax: Money
+}
+
+type FulfillmentShipment {
+  amazonShipmentId: String!
+  fulfillmentCenterId: String!
+  fulfillmentShipmentStatus: String!
+  shippingDate: DateTime
+  estimatedArrivalDate: DateTime
+  shippingNotes: [String!]
+  fulfillmentShipmentItem: [FulfillmentShipmentItem!]
+  fulfillmentShipmentPackage: [FulfillmentShipmentPackage!]
+}
+
+type FulfillmentShipmentItem {
+  sellerSKU: String
+  sellerFulfillmentOrderItemId: String!
+  quantity: Int!
+  packageNumber: Int
+  serialNumber: String
+}
+
+type FulfillmentShipmentPackage {
+  packageNumber: Int!
+  carrierCode: String!
+  trackingNumber: String
+  estimatedArrivalDate: DateTime
+}
+
+type FeatureSettings {
+  featureName: String!
+  featureFulfillmentPolicy: String!
+}
+
+type FBAShipment {
+  shipmentId: String!
+  shipmentName: String
+  shipFromAddress: Address!
+  destinationFulfillmentCenterId: String!
+  shipmentStatus: ShipmentStatus!
+  labelPrepType: String
+  areItemsUniquely prepared: Boolean
+  confirmedNeedByDate: DateTime
+  boxContentsSource: String
+  estimatedBoxContentsFee: EstimatedBoxContentsFee
+  items: [FBAShipmentItem!]
+}
+
+type FBAShipmentItem {
+  shipmentId: String!
+  sellerSKU: String!
+  fulfillmentNetworkSKU: String
+  quantityShipped: Int!
+  quantityReceived: Int
+  quantityInCase: Int
+  releaseDate: DateTime
+  prepDetailsList: [PrepDetails!]
+}
+
+type PrepDetails {
+  prepInstruction: String!
+  prepOwner: String!
+}
+
+type EstimatedBoxContentsFee {
+  totalUnits: Int!
+  feePerUnit: Money!
+  totalFee: Money!
+}
+
+# ─── Multi-Channel Fulfillment ─────────────────────────────────────────────────
+
+type MultiChannelFulfillment {
+  fulfillmentOrderId: String!
+  marketplaceId: String!
+  displayableOrderId: String!
+  items: [FulfillmentItem!]!
+  destinationAddress: Address!
+  fulfillmentAction: String!
+  shippingSpeedCategory: String!
+}
+
+# ─── Inventory ────────────────────────────────────────────────────────────────
+
+type Inventory {
+  sellerSKU: String!
+  fulfillmentNetworkSKU: String
+  quantity: Int!
+  supplyDetail: [InventorySupplyDetail!]
+}
+
+type InventorySupplyDetail {
+  quantity: Int!
+  supplyType: InventorySupplySource!
+  earliestAvailableToPick: DateRange
+  latestAvailableToPick: DateRange
+}
+
+type FBAInventory {
+  asin: String!
+  fnSku: String!
+  sellerSku: String!
+  condition: String!
+  inventoryDetails: InventoryDetails!
+  lastUpdatedTime: DateTime
+  productName: String
+  totalQuantity: Int!
+}
+
+type InventoryDetails {
+  fulfillableQuantity: Int
+  inboundWorkingQuantity: Int
+  inboundShippedQuantity: Int
+  inboundReceivingQuantity: Int
+  reservedQuantity: ReservedQuantity
+  researchingQuantity: ResearchingQuantity
+  unfulfillableQuantity: UnfulfillableQuantity
+}
+
+type ReservedQuantity {
+  totalReservedQuantity: Int
+  pendingCustomerOrderQuantity: Int
+  pendingTransshipmentQuantity: Int
+  fcProcessingQuantity: Int
+}
+
+type ResearchingQuantity {
+  totalResearchingQuantity: Int
+  researchingQuantityBreakdown: [ResearchingQuantityEntry!]
+}
+
+type ResearchingQuantityEntry {
+  name: String!
+  quantity: Int!
+}
+
+type UnfulfillableQuantity {
+  totalUnfulfillableQuantity: Int
+  customerDamagedQuantity: Int
+  warehouseDamagedQuantity: Int
+  distributorDamagedQuantity: Int
+  carrierDamagedQuantity: Int
+  defectiveQuantity: Int
+  expiredQuantity: Int
+}
+
+type Replenishment {
+  sellerSku: String!
+  asin: String!
+  marketplaceId: String!
+  recommendedReplenishmentDate: DateTime
+  recommendedQuantity: Int
+  currentInventory: Int
+  averageDailySales: Decimal
+}
+
+# ─── Catalog ──────────────────────────────────────────────────────────────────
+
+type Catalog {
+  marketplaceId: String!
+  items: [CatalogItem!]!
+}
+
+type CatalogItem {
+  asin: String!
+  attributes: ItemAttributes
+  identifiers: [ItemIdentifier!]
+  images: [ItemImage!]
+  productTypes: [CatalogProductType!]
+  salesRanks: [SalesRank!]
+  summaries: [ItemSummary!]
+  variations: VariationData
+  vendorDetails: VendorDetails
+}
+
+type ItemSummary {
+  marketplaceId: String!
+  adultProduct: Boolean
+  autographed: Boolean
+  brand: String
+  browseClassification: BrowseClassification
+  color: String
+  itemClassification: String
+  itemName: String!
+  manufacturer: String
+  memorabilia: Boolean
+  modelNumber: String
+  packageQuantity: Int
+  partNumber: String
+  releaseDate: DateTime
+  size: String
+  style: String
+  tradeInEligible: Boolean
+  websiteDisplayGroup: String
+  websiteDisplayGroupName: String
+}
+
+type BrowseClassification {
+  displayName: String!
+  classificationId: String!
+}
+
+type ItemAttributes {
+  brand: String
+  bulletPoints: [String!]
+  color: String
+  description: String
+  dimensions: Dimensions
+  features: [String!]
+  manufacturer: String
+  materialType: [String!]
+  modelNumber: String
+  packageDimensions: Dimensions
+  packageWeight: Weight
+  size: String
+  style: String
+  title: String!
+  weight: Weight
+}
+
+type ItemIdentifier {
+  identifierType: String!
+  identifier: String!
+}
+
+type ItemImage {
+  variant: String!
+  link: String!
+  height: Int!
+  width: Int!
+}
+
+type CatalogProductType {
+  productType: String!
+  marketplaceIds: [String!]!
+}
+
+type SalesRank {
+  classificationId: String!
+  displayName: String!
+  rank: Int!
+}
+
+type VariationData {
+  asins: [String!]!
+  variationType: String!
+}
+
+type VendorDetails {
+  brandCode: String
+  categoryCode: String
+  manufacturerCode: String
+  manufacturerCodeParent: String
+  productGroup: String
+  productSubcategory: String
+  replenishmentCategory: String
+}
+
+# ─── Listings (Seller Items) ──────────────────────────────────────────────────
+
+type ListingItem {
+  sku: String!
+  asin: String
+  marketplaceId: String!
+  status: [ListingStatus!]!
+  attributes: JSON
+  issues: [ListingIssue!]
+  offers: [Offer!]
+  fulfillmentAvailability: [FulfillmentAvailability!]
+  procurement: ProcurementData
+}
+
+type ListingStatus {
+  status: String!
+}
+
+type ListingIssue {
+  code: String!
+  message: String!
+  severity: String!
+  attributeNames: [String!]
+}
+
+type FulfillmentAvailability {
+  fulfillmentChannelCode: String!
+  quantity: Int
+}
+
+type ProcurementData {
+  costPrice: Money!
+}
+
+# ─── Pricing ──────────────────────────────────────────────────────────────────
+
+type ItemPricing {
+  asin: String!
+  status: String!
+  actorType: String
+  identifier: ItemIdentifiers
+  product: PricingProduct
+}
+
+type ItemIdentifiers {
+  marketplaceASIN: MarketplaceASIN
+  skuIdentifier: SKUIdentifier
+}
+
+type MarketplaceASIN {
+  marketplaceId: String!
+  asin: String!
+}
+
+type SKUIdentifier {
+  marketplaceId: String!
+  sellerId: String!
+  sellerSKU: String!
+}
+
+type PricingProduct {
+  offers: [OfferDetail!]
+  lowestOfferListings: [LowestOfferListing!]
+  buyBoxPrices: [BuyBoxPrice!]
+  salesRankings: [SalesRank!]
+}
+
+type Offer {
+  buyingPrice: PriceType!
+  regularPrice: Money!
+  businessPrice: Money
+  quantityDiscountPrices: [QuantityDiscount!]
+  fulfillmentChannel: FulfillmentChannel!
+  itemCondition: ConditionType!
+  itemSubCondition: String
+  sellerSKU: String!
+  shipsFrom: Address
+}
+
+type OfferDetail {
+  myOffer: Boolean
+  offerType: String
+  sellerFeedbackRating: SellerFeedbackRating
+  shippingTime: ShippingTime
+  listingPrice: Money!
+  points: PointsGranted
+  shipping: Money!
+  shipsFrom: Address
+  isFulfilledByAmazon: Boolean!
+  primeInformation: PrimeInformation
+  isBuyBoxWinner: Boolean
+  isFeaturedMerchant: Boolean
+}
+
+type PriceType {
+  landedPrice: Money
+  listingPrice: Money!
+  shipping: Money
+  points: PointsGranted
+}
+
+type LowestOfferListing {
+  offerType: String!
+  quantityTier: Int!
+  quantityDiscountType: String
+  price: PriceType!
+  minTierQuantity: Int!
+}
+
+type BuyBoxPrice {
+  condition: String!
+  offerType: String
+  quantityTier: Int
+  quantityDiscountType: String
+  landedPrice: Money!
+  listingPrice: Money!
+  shipping: Money!
+  points: PointsGranted
+}
+
+type QuantityDiscount {
+  quantityTier: Int!
+  price: Money!
+}
+
+type SellerFeedbackRating {
+  sellerPositiveFeedbackRating: Decimal
+  feedbackCount: Int!
+}
+
+type ShippingTime {
+  minimumHours: Int
+  maximumHours: Int
+  availableDate: DateTime
+  availabilityType: String
+}
+
+type PrimeInformation {
+  isPrime: Boolean!
+  isNationalPrime: Boolean!
+}
+
+# ─── Product Advertising ──────────────────────────────────────────────────────
+
+type ProductAdvertising {
+  asin: String!
+  title: String!
+  brand: String
+  manufacturer: String
+  images: [ItemImage!]
+  offers: [ProductAdvertisingOffer!]
+  browseNodes: [BrowseNode!]
+  parentAsin: String
+  variationAttributes: [VariationAttribute!]
+  customerReviews: CustomerReviews
+}
+
+type ProductAdvertisingOffer {
+  availability: String!
+  condition: ConditionType!
+  deliveryInfo: DeliveryInfo
+  isBuyBoxWinner: Boolean
+  loyaltyPoints: LoyaltyPoints
+  merchantInfo: MerchantInfo
+  price: OfferPrice!
+  programEligibility: ProgramEligibility
+  promotions: [Promotion!]
+  savingBasis: Money
+  title: String
+}
+
+type DeliveryInfo {
+  isAmazonFulfilled: Boolean!
+  isFreeShippingEligible: Boolean!
+  isPrimeEligible: Boolean!
+  shippingCharges: [ShippingCharge!]
+}
+
+type ShippingCharge {
+  amount: Money!
+  currency: String!
+  isRateTaxInclusive: Boolean
+  type: String!
+}
+
+type LoyaltyPoints {
+  points: Int!
+}
+
+type MerchantInfo {
+  defaultShippingCountry: String
+  feedbackCount: Int
+  feedbackRating: Decimal
+  id: String!
+  name: String!
+}
+
+type OfferPrice {
+  amount: Money!
+  displayAmount: String!
+  priceBucket: String
+  savings: Savings
+}
+
+type Savings {
+  amount: Money!
+  currency: String!
+  displayAmount: String!
+  percentage: Decimal!
+  priceType: String
+}
+
+type ProgramEligibility {
+  isBuyBoxWinner: Boolean
+  isPrimeExclusive: Boolean
+  isPrimePantry: Boolean
+}
+
+type VariationAttribute {
+  name: String!
+  value: String!
+}
+
+type CustomerReviews {
+  count: Int!
+  starRating: StarRating
+}
+
+type StarRating {
+  value: Decimal!
+  displayValue: String!
+}
+
+# ─── Brand / Category / Browse ────────────────────────────────────────────────
+
+type Brand {
+  brandId: String!
+  brandName: String!
+  marketplaceId: String!
+  websiteUrl: String
+}
+
+type Category {
+  categoryId: String!
+  categoryName: String!
+  parent: Category
+  children: [Category!]
+  products: [CatalogItem!]
+}
+
+type CatalogCategory {
+  categoryId: String!
+  categoryName: String!
+  displayGroupRanks: [SalesRank!]
+}
+
+type Browse {
+  marketplaceId: String!
+  browseNodes: [BrowseNode!]!
+}
+
+type BrowseNode {
+  id: String!
+  displayName: String!
+  isRoot: Boolean
+  contextFreeName: String
+  children: [BrowseNode!]
+  ancestor: BrowseNode
+  salesRank: Int
+}
+
+# ─── Product (generic) ────────────────────────────────────────────────────────
+
+type Product {
+  asin: String!
+  title: String!
+  brand: String
+  category: Category
+  images: [ItemImage!]
+  attributes: ItemAttributes
+  pricing: ItemPricing
+  inventory: FBAInventory
+  offers: [Offer!]
+}
+
+# ─── Reports ──────────────────────────────────────────────────────────────────
+
+type Report {
+  reportId: String!
+  reportType: String!
+  dataStartTime: DateTime
+  dataEndTime: DateTime
+  reportScheduleId: String
+  createdTime: DateTime!
+  processingStatus: ReportStatus!
+  processingStartTime: DateTime
+  processingEndTime: DateTime
+  reportDocumentId: String
+  marketplaceIds: [String!]
+}
+
+type ReportSchedule {
+  reportScheduleId: String!
+  reportType: String!
+  marketplaceIds: [String!]
+  reportOptions: JSON
+  period: String!
+  nextReportCreationTime: DateTime
+}
+
+type ReportDocument {
+  reportDocumentId: String!
+  url: String!
+  compressionAlgorithm: String
+}
+
+# ─── Feeds ────────────────────────────────────────────────────────────────────
+
+type Feed {
+  feedId: String!
+  feedType: String!
+  marketplaceIds: [String!]
+  createdTime: DateTime!
+  processingStatus: FeedStatus!
+  processingStartTime: DateTime
+  processingEndTime: DateTime
+  resultFeedDocumentId: String
+}
+
+type FeedDocument {
+  feedDocumentId: String!
+  url: String!
+  compressionAlgorithm: String
+}
+
+# ─── Notifications / Subscriptions / Destinations ────────────────────────────
+
+type Notification {
+  notificationId: String!
+  notificationType: NotificationEventType!
+  payloadVersion: String!
+  eventTime: DateTime!
+  payload: JSON
+  marketplaceId: String
+}
+
+type Subscription {
+  subscriptionId: String!
+  payloadVersion: String!
+  destinationId: String!
+  notificationType: NotificationEventType!
+  processingDirective: ProcessingDirective
+}
+
+type ProcessingDirective {
+  eventFilter: EventFilter
+}
+
+type EventFilter {
+  eventFilterType: String!
+  marketplaceIds: [String!]
+}
+
+type Destination {
+  destinationId: String!
+  name: String!
+  resource: DestinationResource!
+}
+
+type DestinationResource {
+  sqs: SQSResource
+  eventBridge: EventBridgeResource
+}
+
+type SQSResource {
+  arn: String!
+}
+
+type EventBridgeResource {
+  name: String!
+  region: String!
+  accountId: String!
+}
+
+# ─── Finance ─────────────────────────────────────────────────────────────────
+
+type Finance {
+  financialEventGroupId: String!
+  processingStatus: FinancialEventGroupStatus!
+  fundTransferStatus: String
+  originalTotal: Money
+  convertedTotal: Money
+  fundTransferDate: DateTime
+  traceId: String
+  accountTail: String
+  beginningBalance: Money
+  financialEventGroupStart: DateTime!
+  financialEventGroupEnd: DateTime!
+  marketplaceId: String
+}
+
+type FinancialEvent {
+  amazonOrderId: String
+  sellerOrderId: String
+  marketplaceName: String
+  orderChargeList: [ChargeComponent!]
+  orderChargeAdjustmentList: [ChargeComponent!]
+  shipmentFeeList: [FeeComponent!]
+  shipmentFeeAdjustmentList: [FeeComponent!]
+  orderFeeList: [FeeComponent!]
+  orderFeeAdjustmentList: [FeeComponent!]
+  directPaymentList: [DirectPayment!]
+  postedDate: DateTime
+  shipmentItemList: [ShipmentItem!]
+  shipmentItemAdjustmentList: [ShipmentItem!]
+}
+
+type ChargeComponent {
+  chargeType: String!
+  chargeAmount: Money!
+}
+
+type FeeComponent {
+  feeType: String!
+  feeAmount: Money!
+}
+
+type DirectPayment {
+  directPaymentType: String!
+  directPaymentAmount: Money!
+}
+
+type ServiceFee {
+  amazonOrderId: String
+  feeReason: String!
+  feeList: [FeeComponent!]!
+  sellerId: String
+  sellerSKU: String
+  asin: String
+  feeDescription: String
+  asinGuidance: String
+}
+
+# ─── Promotions / Coupons / Deals ─────────────────────────────────────────────
+
+type Coupon {
+  couponId: String!
+  title: String!
+  startDate: DateTime!
+  endDate: DateTime!
+  clippedDate: DateTime
+  status: String!
+  discountValue: Money
+  discountPercentage: Decimal
+  applicableAsins: [String!]!
+}
+
+type Deal {
+  dealId: String!
+  dealTitle: String!
+  dealType: String!
+  status: String!
+  startTime: DateTime!
+  endTime: DateTime!
+  dealPrice: Money
+  dealPercentOff: Decimal
+  primaryImage: ItemImage
+  eligibleCustomers: String
+  marketplaceId: String!
+  asin: String!
+}
+
+type Promotion {
+  promotionId: String!
+  promotionType: String!
+  startDate: DateTime
+  endDate: DateTime
+  discountPercent: Decimal
+  discountAmount: Money
+  maximumDiscountAmount: Money
+  promotionDescription: String
+  eligibleBuyerGroup: String
+}
+
+# ─── Vendor ──────────────────────────────────────────────────────────────────
+
+type VendorOrder {
+  purchaseOrderNumber: String!
+  purchaseOrderState: VendorOrderStatus!
+  orderDetails: VendorOrderDetails
+}
+
+type VendorOrderDetails {
+  purchaseOrderDate: DateTime!
+  purchaseOrderChangedDate: DateTime
+  purchaseOrderStateChangedDate: DateTime!
+  purchaseOrderType: String
+  paymentMethod: String
+  buyingParty: PartyIdentification
+  sellingParty: PartyIdentification
+  shipToParty: PartyIdentification
+  billToParty: PartyIdentification
+  shipWindow: DateRange
+  deliveryWindow: DateRange
+  items: [VendorOrderItem!]!
+}
+
+type VendorOrderItem {
+  itemSequenceNumber: String!
+  amazonProductIdentifier: String
+  vendorProductIdentifier: String
+  orderedQuantity: VendorQuantity!
+  isBackOrderAllowed: Boolean!
+  netCost: Money
+  listPrice: Money
+}
+
+type VendorQuantity {
+  amount: Int!
+  unitOfMeasure: String!
+  unitSize: Int
+}
+
+type PartyIdentification {
+  partyId: String!
+  address: Address
+  taxInfo: TaxRegistrationDetails
+}
+
+type TaxRegistrationDetails {
+  taxRegistrationType: String!
+  taxRegistrationNumber: String!
+}
+
+type VendorShipment {
+  shipmentConfirmationType: String!
+  sellingParty: PartyIdentification!
+  shipFromParty: PartyIdentification!
+  shipToParty: PartyIdentification!
+  shipmentDetails: VendorShipmentDetails!
+  items: [VendorShipmentItem!]!
+}
+
+type VendorShipmentDetails {
+  isPriorityShipment: Boolean
+  vendorOrderNumber: String
+  shipmentConfirmationDate: DateTime!
+  warehouseId: String
+  estimatedDeliveryDate: DateTime
+  sellerWarehouseCode: String
+  carrierDetails: VendorCarrierDetails
+}
+
+type VendorCarrierDetails {
+  name: String
+  scacCode: String
+  proNumber: String
+  bill: Bill
+}
+
+type Bill {
+  billNumber: String!
+  date: DateTime!
+}
+
+type VendorShipmentItem {
+  itemSequenceNumber: String!
+  amazonProductIdentifier: String
+  vendorProductIdentifier: String
+  shippedQuantity: VendorQuantity!
+  purchaseOrderNumber: String
+  vendorBatchId: String
+  expiryDate: DateTime
+  maximumRetailPrice: Money
+}
+
+# ─── Solicitations / Messaging ────────────────────────────────────────────────
+
+type SolicitationAction {
+  name: String!
+  constraints: SolicitationConstraints
+}
+
+type SolicitationConstraints {
+  required: Boolean!
+  validValues: [String!]
+}
+
+type MessagingAction {
+  name: String!
+  affectedOrders: [String!]
+}
+
+# ─── Shipping / Packages ─────────────────────────────────────────────────────
+
+type Shipment {
+  shipmentId: String!
+  clientReferenceId: String
+  shipFrom: Address!
+  shipTo: Address!
+  returnTo: Address
+  shipDate: DateTime
+  requestedPackages: [Package!]!
+  purchasedPackages: [Package!]
+  status: ShipmentStatus!
+}
+
+type Package {
+  packageId: String
+  trackingId: String
+  dimensions: Dimensions!
+  weight: Weight!
+  insuredValue: Money
+  labelFormat: String
+  labelSpecification: LabelSpecification
+}
+
+type LabelSpecification {
+  labelFormat: String!
+  labelStockSize: String!
+}
+
+type ParcelInput {
+  dimensions: Dimensions!
+  weight: Weight!
+  insuredValue: Money
+  isHazmat: Boolean
+}
+
+type TrackingInfo {
+  trackingId: String!
+  summary: TrackingEventSummary!
+  eventHistory: [TrackingEvent!]!
+  packageDetails: Package
+}
+
+type TrackingEventSummary {
+  status: String!
+  statusCode: String!
+  statusDate: DateTime
+}
+
+type TrackingEvent {
+  eventDate: DateTime!
+  location: Address
+  eventCode: String!
+  eventDescription: String
+}
+
+# ─── Customer Metrics ─────────────────────────────────────────────────────────
+
+type CustomerMetrics {
+  sellerId: String!
+  marketplaceId: String!
+  period: String!
+  startDate: DateTime!
+  endDate: DateTime!
+  orderedProductSales: Money
+  unitsOrdered: Int
+  totalOrderItems: Int
+  averageSellingPrice: Money
+  unitsRefunded: Int
+  refundRate: Decimal
+  claimsGranted: Int
+  claimsAmount: Money
+  shippedProductSales: Money
+  unitsShipped: Int
+  ordersShipped: Int
+  feedbackReceived: Int
+  negativeFeedbackReceived: Int
+  receivedNegativeFeedbackRate: Decimal
+}
+
+# ─── Root types ───────────────────────────────────────────────────────────────
+
+type Query {
+  # Account
+  sellerAccount: SellerAccount
+  marketplaces: [Marketplace!]!
+  marketplace(id: String!): Marketplace
+
+  # Orders
+  orders(
+    marketplaceIds: [String!]!
+    createdAfter: DateTime
+    createdBefore: DateTime
+    lastUpdatedAfter: DateTime
+    lastUpdatedBefore: DateTime
+    orderStatuses: [OrderStatus!]
+    fulfillmentChannels: [FulfillmentChannel!]
+    paymentMethods: [String!]
+    buyerEmail: String
+    sellerOrderId: String
+    maxResultsPerPage: Int
+    easyShipShipmentStatuses: [String!]
+    nextToken: String
+  ): OrderList!
+
+  order(orderId: String!): Order
+  orderItems(orderId: String!): [OrderItem!]!
+
+  # Catalog
+  catalogItem(asin: String!, marketplaceIds: [String!]!, includedData: [String!]): CatalogItem
+  searchCatalogItems(
+    keywords: [String!]
+    marketplaceIds: [String!]!
+    brandNames: [String!]
+    classificationIds: [String!]
+    includedData: [String!]
+    locale: String
+    sellerId: String
+    identifiers: [String!]
+    identifiersType: String
+    pageSize: Int
+    pageToken: String
+  ): CatalogItemList!
+
+  # Listings
+  listingItem(sellerId: String!, sku: String!, marketplaceIds: [String!]!, includedData: [String!]): ListingItem
+  listingItems(sellerId: String!, marketplaceIds: [String!]!, sku: String, pageToken: String): ListingItemList!
+
+  # Pricing
+  itemPricing(asin: String!, marketplaceId: String!, itemType: String!, condition: ConditionType): ItemPricing
+  competitivePricing(asin: String!, marketplaceId: String!): ItemPricing
+
+  # Inventory
+  inventory(sellerSKU: String!, marketplaceId: String!): Inventory
+  fbaInventory(
+    granularityType: String!
+    granularityId: String!
+    marketplaceIds: [String!]!
+    startDateTime: DateTime
+    sellerSkus: [String!]
+    nextToken: String
+    details: Boolean
+  ): FBAInventoryList!
+
+  # Reports
+  report(reportId: String!): Report
+  reports(
+    reportTypes: [String!]
+    processingStatuses: [ReportStatus!]
+    marketplaceIds: [String!]
+    pageSize: Int
+    createdSince: DateTime
+    createdUntil: DateTime
+    nextToken: String
+  ): ReportList!
+  reportDocument(reportDocumentId: String!): ReportDocument
+  reportSchedules(reportTypes: [String!]): [ReportSchedule!]!
+
+  # Feeds
+  feed(feedId: String!): Feed
+  feeds(
+    feedTypes: [String!]
+    marketplaceIds: [String!]
+    pageSize: Int
+    processingStatuses: [FeedStatus!]
+    createdSince: DateTime
+    createdUntil: DateTime
+    nextToken: String
+  ): FeedList!
+  feedDocument(feedDocumentId: String!): FeedDocument
+
+  # Finance
+  financeGroups(
+    maxResultsPerPage: Int
+    financialEventGroupStartedBefore: DateTime
+    financialEventGroupStartedAfter: DateTime
+    nextToken: String
+  ): FinanceList!
+  financialEvents(
+    marketplaceId: String
+    maxResultsPerPage: Int
+    postedAfter: DateTime
+    postedBefore: DateTime
+    nextToken: String
+  ): FinancialEventList!
+
+  # Fulfillment
+  fulfillmentOrder(sellerFulfillmentOrderId: String!): Fulfillment
+  fbaShipment(shipmentId: String!): FBAShipment
+  fbaShipments(shipmentStatusList: [ShipmentStatus!], nextToken: String): FBAShipmentList!
+
+  # Notifications
+  subscriptions(notificationType: NotificationEventType!): [Subscription!]!
+  destinations: [Destination!]!
+
+  # Browse / Category
+  browseNode(browseNodeId: String!, marketplaceId: String!): BrowseNode
+  category(categoryId: String!, marketplaceId: String!): Category
+
+  # Vendor
+  vendorOrders(
+    limit: Int
+    sortOrder: String
+    nextToken: String
+    createdAfter: DateTime
+    createdBefore: DateTime
+    purchaseOrderState: VendorOrderStatus
+  ): VendorOrderList!
+
+  # Deals / Promotions
+  deals(nextToken: String, filter: String): [Deal!]!
+  coupons(nextToken: String): [Coupon!]!
+
+  # Shipping
+  shipment(shipmentId: String!): Shipment
+  tracking(trackingId: String!, carrierId: String): TrackingInfo
+
+  # Metrics
+  customerMetrics(
+    marketplaceId: String!
+    interval: String!
+    metrics: [String!]
+    timePeriodType: String
+    nextToken: String
+  ): CustomerMetrics
+}
+
+type Mutation {
+  # Orders
+  confirmShipment(orderId: String!, packageReferenceId: String!, input: ConfirmShipmentInput!): Boolean
+
+  # Listings
+  putListingItem(sellerId: String!, sku: String!, marketplaceIds: [String!]!, input: JSON!): ListingSubmissionResponse!
+  deleteListingItem(sellerId: String!, sku: String!, marketplaceIds: [String!]!): ListingSubmissionResponse!
+  patchListingItem(sellerId: String!, sku: String!, marketplaceIds: [String!]!, patches: [JSON!]!): ListingSubmissionResponse!
+
+  # Feeds
+  createFeed(feedType: String!, marketplaceIds: [String!]!, feedDocumentId: String!, feedOptions: JSON): Feed!
+  createFeedDocument(contentType: String!): FeedDocument!
+
+  # Reports
+  createReport(reportType: String!, marketplaceIds: [String!]!, dataStartTime: DateTime, dataEndTime: DateTime, reportOptions: JSON): Report!
+  cancelReport(reportId: String!): Boolean
+  createReportSchedule(reportType: String!, marketplaceIds: [String!]!, period: String!, nextReportCreationTime: DateTime, reportOptions: JSON): ReportSchedule!
+  cancelReportSchedule(reportScheduleId: String!): Boolean
+
+  # Fulfillment
+  createFulfillmentOrder(input: CreateFulfillmentOrderInput!): Boolean
+  updateFulfillmentOrder(sellerFulfillmentOrderId: String!, input: UpdateFulfillmentOrderInput!): Boolean
+  cancelFulfillmentOrder(sellerFulfillmentOrderId: String!): Boolean
+  createFBAInboundShipment(input: CreateFBAShipmentInput!): FBAShipment!
+  updateFBAInboundShipment(shipmentId: String!, input: UpdateFBAShipmentInput!): FBAShipment!
+
+  # Notifications
+  createSubscription(notificationType: NotificationEventType!, payloadVersion: String!, destinationId: String!): Subscription!
+  deleteSubscription(subscriptionId: String!, notificationType: NotificationEventType!): Boolean
+  createDestination(name: String!, resourceSpecification: JSON!): Destination!
+  deleteDestination(destinationId: String!): Boolean
+
+  # Vendor
+  submitAcknowledgement(purchaseOrderNumber: String!, acknowledgementCode: String!, acknowledgementDate: DateTime!): Boolean
+  submitShipmentConfirmation(input: VendorShipmentInput!): Boolean
+
+  # Pricing
+  submitPriceUpdate(sku: String!, marketplaceId: String!, price: Money!, salePrice: Money, salePriceStartDate: DateTime, salePriceEndDate: DateTime): Boolean
+
+  # Messaging
+  sendInvoice(amazonOrderId: String!, marketplaceId: String!): Boolean
+  sendDigitalAccessKey(amazonOrderId: String!, marketplaceId: String!): Boolean
+  requestReview(amazonOrderId: String!, marketplaceId: String!): Boolean
+
+  # Shipping
+  createShipment(input: CreateShipmentInput!): Shipment!
+  cancelShipment(shipmentId: String!): Boolean
+}
+
+# ─── Input types ─────────────────────────────────────────────────────────────
+
+input ConfirmShipmentInput {
+  codeConfirmationDate: DateTime!
+  deliveryWindow: DateRange
+  packageDetail: PackageDetailInput!
+}
+
+input PackageDetailInput {
+  packageReferenceId: String!
+  carrierCode: String!
+  carrierName: String
+  shippingMethod: String
+  trackingNumber: String!
+  shipDate: DateTime!
+  shipFromSupplySourceId: String
+  orderItems: [ConfirmShipmentOrderItemInput!]!
+}
+
+input ConfirmShipmentOrderItemInput {
+  orderItemId: String!
+  quantity: Int!
+  transparencyCodes: [String!]
+}
+
+input CreateFulfillmentOrderInput {
+  marketplaceId: String!
+  sellerFulfillmentOrderId: String!
+  displayableOrderId: String!
+  displayableOrderDate: DateTime!
+  displayableOrderComment: String!
+  shippingSpeedCategory: String!
+  destinationAddress: AddressInput!
+  fulfillmentAction: String
+  fulfillmentPolicy: String
+  codSettings: CodSettingsInput
+  shipFromCountryCode: String
+  notificationEmails: [String!]
+  featureConstraints: [FeatureSettingsInput!]
+  items: [CreateFulfillmentItemInput!]!
+}
+
+input UpdateFulfillmentOrderInput {
+  marketplaceId: String
+  displayableOrderId: String
+  displayableOrderDate: DateTime
+  displayableOrderComment: String
+  shippingSpeedCategory: String
+  destinationAddress: AddressInput
+  fulfillmentAction: String
+  fulfillmentPolicy: String
+  codSettings: CodSettingsInput
+  shipFromCountryCode: String
+  notificationEmails: [String!]
+  featureConstraints: [FeatureSettingsInput!]
+  items: [UpdateFulfillmentItemInput!]
+}
+
+input CreateFulfillmentItemInput {
+  sellerSKU: String!
+  sellerFulfillmentOrderItemId: String!
+  quantity: Int!
+  giftMessage: String
+  displayableComment: String
+  fulfillmentNetworkSKU: String
+  perUnitDeclaredValue: MoneyInput
+  perUnitPrice: MoneyInput
+  perUnitTax: MoneyInput
+}
+
+input UpdateFulfillmentItemInput {
+  sellerSKU: String
+  sellerFulfillmentOrderItemId: String!
+  quantity: Int
+  giftMessage: String
+  displayableComment: String
+  fulfillmentNetworkSKU: String
+  orderItemDisposition: String
+  perUnitDeclaredValue: MoneyInput
+  perUnitPrice: MoneyInput
+  perUnitTax: MoneyInput
+}
+
+input CodSettingsInput {
+  isCodRequired: Boolean!
+  codCharge: MoneyInput
+  codChargeTax: MoneyInput
+  shippingCharge: MoneyInput
+  shippingChargeTax: MoneyInput
+}
+
+input FeatureSettingsInput {
+  featureName: String!
+  featureFulfillmentPolicy: String!
+}
+
+input CreateFBAShipmentInput {
+  shipmentName: String!
+  shipFromAddress: AddressInput!
+  destinationFulfillmentCenterId: String!
+  labelPrepPreference: String!
+  items: [InboundShipmentItemInput!]!
+}
+
+input UpdateFBAShipmentInput {
+  shipmentName: String
+  shipFromAddress: AddressInput
+  shipmentStatus: ShipmentStatus
+  items: [InboundShipmentItemInput!]
+}
+
+input InboundShipmentItemInput {
+  sellerSKU: String!
+  asin: String
+  condition: ConditionType!
+  quantityShipped: Int!
+  quantityInCase: Int
+  prepDetailsList: [PrepDetailsInput!]
+  releaseDate: DateTime
+}
+
+input PrepDetailsInput {
+  prepInstruction: String!
+  prepOwner: String!
+}
+
+input VendorShipmentInput {
+  sellingParty: PartyInput!
+  shipFromParty: PartyInput!
+  shipToParty: PartyInput!
+  shipmentDetails: VendorShipmentDetailsInput!
+  items: [VendorShipmentItemInput!]!
+}
+
+input PartyInput {
+  partyId: String!
+  address: AddressInput
+}
+
+input VendorShipmentDetailsInput {
+  isPriorityShipment: Boolean
+  vendorOrderNumber: String
+  shipmentConfirmationDate: DateTime!
+  warehouseId: String
+  estimatedDeliveryDate: DateTime
+  sellerWarehouseCode: String
+}
+
+input VendorShipmentItemInput {
+  itemSequenceNumber: String!
+  amazonProductIdentifier: String
+  vendorProductIdentifier: String
+  shippedQuantity: VendorQuantityInput!
+  purchaseOrderNumber: String
+}
+
+input VendorQuantityInput {
+  amount: Int!
+  unitOfMeasure: String!
+  unitSize: Int
+}
+
+input CreateShipmentInput {
+  clientReferenceId: String
+  shipTo: AddressInput!
+  shipFrom: AddressInput!
+  returnTo: AddressInput
+  shipDate: DateTime
+  packages: [PackageInput!]!
+}
+
+input PackageInput {
+  dimensions: DimensionsInput!
+  weight: WeightInput!
+  insuredValue: MoneyInput
+  labelFormat: String
+  labelSpecification: LabelSpecificationInput
+}
+
+input DimensionsInput {
+  length: Decimal!
+  width: Decimal!
+  height: Decimal!
+  unit: String!
+}
+
+input WeightInput {
+  value: Decimal!
+  unit: String!
+}
+
+input MoneyInput {
+  amount: Decimal!
+  currencyCode: CurrencyCode!
+}
+
+input AddressInput {
+  name: String!
+  addressLine1: String!
+  addressLine2: String
+  addressLine3: String
+  city: String!
+  county: String
+  district: String
+  stateOrRegion: String
+  postalCode: String
+  countryCode: String!
+  phone: String
+}
+
+input LabelSpecificationInput {
+  labelFormat: String!
+  labelStockSize: String!
+}
+
+# ─── List wrapper types (pagination) ─────────────────────────────────────────
+
+type OrderList {
+  orders: [Order!]!
+  nextToken: String
+  createdBefore: DateTime
+  lastUpdatedBefore: DateTime
+}
+
+type CatalogItemList {
+  numberOfResults: Int!
+  pagination: Pagination
+  items: [CatalogItem!]!
+}
+
+type ListingItemList {
+  numberOfResults: Int!
+  pagination: Pagination
+  items: [ListingItem!]!
+}
+
+type ListingSubmissionResponse {
+  sku: String!
+  status: String!
+  submissionId: String!
+  issues: [ListingIssue!]
+}
+
+type FBAInventoryList {
+  granularity: Granularity!
+  inventories: [FBAInventory!]!
+  nextToken: String
+}
+
+type Granularity {
+  granularityType: String!
+  granularityId: String!
+}
+
+type ReportList {
+  reports: [Report!]!
+  nextToken: String
+}
+
+type FeedList {
+  feeds: [Feed!]!
+  nextToken: String
+}
+
+type FinanceList {
+  financialEventGroups: [Finance!]!
+  nextToken: String
+}
+
+type FinancialEventList {
+  financialEvents: FinancialEvents!
+  nextToken: String
+}
+
+type FinancialEvents {
+  shipmentEventList: [FinancialEvent!]
+  shipmentSettleEventList: [FinancialEvent!]
+  refundEventList: [FinancialEvent!]
+  guaranteeClaimEventList: [FinancialEvent!]
+  chargebackEventList: [FinancialEvent!]
+  payWithAmazonEventList: [FinancialEvent!]
+  serviceFeeEventList: [ServiceFee!]
+  sellerDealPaymentEventList: [FinancialEvent!]
+  debtRecoveryEventList: [FinancialEvent!]
+  loanServicingEventList: [FinancialEvent!]
+  adjustmentEventList: [FinancialEvent!]
+  couponPaymentEventList: [FinancialEvent!]
+}
+
+type FBAShipmentList {
+  shipmentData: [FBAShipment!]!
+  nextToken: String
+}
+
+type VendorOrderList {
+  orders: [VendorOrder!]!
+  pagination: Pagination
+}
+
+type Pagination {
+  nextToken: String
+  previousToken: String
+}
