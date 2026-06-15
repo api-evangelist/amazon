@@ -1,0 +1,389 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Advertising Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/profiles"
+          },
+          "docs": "Returns a list of advertising profiles associated with the account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Campaigns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of Sponsored Products campaigns for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more Sponsored Products campaigns."
+        },
+        {
+          "info": {
+            "name": "Amazon Update Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates one or more Sponsored Products campaigns."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Campaign Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns/:campaignId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a Sponsored Products campaign by campaign ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Archive Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns/:campaignId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sets the campaign status to archived."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ad Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Ad Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/adGroups",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignIdFilter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of ad groups for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Ad Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/adGroups",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more ad groups."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Keywords",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/keywords",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignIdFilter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "adGroupIdFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of keywords for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/keywords",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more keywords."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Targets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Product Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/targets",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns a list of product targets for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Product Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/targets",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more product targets."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Request a Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/:recordType/report",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "recordType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requests the creation of a performance report for the specified record type."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/reports/:reportId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the status and download location of a previously requested report."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

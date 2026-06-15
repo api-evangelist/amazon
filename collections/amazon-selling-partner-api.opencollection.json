@@ -1,0 +1,479 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Selling Partner API",
+    "version": "2026-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Search Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/orders/2026-01-01/orders",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "OrderStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxResultsPerPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns orders created or updated during the time frame indicated by the specified parameters. Supports filtering by marketplace, order status, fulfillment channel, and date ranges."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Order Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/orders/2026-01-01/orders/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the order indicated by the specified order ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Order Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/orders/2026-01-01/orders/:orderId/orderItems",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns detailed order item information for the order indicated by the specified order ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Search Catalog Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/catalog/2022-04-01/items",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "identifiers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for and return a list of Amazon catalog items and associated information either by identifiers or by keywords."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Catalog Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/catalog/2022-04-01/items/:asin",
+            "params": [
+              {
+                "name": "asin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves details for an item in the Amazon catalog by ASIN."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns details about a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Create or Replace Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://sellingpartnerapi-na.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Partially Update Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://sellingpartnerapi-na.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Delete Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://sellingpartnerapi-na.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a listing item for a selling partner."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Inventory Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/fba/inventory/v1/summaries",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularityType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularityId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sellerSkus",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/reports/2021-06-30/reports",
+            "params": [
+              {
+                "name": "reportTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "processingStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns report details for the reports that match the filters specified."
+        },
+        {
+          "info": {
+            "name": "Amazon Create a Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sellingpartnerapi-na.amazon.com/reports/2021-06-30/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/reports/2021-06-30/reports/:reportId",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns report details for the report indicated by the specified report ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/reports/2021-06-30/documents/:reportDocumentId",
+            "params": [
+              {
+                "name": "reportDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the information required for retrieving a report document's contents."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Finances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Financial Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sellingpartnerapi-na.amazon.com/finances/2024-06-19/transactions",
+            "params": [
+              {
+                "name": "postedAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "postedBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns financial transaction data for the selling partner account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

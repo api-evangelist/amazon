@@ -1,0 +1,3850 @@
+{
+  "item": [
+    {
+      "id": "f18ec5d3-f662-4df2-aa3c-c73f7e6f5909",
+      "name": "Catalog",
+      "description": {
+        "content": "Search and retrieve catalog item information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55a5da02-c33c-450d-976b-f208bb05bf92",
+          "name": "Amazon Search Catalog Items",
+          "request": {
+            "name": "Amazon Search Catalog Items",
+            "description": {
+              "content": "Search for and return a list of Amazon catalog items and associated information either by identifiers or by keywords.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "2022-04-01",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifiers",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifiers",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65f4b935-7c73-428b-80b3-6a31eb18c4bc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"numberOfResults\": 5685,\n  \"pagination\": {\n    \"nextToken\": \"string\",\n    \"previousToken\": \"string\"\n  },\n  \"items\": [\n    {\n      \"asin\": \"string\",\n      \"attributes\": {}\n    },\n    {\n      \"asin\": \"string\",\n      \"attributes\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eb07a54-c38a-4eda-aee9-90fd15a920de",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe08baa5-9914-434e-bba9-cd0f6e4f8662",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifiers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "824f0461-905f-4a03-8185-33295a0bde11",
+          "name": "Amazon Get Catalog Item",
+          "request": {
+            "name": "Amazon Get Catalog Item",
+            "description": {
+              "content": "Retrieves details for an item in the Amazon catalog by ASIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "2022-04-01",
+                "items",
+                ":asin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68d31ebb-0767-4afe-8b62-0c42b9a08836",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items",
+                    ":asin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asin\": \"string\",\n  \"attributes\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "046eadd8-1238-4f1b-a863-0bfc094d70b1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items",
+                    ":asin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41f6603e-0841-4a3a-9418-10259efec4d0",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "2022-04-01",
+                    "items",
+                    ":asin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cbb70502-2cc9-435c-8d78-02e2b1364b5d",
+      "name": "Finances",
+      "description": {
+        "content": "Retrieve financial transaction data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5451e83d-9668-4e14-bfcd-1e642cca46c6",
+          "name": "Amazon List Financial Transactions",
+          "request": {
+            "name": "Amazon List Financial Transactions",
+            "description": {
+              "content": "Returns financial transaction data for the selling partner account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "finances",
+                "2024-06-19",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postedAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "postedBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d583a6f7-fe7f-4e15-abb5-c00fb118a3cc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"transactionType\": \"string\",\n      \"transactionId\": \"string\",\n      \"transactionStatus\": \"string\",\n      \"postedDate\": \"1985-11-28T09:48:47.437Z\",\n      \"totalAmount\": {\n        \"CurrencyCode\": \"string\",\n        \"Amount\": \"string\"\n      }\n    },\n    {\n      \"transactionType\": \"string\",\n      \"transactionId\": \"string\",\n      \"transactionStatus\": \"string\",\n      \"postedDate\": \"2026-04-21T06:48:37.974Z\",\n      \"totalAmount\": {\n        \"CurrencyCode\": \"string\",\n        \"Amount\": \"string\"\n      }\n    }\n  ],\n  \"nextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "094597cf-130b-484f-a08d-f64c355eb55e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9dc1929-5052-464e-b8fa-a2109a883fe5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5bf98267-dadf-4cd8-8f45-47393ad179c3",
+      "name": "Inventory",
+      "description": {
+        "content": "Manage FBA inventory",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1dac832a-5952-4e4b-8df4-10374e0e6c7a",
+          "name": "Amazon Get Inventory Summaries",
+          "request": {
+            "name": "Amazon Get Inventory Summaries",
+            "description": {
+              "content": "Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fba",
+                "inventory",
+                "v1",
+                "summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "granularityType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "granularityId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerSkus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerSkus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b5c5e11-b48d-418c-bd91-8ece8763d5e1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"nextToken\": \"string\",\n    \"previousToken\": \"string\"\n  },\n  \"inventorySummaries\": [\n    {\n      \"asin\": \"string\",\n      \"fnSku\": \"string\",\n      \"sellerSku\": \"string\",\n      \"condition\": \"string\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": 8460,\n        \"inboundWorkingQuantity\": 6563,\n        \"inboundShippedQuantity\": 7072,\n        \"inboundReceivingQuantity\": 5313,\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    },\n    {\n      \"asin\": \"string\",\n      \"fnSku\": \"string\",\n      \"sellerSku\": \"string\",\n      \"condition\": \"string\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": 2670,\n        \"inboundWorkingQuantity\": 217,\n        \"inboundShippedQuantity\": 5328,\n        \"inboundReceivingQuantity\": 2781,\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c4aae7a-0fc7-4e70-bca5-9017b9c76f83",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6707f696-a2ff-4afe-8ea7-2f76fa8f251e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "37f7dfb4-b653-4659-adf7-e7b5a1fd8982",
+      "name": "Listings",
+      "description": {
+        "content": "Create, update, and manage product listings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5406846-7588-4902-a231-99d40ebafb49",
+          "name": "Amazon Get Listing Item",
+          "request": {
+            "name": "Amazon Get Listing Item",
+            "description": {
+              "content": "Returns details about a listing item for a selling partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "2021-08-01",
+                "items",
+                ":sellerId",
+                ":sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sellerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4399e60-d015-44e7-b983-f808f34507f3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sku\": \"string\",\n  \"attributes\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "777a4247-ed47-4df0-86d6-a3c55396e272",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9293dc97-753b-4bbb-bc5d-a4a5b77c7a0e",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e07b603a-9153-46fd-b28f-56bca8beca04",
+          "name": "Amazon Create or Replace Listing Item",
+          "request": {
+            "name": "Amazon Create or Replace Listing Item",
+            "description": {
+              "content": "Creates or replaces a listing item for a selling partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "2021-08-01",
+                "items",
+                ":sellerId",
+                ":sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sellerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7aaf8311-1f28-4552-a20e-aa1fa15a4059",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sku\": \"string\",\n  \"status\": \"ACCEPTED\",\n  \"submissionId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3953568d-2f61-4e53-a1cf-529ce380c2be",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0215e5bc-73ba-4914-8799-9d261455b321",
+          "name": "Amazon Partially Update Listing Item",
+          "request": {
+            "name": "Amazon Partially Update Listing Item",
+            "description": {
+              "content": "Partially updates a listing item for a selling partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "2021-08-01",
+                "items",
+                ":sellerId",
+                ":sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sellerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "080c7e30-2a03-4add-8ce0-56372f4703a6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sku\": \"string\",\n  \"status\": \"ACCEPTED\",\n  \"submissionId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f6ad9f2-67c4-43a9-ae7a-9596d648142b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5993fa02-520a-460b-a3e3-90864c2029d5",
+          "name": "Amazon Delete Listing Item",
+          "request": {
+            "name": "Amazon Delete Listing Item",
+            "description": {
+              "content": "Deletes a listing item for a selling partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "listings",
+                "2021-08-01",
+                "items",
+                ":sellerId",
+                ":sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sellerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bd6f1a0-3410-411a-bbbd-0ca0d5c3da02",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sku\": \"string\",\n  \"status\": \"ACCEPTED\",\n  \"submissionId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dceef4f1-975e-416a-b903-1b460818059e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "listings",
+                    "2021-08-01",
+                    "items",
+                    ":sellerId",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sellerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d6bd2507-fcdb-40d9-8312-270c717f1037",
+      "name": "Orders",
+      "description": {
+        "content": "Manage and retrieve order information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75e32ef7-cdc1-4d31-8f16-066936152fd3",
+          "name": "Amazon Search Orders",
+          "request": {
+            "name": "Amazon Search Orders",
+            "description": {
+              "content": "Returns orders created or updated during the time frame indicated by the specified parameters. Supports filtering by marketplace, order status, fulfillment channel, and date ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "2026-01-01",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "CreatedAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "CreatedBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "OrderStatuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "OrderStatuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResultsPerPage",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53a8baa3-f98b-41b3-96ce-2db861d32ccf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "CreatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "CreatedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResultsPerPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payload\": {\n    \"Orders\": [\n      {\n        \"AmazonOrderId\": \"string\",\n        \"PurchaseDate\": \"1956-08-25T06:12:49.254Z\",\n        \"LastUpdateDate\": \"1978-12-17T11:17:35.551Z\",\n        \"OrderStatus\": \"Shipped\",\n        \"FulfillmentChannel\": \"AFN\",\n        \"OrderTotal\": {\n          \"CurrencyCode\": \"string\",\n          \"Amount\": \"string\"\n        },\n        \"NumberOfItemsShipped\": 3373,\n        \"NumberOfItemsUnshipped\": 7677,\n        \"ShipServiceLevel\": \"string\",\n        \"MarketplaceId\": \"string\"\n      },\n      {\n        \"AmazonOrderId\": \"string\",\n        \"PurchaseDate\": \"1965-03-24T07:55:31.454Z\",\n        \"LastUpdateDate\": \"2009-07-02T15:50:46.925Z\",\n        \"OrderStatus\": \"Canceled\",\n        \"FulfillmentChannel\": \"AFN\",\n        \"OrderTotal\": {\n          \"CurrencyCode\": \"string\",\n          \"Amount\": \"string\"\n        },\n        \"NumberOfItemsShipped\": 3516,\n        \"NumberOfItemsUnshipped\": 6353,\n        \"ShipServiceLevel\": \"string\",\n        \"MarketplaceId\": \"string\"\n      }\n    ],\n    \"NextToken\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e014c94-cc8c-4002-86f5-399b18f7f93e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "CreatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "CreatedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResultsPerPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"details\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"details\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36be7844-5f31-4206-a5ea-e1a97f1ea138",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "CreatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "CreatedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResultsPerPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62a2b216-dd66-436b-b39f-ab9725589d02",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "CreatedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "CreatedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OrderStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResultsPerPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7facd8ff-572c-4ee6-9f51-8bf712e18845",
+          "name": "Amazon Get Order Details",
+          "request": {
+            "name": "Amazon Get Order Details",
+            "description": {
+              "content": "Returns the order indicated by the specified order ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "2026-01-01",
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "141fb4a9-8f26-4c30-bbc5-6e2498244fb1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"AmazonOrderId\": \"string\",\n  \"PurchaseDate\": \"1969-12-09T22:34:27.906Z\",\n  \"LastUpdateDate\": \"2025-06-08T12:08:58.198Z\",\n  \"OrderStatus\": \"Pending\",\n  \"FulfillmentChannel\": \"MFN\",\n  \"OrderTotal\": {\n    \"CurrencyCode\": \"string\",\n    \"Amount\": \"string\"\n  },\n  \"NumberOfItemsShipped\": 3726,\n  \"NumberOfItemsUnshipped\": 388,\n  \"ShipServiceLevel\": \"string\",\n  \"MarketplaceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91e13bed-06eb-4886-87ce-2dc4589bf776",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21a16633-83f1-4ab9-a9b8-5168119bff64",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a55cc901-51bc-4514-a03b-14830853c5d4",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aff5ddc-2b4e-4f35-b97e-1d49ec428efc",
+          "name": "Amazon Get Order Items",
+          "request": {
+            "name": "Amazon Get Order Items",
+            "description": {
+              "content": "Returns detailed order item information for the order indicated by the specified order ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "2026-01-01",
+                "orders",
+                ":orderId",
+                "orderItems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c404eea-4660-41c7-9a61-c17b06d48855",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId",
+                    "orderItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payload\": {\n    \"OrderItems\": [\n      {\n        \"ASIN\": \"string\",\n        \"OrderItemId\": \"string\",\n        \"SellerSKU\": \"string\",\n        \"Title\": \"string\",\n        \"QuantityOrdered\": 2464,\n        \"QuantityShipped\": 528,\n        \"ItemPrice\": {\n          \"CurrencyCode\": \"string\",\n          \"Amount\": \"string\"\n        }\n      },\n      {\n        \"ASIN\": \"string\",\n        \"OrderItemId\": \"string\",\n        \"SellerSKU\": \"string\",\n        \"Title\": \"string\",\n        \"QuantityOrdered\": 4110,\n        \"QuantityShipped\": 7942,\n        \"ItemPrice\": {\n          \"CurrencyCode\": \"string\",\n          \"Amount\": \"string\"\n        }\n      }\n    ],\n    \"NextToken\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d1e871e-1b1a-4c73-9c07-3934bee43e43",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId",
+                    "orderItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fddb6aad-a01d-424d-b4c0-588cc43966e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "2026-01-01",
+                    "orders",
+                    ":orderId",
+                    "orderItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "016895ad-c367-42c9-ba67-aab8664a8c96",
+      "name": "Reports",
+      "description": {
+        "content": "Request and retrieve reports",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c31ae0ba-90c1-450a-b725-4298ce7dde8e",
+          "name": "Amazon List Reports",
+          "request": {
+            "name": "Amazon List Reports",
+            "description": {
+              "content": "Returns report details for the reports that match the filters specified.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "2021-06-30",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "reportTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportTypes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "processingStatuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "processingStatuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac7c5b2b-af96-486d-b790-3e996ec643d8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reports\": [\n    {\n      \"reportId\": \"string\",\n      \"reportType\": \"string\",\n      \"processingStatus\": \"IN_PROGRESS\",\n      \"reportDocumentId\": \"string\",\n      \"createdTime\": \"1991-06-17T05:42:07.515Z\"\n    },\n    {\n      \"reportId\": \"string\",\n      \"reportType\": \"string\",\n      \"processingStatus\": \"CANCELLED\",\n      \"reportDocumentId\": \"string\",\n      \"createdTime\": \"1958-10-05T00:47:55.604Z\"\n    }\n  ],\n  \"nextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79643f85-1061-4cde-97c2-3adb3c587396",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba9b3b8d-5b3f-40fc-be2f-923f29c08636",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "processingStatuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "effb1f4f-8a08-43a3-8619-9284ab12b7f4",
+          "name": "Amazon Create a Report",
+          "request": {
+            "name": "Amazon Create a Report",
+            "description": {
+              "content": "Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "2021-06-30",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6d58a126-c28f-4edf-bc3d-ef3035ca492d",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b736a2ed-217c-4d6d-823f-a3dbce447d51",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6c9cdea-92ef-45da-b5f0-2d241595e6b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcd8790c-5bfa-46fb-9acd-d80db1b96a29",
+          "name": "Amazon Get Report",
+          "request": {
+            "name": "Amazon Get Report",
+            "description": {
+              "content": "Returns report details for the report indicated by the specified report ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "2021-06-30",
+                "reports",
+                ":reportId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bbdc22e-ca06-4649-becd-7242d68b5958",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports",
+                    ":reportId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\",\n  \"reportType\": \"string\",\n  \"processingStatus\": \"FATAL\",\n  \"reportDocumentId\": \"string\",\n  \"createdTime\": \"1980-12-30T07:33:56.970Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fbb5771-067d-4797-ae4e-771fff7a06fc",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports",
+                    ":reportId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "899b8f1f-8829-4c0f-ab86-92a7ff56a990",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "reports",
+                    ":reportId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "962b37b4-76c8-49a5-b936-045f781a6547",
+          "name": "Amazon Get Report Document",
+          "request": {
+            "name": "Amazon Get Report Document",
+            "description": {
+              "content": "Returns the information required for retrieving a report document's contents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "2021-06-30",
+                "documents",
+                ":reportDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportDocumentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15a3dd92-ef36-4af9-a925-fb9e09877fdc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "documents",
+                    ":reportDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportDocumentId\": \"string\",\n  \"url\": \"http://ODHbEpIsVPOOpUmJHXtanCznVQWoF.kndnCbyRfRewNfAXs786bd,wJUx0mugM0zPxGN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93c4b8b0-d09c-4af9-abf5-f8ed019e4dc1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "documents",
+                    ":reportDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1972fb3-27a1-48f0-9f04-1f2cbe51fcde",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "2021-06-30",
+                    "documents",
+                    ":reportDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sellingpartnerapi-na.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "17f164c4-8ac8-4510-9a55-e2fba96c2c48",
+    "name": "Amazon Selling Partner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Selling Partner API (SP-API) is a RESTful API that enables Amazon sellers and vendors to programmatically manage their marketplace operations including listings, orders, payments, reports, and fulfillment. It replaces the deprecated Amazon Marketplace Web Service (MWS) and provides access to region-specific endpoints for North America, Europe, and Far East marketplaces.\n\nContact Support:\n Name: Amazon Seller Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2428 @@
+{
+  "item": [
+    {
+      "id": "b4be39d6-fd8e-40bb-a9e3-68fc587abc58",
+      "name": "Ad Groups",
+      "description": {
+        "content": "Ad group management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "007eb14f-edcd-4690-8902-6c381138888c",
+          "name": "Amazon List Ad Groups",
+          "request": {
+            "name": "Amazon List Ad Groups",
+            "description": {
+              "content": "Returns a list of ad groups for the specified advertiser profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "adGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignIdFilter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stateFilter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f39368e-4dec-4fb9-bdda-905f1c05d5c0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "adGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignIdFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"adGroupId\": \"string\",\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 9257.210967744697\n  },\n  {\n    \"adGroupId\": \"string\",\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 5079.0448935218465\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15927d21-ec1d-4f9e-96f5-874b574414bb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "adGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignIdFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa73dd81-a890-4edb-88d5-0b95a825b804",
+          "name": "Amazon Create Ad Groups",
+          "request": {
+            "name": "Amazon Create Ad Groups",
+            "description": {
+              "content": "Creates one or more ad groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "adGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"campaignId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"defaultBid\": \"<number>\"\n  },\n  {\n    \"campaignId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"defaultBid\": \"<number>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b6af888-71ec-4600-ab83-01f3cc161936",
+              "name": "Multi-status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "adGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 3829.9855637511614\n  },\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 7062.253893919114\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"adGroupId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"adGroupId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5e7ce37-13bd-47dd-98ac-472573360db8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "adGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 3829.9855637511614\n  },\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"defaultBid\": 7062.253893919114\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "780b41b0-37a7-4ada-82bb-aadd91deed36",
+      "name": "Campaigns",
+      "description": {
+        "content": "Campaign management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe469e95-9014-47b9-a9e9-d184b626f942",
+          "name": "Amazon List Sponsored Products Campaigns",
+          "request": {
+            "name": "Amazon List Sponsored Products Campaigns",
+            "description": {
+              "content": "Returns a list of Sponsored Products campaigns for the specified advertiser profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stateFilter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3faf4bb0-6a22-464c-bd61-f0f358514f20",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stateFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"archived\",\n    \"dailyBudget\": 5011.940375618445,\n    \"startDate\": \"string\",\n    \"endDate\": \"string\",\n    \"targetingType\": \"auto\",\n    \"premiumBidAdjustment\": false\n  },\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"enabled\",\n    \"dailyBudget\": 2061.4104411411126,\n    \"startDate\": \"string\",\n    \"endDate\": \"string\",\n    \"targetingType\": \"manual\",\n    \"premiumBidAdjustment\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b517ec8-31af-41d2-aaee-9483d5e30dc7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "stateFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cc3896c-bb3f-4327-8312-210a6b4bc281",
+          "name": "Amazon Create Sponsored Products Campaigns",
+          "request": {
+            "name": "Amazon Create Sponsored Products Campaigns",
+            "description": {
+              "content": "Creates one or more Sponsored Products campaigns.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"dailyBudget\": \"<number>\",\n    \"startDate\": \"<string>\",\n    \"targetingType\": \"<string>\",\n    \"endDate\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"dailyBudget\": \"<number>\",\n    \"startDate\": \"<string>\",\n    \"targetingType\": \"<string>\",\n    \"endDate\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45831fd5-4355-4ac0-8331-5edd019b48bb",
+              "name": "Multi-status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"string\",\n    \"state\": \"paused\",\n    \"dailyBudget\": 1182.9746970120968,\n    \"startDate\": \"string\",\n    \"targetingType\": \"auto\",\n    \"endDate\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"state\": \"enabled\",\n    \"dailyBudget\": 9550.342230635508,\n    \"startDate\": \"string\",\n    \"targetingType\": \"auto\",\n    \"endDate\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"campaignId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"campaignId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "578993d5-046d-4f9d-b179-65ee9110f059",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"string\",\n    \"state\": \"paused\",\n    \"dailyBudget\": 1182.9746970120968,\n    \"startDate\": \"string\",\n    \"targetingType\": \"auto\",\n    \"endDate\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"state\": \"enabled\",\n    \"dailyBudget\": 9550.342230635508,\n    \"startDate\": \"string\",\n    \"targetingType\": \"auto\",\n    \"endDate\": \"string\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6715be0-b260-4b20-9beb-e6aa0f8c1708",
+          "name": "Amazon Update Sponsored Products Campaigns",
+          "request": {
+            "name": "Amazon Update Sponsored Products Campaigns",
+            "description": {
+              "content": "Updates one or more Sponsored Products campaigns.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"campaignId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"dailyBudget\": \"<number>\"\n  },\n  {\n    \"campaignId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"dailyBudget\": \"<number>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c00f1d6d-641a-4837-bc31-75ba28dffcf8",
+              "name": "Multi-status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"dailyBudget\": 5431.664593406762\n  },\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"dailyBudget\": 2611.6548824838037\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"campaignId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"campaignId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7fbc179-d322-4322-9b70-b26867c5fd44",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"dailyBudget\": 5431.664593406762\n  },\n  {\n    \"campaignId\": \"string\",\n    \"name\": \"string\",\n    \"state\": \"string\",\n    \"dailyBudget\": 2611.6548824838037\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06a5821e-ac99-4f3f-8d78-0a4363fcb6e9",
+          "name": "Amazon Get Campaign Details",
+          "request": {
+            "name": "Amazon Get Campaign Details",
+            "description": {
+              "content": "Returns a Sponsored Products campaign by campaign ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "campaigns",
+                ":campaignId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaignId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc54dbea-2c40-4ede-bca4-68ff1e1a1e8a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns",
+                    ":campaignId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaignId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaignId\": \"string\",\n  \"name\": \"string\",\n  \"state\": \"archived\",\n  \"dailyBudget\": 7625.557917436897,\n  \"startDate\": \"string\",\n  \"endDate\": \"string\",\n  \"targetingType\": \"auto\",\n  \"premiumBidAdjustment\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2823c56-2d01-4591-bb00-63fec808acad",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns",
+                    ":campaignId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaignId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17261c18-f304-4c60-94ad-8936facef141",
+          "name": "Amazon Archive Campaign",
+          "request": {
+            "name": "Amazon Archive Campaign",
+            "description": {
+              "content": "Sets the campaign status to archived.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "campaigns",
+                ":campaignId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaignId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d54baec-61e0-49d0-b4bf-c45c56e6427e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns",
+                    ":campaignId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaignId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaignId\": \"string\",\n  \"code\": \"string\",\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aeec25de-5bec-4ef5-a4ad-e66c01f35fb9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "campaigns",
+                    ":campaignId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaignId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "353179c2-d928-45f8-86f2-2f7d8a378df3",
+      "name": "Keywords",
+      "description": {
+        "content": "Keyword management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8525f6c7-ff63-4583-89f7-ebe9cde2da91",
+          "name": "Amazon List Keywords",
+          "request": {
+            "name": "Amazon List Keywords",
+            "description": {
+              "content": "Returns a list of keywords for the specified advertiser profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "keywords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignIdFilter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "adGroupIdFilter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d48c1e31-fc9a-4fb9-9501-8020f81d6b6a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignIdFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adGroupIdFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"keywordId\": \"string\",\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"phrase\",\n    \"state\": \"string\",\n    \"bid\": 8827.148595503295\n  },\n  {\n    \"keywordId\": \"string\",\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"broad\",\n    \"state\": \"string\",\n    \"bid\": 6326.572399219954\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb479b81-e07e-4b8b-a864-96fe677da295",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignIdFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adGroupIdFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c0abdec-f5df-49d6-895b-eb07294a2920",
+          "name": "Amazon Create Keywords",
+          "request": {
+            "name": "Amazon Create Keywords",
+            "description": {
+              "content": "Creates one or more keywords.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "keywords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"campaignId\": \"<string>\",\n    \"adGroupId\": \"<string>\",\n    \"keywordText\": \"<string>\",\n    \"matchType\": \"<string>\",\n    \"state\": \"<string>\",\n    \"bid\": \"<number>\"\n  },\n  {\n    \"campaignId\": \"<string>\",\n    \"adGroupId\": \"<string>\",\n    \"keywordText\": \"<string>\",\n    \"matchType\": \"<string>\",\n    \"state\": \"<string>\",\n    \"bid\": \"<number>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04f91428-fdad-44ec-89bd-a506f968c718",
+              "name": "Multi-status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"broad\",\n    \"state\": \"string\",\n    \"bid\": 1978.3600469643802\n  },\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"exact\",\n    \"state\": \"string\",\n    \"bid\": 3223.3569090334236\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"keywordId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"keywordId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff98e05e-7370-46de-a017-8613da510569",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"broad\",\n    \"state\": \"string\",\n    \"bid\": 1978.3600469643802\n  },\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"keywordText\": \"string\",\n    \"matchType\": \"exact\",\n    \"state\": \"string\",\n    \"bid\": 3223.3569090334236\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5eae72c5-56c4-438a-b98b-8717a7e0de0a",
+      "name": "Profiles",
+      "description": {
+        "content": "Account profile management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2bc7f10e-89b8-4301-8895-a46fcc8f8bfe",
+          "name": "Amazon List Advertising Profiles",
+          "request": {
+            "name": "Amazon List Advertising Profiles",
+            "description": {
+              "content": "Returns a list of advertising profiles associated with the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d487e628-388f-4faa-b35b-fba599057958",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"profileId\": \"string\",\n    \"countryCode\": \"string\",\n    \"currencyCode\": \"string\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"vendor\"\n    }\n  },\n  {\n    \"profileId\": \"string\",\n    \"countryCode\": \"string\",\n    \"currencyCode\": \"string\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"seller\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34ad8af9-2e81-4cc6-8655-c32636e6a820",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ac52c7c6-103d-41b4-9582-89ebf8553a03",
+      "name": "Reports",
+      "description": {
+        "content": "Reporting and analytics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28030304-1bef-4d0d-bed5-de44c5eea0c6",
+          "name": "Amazon Request a Report",
+          "request": {
+            "name": "Amazon Request a Report",
+            "description": {
+              "content": "Requests the creation of a performance report for the specified record type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                ":recordType",
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6e300e7-86e4-45ae-b4c3-2f5d0bee566f",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    ":recordType",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ace3ee4f-a67e-4cf0-99b2-5d45da54bbea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    ":recordType",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83f3f012-831d-468c-b5f3-c20e1743fbdd",
+          "name": "Amazon Get Report Status",
+          "request": {
+            "name": "Amazon Get Report Status",
+            "description": {
+              "content": "Returns the status and download location of a previously requested report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "reports",
+                ":reportId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ced63efa-7df7-4d89-9f51-4676dcf9d447",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports",
+                    ":reportId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportId\": \"string\",\n  \"status\": \"SUCCESS\",\n  \"location\": \"https://rMMANPBYQ.twnqe5t95.c\",\n  \"fileSize\": 4359\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "220b200a-e6b3-4ede-bf73-4f733196e64d",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "reports",
+                    ":reportId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "12bf2c17-eee8-4784-ba78-2aa11c1ea008",
+      "name": "Targets",
+      "description": {
+        "content": "Product targeting operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f6451b5-b1b8-4524-92b2-8b6e527bcbd9",
+          "name": "Amazon List Product Targets",
+          "request": {
+            "name": "Amazon List Product Targets",
+            "description": {
+              "content": "Returns a list of product targets for the specified advertiser profile.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "targets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1cbc1d2-adef-4cec-8e77-2568a5c70c38",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"targetId\": \"string\",\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"bid\": 1585.4291880666626,\n    \"expressionType\": \"string\"\n  },\n  {\n    \"targetId\": \"string\",\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"bid\": 8739.405391772036,\n    \"expressionType\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3827c90-c095-4422-8e69-32001b3df2a1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be418c01-572a-4d9b-86e2-fe5114b75aba",
+          "name": "Amazon Create Product Targets",
+          "request": {
+            "name": "Amazon Create Product Targets",
+            "description": {
+              "content": "Creates one or more product targets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sp",
+                "targets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The advertising profile ID",
+                "key": "Amazon-Advertising-API-Scope",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"campaignId\": \"<string>\",\n    \"adGroupId\": \"<string>\",\n    \"state\": \"<string>\",\n    \"expression\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"expressionType\": \"<string>\",\n    \"bid\": \"<number>\"\n  },\n  {\n    \"campaignId\": \"<string>\",\n    \"adGroupId\": \"<string>\",\n    \"state\": \"<string>\",\n    \"expression\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"expressionType\": \"<string>\",\n    \"bid\": \"<number>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d21a1ccc-2dfb-4e0c-a2a7-47beef533e62",
+              "name": "Multi-status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"expression\": [],\n    \"expressionType\": \"string\",\n    \"bid\": 7631.419748585102\n  },\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"expression\": [],\n    \"expressionType\": \"string\",\n    \"bid\": 1318.2798428302144\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"targetId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"targetId\": \"string\",\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b5b19dc-9fea-4b4b-9623-edb41d9f8984",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sp",
+                    "targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The advertising profile ID",
+                    "key": "Amazon-Advertising-API-Scope",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"expression\": [],\n    \"expressionType\": \"string\",\n    \"bid\": 7631.419748585102\n  },\n  {\n    \"campaignId\": \"string\",\n    \"adGroupId\": \"string\",\n    \"state\": \"string\",\n    \"expression\": [],\n    \"expressionType\": \"string\",\n    \"bid\": 1318.2798428302144\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://advertising-api.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7121fb8e-bee2-4828-9aa1-f43d06c14fb2",
+    "name": "Amazon Advertising API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+      "type": "text/plain"
+    }
+  }
+}
