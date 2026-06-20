@@ -7,7 +7,7 @@ description: Amazon is a global technology and e-commerce company offering a wid
   Creators API for affiliate publishers. These APIs power Amazon's ecosystem of sellers,
   developers, advertisers, and content creators.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-05-19'
