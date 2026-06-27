@@ -148,7 +148,7 @@ common:
   url: https://github.com/amzn
 - type: Console
   url: https://developer.amazon.com/dashboard
-- type: SignUp
+- type: Signup
   url: https://www.amazon.com/ap/register?openid.assoc_handle=aws
 - type: Login
   url: https://developer.amazon.com/login
@@ -248,7 +248,7 @@ common:
   - name: Fire OS and Android
     description: Amazon Appstore SDK for Fire OS and Android apps with in-app purchasing
       and device targeting capabilities.
-- type: LLMsTxt
+- type: LlmsText
   url: https://developer.amazon.com/llms.txt
 maintainers:
 - FN: Kin Lane
