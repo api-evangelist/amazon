@@ -130,6 +130,12 @@ apis:
     testing, and monetization through in-app purchases on the Amazon Appstore for
     Android and Fire OS applications.
 common:
+- type: VulnerabilityDisclosure
+  url: security/amazon-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/amazon
 - type: Portal

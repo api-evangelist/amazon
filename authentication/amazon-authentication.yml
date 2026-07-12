@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/amazon-advertising-api-openapi.yml, openapi/amazon-pay-api-openapi.yml, openapi/amazon-selling-partner-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: OAuth 2.0 access token from Login with Amazon
+  sources:
+  - openapi/amazon-advertising-api-openapi.yml
+  - openapi/amazon-selling-partner-api-openapi.yml
+- name: amazonPaySignature
+  type: apiKey
+  in: header
+  parameter: authorization
+  description: AMZN-PAY-RSASSA-PSS-V2 signature using merchant private key
+  sources:
+  - openapi/amazon-pay-api-openapi.yml
