@@ -2,13 +2,14 @@
   "repo": "amazon",
   "feeds": [
     {
-      "source": "https://developer.amazon.com/blogs/",
-      "feed_url": "",
+      "source": "https://developer.amazon.com/login",
+      "feed_url": "https://developer.amazon.com/login",
+      "title": "",
       "saved": 0,
-      "method": "agent-scrape"
+      "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:20:57Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 5,
-  "agent_pulled": "2026-06-27"
+  "agent_pulled": "2026-07-04"
 }
