@@ -130,6 +130,8 @@ apis:
     testing, and monetization through in-app purchases on the Amazon Appstore for
     Android and Fire OS applications.
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/amazon-vulnerability-disclosure.yml
 - type: DomainSecurity
