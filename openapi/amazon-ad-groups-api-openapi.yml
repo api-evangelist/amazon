@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Ad Groups
+  description: Ad group management operations
+paths:
+  /v2/sp/adGroups:
+    get:
+      operationId: listAdGroups
+      summary: Amazon List Ad Groups
+      description: Returns a list of ad groups for the specified advertiser profile.
+      tags:
+      - Ad Groups
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignIdFilter
+        in: query
+        schema:
+          type: string
+      - name: stateFilter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdGroup'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAdGroups
+      summary: Amazon Create Ad Groups
+      description: Creates one or more ad groups.
+      tags:
+      - Ad Groups
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateAdGroupRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdGroupResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    CreateAdGroupRequest:
+      type: object
+      required:
+      - campaignId
+      - name
+      - state
+      - defaultBid
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        defaultBid:
+          type: number
+    AdGroup:
+      type: object
+      properties:
+        adGroupId:
+          type: string
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        defaultBid:
+          type: number
+    AdGroupResponse:
+      type: object
+      properties:
+        adGroupId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

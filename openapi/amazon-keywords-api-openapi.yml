@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Keywords API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Keywords
+  description: Keyword management operations
+paths:
+  /v2/sp/keywords:
+    get:
+      operationId: listKeywords
+      summary: Amazon List Keywords
+      description: Returns a list of keywords for the specified advertiser profile.
+      tags:
+      - Keywords
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      - name: campaignIdFilter
+        in: query
+        schema:
+          type: string
+      - name: adGroupIdFilter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Keyword'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createKeywords
+      summary: Amazon Create Keywords
+      description: Creates one or more keywords.
+      tags:
+      - Keywords
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateKeywordRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeywordResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Keyword:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+          - broad
+          - exact
+          - phrase
+        state:
+          type: string
+        bid:
+          type: number
+    CreateKeywordRequest:
+      type: object
+      required:
+      - campaignId
+      - adGroupId
+      - keywordText
+      - matchType
+      - state
+      properties:
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+          - broad
+          - exact
+          - phrase
+        state:
+          type: string
+        bid:
+          type: number
+    KeywordResponse:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

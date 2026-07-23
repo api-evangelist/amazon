@@ -1,0 +1,239 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Charges API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Charges
+  description: Create and manage payment charges
+paths:
+  /charges:
+    post:
+      operationId: createCharge
+      summary: Amazon Create a Charge
+      description: Creates a charge against a charge permission to authorize payment.
+      tags:
+      - Charges
+      parameters:
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChargeRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+  /charges/{chargeId}:
+    get:
+      operationId: getCharge
+      summary: Amazon Get Charge Details
+      description: Returns details about the specified charge.
+      tags:
+      - Charges
+      parameters:
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '404':
+          description: Not found
+  /charges/{chargeId}/capture:
+    post:
+      operationId: captureCharge
+      summary: Amazon Capture a Charge
+      description: Captures a previously authorized charge.
+      tags:
+      - Charges
+      parameters:
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - captureAmount
+              properties:
+                captureAmount:
+                  $ref: '#/components/schemas/Price'
+                softDescriptor:
+                  type: string
+                  maxLength: 16
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+  /charges/{chargeId}/cancel:
+    delete:
+      operationId: cancelCharge
+      summary: Amazon Cancel a Charge
+      description: Cancels a previously authorized charge.
+      tags:
+      - Charges
+      parameters:
+      - name: chargeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cancellationReason:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charge'
+        '400':
+          description: Bad request
+components:
+  schemas:
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
+    CreateChargeRequest:
+      type: object
+      required:
+      - chargePermissionId
+      - chargeAmount
+      properties:
+        chargePermissionId:
+          type: string
+        chargeAmount:
+          $ref: '#/components/schemas/Price'
+        captureNow:
+          type: boolean
+        softDescriptor:
+          type: string
+          maxLength: 16
+        canHandlePendingAuthorization:
+          type: boolean
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    Charge:
+      type: object
+      properties:
+        chargeId:
+          type: string
+        chargePermissionId:
+          type: string
+        chargeAmount:
+          $ref: '#/components/schemas/Price'
+        captureAmount:
+          $ref: '#/components/schemas/Price'
+        refundedAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        creationTimestamp:
+          type: string
+          format: date-time
+        expirationTimestamp:
+          type: string
+          format: date-time
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

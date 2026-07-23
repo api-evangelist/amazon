@@ -1,0 +1,236 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Listings API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Listings
+  description: Create, update, and manage product listings
+paths:
+  /listings/2021-08-01/items/{sellerId}/{sku}:
+    get:
+      operationId: getListingsItem
+      summary: Amazon Get Listing Item
+      description: Returns details about a listing item for a selling partner.
+      tags:
+      - Listings
+      parameters:
+      - name: sellerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItem'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+    put:
+      operationId: putListingsItem
+      summary: Amazon Create or Replace Listing Item
+      description: Creates or replaces a listing item for a selling partner.
+      tags:
+      - Listings
+      parameters:
+      - name: sellerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListingsItemPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+    patch:
+      operationId: patchListingsItem
+      summary: Amazon Partially Update Listing Item
+      description: Partially updates a listing item for a selling partner.
+      tags:
+      - Listings
+      parameters:
+      - name: sellerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListingsItemPatchRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+    delete:
+      operationId: deleteListingsItem
+      summary: Amazon Delete Listing Item
+      description: Deletes a listing item for a selling partner.
+      tags:
+      - Listings
+      parameters:
+      - name: sellerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sku
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListingsItemSubmissionResponse'
+        '400':
+          description: Bad request
+components:
+  schemas:
+    ListingsItemPutRequest:
+      type: object
+      required:
+      - productType
+      - attributes
+      properties:
+        productType:
+          type: string
+        attributes:
+          type: object
+    ListingsItemPatchRequest:
+      type: object
+      required:
+      - productType
+      - patches
+      properties:
+        productType:
+          type: string
+        patches:
+          type: array
+          items:
+            type: object
+            properties:
+              op:
+                type: string
+                enum:
+                - add
+                - replace
+                - delete
+              path:
+                type: string
+              value:
+                type: array
+                items:
+                  type: object
+    ListingsItemSubmissionResponse:
+      type: object
+      properties:
+        sku:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACCEPTED
+          - INVALID
+        submissionId:
+          type: string
+        issues:
+          type: array
+          items:
+            type: object
+    ListingsItem:
+      type: object
+      properties:
+        sku:
+          type: string
+        summaries:
+          type: array
+          items:
+            type: object
+        attributes:
+          type: object
+        issues:
+          type: array
+          items:
+            type: object
+        offers:
+          type: array
+          items:
+            type: object
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

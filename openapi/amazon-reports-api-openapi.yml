@@ -1,0 +1,310 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Reports API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Reports
+  description: Reporting and analytics
+paths:
+  /v2/sp/{recordType}/report:
+    post:
+      operationId: requestReport
+      summary: Amazon Request a Report
+      description: Requests the creation of a performance report for the specified record type.
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      - name: recordType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - campaigns
+          - adGroups
+          - keywords
+          - productAds
+          - asins
+          - targets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportRequest'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportRequestResponse'
+        '401':
+          description: Unauthorized
+  /v2/reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Amazon Get Report Status
+      description: Returns the status and download location of a previously requested report.
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportStatus'
+        '404':
+          description: Not found
+  /reports/2021-06-30/reports:
+    get:
+      operationId: getReports
+      summary: Amazon List Reports
+      description: Returns report details for the reports that match the filters specified.
+      tags:
+      - Reports
+      parameters:
+      - name: reportTypes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: processingStatuses
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - CANCELLED
+            - DONE
+            - FATAL
+            - IN_PROGRESS
+            - IN_QUEUE
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          maximum: 100
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createReport
+      summary: Amazon Create a Report
+      description: Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations.
+      tags:
+      - Reports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReportSpecification'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateReportResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /reports/2021-06-30/reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Amazon Get Report
+      description: Returns report details for the report indicated by the specified report ID.
+      tags:
+      - Reports
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /reports/2021-06-30/documents/{reportDocumentId}:
+    get:
+      operationId: getReportDocument
+      summary: Amazon Get Report Document
+      description: Returns the information required for retrieving a report document's contents.
+      tags:
+      - Reports
+      parameters:
+      - name: reportDocumentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportDocument'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+components:
+  schemas:
+    CreateReportSpecification:
+      type: object
+      required:
+      - reportType
+      - marketplaceIds
+      properties:
+        reportType:
+          type: string
+        dataStartTime:
+          type: string
+          format: date-time
+        dataEndTime:
+          type: string
+          format: date-time
+        marketplaceIds:
+          type: array
+          items:
+            type: string
+    ReportStatus:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
+          enum:
+          - IN_PROGRESS
+          - SUCCESS
+          - FAILURE
+        location:
+          type: string
+          format: uri
+        fileSize:
+          type: integer
+    ReportList:
+      type: object
+      properties:
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+        nextToken:
+          type: string
+    ReportDocument:
+      type: object
+      properties:
+        reportDocumentId:
+          type: string
+        url:
+          type: string
+          format: uri
+    Report:
+      type: object
+      properties:
+        reportId:
+          type: string
+        reportType:
+          type: string
+        processingStatus:
+          type: string
+          enum:
+          - CANCELLED
+          - DONE
+          - FATAL
+          - IN_PROGRESS
+          - IN_QUEUE
+        reportDocumentId:
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+    ReportRequestResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
+    CreateReportResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+    ReportRequest:
+      type: object
+      properties:
+        reportDate:
+          type: string
+        metrics:
+          type: string
+        segment:
+          type: string
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

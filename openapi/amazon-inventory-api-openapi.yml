@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Inventory API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Inventory
+  description: Manage FBA inventory
+paths:
+  /fba/inventory/v1/summaries:
+    get:
+      operationId: getInventorySummaries
+      summary: Amazon Get Inventory Summaries
+      description: Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status.
+      tags:
+      - Inventory
+      parameters:
+      - $ref: '#/components/parameters/MarketplaceIds'
+      - name: granularityType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - Marketplace
+      - name: granularityId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: sellerSkus
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventorySummaries'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  schemas:
+    InventorySummaries:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        inventorySummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              asin:
+                type: string
+              fnSku:
+                type: string
+              sellerSku:
+                type: string
+              condition:
+                type: string
+              inventoryDetails:
+                type: object
+                properties:
+                  fulfillableQuantity:
+                    type: integer
+                  inboundWorkingQuantity:
+                    type: integer
+                  inboundShippedQuantity:
+                    type: integer
+                  inboundReceivingQuantity:
+                    type: integer
+                  reservedQuantity:
+                    type: object
+                  unfulfillableQuantity:
+                    type: object
+    Pagination:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        previousToken:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

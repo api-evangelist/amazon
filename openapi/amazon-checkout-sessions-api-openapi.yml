@@ -1,0 +1,317 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Checkout Sessions API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Checkout Sessions
+  description: Manage buyer checkout sessions
+paths:
+  /checkoutSessions:
+    post:
+      operationId: createCheckoutSession
+      summary: Amazon Create Checkout Session
+      description: Creates a new checkout session for a buyer to authorize payment.
+      tags:
+      - Checkout Sessions
+      parameters:
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCheckoutSessionRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /checkoutSessions/{checkoutSessionId}:
+    get:
+      operationId: getCheckoutSession
+      summary: Amazon Get Checkout Session
+      description: Returns details about the specified checkout session.
+      tags:
+      - Checkout Sessions
+      parameters:
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '404':
+          description: Not found
+    patch:
+      operationId: updateCheckoutSession
+      summary: Amazon Update Checkout Session
+      description: Updates the specified checkout session with new information.
+      tags:
+      - Checkout Sessions
+      parameters:
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCheckoutSessionRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+  /checkoutSessions/{checkoutSessionId}/complete:
+    post:
+      operationId: completeCheckoutSession
+      summary: Amazon Complete Checkout Session
+      description: Completes the checkout session and processes the payment.
+      tags:
+      - Checkout Sessions
+      parameters:
+      - name: checkoutSessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PayDate'
+      - $ref: '#/components/parameters/PayRegion'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - chargeAmount
+              properties:
+                chargeAmount:
+                  $ref: '#/components/schemas/Price'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSession'
+        '400':
+          description: Bad request
+components:
+  schemas:
+    UpdateCheckoutSessionRequest:
+      type: object
+      properties:
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
+    CreateCheckoutSessionRequest:
+      type: object
+      required:
+      - webCheckoutDetails
+      - storeId
+      properties:
+        webCheckoutDetails:
+          type: object
+          required:
+          - checkoutReviewReturnUrl
+          properties:
+            checkoutReviewReturnUrl:
+              type: string
+              format: uri
+            checkoutResultReturnUrl:
+              type: string
+              format: uri
+        storeId:
+          type: string
+        chargePermissionType:
+          type: string
+          enum:
+          - OneTime
+          - Recurring
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    Address:
+      type: object
+      properties:
+        name:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateOrRegion:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        phoneNumber:
+          type: string
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    CheckoutSession:
+      type: object
+      properties:
+        checkoutSessionId:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        buyer:
+          $ref: '#/components/schemas/Buyer'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+              enum:
+              - Confirm
+              - Authorize
+              - AuthorizeWithCapture
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        chargePermissionId:
+          type: string
+        chargeId:
+          type: string
+        creationTimestamp:
+          type: string
+          format: date-time
+        expirationTimestamp:
+          type: string
+          format: date-time
+    Buyer:
+      type: object
+      properties:
+        buyerId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

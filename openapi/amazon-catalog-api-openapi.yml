@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Catalog API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Catalog
+  description: Search and retrieve catalog item information
+paths:
+  /catalog/2022-04-01/items:
+    get:
+      operationId: searchCatalogItems
+      summary: Amazon Search Catalog Items
+      description: Search for and return a list of Amazon catalog items and associated information either by identifiers or by keywords.
+      tags:
+      - Catalog
+      parameters:
+      - $ref: '#/components/parameters/MarketplaceIds'
+      - name: keywords
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: identifiers
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          maximum: 20
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogItemList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /catalog/2022-04-01/items/{asin}:
+    get:
+      operationId: getCatalogItem
+      summary: Amazon Get Catalog Item
+      description: Retrieves details for an item in the Amazon catalog by ASIN.
+      tags:
+      - Catalog
+      parameters:
+      - name: asin
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogItem'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  schemas:
+    CatalogItemList:
+      type: object
+      properties:
+        numberOfResults:
+          type: integer
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogItem'
+    CatalogItem:
+      type: object
+      properties:
+        asin:
+          type: string
+        attributes:
+          type: object
+        images:
+          type: array
+          items:
+            type: object
+        salesRanks:
+          type: array
+          items:
+            type: object
+    Pagination:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        previousToken:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

@@ -1,0 +1,253 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Orders API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Orders
+  description: Manage and retrieve order information
+paths:
+  /orders/2026-01-01/orders:
+    get:
+      operationId: searchOrders
+      summary: Amazon Search Orders
+      description: Returns orders created or updated during the time frame indicated by the specified parameters. Supports filtering by marketplace, order status, fulfillment channel, and date ranges.
+      tags:
+      - Orders
+      parameters:
+      - $ref: '#/components/parameters/MarketplaceIds'
+      - name: CreatedAfter
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: CreatedBefore
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: OrderStatuses
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - Pending
+            - Unshipped
+            - PartiallyShipped
+            - Shipped
+            - Canceled
+            - Unfulfillable
+      - name: MaxResultsPerPage
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+        '401':
+          description: Unauthorized
+        '429':
+          description: Too many requests
+  /orders/2026-01-01/orders/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Amazon Get Order Details
+      description: Returns the order indicated by the specified order ID.
+      tags:
+      - Orders
+      parameters:
+      - $ref: '#/components/parameters/OrderId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /orders/2026-01-01/orders/{orderId}/orderItems:
+    get:
+      operationId: getOrderItems
+      summary: Amazon Get Order Items
+      description: Returns detailed order item information for the order indicated by the specified order ID.
+      tags:
+      - Orders
+      parameters:
+      - $ref: '#/components/parameters/OrderId'
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderItemList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Money:
+      type: object
+      properties:
+        CurrencyCode:
+          type: string
+        Amount:
+          type: string
+    OrderItem:
+      type: object
+      properties:
+        ASIN:
+          type: string
+        OrderItemId:
+          type: string
+        SellerSKU:
+          type: string
+        Title:
+          type: string
+        QuantityOrdered:
+          type: integer
+        QuantityShipped:
+          type: integer
+        ItemPrice:
+          $ref: '#/components/schemas/Money'
+    OrderItemList:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            OrderItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/OrderItem'
+            NextToken:
+              type: string
+    ErrorList:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+    Order:
+      type: object
+      properties:
+        AmazonOrderId:
+          type: string
+        PurchaseDate:
+          type: string
+          format: date-time
+        LastUpdateDate:
+          type: string
+          format: date-time
+        OrderStatus:
+          type: string
+          enum:
+          - Pending
+          - Unshipped
+          - PartiallyShipped
+          - Shipped
+          - Canceled
+          - Unfulfillable
+        FulfillmentChannel:
+          type: string
+          enum:
+          - MFN
+          - AFN
+        OrderTotal:
+          $ref: '#/components/schemas/Money'
+        NumberOfItemsShipped:
+          type: integer
+        NumberOfItemsUnshipped:
+          type: integer
+        ShipServiceLevel:
+          type: string
+        MarketplaceId:
+          type: string
+    OrderList:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            Orders:
+              type: array
+              items:
+                $ref: '#/components/schemas/Order'
+            NextToken:
+              type: string
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+    OrderId:
+      name: orderId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

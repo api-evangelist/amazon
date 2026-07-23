@@ -1,0 +1,140 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Targets API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Targets
+  description: Product targeting operations
+paths:
+  /v2/sp/targets:
+    get:
+      operationId: listTargets
+      summary: Amazon List Product Targets
+      description: Returns a list of product targets for the specified advertiser profile.
+      tags:
+      - Targets
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Target'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createTargets
+      summary: Amazon Create Product Targets
+      description: Creates one or more product targets.
+      tags:
+      - Targets
+      parameters:
+      - $ref: '#/components/parameters/ProfileId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateTargetRequest'
+      responses:
+        '207':
+          description: Multi-status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TargetResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Target:
+      type: object
+      properties:
+        targetId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        state:
+          type: string
+        bid:
+          type: number
+        expressionType:
+          type: string
+        expression:
+          type: array
+          items:
+            type: object
+    CreateTargetRequest:
+      type: object
+      required:
+      - campaignId
+      - adGroupId
+      - state
+      - expression
+      - expressionType
+      properties:
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        state:
+          type: string
+        bid:
+          type: number
+        expression:
+          type: array
+          items:
+            type: object
+        expressionType:
+          type: string
+    TargetResponse:
+      type: object
+      properties:
+        targetId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

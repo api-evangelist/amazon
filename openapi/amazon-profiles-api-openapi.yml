@@ -1,0 +1,73 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Profiles API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Profiles
+  description: Account profile management
+paths:
+  /v2/profiles:
+    get:
+      operationId: listProfiles
+      summary: Amazon List Advertising Profiles
+      description: Returns a list of advertising profiles associated with the account.
+      tags:
+      - Profiles
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Profile:
+      type: object
+      properties:
+        profileId:
+          type: string
+        countryCode:
+          type: string
+        currencyCode:
+          type: string
+        accountInfo:
+          type: object
+          properties:
+            marketplaceStringId:
+              type: string
+            id:
+              type: string
+            type:
+              type: string
+              enum:
+              - seller
+              - vendor
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview

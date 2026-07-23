@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: Amazon Advertising Ad Groups Finances API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
+  version: '1.0'
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
+servers:
+- url: https://advertising-api.amazon.com
+  description: North America
+- url: https://advertising-api-eu.amazon.com
+  description: Europe
+- url: https://advertising-api-fe.amazon.com
+  description: Far East
+- url: https://advertising-api-test.amazon.com
+  description: Test/Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Finances
+  description: Retrieve financial transaction data
+paths:
+  /finances/2024-06-19/transactions:
+    get:
+      operationId: listTransactions
+      summary: Amazon List Financial Transactions
+      description: Returns financial transaction data for the selling partner account.
+      tags:
+      - Finances
+      parameters:
+      - name: postedAfter
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: postedBefore
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MarketplaceIds'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionList'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  schemas:
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            type: object
+            properties:
+              transactionType:
+                type: string
+              transactionId:
+                type: string
+              transactionStatus:
+                type: string
+              postedDate:
+                type: string
+                format: date-time
+              totalAmount:
+                $ref: '#/components/schemas/Money'
+        nextToken:
+          type: string
+    Money:
+      type: object
+      properties:
+        CurrencyCode:
+          type: string
+        Amount:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token from Login with Amazon
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
