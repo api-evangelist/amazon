@@ -7,7 +7,20 @@ description: Amazon is a global technology and e-commerce company offering a wid
   Creators API for affiliate publishers. These APIs power Amazon's ecosystem of sellers,
   developers, advertisers, and content creators.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-05-19'
@@ -22,48 +35,6 @@ tags:
 - Voice
 - Fortune 100
 apis:
-- aid: amazon:selling-partner-api
-  name: Amazon Selling Partner API
-  tags:
-  - E-Commerce
-  - Fulfillment
-  - Marketplace
-  - Orders
-  - Sellers
-  humanURL: https://developer-docs.amazon.com/sp-api
-  baseURL: https://sellingpartnerapi-na.amazon.com
-  properties:
-  - type: Documentation
-    url: https://developer-docs.amazon.com/sp-api
-  - type: OpenAPI
-    url: openapi/amazon-selling-partner-api-openapi.yml
-  - type: JSONSchema
-    url: json-schema/selling-partner-order-schema.json
-  - url: graphql/amazon-graphql.md
-    type: GraphQL
-  description: The Amazon Selling Partner API (SP-API) is a RESTful API that enables
-    Amazon sellers and vendors to programmatically manage their marketplace operations
-    including listings, orders, payments, reports, and fulfillment. It replaces the
-    deprecated Amazon Marketplace Web Service (MWS) and provides access to region-specific
-    endpoints for North America, Europe, and Far East marketplaces.
-- aid: amazon:advertising-api
-  name: Amazon Advertising API
-  tags:
-  - Advertising
-  - Campaigns
-  - Marketing
-  - Sponsored Products
-  humanURL: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
-  baseURL: https://advertising-api.amazon.com
-  properties:
-  - type: Documentation
-    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
-  - type: OpenAPI
-    url: openapi/amazon-advertising-api-openapi.yml
-  description: The Amazon Advertising API enables programmatic management of advertising
-    campaigns on Amazon including Sponsored Products, Sponsored Brands, and Sponsored
-    Display campaigns across various marketplaces. Developers can create, manage,
-    and optimize campaigns, access reporting data, and manage budgets and targeting.
 - aid: amazon:creators-api
   name: Amazon Creators API
   tags:
@@ -76,28 +47,10 @@ apis:
   properties:
   - type: Documentation
     url: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
-  description: The Amazon Creators API provides programmatic access to Amazon product
-    data for publishers, influencers, and affiliate partners. It is the recommended
-    replacement for the Product Advertising API and requires Amazon Associates membership
-    with qualifying sales history.
-- aid: amazon:pay-api
-  name: Amazon Pay API
-  tags:
-  - Checkout
-  - E-Commerce
-  - Payments
-  - Subscriptions
-  humanURL: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
-  baseURL: https://pay-api.amazon.com
-  properties:
-  - type: Documentation
-    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
-  - type: OpenAPI
-    url: openapi/amazon-pay-api-openapi.yml
-  description: The Amazon Pay API enables merchants to integrate Amazon Pay for payment
-    processing on their websites and mobile applications. It supports one-time purchases,
-    subscriptions, and recurring payments with checkout session management, charge
-    operations, and refund capabilities.
+  description: >-
+    The Amazon Creators API provides programmatic access to Amazon product data for publishers, influencers,
+    and affiliate partners. It is the recommended replacement for the Product Advertising API and requires
+    Amazon Associates membership with qualifying sales history.
 - aid: amazon:alexa-skills-kit-api
   name: Amazon Alexa Skills Kit API
   tags:
@@ -110,10 +63,10 @@ apis:
   properties:
   - type: Documentation
     url: https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html
-  description: The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage,
-    test, and deploy custom voice skills for Alexa-enabled devices including skill
-    manifest management, interaction model building, and hosted skill management for
-    voice experiences and smart home integrations.
+  description: >-
+    The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage, test, and deploy custom
+    voice skills for Alexa-enabled devices including skill manifest management, interaction model building,
+    and hosted skill management for voice experiences and smart home integrations.
 - aid: amazon:appstore-api
   name: Amazon Appstore API
   tags:
@@ -126,10 +79,312 @@ apis:
   properties:
   - type: Documentation
     url: https://www.developer.amazon.com/docs/apps-and-games/documentation.html
-  description: The Amazon Appstore Developer APIs provide tools for managing app submissions,
-    testing, and monetization through in-app purchases on the Amazon Appstore for
-    Android and Fire OS applications.
+  description: >-
+    The Amazon Appstore Developer APIs provide tools for managing app submissions, testing, and monetization
+    through in-app purchases on the Amazon Appstore for Android and Fire OS applications.
+- aid: amazon:amazon-ad-groups-api
+  name: Amazon Ad Groups API
+  description: Ad group management operations
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Ad Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ad-groups-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-campaigns-api
+  name: Amazon Campaigns API
+  description: Campaign management operations
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-campaigns-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-catalog-api
+  name: Amazon Catalog API
+  description: Search and retrieve catalog item information
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-catalog-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-charge-permissions-api
+  name: Amazon Charge Permissions API
+  description: Manage buyer charge authorizations
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Charge Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-charge-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-charges-api
+  name: Amazon Charges API
+  description: Create and manage payment charges
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Charges
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-charges-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-checkout-sessions-api
+  name: Amazon Checkout Sessions API
+  description: Manage buyer checkout sessions
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Checkout Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-checkout-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-finances-api
+  name: Amazon Finances API
+  description: Retrieve financial transaction data
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Finances
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-finances-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-inventory-api
+  name: Amazon Inventory API
+  description: Manage FBA inventory
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-keywords-api
+  name: Amazon Keywords API
+  description: Keyword management operations
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-keywords-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-listings-api
+  name: Amazon Listings API
+  description: Create, update, and manage product listings
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Listings
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-listings-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-orders-api
+  name: Amazon Orders API
+  description: Manage and retrieve order information
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-profiles-api
+  name: Amazon Profiles API
+  description: Account profile management
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-refunds-api
+  name: Amazon Refunds API
+  description: Process refunds on captured charges
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Refunds
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-refunds-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-reports-api
+  name: Amazon Reports API
+  description: Reporting and analytics
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+- aid: amazon:amazon-targets-api
+  name: Amazon Targets API
+  description: Product targeting operations
+  humanURL: https://developer-docs.amazon.com/sp-api
+  baseURL: https://sellingpartnerapi-na.amazon.com
+  tags:
+  - Targets
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-targets-api-openapi.yml
+  - type: Documentation
+    url: https://developer-docs.amazon.com/sp-api
+  - type: JSONSchema
+    url: json-schema/selling-partner-order-schema.json
+  - type: GraphQL
+    url: graphql/amazon-graphql.md
+  - type: Documentation
+    url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  - type: Documentation
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon/overview
 - type: AgenticAccess
   url: agentic-access/amazon-agentic-access.yml
 - type: VulnerabilityDisclosure
