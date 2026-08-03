@@ -1,0 +1,157 @@
+{
+  "info": {
+    "_postman_id": "6820717b-9c3c-4556-8843-1c0bcf445736",
+    "name": "Amazon Advertising Ad Groups Profiles API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:59:26.000Z",
+    "updatedAt": "2026-07-28T00:59:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6820717b-9c3c-4556-8843-1c0bcf445736"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "profiles",
+          "item": [
+            {
+              "name": "Amazon List Advertising Profiles",
+              "id": "0be1e181-56d8-4a70-82a7-a921ee2a6499",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/profiles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "profiles"
+                  ]
+                },
+                "description": "Returns a list of advertising profiles associated with the account."
+              },
+              "response": [
+                {
+                  "id": "14989613-cc6e-4634-b217-f31e8ec0ea7e",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/profiles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "profiles"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"profileId\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"currencyCode\": \"<string>\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"type\": \"seller\"\n    }\n  },\n  {\n    \"profileId\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"currencyCode\": \"<string>\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"type\": \"seller\"\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T00:59:27.000Z",
+                  "updatedAt": "2026-07-28T00:59:27.000Z",
+                  "uid": "35240-14989613-cc6e-4634-b217-f31e8ec0ea7e"
+                },
+                {
+                  "id": "d7faf84c-15e8-4dad-8185-d6beed275125",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/profiles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "profiles"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:59:27.000Z",
+                  "updatedAt": "2026-07-28T00:59:27.000Z",
+                  "uid": "35240-d7faf84c-15e8-4dad-8185-d6beed275125"
+                }
+              ],
+              "createdAt": "2026-07-28T00:59:27.000Z",
+              "updatedAt": "2026-07-28T00:59:27.000Z",
+              "uid": "35240-0be1e181-56d8-4a70-82a7-a921ee2a6499"
+            }
+          ],
+          "id": "c7beb836-43d4-451d-8f78-fe0317ca0c8d",
+          "createdAt": "2026-07-28T00:59:27.000Z",
+          "updatedAt": "2026-07-28T00:59:27.000Z",
+          "uid": "35240-c7beb836-43d4-451d-8f78-fe0317ca0c8d"
+        }
+      ],
+      "id": "46ecfad5-6a16-43d5-9eb1-1fc7c7609307",
+      "createdAt": "2026-07-28T00:59:27.000Z",
+      "updatedAt": "2026-07-28T00:59:27.000Z",
+      "uid": "35240-46ecfad5-6a16-43d5-9eb1-1fc7c7609307"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

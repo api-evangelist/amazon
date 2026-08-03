@@ -1,0 +1,326 @@
+{
+  "info": {
+    "_postman_id": "01f4ad17-2b4e-442a-901e-4139745dc013",
+    "name": "Amazon Advertising Ad Groups Inventory API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:59:23.000Z",
+    "updatedAt": "2026-07-28T00:59:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01f4ad17-2b4e-442a-901e-4139745dc013"
+  },
+  "item": [
+    {
+      "name": "fba",
+      "item": [
+        {
+          "name": "inventory",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "summaries",
+                  "item": [
+                    {
+                      "name": "Amazon Get Inventory Summaries",
+                      "id": "dc8c330b-9ca2-41fd-8f68-80172b7512cf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fba/inventory/v1/summaries?MarketplaceIds=<string>&MarketplaceIds=<string>&granularityType=Marketplace&granularityId=<string>&sellerSkus=<string>&sellerSkus=<string>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fba",
+                            "inventory",
+                            "v1",
+                            "summaries"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "granularityType",
+                              "value": "Marketplace"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "granularityId",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sellerSkus",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sellerSkus",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status."
+                      },
+                      "response": [
+                        {
+                          "id": "ec5dc0b0-60bc-42d1-a98d-fdcf470d116a",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fba/inventory/v1/summaries?MarketplaceIds=<string>&granularityType=Marketplace&granularityId=<string>&sellerSkus=<string>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fba",
+                                "inventory",
+                                "v1",
+                                "summaries"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityType",
+                                  "value": "Marketplace"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sellerSkus",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"pagination\": {\n    \"nextToken\": \"<string>\",\n    \"previousToken\": \"<string>\"\n  },\n  \"inventorySummaries\": [\n    {\n      \"asin\": \"<string>\",\n      \"fnSku\": \"<string>\",\n      \"sellerSku\": \"<string>\",\n      \"condition\": \"<string>\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": \"<integer>\",\n        \"inboundWorkingQuantity\": \"<integer>\",\n        \"inboundShippedQuantity\": \"<integer>\",\n        \"inboundReceivingQuantity\": \"<integer>\",\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    },\n    {\n      \"asin\": \"<string>\",\n      \"fnSku\": \"<string>\",\n      \"sellerSku\": \"<string>\",\n      \"condition\": \"<string>\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": \"<integer>\",\n        \"inboundWorkingQuantity\": \"<integer>\",\n        \"inboundShippedQuantity\": \"<integer>\",\n        \"inboundReceivingQuantity\": \"<integer>\",\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T00:59:23.000Z",
+                          "updatedAt": "2026-07-28T00:59:23.000Z",
+                          "uid": "35240-ec5dc0b0-60bc-42d1-a98d-fdcf470d116a"
+                        },
+                        {
+                          "id": "4fb0cf34-9f88-41f9-be43-ec6a6df4faaf",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fba/inventory/v1/summaries?MarketplaceIds=<string>&granularityType=Marketplace&granularityId=<string>&sellerSkus=<string>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fba",
+                                "inventory",
+                                "v1",
+                                "summaries"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityType",
+                                  "value": "Marketplace"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sellerSkus",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:23.000Z",
+                          "updatedAt": "2026-07-28T00:59:23.000Z",
+                          "uid": "35240-4fb0cf34-9f88-41f9-be43-ec6a6df4faaf"
+                        },
+                        {
+                          "id": "86a645ea-82fc-473b-87b9-83194f6f0738",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fba/inventory/v1/summaries?MarketplaceIds=<string>&granularityType=Marketplace&granularityId=<string>&sellerSkus=<string>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fba",
+                                "inventory",
+                                "v1",
+                                "summaries"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityType",
+                                  "value": "Marketplace"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "granularityId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sellerSkus",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:23.000Z",
+                          "updatedAt": "2026-07-28T00:59:23.000Z",
+                          "uid": "35240-86a645ea-82fc-473b-87b9-83194f6f0738"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:59:23.000Z",
+                      "updatedAt": "2026-07-28T00:59:23.000Z",
+                      "uid": "35240-dc8c330b-9ca2-41fd-8f68-80172b7512cf"
+                    }
+                  ],
+                  "id": "e80dff0d-b350-4265-a282-66baa7384500",
+                  "createdAt": "2026-07-28T00:59:23.000Z",
+                  "updatedAt": "2026-07-28T00:59:23.000Z",
+                  "uid": "35240-e80dff0d-b350-4265-a282-66baa7384500"
+                }
+              ],
+              "id": "f4709256-d383-4879-b718-3cd59e2ba737",
+              "createdAt": "2026-07-28T00:59:23.000Z",
+              "updatedAt": "2026-07-28T00:59:23.000Z",
+              "uid": "35240-f4709256-d383-4879-b718-3cd59e2ba737"
+            }
+          ],
+          "id": "8cdc287d-7090-48ae-abcf-76ebc67af1a3",
+          "createdAt": "2026-07-28T00:59:23.000Z",
+          "updatedAt": "2026-07-28T00:59:23.000Z",
+          "uid": "35240-8cdc287d-7090-48ae-abcf-76ebc67af1a3"
+        }
+      ],
+      "id": "ff4586ea-8604-4a56-9c98-6b34717be6d2",
+      "createdAt": "2026-07-28T00:59:23.000Z",
+      "updatedAt": "2026-07-28T00:59:23.000Z",
+      "uid": "35240-ff4586ea-8604-4a56-9c98-6b34717be6d2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

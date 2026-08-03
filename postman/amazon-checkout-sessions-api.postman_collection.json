@@ -1,0 +1,885 @@
+{
+  "info": {
+    "_postman_id": "a7f60e53-6144-4cb8-b899-1788d588ac18",
+    "name": "Amazon Advertising Ad Groups Checkout Sessions API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:58:56.000Z",
+    "updatedAt": "2026-07-28T00:58:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a7f60e53-6144-4cb8-b899-1788d588ac18"
+  },
+  "item": [
+    {
+      "name": "checkoutSessions",
+      "item": [
+        {
+          "name": "{checkoutSessionId}",
+          "item": [
+            {
+              "name": "complete",
+              "item": [
+                {
+                  "name": "Amazon Complete Checkout Session",
+                  "id": "a01498dd-b9e3-48d5-b30f-a469163bd203",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-idempotency-key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"chargeAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId/complete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkoutSessions",
+                        ":checkoutSessionId",
+                        "complete"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a88d7351-c590-4579-8051-925f194d4167",
+                          "key": "checkoutSessionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Completes the checkout session and processes the payment."
+                  },
+                  "response": [
+                    {
+                      "id": "f1f963a3-ca45-4286-a829-574c479d6b85",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-date",
+                            "value": "<dateTime>"
+                          },
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-region",
+                            "value": "eu"
+                          },
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-idempotency-key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chargeAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId/complete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkoutSessions",
+                            ":checkoutSessionId",
+                            "complete"
+                          ],
+                          "variable": [
+                            {
+                              "key": "checkoutSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"checkoutSessionId\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"buyer\": {\n    \"buyerId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"paymentDetails\": {\n    \"paymentIntent\": \"AuthorizeWithCapture\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"chargePermissionId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"creationTimestamp\": \"<dateTime>\",\n  \"expirationTimestamp\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T00:58:57.000Z",
+                      "updatedAt": "2026-07-28T00:58:57.000Z",
+                      "uid": "35240-f1f963a3-ca45-4286-a829-574c479d6b85"
+                    },
+                    {
+                      "id": "ba49741d-1ea8-44a3-8604-6a7cbbf4772a",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-date",
+                            "value": "<dateTime>"
+                          },
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-region",
+                            "value": "eu"
+                          },
+                          {
+                            "description": "(Required) ",
+                            "key": "x-amz-pay-idempotency-key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chargeAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId/complete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "checkoutSessions",
+                            ":checkoutSessionId",
+                            "complete"
+                          ],
+                          "variable": [
+                            {
+                              "key": "checkoutSessionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:58:57.000Z",
+                      "updatedAt": "2026-07-28T00:58:57.000Z",
+                      "uid": "35240-ba49741d-1ea8-44a3-8604-6a7cbbf4772a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:58:57.000Z",
+                  "updatedAt": "2026-07-28T00:58:57.000Z",
+                  "uid": "35240-a01498dd-b9e3-48d5-b30f-a469163bd203"
+                }
+              ],
+              "id": "18e72ca5-cca3-41f2-9f17-dd61d0c4b7a1",
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-18e72ca5-cca3-41f2-9f17-dd61d0c4b7a1"
+            },
+            {
+              "name": "Amazon Get Checkout Session",
+              "id": "4a03b4ff-d7fe-4eb0-8ba2-124ae8bef9ce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "checkoutSessions",
+                    ":checkoutSessionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "259a7aae-3456-40fd-85cb-1b5113291691",
+                      "key": "checkoutSessionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns details about the specified checkout session."
+              },
+              "response": [
+                {
+                  "id": "d28cbc1e-4b5f-441c-90d2-19520962ad00",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkoutSessions",
+                        ":checkoutSessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "checkoutSessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"checkoutSessionId\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"buyer\": {\n    \"buyerId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"paymentDetails\": {\n    \"paymentIntent\": \"AuthorizeWithCapture\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"chargePermissionId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"creationTimestamp\": \"<dateTime>\",\n  \"expirationTimestamp\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T00:58:57.000Z",
+                  "updatedAt": "2026-07-28T00:58:57.000Z",
+                  "uid": "35240-d28cbc1e-4b5f-441c-90d2-19520962ad00"
+                },
+                {
+                  "id": "cf4e8156-424a-4711-875f-2cef4f6b2bd4",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkoutSessions",
+                        ":checkoutSessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "checkoutSessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:58:57.000Z",
+                  "updatedAt": "2026-07-28T00:58:57.000Z",
+                  "uid": "35240-cf4e8156-424a-4711-875f-2cef4f6b2bd4"
+                }
+              ],
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-4a03b4ff-d7fe-4eb0-8ba2-124ae8bef9ce"
+            },
+            {
+              "name": "Amazon Update Checkout Session",
+              "id": "62f853ac-b279-4729-9d64-57e2a18d52eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "checkoutSessions",
+                    ":checkoutSessionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "95d7be95-ee30-497b-951a-563a1907a147",
+                      "key": "checkoutSessionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Updates the specified checkout session with new information."
+              },
+              "response": [
+                {
+                  "id": "cbe70941-9c1a-4491-be07-0782b2062331",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkoutSessions",
+                        ":checkoutSessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "checkoutSessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"checkoutSessionId\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"buyer\": {\n    \"buyerId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"paymentDetails\": {\n    \"paymentIntent\": \"AuthorizeWithCapture\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"chargePermissionId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"creationTimestamp\": \"<dateTime>\",\n  \"expirationTimestamp\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T00:58:57.000Z",
+                  "updatedAt": "2026-07-28T00:58:57.000Z",
+                  "uid": "35240-cbe70941-9c1a-4491-be07-0782b2062331"
+                },
+                {
+                  "id": "cd44395a-4924-4b1d-a2fa-1e222b9ea5d2",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/checkoutSessions/:checkoutSessionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "checkoutSessions",
+                        ":checkoutSessionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "checkoutSessionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:58:57.000Z",
+                  "updatedAt": "2026-07-28T00:58:57.000Z",
+                  "uid": "35240-cd44395a-4924-4b1d-a2fa-1e222b9ea5d2"
+                }
+              ],
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-62f853ac-b279-4729-9d64-57e2a18d52eb"
+            }
+          ],
+          "id": "90cd4af4-e76d-436a-9f01-1562441693f7",
+          "createdAt": "2026-07-28T00:58:57.000Z",
+          "updatedAt": "2026-07-28T00:58:57.000Z",
+          "uid": "35240-90cd4af4-e76d-436a-9f01-1562441693f7"
+        },
+        {
+          "name": "Amazon Create Checkout Session",
+          "id": "91bb5cee-a7eb-40b1-a041-c9c8332d9891",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-date",
+                "value": "<dateTime>"
+              },
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-region",
+                "value": "eu"
+              },
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-idempotency-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webCheckoutDetails\": {\n    \"checkoutReviewReturnUrl\": \"<uri>\",\n    \"checkoutResultReturnUrl\": \"<uri>\"\n  },\n  \"storeId\": \"<string>\",\n  \"chargePermissionType\": \"OneTime\",\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/checkoutSessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "checkoutSessions"
+              ]
+            },
+            "description": "Creates a new checkout session for a buyer to authorize payment."
+          },
+          "response": [
+            {
+              "id": "42c44717-647e-426f-8340-155078b4c138",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-idempotency-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webCheckoutDetails\": {\n    \"checkoutReviewReturnUrl\": \"<uri>\",\n    \"checkoutResultReturnUrl\": \"<uri>\"\n  },\n  \"storeId\": \"<string>\",\n  \"chargePermissionType\": \"OneTime\",\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/checkoutSessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "checkoutSessions"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"checkoutSessionId\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"buyer\": {\n    \"buyerId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<email>\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"name\": \"<string>\",\n    \"addressLine1\": \"<string>\",\n    \"addressLine2\": \"<string>\",\n    \"addressLine3\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrRegion\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"countryCode\": \"<string>\",\n    \"phoneNumber\": \"<string>\"\n  },\n  \"paymentDetails\": {\n    \"paymentIntent\": \"AuthorizeWithCapture\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  },\n  \"chargePermissionId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"creationTimestamp\": \"<dateTime>\",\n  \"expirationTimestamp\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-42c44717-647e-426f-8340-155078b4c138"
+            },
+            {
+              "id": "6f31feb6-0a35-4fee-9cd5-a2aad52db59f",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-idempotency-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webCheckoutDetails\": {\n    \"checkoutReviewReturnUrl\": \"<uri>\",\n    \"checkoutResultReturnUrl\": \"<uri>\"\n  },\n  \"storeId\": \"<string>\",\n  \"chargePermissionType\": \"OneTime\",\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/checkoutSessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "checkoutSessions"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-6f31feb6-0a35-4fee-9cd5-a2aad52db59f"
+            },
+            {
+              "id": "dcfe1087-fa15-42ff-9cbc-77029ae4ce62",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-idempotency-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webCheckoutDetails\": {\n    \"checkoutReviewReturnUrl\": \"<uri>\",\n    \"checkoutResultReturnUrl\": \"<uri>\"\n  },\n  \"storeId\": \"<string>\",\n  \"chargePermissionType\": \"OneTime\",\n  \"paymentDetails\": {\n    \"paymentIntent\": \"<string>\",\n    \"chargeAmount\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    }\n  },\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/checkoutSessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "checkoutSessions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:58:57.000Z",
+              "updatedAt": "2026-07-28T00:58:57.000Z",
+              "uid": "35240-dcfe1087-fa15-42ff-9cbc-77029ae4ce62"
+            }
+          ],
+          "createdAt": "2026-07-28T00:58:57.000Z",
+          "updatedAt": "2026-07-28T00:58:57.000Z",
+          "uid": "35240-91bb5cee-a7eb-40b1-a041-c9c8332d9891"
+        }
+      ],
+      "id": "6b1a6b31-3882-40cc-b273-b9d335c7f0d6",
+      "createdAt": "2026-07-28T00:58:57.000Z",
+      "updatedAt": "2026-07-28T00:58:57.000Z",
+      "uid": "35240-6b1a6b31-3882-40cc-b273-b9d335c7f0d6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

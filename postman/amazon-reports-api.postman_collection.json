@@ -1,0 +1,1251 @@
+{
+  "info": {
+    "_postman_id": "d67b7728-fd58-4516-bbdc-7e7fcfe461dc",
+    "name": "Amazon Advertising Ad Groups Reports API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:59:29.000Z",
+    "updatedAt": "2026-07-28T00:59:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d67b7728-fd58-4516-bbdc-7e7fcfe461dc"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "sp",
+          "item": [
+            {
+              "name": "{recordType}",
+              "item": [
+                {
+                  "name": "report",
+                  "item": [
+                    {
+                      "name": "Amazon Request a Report",
+                      "id": "cac72f0c-68cc-4042-ac9a-313642272396",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The advertising profile ID",
+                            "key": "Amazon-Advertising-API-Scope",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/sp/:recordType/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "sp",
+                            ":recordType",
+                            "report"
+                          ],
+                          "variable": [
+                            {
+                              "id": "979aa243-bf18-42c7-81fc-156df5207d9e",
+                              "key": "recordType",
+                              "value": "adGroups",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Requests the creation of a performance report for the specified record type."
+                      },
+                      "response": [
+                        {
+                          "id": "6deb3594-66bc-469c-a900-3406f3a6a6f7",
+                          "name": "Accepted",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) The advertising profile ID",
+                                "key": "Amazon-Advertising-API-Scope",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/sp/:recordType/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "sp",
+                                ":recordType",
+                                "report"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "recordType"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reportId\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-6deb3594-66bc-469c-a900-3406f3a6a6f7"
+                        },
+                        {
+                          "id": "cfe65ab0-5506-4152-836b-c94715c3fec9",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) The advertising profile ID",
+                                "key": "Amazon-Advertising-API-Scope",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"reportDate\": \"<string>\",\n  \"metrics\": \"<string>\",\n  \"segment\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/sp/:recordType/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "sp",
+                                ":recordType",
+                                "report"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "recordType"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-cfe65ab0-5506-4152-836b-c94715c3fec9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-cac72f0c-68cc-4042-ac9a-313642272396"
+                    }
+                  ],
+                  "id": "70316f8b-6ddf-4448-ac59-fa34d79c0508",
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-70316f8b-6ddf-4448-ac59-fa34d79c0508"
+                }
+              ],
+              "id": "103b460e-b282-4c19-afaa-0ae337c84c0f",
+              "createdAt": "2026-07-28T00:59:29.000Z",
+              "updatedAt": "2026-07-28T00:59:29.000Z",
+              "uid": "35240-103b460e-b282-4c19-afaa-0ae337c84c0f"
+            }
+          ],
+          "id": "a229c484-6dc1-40b1-aa6c-422ef4fa6a5d",
+          "createdAt": "2026-07-28T00:59:29.000Z",
+          "updatedAt": "2026-07-28T00:59:29.000Z",
+          "uid": "35240-a229c484-6dc1-40b1-aa6c-422ef4fa6a5d"
+        },
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "{reportId}",
+              "item": [
+                {
+                  "name": "Amazon Get Report Status",
+                  "id": "d8bf03ce-1013-409e-8c39-0f89aaffebd1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The advertising profile ID",
+                        "key": "Amazon-Advertising-API-Scope",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d05068ca-4e33-4506-8f01-104ba4be8505",
+                          "key": "reportId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Returns the status and download location of a previously requested report."
+                  },
+                  "response": [
+                    {
+                      "id": "a86955b4-72fb-4d02-ada8-c18068efe17d",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The advertising profile ID",
+                            "key": "Amazon-Advertising-API-Scope",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/reports/:reportId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "reports",
+                            ":reportId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reportId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reportId\": \"<string>\",\n  \"status\": \"IN_PROGRESS\",\n  \"location\": \"<uri>\",\n  \"fileSize\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-a86955b4-72fb-4d02-ada8-c18068efe17d"
+                    },
+                    {
+                      "id": "277f0382-6287-43b0-831b-0ad3b710ab20",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The advertising profile ID",
+                            "key": "Amazon-Advertising-API-Scope",
+                            "value": "<string>"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/reports/:reportId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "reports",
+                            ":reportId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "reportId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-277f0382-6287-43b0-831b-0ad3b710ab20"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-d8bf03ce-1013-409e-8c39-0f89aaffebd1"
+                }
+              ],
+              "id": "cd7a4c84-a66a-4f81-87f3-43bef20515e1",
+              "createdAt": "2026-07-28T00:59:29.000Z",
+              "updatedAt": "2026-07-28T00:59:29.000Z",
+              "uid": "35240-cd7a4c84-a66a-4f81-87f3-43bef20515e1"
+            }
+          ],
+          "id": "3f876900-b993-437e-abf7-856775c3fa19",
+          "createdAt": "2026-07-28T00:59:29.000Z",
+          "updatedAt": "2026-07-28T00:59:29.000Z",
+          "uid": "35240-3f876900-b993-437e-abf7-856775c3fa19"
+        }
+      ],
+      "id": "00920f99-8b68-4673-966f-9edeb9b2803c",
+      "createdAt": "2026-07-28T00:59:29.000Z",
+      "updatedAt": "2026-07-28T00:59:29.000Z",
+      "uid": "35240-00920f99-8b68-4673-966f-9edeb9b2803c"
+    },
+    {
+      "name": "reports",
+      "item": [
+        {
+          "name": "2021-06-30",
+          "item": [
+            {
+              "name": "reports",
+              "item": [
+                {
+                  "name": "{reportId}",
+                  "item": [
+                    {
+                      "name": "Amazon Get Report",
+                      "id": "fa08a758-3809-4fd2-ac11-fd72a86ae58b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports/:reportId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports",
+                            ":reportId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9da95ceb-4476-4556-b226-5421e1fcfa4b",
+                              "key": "reportId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns report details for the report indicated by the specified report ID."
+                      },
+                      "response": [
+                        {
+                          "id": "47f15842-649d-4256-9ae0-94d3f8749cf7",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/reports/:reportId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "reports",
+                                ":reportId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reportId\": \"<string>\",\n  \"reportType\": \"<string>\",\n  \"processingStatus\": \"IN_PROGRESS\",\n  \"reportDocumentId\": \"<string>\",\n  \"createdTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-47f15842-649d-4256-9ae0-94d3f8749cf7"
+                        },
+                        {
+                          "id": "90b39126-913d-4f5f-9e10-b78a2e40e261",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/reports/:reportId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "reports",
+                                ":reportId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-90b39126-913d-4f5f-9e10-b78a2e40e261"
+                        },
+                        {
+                          "id": "1157bc39-9783-48e2-bc94-dbbe0dceee54",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/reports/:reportId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "reports",
+                                ":reportId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-1157bc39-9783-48e2-bc94-dbbe0dceee54"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-fa08a758-3809-4fd2-ac11-fd72a86ae58b"
+                    }
+                  ],
+                  "id": "c6a5cbf5-9d48-4962-b7a3-0bc88f534a77",
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-c6a5cbf5-9d48-4962-b7a3-0bc88f534a77"
+                },
+                {
+                  "name": "Amazon List Reports",
+                  "id": "3937f53e-37f7-48d0-8958-53e198051608",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/2021-06-30/reports?reportTypes=<string>&reportTypes=<string>&processingStatuses=FATAL&processingStatuses=CANCELLED&pageSize=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "2021-06-30",
+                        "reports"
+                      ],
+                      "query": [
+                        {
+                          "key": "reportTypes",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "reportTypes",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "processingStatuses",
+                          "value": "FATAL"
+                        },
+                        {
+                          "key": "processingStatuses",
+                          "value": "CANCELLED"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Returns report details for the reports that match the filters specified."
+                  },
+                  "response": [
+                    {
+                      "id": "ef0ce6e0-26ef-4397-9e36-c5606636b496",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports?reportTypes=<string>&processingStatuses=CANCELLED&pageSize=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ],
+                          "query": [
+                            {
+                              "key": "reportTypes",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "processingStatuses",
+                              "value": "CANCELLED"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reports\": [\n    {\n      \"reportId\": \"<string>\",\n      \"reportType\": \"<string>\",\n      \"processingStatus\": \"CANCELLED\",\n      \"reportDocumentId\": \"<string>\",\n      \"createdTime\": \"<dateTime>\"\n    },\n    {\n      \"reportId\": \"<string>\",\n      \"reportType\": \"<string>\",\n      \"processingStatus\": \"IN_QUEUE\",\n      \"reportDocumentId\": \"<string>\",\n      \"createdTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-ef0ce6e0-26ef-4397-9e36-c5606636b496"
+                    },
+                    {
+                      "id": "507d45f3-85bc-4cfa-a2e1-74f4227787ec",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports?reportTypes=<string>&processingStatuses=CANCELLED&pageSize=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ],
+                          "query": [
+                            {
+                              "key": "reportTypes",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "processingStatuses",
+                              "value": "CANCELLED"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-507d45f3-85bc-4cfa-a2e1-74f4227787ec"
+                    },
+                    {
+                      "id": "e709d268-8966-4984-83ce-edf8bb5a1319",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports?reportTypes=<string>&processingStatuses=CANCELLED&pageSize=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ],
+                          "query": [
+                            {
+                              "key": "reportTypes",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "processingStatuses",
+                              "value": "CANCELLED"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-e709d268-8966-4984-83ce-edf8bb5a1319"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-3937f53e-37f7-48d0-8958-53e198051608"
+                },
+                {
+                  "name": "Amazon Create a Report",
+                  "id": "fe48c631-c6ea-4812-a275-ce70bcdcf6c4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/2021-06-30/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "2021-06-30",
+                        "reports"
+                      ]
+                    },
+                    "description": "Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations."
+                  },
+                  "response": [
+                    {
+                      "id": "0e033594-2d49-4071-86c0-3321b4858470",
+                      "name": "Accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reportId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-0e033594-2d49-4071-86c0-3321b4858470"
+                    },
+                    {
+                      "id": "c38bb7bf-4d3a-4236-8754-a0f342adc34d",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-c38bb7bf-4d3a-4236-8754-a0f342adc34d"
+                    },
+                    {
+                      "id": "992d23ff-d6d7-4ace-b19e-0bed771e270e",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reportType\": \"<string>\",\n  \"marketplaceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dataStartTime\": \"<dateTime>\",\n  \"dataEndTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/reports",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "reports"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-992d23ff-d6d7-4ace-b19e-0bed771e270e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-fe48c631-c6ea-4812-a275-ce70bcdcf6c4"
+                }
+              ],
+              "id": "fcc8c385-a970-489f-8fcd-7874328b6f99",
+              "createdAt": "2026-07-28T00:59:29.000Z",
+              "updatedAt": "2026-07-28T00:59:29.000Z",
+              "uid": "35240-fcc8c385-a970-489f-8fcd-7874328b6f99"
+            },
+            {
+              "name": "documents",
+              "item": [
+                {
+                  "name": "{reportDocumentId}",
+                  "item": [
+                    {
+                      "name": "Amazon Get Report Document",
+                      "id": "8707544e-a2e0-4e54-9ec4-0173f0aa0a3c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/2021-06-30/documents/:reportDocumentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "2021-06-30",
+                            "documents",
+                            ":reportDocumentId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0d96899a-be9b-48c8-a402-6d4cafadde0e",
+                              "key": "reportDocumentId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns the information required for retrieving a report document's contents."
+                      },
+                      "response": [
+                        {
+                          "id": "54b4e339-d36d-4504-baa9-d8436599347f",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/documents/:reportDocumentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "documents",
+                                ":reportDocumentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportDocumentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reportDocumentId\": \"<string>\",\n  \"url\": \"<uri>\"\n}",
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-54b4e339-d36d-4504-baa9-d8436599347f"
+                        },
+                        {
+                          "id": "9ee47094-78dd-4034-ae79-915316952147",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/documents/:reportDocumentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "documents",
+                                ":reportDocumentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportDocumentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-9ee47094-78dd-4034-ae79-915316952147"
+                        },
+                        {
+                          "id": "19b18cfc-7a89-4ba8-ad44-d9c0ce8ababb",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reports/2021-06-30/documents/:reportDocumentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reports",
+                                "2021-06-30",
+                                "documents",
+                                ":reportDocumentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "reportDocumentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:59:29.000Z",
+                          "updatedAt": "2026-07-28T00:59:29.000Z",
+                          "uid": "35240-19b18cfc-7a89-4ba8-ad44-d9c0ce8ababb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:59:29.000Z",
+                      "updatedAt": "2026-07-28T00:59:29.000Z",
+                      "uid": "35240-8707544e-a2e0-4e54-9ec4-0173f0aa0a3c"
+                    }
+                  ],
+                  "id": "608fd8cc-ab7c-4dec-920b-5e60ab1bf1d5",
+                  "createdAt": "2026-07-28T00:59:29.000Z",
+                  "updatedAt": "2026-07-28T00:59:29.000Z",
+                  "uid": "35240-608fd8cc-ab7c-4dec-920b-5e60ab1bf1d5"
+                }
+              ],
+              "id": "b5995050-d01c-40b2-96d7-15b53974bf4b",
+              "createdAt": "2026-07-28T00:59:29.000Z",
+              "updatedAt": "2026-07-28T00:59:29.000Z",
+              "uid": "35240-b5995050-d01c-40b2-96d7-15b53974bf4b"
+            }
+          ],
+          "id": "135b4f45-8d3a-4193-89f1-911e9e3754f3",
+          "createdAt": "2026-07-28T00:59:29.000Z",
+          "updatedAt": "2026-07-28T00:59:29.000Z",
+          "uid": "35240-135b4f45-8d3a-4193-89f1-911e9e3754f3"
+        }
+      ],
+      "id": "0c7aef30-4692-4a9f-ae1c-d9f1f933a43e",
+      "createdAt": "2026-07-28T00:59:29.000Z",
+      "updatedAt": "2026-07-28T00:59:29.000Z",
+      "uid": "35240-0c7aef30-4692-4a9f-ae1c-d9f1f933a43e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

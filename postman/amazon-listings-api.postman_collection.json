@@ -1,0 +1,907 @@
+{
+  "info": {
+    "_postman_id": "6919d381-601f-40d1-a61e-97c00872450d",
+    "name": "Amazon Advertising Ad Groups Listings API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:59:25.000Z",
+    "updatedAt": "2026-07-28T00:59:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6919d381-601f-40d1-a61e-97c00872450d"
+  },
+  "item": [
+    {
+      "name": "listings",
+      "item": [
+        {
+          "name": "2021-08-01",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{sellerId}",
+                  "item": [
+                    {
+                      "name": "{sku}",
+                      "item": [
+                        {
+                          "name": "Amazon Get Listing Item",
+                          "id": "b4ee6828-1cdd-40e5-96a8-5085b6e44e65",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>&MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "listings",
+                                "2021-08-01",
+                                "items",
+                                ":sellerId",
+                                ":sku"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5dad9b94-f8f4-4a0f-85e3-0825b287d297",
+                                  "key": "sellerId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cdfe567b-91e5-4971-832e-250a81f77257",
+                                  "key": "sku",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns details about a listing item for a selling partner."
+                          },
+                          "response": [
+                            {
+                              "id": "b3b2785f-9d98-45b9-b534-c373bfd3a8e5",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"sku\": \"<string>\",\n  \"attributes\": {}\n}",
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-b3b2785f-9d98-45b9-b534-c373bfd3a8e5"
+                            },
+                            {
+                              "id": "55703449-8fc3-4ea6-90eb-fb8b8a389615",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-55703449-8fc3-4ea6-90eb-fb8b8a389615"
+                            },
+                            {
+                              "id": "ddb039dd-9832-43ec-acb2-475e95384f94",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-ddb039dd-9832-43ec-acb2-475e95384f94"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:59:25.000Z",
+                          "updatedAt": "2026-07-28T00:59:25.000Z",
+                          "uid": "35240-b4ee6828-1cdd-40e5-96a8-5085b6e44e65"
+                        },
+                        {
+                          "name": "Amazon Create or Replace Listing Item",
+                          "id": "c48bd68e-125a-4226-98d1-aaaa829f4ded",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>&MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "listings",
+                                "2021-08-01",
+                                "items",
+                                ":sellerId",
+                                ":sku"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e08fdd4a-dfaa-4287-a5a5-a3ffd06954fe",
+                                  "key": "sellerId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "4c0a54dd-cdeb-4c82-a045-4d800ef74d39",
+                                  "key": "sku",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates or replaces a listing item for a selling partner."
+                          },
+                          "response": [
+                            {
+                              "id": "c9b80aca-7e70-489e-8e07-b0d701c07bab",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"sku\": \"<string>\",\n  \"status\": \"INVALID\",\n  \"submissionId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-c9b80aca-7e70-489e-8e07-b0d701c07bab"
+                            },
+                            {
+                              "id": "a0969cac-9d13-4659-9ddc-1aaeb2d066ef",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"productType\": \"<string>\",\n  \"attributes\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-a0969cac-9d13-4659-9ddc-1aaeb2d066ef"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:59:25.000Z",
+                          "updatedAt": "2026-07-28T00:59:25.000Z",
+                          "uid": "35240-c48bd68e-125a-4226-98d1-aaaa829f4ded"
+                        },
+                        {
+                          "name": "Amazon Partially Update Listing Item",
+                          "id": "78b4ab80-b8a9-4e20-bee1-0f42fbf52d3e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>&MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "listings",
+                                "2021-08-01",
+                                "items",
+                                ":sellerId",
+                                ":sku"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "54fa52bf-65ce-45d7-8293-7bcccef52b41",
+                                  "key": "sellerId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "20aa3f7c-3436-4539-9c99-119f3aea17fe",
+                                  "key": "sku",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Partially updates a listing item for a selling partner."
+                          },
+                          "response": [
+                            {
+                              "id": "729fd3ed-9e17-4264-b402-87329a089884",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"sku\": \"<string>\",\n  \"status\": \"INVALID\",\n  \"submissionId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-729fd3ed-9e17-4264-b402-87329a089884"
+                            },
+                            {
+                              "id": "5b7699a9-b3a9-4481-9834-31c56dd4dc7d",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"productType\": \"<string>\",\n  \"patches\": [\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"op\": \"delete\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-5b7699a9-b3a9-4481-9834-31c56dd4dc7d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:59:25.000Z",
+                          "updatedAt": "2026-07-28T00:59:25.000Z",
+                          "uid": "35240-78b4ab80-b8a9-4e20-bee1-0f42fbf52d3e"
+                        },
+                        {
+                          "name": "Amazon Delete Listing Item",
+                          "id": "61eb5ac5-519b-4999-94a7-600eea76a6cb",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>&MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "listings",
+                                "2021-08-01",
+                                "items",
+                                ":sellerId",
+                                ":sku"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7261718f-7a4c-4e0d-83d7-11f8681b52d2",
+                                  "key": "sellerId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "50c6733b-4e44-4309-a6fc-6f8efe76bf25",
+                                  "key": "sku",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes a listing item for a selling partner."
+                          },
+                          "response": [
+                            {
+                              "id": "07f3b374-2f59-4cd2-afec-d5a5fde9e6a9",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"sku\": \"<string>\",\n  \"status\": \"INVALID\",\n  \"submissionId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-07f3b374-2f59-4cd2-afec-d5a5fde9e6a9"
+                            },
+                            {
+                              "id": "4685690d-878f-4f11-bec5-82bbace8507c",
+                              "name": "Bad request",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/listings/2021-08-01/items/:sellerId/:sku?MarketplaceIds=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "listings",
+                                    "2021-08-01",
+                                    "items",
+                                    ":sellerId",
+                                    ":sku"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "MarketplaceIds",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "sellerId"
+                                    },
+                                    {
+                                      "key": "sku"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:59:25.000Z",
+                              "updatedAt": "2026-07-28T00:59:25.000Z",
+                              "uid": "35240-4685690d-878f-4f11-bec5-82bbace8507c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:59:25.000Z",
+                          "updatedAt": "2026-07-28T00:59:25.000Z",
+                          "uid": "35240-61eb5ac5-519b-4999-94a7-600eea76a6cb"
+                        }
+                      ],
+                      "id": "d23c3031-ae96-4088-a82c-642e9cd3f018",
+                      "createdAt": "2026-07-28T00:59:25.000Z",
+                      "updatedAt": "2026-07-28T00:59:25.000Z",
+                      "uid": "35240-d23c3031-ae96-4088-a82c-642e9cd3f018"
+                    }
+                  ],
+                  "id": "58eb4ec7-ed09-4f37-b495-43a241a12703",
+                  "createdAt": "2026-07-28T00:59:25.000Z",
+                  "updatedAt": "2026-07-28T00:59:25.000Z",
+                  "uid": "35240-58eb4ec7-ed09-4f37-b495-43a241a12703"
+                }
+              ],
+              "id": "4d7b32f4-b421-40a6-9624-64a3d50f9d7f",
+              "createdAt": "2026-07-28T00:59:25.000Z",
+              "updatedAt": "2026-07-28T00:59:25.000Z",
+              "uid": "35240-4d7b32f4-b421-40a6-9624-64a3d50f9d7f"
+            }
+          ],
+          "id": "ce430c92-b6f8-4dd0-8954-56454b579afe",
+          "createdAt": "2026-07-28T00:59:25.000Z",
+          "updatedAt": "2026-07-28T00:59:25.000Z",
+          "uid": "35240-ce430c92-b6f8-4dd0-8954-56454b579afe"
+        }
+      ],
+      "id": "842bc69b-8e71-4fae-947a-27bc335d263a",
+      "createdAt": "2026-07-28T00:59:25.000Z",
+      "updatedAt": "2026-07-28T00:59:25.000Z",
+      "uid": "35240-842bc69b-8e71-4fae-947a-27bc335d263a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

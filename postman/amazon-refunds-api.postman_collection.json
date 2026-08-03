@@ -1,0 +1,398 @@
+{
+  "info": {
+    "_postman_id": "00ca6442-209f-465e-a44b-ffaf827f85fa",
+    "name": "Amazon Advertising Ad Groups Refunds API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:59:28.000Z",
+    "updatedAt": "2026-07-28T00:59:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-00ca6442-209f-465e-a44b-ffaf827f85fa"
+  },
+  "item": [
+    {
+      "name": "refunds",
+      "item": [
+        {
+          "name": "{refundId}",
+          "item": [
+            {
+              "name": "Amazon Get Refund Details",
+              "id": "f82c536a-cd37-4c11-8de7-99a1072b910c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refunds/:refundId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refunds",
+                    ":refundId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4c875dd9-23b8-4a62-9819-e14229cda092",
+                      "key": "refundId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns details about the specified refund."
+              },
+              "response": [
+                {
+                  "id": "7f49b6bd-8acf-4d6f-b3e8-1c6ed6e64f4c",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refunds/:refundId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refunds",
+                        ":refundId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "refundId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"refundId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"refundAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  },\n  \"softDescriptor\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"creationTimestamp\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T00:59:28.000Z",
+                  "updatedAt": "2026-07-28T00:59:28.000Z",
+                  "uid": "35240-7f49b6bd-8acf-4d6f-b3e8-1c6ed6e64f4c"
+                },
+                {
+                  "id": "6bdd354d-a109-4242-9f3a-789402b5bfa8",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-date",
+                        "value": "<dateTime>"
+                      },
+                      {
+                        "description": "(Required) ",
+                        "key": "x-amz-pay-region",
+                        "value": "eu"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refunds/:refundId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refunds",
+                        ":refundId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "refundId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:59:28.000Z",
+                  "updatedAt": "2026-07-28T00:59:28.000Z",
+                  "uid": "35240-6bdd354d-a109-4242-9f3a-789402b5bfa8"
+                }
+              ],
+              "createdAt": "2026-07-28T00:59:28.000Z",
+              "updatedAt": "2026-07-28T00:59:28.000Z",
+              "uid": "35240-f82c536a-cd37-4c11-8de7-99a1072b910c"
+            }
+          ],
+          "id": "fd17bbcc-4973-464f-ad49-3181f5ddbbcf",
+          "createdAt": "2026-07-28T00:59:28.000Z",
+          "updatedAt": "2026-07-28T00:59:28.000Z",
+          "uid": "35240-fd17bbcc-4973-464f-ad49-3181f5ddbbcf"
+        },
+        {
+          "name": "Amazon Create a Refund",
+          "id": "b54a94b8-b1a4-4671-a6c8-22650e572c0c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-date",
+                "value": "<dateTime>"
+              },
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-region",
+                "value": "eu"
+              },
+              {
+                "description": "(Required) ",
+                "key": "x-amz-pay-idempotency-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chargeId\": \"<string>\",\n  \"refundAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  },\n  \"softDescriptor\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/refunds",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refunds"
+              ]
+            },
+            "description": "Creates a refund for a previously captured charge."
+          },
+          "response": [
+            {
+              "id": "07c46196-be8e-47b2-9327-4a96df6aadb5",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-idempotency-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chargeId\": \"<string>\",\n  \"refundAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  },\n  \"softDescriptor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refunds",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refunds"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"refundId\": \"<string>\",\n  \"chargeId\": \"<string>\",\n  \"refundAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  },\n  \"softDescriptor\": \"<string>\",\n  \"statusDetails\": {\n    \"state\": \"<string>\",\n    \"reasonCode\": \"<string>\",\n    \"reasonDescription\": \"<string>\"\n  },\n  \"creationTimestamp\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T00:59:28.000Z",
+              "updatedAt": "2026-07-28T00:59:28.000Z",
+              "uid": "35240-07c46196-be8e-47b2-9327-4a96df6aadb5"
+            },
+            {
+              "id": "5eec8035-1ddb-4ed5-af01-d5363493043b",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "eu"
+                  },
+                  {
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-idempotency-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chargeId\": \"<string>\",\n  \"refundAmount\": {\n    \"amount\": \"<string>\",\n    \"currencyCode\": \"<string>\"\n  },\n  \"softDescriptor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refunds",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refunds"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:59:28.000Z",
+              "updatedAt": "2026-07-28T00:59:28.000Z",
+              "uid": "35240-5eec8035-1ddb-4ed5-af01-d5363493043b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:59:28.000Z",
+          "updatedAt": "2026-07-28T00:59:28.000Z",
+          "uid": "35240-b54a94b8-b1a4-4671-a6c8-22650e572c0c"
+        }
+      ],
+      "id": "5047a162-c850-487d-a2dc-4f636757fa74",
+      "createdAt": "2026-07-28T00:59:28.000Z",
+      "updatedAt": "2026-07-28T00:59:28.000Z",
+      "uid": "35240-5047a162-c850-487d-a2dc-4f636757fa74"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

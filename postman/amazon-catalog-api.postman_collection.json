@@ -1,0 +1,509 @@
+{
+  "info": {
+    "_postman_id": "02fd539f-272f-4647-8dcc-d11c5207a154",
+    "name": "Amazon Advertising Ad Groups Catalog API",
+    "description": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:58:53.000Z",
+    "updatedAt": "2026-07-28T00:58:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02fd539f-272f-4647-8dcc-d11c5207a154"
+  },
+  "item": [
+    {
+      "name": "catalog",
+      "item": [
+        {
+          "name": "2022-04-01",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{asin}",
+                  "item": [
+                    {
+                      "name": "Amazon Get Catalog Item",
+                      "id": "093582be-7205-406b-860a-d6cc399d5496",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/catalog/2022-04-01/items/:asin?MarketplaceIds=<string>&MarketplaceIds=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "catalog",
+                            "2022-04-01",
+                            "items",
+                            ":asin"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "7e20ba81-dc22-4573-8d89-5313c3d4af0e",
+                              "key": "asin",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieves details for an item in the Amazon catalog by ASIN."
+                      },
+                      "response": [
+                        {
+                          "id": "3bbff06a-7278-442e-b05e-6c68e440dd7c",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/catalog/2022-04-01/items/:asin?MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "catalog",
+                                "2022-04-01",
+                                "items",
+                                ":asin"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asin"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"asin\": \"<string>\",\n  \"attributes\": {}\n}",
+                          "createdAt": "2026-07-28T00:58:54.000Z",
+                          "updatedAt": "2026-07-28T00:58:54.000Z",
+                          "uid": "35240-3bbff06a-7278-442e-b05e-6c68e440dd7c"
+                        },
+                        {
+                          "id": "df5abeb6-8361-42c8-9caa-9f55ec2ad428",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/catalog/2022-04-01/items/:asin?MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "catalog",
+                                "2022-04-01",
+                                "items",
+                                ":asin"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asin"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:58:54.000Z",
+                          "updatedAt": "2026-07-28T00:58:54.000Z",
+                          "uid": "35240-df5abeb6-8361-42c8-9caa-9f55ec2ad428"
+                        },
+                        {
+                          "id": "68bdebc5-a44f-4114-ab2b-48029674c610",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/catalog/2022-04-01/items/:asin?MarketplaceIds=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "catalog",
+                                "2022-04-01",
+                                "items",
+                                ":asin"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "MarketplaceIds",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "asin"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:58:54.000Z",
+                          "updatedAt": "2026-07-28T00:58:54.000Z",
+                          "uid": "35240-68bdebc5-a44f-4114-ab2b-48029674c610"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:58:54.000Z",
+                      "updatedAt": "2026-07-28T00:58:54.000Z",
+                      "uid": "35240-093582be-7205-406b-860a-d6cc399d5496"
+                    }
+                  ],
+                  "id": "f1cee0e0-86ad-46c0-a0cc-9ccf28c121b7",
+                  "createdAt": "2026-07-28T00:58:54.000Z",
+                  "updatedAt": "2026-07-28T00:58:54.000Z",
+                  "uid": "35240-f1cee0e0-86ad-46c0-a0cc-9ccf28c121b7"
+                },
+                {
+                  "name": "Amazon Search Catalog Items",
+                  "id": "8318d388-71a7-4ccc-b1d3-bc9c4322bada",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/catalog/2022-04-01/items?MarketplaceIds=<string>&MarketplaceIds=<string>&keywords=<string>&keywords=<string>&identifiers=<string>&identifiers=<string>&pageSize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "catalog",
+                        "2022-04-01",
+                        "items"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "MarketplaceIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "MarketplaceIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "keywords",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "keywords",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "identifiers",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "identifiers",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Search for and return a list of Amazon catalog items and associated information either by identifiers or by keywords."
+                  },
+                  "response": [
+                    {
+                      "id": "90bcf278-f95f-48ca-90b1-4cb999972ed1",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/catalog/2022-04-01/items?MarketplaceIds=<string>&keywords=<string>&identifiers=<string>&pageSize=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "catalog",
+                            "2022-04-01",
+                            "items"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "keywords",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "identifiers",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"numberOfResults\": \"<integer>\",\n  \"pagination\": {\n    \"nextToken\": \"<string>\",\n    \"previousToken\": \"<string>\"\n  },\n  \"items\": [\n    {\n      \"asin\": \"<string>\",\n      \"attributes\": {}\n    },\n    {\n      \"asin\": \"<string>\",\n      \"attributes\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:58:54.000Z",
+                      "updatedAt": "2026-07-28T00:58:54.000Z",
+                      "uid": "35240-90bcf278-f95f-48ca-90b1-4cb999972ed1"
+                    },
+                    {
+                      "id": "71ff0bb8-17a1-4490-b9ea-c107a8c12c0e",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/catalog/2022-04-01/items?MarketplaceIds=<string>&keywords=<string>&identifiers=<string>&pageSize=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "catalog",
+                            "2022-04-01",
+                            "items"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "keywords",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "identifiers",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:58:54.000Z",
+                      "updatedAt": "2026-07-28T00:58:54.000Z",
+                      "uid": "35240-71ff0bb8-17a1-4490-b9ea-c107a8c12c0e"
+                    },
+                    {
+                      "id": "920f5faa-06d5-4d24-b7bb-14bfa052b8b0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/catalog/2022-04-01/items?MarketplaceIds=<string>&keywords=<string>&identifiers=<string>&pageSize=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "catalog",
+                            "2022-04-01",
+                            "items"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "MarketplaceIds",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "keywords",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "identifiers",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:58:54.000Z",
+                      "updatedAt": "2026-07-28T00:58:54.000Z",
+                      "uid": "35240-920f5faa-06d5-4d24-b7bb-14bfa052b8b0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:58:54.000Z",
+                  "updatedAt": "2026-07-28T00:58:54.000Z",
+                  "uid": "35240-8318d388-71a7-4ccc-b1d3-bc9c4322bada"
+                }
+              ],
+              "id": "9439d0d9-c5dd-4087-b4da-1a6f847ce6e9",
+              "createdAt": "2026-07-28T00:58:54.000Z",
+              "updatedAt": "2026-07-28T00:58:54.000Z",
+              "uid": "35240-9439d0d9-c5dd-4087-b4da-1a6f847ce6e9"
+            }
+          ],
+          "id": "83b90b59-6d20-41a0-8410-27cbbcfc0d0a",
+          "createdAt": "2026-07-28T00:58:54.000Z",
+          "updatedAt": "2026-07-28T00:58:54.000Z",
+          "uid": "35240-83b90b59-6d20-41a0-8410-27cbbcfc0d0a"
+        }
+      ],
+      "id": "38ef6d81-bef1-4648-ac83-9734cdf13b14",
+      "createdAt": "2026-07-28T00:58:54.000Z",
+      "updatedAt": "2026-07-28T00:58:54.000Z",
+      "uid": "35240-38ef6d81-bef1-4648-ac83-9734cdf13b14"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://advertising-api.amazon.com"
+    }
+  ]
+}

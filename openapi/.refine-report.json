@@ -1,0 +1,42 @@
+{
+  "provider": "amazon",
+  "sources": [
+    "amazon-ad-groups-api-openapi.yml",
+    "amazon-campaigns-api-openapi.yml",
+    "amazon-catalog-api-openapi.yml",
+    "amazon-charge-permissions-api-openapi.yml",
+    "amazon-charges-api-openapi.yml",
+    "amazon-checkout-sessions-api-openapi.yml",
+    "amazon-finances-api-openapi.yml",
+    "amazon-inventory-api-openapi.yml",
+    "amazon-keywords-api-openapi.yml",
+    "amazon-listings-api-openapi.yml",
+    "amazon-orders-api-openapi.yml",
+    "amazon-profiles-api-openapi.yml",
+    "amazon-refunds-api-openapi.yml",
+    "amazon-reports-api-openapi.yml",
+    "amazon-targets-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-ad-groups-api-openapi.yml",
+    "amazon-campaigns-api-openapi.yml",
+    "amazon-catalog-api-openapi.yml",
+    "amazon-charge-permissions-api-openapi.yml",
+    "amazon-charges-api-openapi.yml",
+    "amazon-checkout-sessions-api-openapi.yml",
+    "amazon-finances-api-openapi.yml",
+    "amazon-inventory-api-openapi.yml",
+    "amazon-keywords-api-openapi.yml",
+    "amazon-listings-api-openapi.yml",
+    "amazon-orders-api-openapi.yml",
+    "amazon-profiles-api-openapi.yml",
+    "amazon-refunds-api-openapi.yml",
+    "amazon-reports-api-openapi.yml",
+    "amazon-targets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
