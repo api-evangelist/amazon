@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Catalog API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Search Catalog Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/catalog/2022-04-01/items",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "identifiers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for and return a list of Amazon catalog items and associated information either by identifiers or by keywords."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Catalog Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/catalog/2022-04-01/items/:asin",
+            "params": [
+              {
+                "name": "asin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves details for an item in the Amazon catalog by ASIN."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

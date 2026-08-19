@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Listings API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns details about a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Create or Replace Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://advertising-api.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Partially Update Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://advertising-api.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a listing item for a selling partner."
+        },
+        {
+          "info": {
+            "name": "Amazon Delete Listing Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://advertising-api.amazon.com/listings/2021-08-01/items/:sellerId/:sku",
+            "params": [
+              {
+                "name": "sellerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a listing item for a selling partner."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

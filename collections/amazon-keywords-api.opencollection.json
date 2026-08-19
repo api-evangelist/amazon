@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Keywords API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Keywords",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/keywords",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignIdFilter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "adGroupIdFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of keywords for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/keywords",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more keywords."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

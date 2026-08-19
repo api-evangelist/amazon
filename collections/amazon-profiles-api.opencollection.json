@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Profiles API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Advertising Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/profiles"
+          },
+          "docs": "Returns a list of advertising profiles associated with the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

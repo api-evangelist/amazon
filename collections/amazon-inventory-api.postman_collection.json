@@ -1,0 +1,336 @@
+{
+  "item": [
+    {
+      "id": "61b8ad2c-d5e3-4e2c-aaf5-9cb28c66ef0e",
+      "name": "Inventory",
+      "description": {
+        "content": "Manage FBA inventory",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c43f8d18-6d9d-47ce-beef-7f3305c56b1f",
+          "name": "Amazon Get Inventory Summaries",
+          "request": {
+            "name": "Amazon Get Inventory Summaries",
+            "description": {
+              "content": "Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fba",
+                "inventory",
+                "v1",
+                "summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "granularityType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "granularityId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerSkus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sellerSkus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b492c53c-73ca-4d98-8993-582c8ee25468",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"nextToken\": \"string\",\n    \"previousToken\": \"string\"\n  },\n  \"inventorySummaries\": [\n    {\n      \"asin\": \"string\",\n      \"fnSku\": \"string\",\n      \"sellerSku\": \"string\",\n      \"condition\": \"string\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": 571,\n        \"inboundWorkingQuantity\": 1410,\n        \"inboundShippedQuantity\": 7527,\n        \"inboundReceivingQuantity\": 5423,\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    },\n    {\n      \"asin\": \"string\",\n      \"fnSku\": \"string\",\n      \"sellerSku\": \"string\",\n      \"condition\": \"string\",\n      \"inventoryDetails\": {\n        \"fulfillableQuantity\": 3263,\n        \"inboundWorkingQuantity\": 3267,\n        \"inboundShippedQuantity\": 6841,\n        \"inboundReceivingQuantity\": 4461,\n        \"reservedQuantity\": {},\n        \"unfulfillableQuantity\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "843d97b5-906b-415b-9ead-8f38189f93e1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5320102-bdf2-4a27-93c9-3e1703986c66",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fba",
+                    "inventory",
+                    "v1",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sellerSkus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://advertising-api.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8cda4723-ec4c-4be6-bc85-e80ec71ff57a",
+    "name": "Amazon Advertising Ad Groups Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Inventory API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Inventory Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/fba/inventory/v1/summaries",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularityType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularityId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sellerSkus",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of inventory summaries with information about condition, available quantity, and fulfillment status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

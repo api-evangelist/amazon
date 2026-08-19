@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Checkout Sessions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkout Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Create Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/checkoutSessions",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-idempotency-key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new checkout session for a buyer to authorize payment."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/checkoutSessions/:checkoutSessionId",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checkoutSessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details about the specified checkout session."
+        },
+        {
+          "info": {
+            "name": "Amazon Update Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://advertising-api.amazon.com/checkoutSessions/:checkoutSessionId",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checkoutSessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified checkout session with new information."
+        },
+        {
+          "info": {
+            "name": "Amazon Complete Checkout Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/checkoutSessions/:checkoutSessionId/complete",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-idempotency-key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checkoutSessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completes the checkout session and processes the payment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

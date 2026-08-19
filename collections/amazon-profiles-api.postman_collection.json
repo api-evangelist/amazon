@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "ac9b171c-1500-4795-bc11-8ce24e3ed7e9",
+      "name": "Profiles",
+      "description": {
+        "content": "Account profile management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d1ed369-de79-4572-a6c0-ffea62189442",
+          "name": "Amazon List Advertising Profiles",
+          "request": {
+            "name": "Amazon List Advertising Profiles",
+            "description": {
+              "content": "Returns a list of advertising profiles associated with the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3db4c692-ab98-4e74-a35a-c068109b57af",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"profileId\": \"string\",\n    \"countryCode\": \"string\",\n    \"currencyCode\": \"string\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"vendor\"\n    }\n  },\n  {\n    \"profileId\": \"string\",\n    \"countryCode\": \"string\",\n    \"currencyCode\": \"string\",\n    \"accountInfo\": {\n      \"marketplaceStringId\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"seller\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcdb207d-5837-41cc-8954-86e6c7c4ea70",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://advertising-api.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6e17435d-ef9f-4789-9bb8-0caf1f5c828c",
+    "name": "Amazon Advertising Ad Groups Profiles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+      "type": "text/plain"
+    }
+  }
+}

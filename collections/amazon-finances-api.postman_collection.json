@@ -1,0 +1,296 @@
+{
+  "item": [
+    {
+      "id": "ffccb123-17f3-4103-b45d-4bca64f06fc6",
+      "name": "Finances",
+      "description": {
+        "content": "Retrieve financial transaction data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "785e8f19-a800-4811-94ee-bd14893d0e56",
+          "name": "Amazon List Financial Transactions",
+          "request": {
+            "name": "Amazon List Financial Transactions",
+            "description": {
+              "content": "Returns financial transaction data for the selling partner account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "finances",
+                "2024-06-19",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postedAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "postedBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "MarketplaceIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ccd60a9-aeeb-4f1c-a10b-9a91600042fc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions\": [\n    {\n      \"transactionType\": \"string\",\n      \"transactionId\": \"string\",\n      \"transactionStatus\": \"string\",\n      \"postedDate\": \"1975-06-17T03:50:44.481Z\",\n      \"totalAmount\": {\n        \"CurrencyCode\": \"string\",\n        \"Amount\": \"string\"\n      }\n    },\n    {\n      \"transactionType\": \"string\",\n      \"transactionId\": \"string\",\n      \"transactionStatus\": \"string\",\n      \"postedDate\": \"2018-11-11T09:34:44.398Z\",\n      \"totalAmount\": {\n        \"CurrencyCode\": \"string\",\n        \"Amount\": \"string\"\n      }\n    }\n  ],\n  \"nextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f5174ee-e3aa-44b8-a015-4bf05ef3bafe",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b15e2f6-c092-4209-964d-5ce72f51e5fe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "finances",
+                    "2024-06-19",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postedAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "postedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MarketplaceIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://advertising-api.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "297733c6-c3d0-4202-93b7-355fe9da8cfe",
+    "name": "Amazon Advertising Ad Groups Finances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Targets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Targets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Product Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/targets",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns a list of product targets for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Product Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/targets",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more product targets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Campaigns API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Campaigns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of Sponsored Products campaigns for the specified advertiser profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Create Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more Sponsored Products campaigns."
+        },
+        {
+          "info": {
+            "name": "Amazon Update Sponsored Products Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates one or more Sponsored Products campaigns."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Campaign Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns/:campaignId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a Sponsored Products campaign by campaign ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Archive Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://advertising-api.amazon.com/v2/sp/campaigns/:campaignId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sets the campaign status to archived."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

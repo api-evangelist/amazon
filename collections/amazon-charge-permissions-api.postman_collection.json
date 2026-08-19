@@ -1,0 +1,642 @@
+{
+  "item": [
+    {
+      "id": "871ea427-da6a-439f-b8cc-066595fa9f84",
+      "name": "Charge Permissions",
+      "description": {
+        "content": "Manage buyer charge authorizations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2e814e5-7326-48f1-ab8c-4c4f6203b0ed",
+          "name": "Amazon Get Charge Permission",
+          "request": {
+            "name": "Amazon Get Charge Permission",
+            "description": {
+              "content": "Returns details about the specified charge permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chargePermissions",
+                ":chargePermissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chargePermissionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-date",
+                "value": "<dateTime>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-region",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa80f8ae-ce4e-4960-85fa-ee624b387809",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargePermissionId\": \"string\",\n  \"chargePermissionType\": \"OneTime\",\n  \"buyer\": {\n    \"buyerId\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"qI0mNWHCLfGudIs@kHGSRgUT.svuo\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"billingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"statusDetails\": {\n    \"state\": \"string\",\n    \"reasonCode\": \"string\",\n    \"reasonDescription\": \"string\"\n  },\n  \"limits\": {\n    \"amountLimit\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"amountBalance\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    }\n  },\n  \"creationTimestamp\": \"2025-06-05T00:37:02.592Z\",\n  \"expirationTimestamp\": \"1956-02-17T01:45:51.771Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f816db0-f44e-4987-9fe1-68d450ad87df",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf062bd4-9c68-4237-b79b-14f94c79bb0c",
+          "name": "Amazon Update Charge Permission",
+          "request": {
+            "name": "Amazon Update Charge Permission",
+            "description": {
+              "content": "Updates the specified charge permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chargePermissions",
+                ":chargePermissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chargePermissionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-date",
+                "value": "<dateTime>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-region",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"<string>\",\n    \"merchantStoreName\": \"<string>\",\n    \"noteToBuyer\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27580a20-6795-49ce-81ae-f438ea37f9f1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"string\",\n    \"merchantStoreName\": \"string\",\n    \"noteToBuyer\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargePermissionId\": \"string\",\n  \"chargePermissionType\": \"OneTime\",\n  \"buyer\": {\n    \"buyerId\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"qI0mNWHCLfGudIs@kHGSRgUT.svuo\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"billingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"statusDetails\": {\n    \"state\": \"string\",\n    \"reasonCode\": \"string\",\n    \"reasonDescription\": \"string\"\n  },\n  \"limits\": {\n    \"amountLimit\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"amountBalance\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    }\n  },\n  \"creationTimestamp\": \"2025-06-05T00:37:02.592Z\",\n  \"expirationTimestamp\": \"1956-02-17T01:45:51.771Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fbd5471-3f87-45e9-bee6-cc6d24ccace0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantMetadata\": {\n    \"merchantReferenceId\": \"string\",\n    \"merchantStoreName\": \"string\",\n    \"noteToBuyer\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43a674e4-8bdc-40c0-b821-5273eb362da8",
+          "name": "Amazon Close Charge Permission",
+          "request": {
+            "name": "Amazon Close Charge Permission",
+            "description": {
+              "content": "Closes the specified charge permission so no further charges can be made.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chargePermissions",
+                ":chargePermissionId",
+                "close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chargePermissionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-date",
+                "value": "<dateTime>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "x-amz-pay-region",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"closureReason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2627579-2582-405c-8638-69112314eb78",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"closureReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargePermissionId\": \"string\",\n  \"chargePermissionType\": \"OneTime\",\n  \"buyer\": {\n    \"buyerId\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"qI0mNWHCLfGudIs@kHGSRgUT.svuo\"\n  },\n  \"shippingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"billingAddress\": {\n    \"name\": \"string\",\n    \"addressLine1\": \"string\",\n    \"addressLine2\": \"string\",\n    \"addressLine3\": \"string\",\n    \"city\": \"string\",\n    \"stateOrRegion\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\",\n    \"phoneNumber\": \"string\"\n  },\n  \"statusDetails\": {\n    \"state\": \"string\",\n    \"reasonCode\": \"string\",\n    \"reasonDescription\": \"string\"\n  },\n  \"limits\": {\n    \"amountLimit\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"amountBalance\": {\n      \"amount\": \"string\",\n      \"currencyCode\": \"string\"\n    }\n  },\n  \"creationTimestamp\": \"2025-06-05T00:37:02.592Z\",\n  \"expirationTimestamp\": \"1956-02-17T01:45:51.771Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cc19a14-6a02-4a69-80b7-b02b3b13d0a5",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chargePermissions",
+                    ":chargePermissionId",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chargePermissionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-date",
+                    "value": "<dateTime>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "x-amz-pay-region",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"closureReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://advertising-api.amazon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4e9e31d4-9ad6-498e-ac30-dd634e542529",
+    "name": "Amazon Advertising Ad Groups Charge Permissions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.\n\nContact Support:\n Name: Amazon Advertising Support",
+      "type": "text/plain"
+    }
+  }
+}

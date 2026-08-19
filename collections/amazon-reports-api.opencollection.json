@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Reports API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Request a Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/v2/sp/:recordType/report",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "recordType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requests the creation of a performance report for the specified record type."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/v2/reports/:reportId",
+            "headers": [
+              {
+                "name": "Amazon-Advertising-API-Scope",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the status and download location of a previously requested report."
+        },
+        {
+          "info": {
+            "name": "Amazon List Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/reports/2021-06-30/reports",
+            "params": [
+              {
+                "name": "reportTypes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "processingStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns report details for the reports that match the filters specified."
+        },
+        {
+          "info": {
+            "name": "Amazon Create a Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://advertising-api.amazon.com/reports/2021-06-30/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/reports/2021-06-30/reports/:reportId",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns report details for the report indicated by the specified report ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Report Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/reports/2021-06-30/documents/:reportDocumentId",
+            "params": [
+              {
+                "name": "reportDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the information required for retrieving a report document's contents."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

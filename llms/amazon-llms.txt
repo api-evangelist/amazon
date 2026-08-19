@@ -1,0 +1,950 @@
+# Amazon Developer Portal Documentation
+
+## Instructions for LLMs
+
+This file contains comprehensive documentation for Amazon's developer ecosystem. When parsing this content:
+
+1. **URL Format**: All URLs follow the pattern `https://developer.amazon.com/[path]` and are functional developer resources
+2. **Structure**: Each URL is formatted as `- URL - **Title**` followed by an italic description
+3. **Categories**: Content is organized by platform (Vega OS, Fire TV, Alexa, Appstore, etc.) and function
+4. **Descriptions**: Each URL includes detailed context about its purpose, target audience, and key features
+5. **Coverage**: multiple URLs covering development tools, APIs, documentation, consoles, and business programs
+6. **Relevancy**: All URLs are current and actively maintained Amazon developer resources
+
+Use this documentation to provide accurate, detailed information about Amazon's developer platforms, tools, and services.
+
+---
+
+## Overview
+
+The Amazon Developer Portal (developer.amazon.com) is Amazon's comprehensive platform for building applications and experiences across Amazon-supported devices and services. This documentation collection covers multiple platforms including Vega OS (next-generation Fire TV), Fire TV, Fire OS, Alexa, Alexa voice services, Amazon Appstore, Fire Tablets, and various Amazon APIs and services.
+
+**Portal Features:**
+- Unified developer console for managing apps across all Amazon platforms
+- Comprehensive documentation with code examples and tutorials
+- Testing tools and quality assurance services
+- Revenue reporting and analytics dashboards
+- Community forums and developer support
+- Legal agreements and policy guidelines
+
+## Platforms and Development Environments
+*Core development platforms and SDKs for building applications across Amazon's device ecosystem.*
+
+### Vega OS (Fire TV Next-Gen)
+**Platform Overview:** Vega is Amazon's next-generation operating system for Fire TV devices, designed to replace traditional Fire OS with modern web technologies. It supports HTML5, CSS3, JavaScript, React Native, and provides enhanced performance capabilities.
+
+**Key Capabilities:**
+- Web-based app development using modern standards
+- React Native framework support for cross-platform development
+- Enhanced media playback with W3C Media API compliance
+- WebView integration for hybrid applications
+- Performance optimization tools and debugging capabilities
+- Direct integration with Amazon Appstore and Fire TV features
+
+**Core Documentation:**
+- https://developer.amazon.com/docs/vega/0.21/vega.html - **Main Documentation Hub**
+  *Central portal for all Vega OS development resources. Contains platform overview, architecture details, getting started guides, and navigation to all Vega-specific documentation sections.*
+
+- https://developer.amazon.com/docs/vega/0.21/vega-get-started.html - **Getting Started Guide**
+  *Step-by-step onboarding for new Vega developers. Covers SDK installation, environment setup, creating first project, and understanding the development workflow. Includes system requirements and troubleshooting common setup issues.*
+
+- https://developer.amazon.com/docs/vega/0.21/vega-overview.html - **Platform Overview**
+  *Comprehensive introduction to Vega OS architecture, capabilities, and development paradigms. Explains the transition from Fire OS, supported technologies, device compatibility, and platform benefits.*
+
+- https://developer.amazon.com/docs/vega/0.21/setup-overview.html - **Development Environment Setup**
+  *Detailed instructions for configuring development environment including SDK installation, IDE setup, emulator configuration, and device connection procedures.*
+
+- https://developer.amazon.com/docs/vega/0.21/hello-world.html - **Hello World Tutorial**
+  *Complete walkthrough for creating your first Vega application. Covers project structure, basic components, build process, and running the app on emulator and device.*
+
+- https://developer.amazon.com/docs/vega/0.21/sample-app-home.html - **Sample Applications**
+  *Collection of ready-to-use sample applications demonstrating various Vega capabilities including media playback, UI components, API usage, and best practices.*
+
+- https://developer.amazon.com/docs/vega-tutorial/0.21/introduction.html - **Comprehensive Tutorial Series**
+  *Progressive learning path covering basic to advanced Vega development concepts with hands-on exercises and real-world examples.*
+
+- https://developer.amazon.com/docs/vega/0.21/vega-release-notes.html - **Release Notes and Updates**
+  *Latest SDK versions, new features, API changes, bug fixes, breaking changes, and migration guides for keeping apps up-to-date.*
+
+**Development Workflow:**
+- https://developer.amazon.com/docs/vega/0.21/vega-develop.html - **Core Development Concepts**
+  *Fundamental development patterns, architecture guidelines, coding standards, and best practices for building robust Vega applications.*
+
+- https://developer.amazon.com/docs/vega/0.21/build-apps-overview.html - **Build Process Overview**
+  *Complete guide to compiling, packaging, and optimizing Vega applications. Covers build configurations, asset optimization, and deployment preparation.*
+
+- https://developer.amazon.com/docs/vega/0.21/run-apps-overview.html - **Running and Testing Applications**
+  *Instructions for running apps during development including local testing, device deployment, emulator usage, and debugging setup.*
+
+- https://developer.amazon.com/docs/vega/0.21/debug-apps-overview.html - **Debugging Tools and Techniques**
+  *Comprehensive debugging guide covering development tools, error handling, performance profiling, and troubleshooting common issues.*
+
+- https://developer.amazon.com/docs/vega/0.21/vega-test-tools-overview.html - **Testing Frameworks**
+  *Overview of testing tools including unit testing frameworks, integration testing, automated testing, and quality assurance processes.*
+
+- https://developer.amazon.com/docs/vega/0.21/dev-guides-overview.html - **Developer Guides**
+  *Advanced development topics, architectural patterns, performance optimization, and expert-level implementation guidance.*
+
+**Advanced Features:**
+- https://developer.amazon.com/docs/vega/0.21/improve-performance-overview.html - **Performance Optimization**
+  *Detailed strategies for optimizing app performance including memory management, rendering optimization, asset loading, and performance monitoring tools.*
+
+- https://developer.amazon.com/docs/vega/0.21/media-player.html - **W3C Media API Implementation**
+  *Complete guide to implementing video and audio playback using W3C Media API standards. Covers streaming protocols, codec support, DRM integration, and media controls.*
+
+- https://developer.amazon.com/docs/vega/0.21/overview-of-webview.html - **WebView Integration**
+  *Guide for embedding web content in Vega applications including JavaScript bridge setup, security considerations, and hybrid app development patterns.*
+
+- https://developer.amazon.com/docs/vega/0.21/app-security-overview.html - **Security Guidelines**
+  *Comprehensive security best practices covering data protection, secure coding, authentication, authorization, and compliance requirements.*
+
+- https://developer.amazon.com/docs/vega/0.21/appstore-integrations-overview.html - **Appstore Integrations**
+  *Integration with Amazon Appstore features including in-app purchasing, content discovery, recommendations, and Fire TV specific capabilities.*
+
+- https://developer.amazon.com/docs/vega/0.21/app-submission.html - **App Submission for Vega**
+  *Complete process for submitting Vega applications to Amazon Appstore including requirements, review process, and publishing guidelines.*
+
+**React Native Support:**
+- https://developer.amazon.com/docs/react-native-vega/0.72/react_overview.html - **React Native Overview**
+  *Introduction to React Native development for Vega OS including setup, component architecture, and platform-specific considerations.*
+
+- https://developer.amazon.com/docs/react-native-vega/0.72/components_apis.html - **Components and APIs**
+  *Complete reference for React Native components and APIs available in Vega including UI components, native modules, and platform integrations.*
+
+- https://developer.amazon.com/docs/react-native-vega/0.72/react_overview.html - **React Native for Vega (Direct Link)**
+  *Direct access to React Native documentation for Vega OS development with comprehensive guides and API references.*
+
+**Tools and APIs:**
+- https://developer.amazon.com/docs/vega/0.21/cli-overview.html - **Command Line Tools**
+  *Comprehensive guide to Vega CLI tools for project management, build automation, deployment, and development utilities.*
+
+- https://developer.amazon.com/docs/vega-api/0.21/vega-apis-overview.html - **API Reference**
+  *Complete API documentation for Vega platform services including system APIs, device capabilities, and integration points.*
+
+- https://developer.amazon.com/docs/vega-api/0.21/supported-libraries.html - **Supported Libraries**
+  *Comprehensive list of supported third-party libraries, frameworks, native modules, and service integrations with compatibility information.*
+
+- https://developer.amazon.com/docs/vega/0.21/troubleshoot-overview.html - **Troubleshooting Guide**
+  *Common issues, error resolution, debugging tips, performance problems, and support resources for Vega development.*
+
+
+
+### Fire TV Development
+**Platform Overview:** Fire TV is Amazon's streaming media platform running Fire OS (Android-based). It supports native Android app development, streaming media applications, games, and TV-optimized user experiences. Fire TV devices include Fire TV Stick, Fire TV Cube, and Fire TV Edition smart TVs.
+
+**Key Capabilities:**
+- Native Android app development with Fire OS extensions
+- 4K video streaming with HDR support
+- Voice control integration with Alexa
+- Content personalization and recommendation systems
+- Linear TV and live events integration
+- Gaming support with controller input
+- Smart home device control
+
+**Getting Started:**
+- https://developer.amazon.com/docs/fire-tv/get-started-with-fire-tv.html - **Fire TV Development Overview**
+  *Comprehensive introduction to Fire TV app development including platform capabilities, development options (native Android, web apps), device ecosystem, and getting started workflow.*
+
+- https://developer.amazon.com/docs/fire-tv/fire-os-overview.html - **Fire OS Platform Details**
+  *Deep dive into Fire OS architecture, Android compatibility layers, Fire TV specific APIs, system services, and platform differences from standard Android.*
+
+**Integration SDK and Advanced Features:**
+- https://developer.amazon.com/docs/fire-tv/get-started-with-firetv-integration-sdk.html - **Fire TV Integration SDK Setup**
+  *Setup guide for Fire TV Integration SDK enabling advanced TV features like content discovery, recommendations, voice search integration, and home screen presence.*
+
+- https://developer.amazon.com/docs/fire-tv/set-up-sample-app.html - **Sample App Configuration**
+  *Step-by-step guide for setting up and configuring the Fire TV Integration SDK sample reference application with code examples and implementation details.*
+
+- https://developer.amazon.com/docs/fire-tv/test-cases-integration.html - **Integration Testing Guidelines**
+  *Comprehensive testing procedures for Fire TV Integration SDK features including validation criteria, test scenarios, and certification requirements.*
+
+- https://developer.amazon.com/docs/fire-tv/introduction-content-personalization.html - **Content Personalization**
+  *Implementation guide for content recommendation systems, user preference learning, personalized content discovery, and integration with Fire TV home screen.*
+
+- https://developer.amazon.com/docs/fire-tv/introduction-linear-tv-integration.html - **Linear TV Integration**
+  *Guide for integrating live TV channels, electronic program guides (EPG), channel surfing, and traditional TV viewing experiences.*
+
+- https://developer.amazon.com/docs/fire-tv/live-events-integration.html - **Live Events Integration**
+  *Implementation of sports events, live streaming, real-time updates, and event-specific user interfaces for Fire TV applications.*
+
+- https://developer.amazon.com/docs/fire-tv/overview-of-matter-casting.html - **Matter Casting Overview**
+  *Integration with Matter standard for casting content from mobile devices to Fire TV, including setup, protocols, and implementation details.*
+
+- https://developer.amazon.com/docs/fire-tv/general-troubleshooting-firetv-integration.html - **General Troubleshooting**
+  *Common issues, error resolution, debugging techniques, and solutions for Fire TV Integration SDK development problems.*
+
+**Design and User Experience:**
+- https://developer.amazon.com/docs/fire-tv/design-and-user-experience-guidelines.html - **Fire TV UX Guidelines**
+  *Comprehensive design guidelines for Fire TV applications including navigation patterns, remote control interaction, visual design principles, and accessibility requirements.*
+
+- https://developer.amazon.com/docs/fire-tv/automotive-ux-guidelines.html - **Automotive UX Guidelines**
+  *Specialized design guidelines for Fire TV applications in automotive environments including safety considerations, driver distraction guidelines, and in-vehicle user experience patterns.*
+
+- https://developer.amazon.com/docs/fire-tv/creating-media-streaming-app.html - **Media Streaming App Creation**
+  *Step-by-step guide for creating streaming media applications including video player implementation, content catalogs, user authentication, and streaming protocols.*
+
+### Fire Tablets
+**Platform Overview:** Fire Tablets run Fire OS (Android-based) optimized for tablet form factors. Supports Android app development with Amazon-specific extensions and services. Includes various screen sizes from 7" to 10" with different performance tiers.
+
+**Key Capabilities:**
+- Android app development with Fire OS optimizations
+- Multi-touch interface support
+- Amazon services integration (Appstore, Prime Video, Kindle)
+- Parental controls and kid-safe features
+- Offline content support
+- Amazon ecosystem integration
+
+- https://developer.amazon.com/docs/fire-tablets/ft-get-started.html - **Getting Started with Fire Tablets**
+  *Introduction to Fire Tablet development including platform overview, development environment setup, device specifications, and first app creation.*
+
+- https://developer.amazon.com/docs/fire-tablets/fire-os-8.html - **Fire OS 8 Features**
+  *Comprehensive guide to Fire OS 8 capabilities, new APIs, performance improvements, security enhancements, and migration from previous versions.*
+
+- https://developer.amazon.com/docs/fire-tablets/ft-ux-specifications.html - **UX Specifications**
+  *Detailed user experience guidelines for Fire Tablet applications including touch interactions, navigation patterns, responsive design, and accessibility requirements.*
+
+### Alexa Development
+Voice-first development platform for Alexa-enabled devices with comprehensive tools for skills, smart home, and voice services.
+
+**Alexa Skills Kit (ASK):**
+- https://developer.amazon.com/en-US/docs/alexa/ask-overviews/what-is-the-alexa-skills-kit.html - Skills Kit overview
+- https://developer.amazon.com/en-US/docs/alexa/conversations/about-alexa-conversations.html - Alexa Conversations AI dialog
+- https://developer.amazon.com/en-US/docs/alexa/devconsole/about-the-developer-console.html - Developer Console
+- https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/get-started-with-the-ask-toolkit-for-visual-studio-code.html - VS Code toolkit
+- https://developer.amazon.com/en-US/docs/alexa/reference/custom-skill-developer-reference.html - Custom skills reference
+- https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/apl-request-response-reference.html - APL reference
+
+**Alexa Voice Service:**
+- https://developer.amazon.com/en-US/docs/alexa/documentation-home.html - AVS documentation home
+- https://developer.amazon.com/en-US/alexa/alexa-voice-service - AVS overview
+- https://developer.amazon.com/alexa-voice-service/build - Build with AVS
+- https://developer.amazon.com/alexa-voice-service/design - Design AVS products
+- https://developer.amazon.com/alexa-voice-service/launch - Launch AVS products
+- https://developer.amazon.com/alexa-voice-service/learn - Learn AVS development
+- https://developer.amazon.com/alexa-voice-service/rqmts - AVS requirements
+- https://developer.amazon.com/alexa-voice-service/alexa-auto-sdk - Alexa Auto SDK
+- https://developer.amazon.com/alexa-voice-service/dev-kits - Development kits
+- https://developer.amazon.com/alexa-voice-service/sdk - AVS SDK
+
+**Smart Home Integration:**
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/what-is-smart-home.html - Smart home overview
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/dash-replenishment.html - Dash Replenishment service
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/wwa-connection-options.html - Local connectivity options
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/wwa-console.html - Works with Alexa certification
+
+**APIs and Development Tools:**
+- https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html - REST API reference
+- https://developer.amazon.com/en-US/docs/alexa/smapi/ask-cli-command-reference.html - ASK CLI reference
+- https://developer.amazon.com/docs/alexa/custom-skills/certification-requirements-for-custom-skills.html - Certification requirements
+- https://developer.amazon.com/docs/alexa/music-skills/api-reference-overview.html - Music skills API
+
+**Alexa Consoles and Management:**
+- https://developer.amazon.com/alexa/console/ask - Alexa Skills Kit Console
+- https://developer.amazon.com/alexa/console/ask/build/:skillId/:stage/:locale - Skill builder
+- https://developer.amazon.com/alexa/console/ask/certify/:skillId/:stage/:locale/validation - Skill certification
+- https://developer.amazon.com/alexa/console/ask/create-new-skill - Create new skill
+- https://developer.amazon.com/alexa/console/ask/devices/ - Device management
+- https://developer.amazon.com/alexa/console/ask/editor/:skillId/:stage/:locale - Code editor
+- https://developer.amazon.com/alexa/console/ask/measure/:skillId/:stage/:locale - Analytics
+- https://developer.amazon.com/alexa/console/ask/test/:skillId/:stage/:locale - Skill testing
+- https://developer.amazon.com/alexa/console/avs - AVS Console
+- https://developer.amazon.com/alexa/console/ack - Communications Kit Console
+- https://developer.amazon.com/alexa/console/wwa - Works with Alexa Console
+
+**Alexa Extended Platforms:**
+- https://developer.amazon.com/alexa - Main Alexa portal
+- https://developer.amazon.com/alexa-skills-kit - Skills Kit portal
+- https://developer.amazon.com/alexa-skills-kit/build - Build skills
+- https://developer.amazon.com/alexa-skills-kit/design - Design skills
+- https://developer.amazon.com/alexa-skills-kit/get-deeper - Advanced development
+- https://developer.amazon.com/alexa-skills-kit/grow-your-business - Business growth
+- https://developer.amazon.com/alexa-skills-kit/launch - Launch skills
+- https://developer.amazon.com/alexa-skills-kit/learn - Learn development
+- https://developer.amazon.com/alexa-skills-kit/new - New features
+- https://developer.amazon.com/alexa-skills-kit/start - Getting started
+- https://developer.amazon.com/alexa-skills-kit/tutorials - Tutorials
+
+**Alexa Devices and Hardware:**
+- https://developer.amazon.com/alexa/devices - Alexa devices overview
+- https://developer.amazon.com/alexa/devices/alexa-built-in - Built-in devices
+- https://developer.amazon.com/alexa/devices/alexa-built-in/business-resources - Business resources
+- https://developer.amazon.com/alexa/devices/alexa-built-in/new - New built-in features
+- https://developer.amazon.com/alexa/devices/connected-devices - Connected devices
+- https://developer.amazon.com/alexa/devices/connected-devices/business-resources - Connected device resources
+- https://developer.amazon.com/alexa/devices/connected-devices/consoles - Gaming consoles
+- https://developer.amazon.com/alexa/devices/connected-devices/development-resources - Development resources
+- https://developer.amazon.com/alexa/devices/connected-devices/development-resources/alexa-gadgets - Alexa Gadgets
+- https://developer.amazon.com/alexa/devices/connected-devices/development-resources/alexa-gadgets/resources - Gadgets resources
+- https://developer.amazon.com/alexa/devices/connected-devices/development-resources/alexa-gadgets/smart-clocks - Smart clocks
+- https://developer.amazon.com/alexa/devices/connected-devices/development-resources/alexa-gadgets/smart-toys - Smart toys
+- https://developer.amazon.com/alexa/devices/connected-devices/whats-new - Connected devices updates
+
+**Alexa Business and Programs:**
+- https://developer.amazon.com/alexa/alexa-developer-documentation-welcome - Documentation welcome
+- https://developer.amazon.com/alexa/alexa-haus - Alexa Haus
+- https://developer.amazon.com/alexa/alexa-haus/natural-speech - Natural speech
+- https://developer.amazon.com/alexa/agencies-and-tools - Agencies and tools
+- https://developer.amazon.com/alexa/alexa-gadgets - Alexa Gadgets program
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund - Alexa Fund
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund/alexa-fellowship - Fellowship program
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund/next-stage - Next stage funding
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund/portfolio - Fund portfolio
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund/signup - Fund signup
+- https://developer.amazon.com/alexa/champions - Alexa Champions
+- https://developer.amazon.com/alexa/connected-devices - Connected devices program
+- https://developer.amazon.com/alexa/science - Alexa Science
+- https://developer.amazon.com/alexa/skill-building-agencies - Skill building agencies
+- https://developer.amazon.com/alexa/solution-providers - Solution providers
+- https://developer.amazon.com/alexa-fund - Alexa Fund main
+- https://developer.amazon.com/alexaprize - Alexa Prize competition
+- https://developer.amazon.com/alexalive - Alexa Live conference
+- https://developer.amazon.com/alexalive/registration - Conference registration
+
+## Amazon Appstore - App Distribution and Monetization Platform
+*Complete app lifecycle management from submission to monetization across Amazon devices.*
+
+### App Submission and Publishing Workflow
+- https://developer.amazon.com/docs/app-submission/getting-started.html - Getting started with submission
+- https://developer.amazon.com/docs/app-submission/submitting-apps-to-amazon-appstore.html - Complete submission process
+- https://developer.amazon.com/docs/app-submission/understanding-submission.html - Understanding submission workflow
+- https://developer.amazon.com/docs/app-submission/manage-account-and-permissions.html - Account and permissions management
+- https://developer.amazon.com/docs/app-submission/device-filtering-and-compatibility.html - Device compatibility filtering
+- https://developer.amazon.com/docs/app-submission/faq-submission.html - Submission FAQ
+- https://developer.amazon.com/docs/app-submission/two-step-verification.html - Two-step verification
+- https://developer.amazon.com/docs/app-submission/release-notes.html - Release notes
+- https://developer.amazon.com/docs/app-submission-api/overview.html - Submission API overview
+
+### App Testing and Quality Assurance Services
+- https://developer.amazon.com/docs/app-testing/about-appstore-devtest-iap.html - DevTest for IAP
+- https://developer.amazon.com/docs/app-testing/live-app-testing-understanding.html - Live app testing
+- https://developer.amazon.com/docs/app-testing/test-criteria.html - App testing criteria
+- https://developer.amazon.com/docs/app-testing/understanding-appstore-quality-central.html - Quality Central
+
+### Monetization and In-App Purchasing Systems
+- https://developer.amazon.com/docs/in-app-purchasing/iap-overview.html - In-app purchasing overview
+- https://developer.amazon.com/docs/in-app-purchasing/rvs-overview.html - Receipt verification service
+- https://developer.amazon.com/docs/in-app-purchasing/real-time-notifications.html - Real-time notifications
+- https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html - IAP getting started
+- https://developer.amazon.com/docs/in-app-purchasing/implement-pending-purchases.html - Pending purchases
+- https://developer.amazon.com/docs/in-app-purchasing/appstore-billing-compatibility.html - Billing compatibility SDK
+- https://developer.amazon.com/docs/in-app-ads/ad-sdk.html - In-app advertising SDK
+
+### Revenue Reports and Analytics
+- https://developer.amazon.com/docs/reports-promo/UI-reports-dashboard.html - Reports dashboard overview
+- https://developer.amazon.com/docs/reports-promo/payments-understand.html - Payments and revenue
+- https://developer.amazon.com/docs/reports-promo/reporting-FAQ.html - Reporting FAQ
+- https://developer.amazon.com/docs/reports-promo/small-business-accelerator.html - Small Business Accelerator Program
+
+### Content Policies and Guidelines
+- https://developer.amazon.com/docs/policy-center/understanding-content-policy.html - Content policy guidelines
+
+### Appstore Portals and Navigation
+- https://developer.amazon.com/apps-and-games - Main apps and games portal
+- https://developer.amazon.com/apps-and-games/documentation - Documentation hub
+- https://developer.amazon.com/docs/apps-and-games/documentation.html - Apps documentation
+- https://developer.amazon.com/apps-and-games/console/apps/list.html - Apps console
+- https://developer.amazon.com/apps-and-games/devices - Supported devices
+- https://developer.amazon.com/apps-and-games/fire-tablets - Fire Tablets portal
+- https://developer.amazon.com/apps-and-games/fire-tv - Fire TV portal
+- https://developer.amazon.com/apps-and-games/events - Developer events
+- https://developer.amazon.com/apps-and-games/devhuddle - Developer Huddle
+- https://developer.amazon.com/apps-and-games/alexa-for-video-publishers - Alexa for Video Publishers
+
+### Developer Blog and Resources
+- https://developer.amazon.com/apps-and-games/blogs - Main blog
+- https://developer.amazon.com/apps-and-games/blogs/2023/06/improve-app-startup-times - Improve app startup times
+- https://developer.amazon.com/apps-and-games/blogs/2023/11/4-ways-to-use-aws-for-mobile-apps - AWS for mobile apps
+- https://developer.amazon.com/apps-and-games/blogs/2024/06/app-store-optimization - App store optimization
+- https://developer.amazon.com/apps-and-games/blogs/2024/08/react-native-for-fire-os - React Native for Fire OS
+- https://developer.amazon.com/apps-and-games/blogs/2024/08/tips-to-update-developer-account - Developer account tips
+- https://developer.amazon.com/apps-and-games/blogs/2025/01/app-analytics-dashboard - App analytics dashboard
+- https://developer.amazon.com/apps-and-games/blogs/2025/01/app-health-insights-dashboard - App health insights
+- https://developer.amazon.com/apps-and-games/blogs/2025/02/navigating-app-submission-and-compliance - Submission compliance
+- https://developer.amazon.com/apps-and-games/blogs/2025/02/using-the-amazon-app-submission-api - Submission API usage
+- https://developer.amazon.com/apps-and-games/blogs/2025/03/achieving-app-quality-through-performance-and-stability - App quality
+- https://developer.amazon.com/apps-and-games/blogs/2025/03/testing-iap-for-amazon-apps - Testing IAP
+- https://developer.amazon.com/apps-and-games/blogs/2025/04/introducing-monetization-reports - Monetization reports
+- https://developer.amazon.com/apps-and-games/blogs/2025/04/react-native-for-android-developers - React Native guide
+- https://developer.amazon.com/apps-and-games/blogs/2025/05/build-firetv-app-with-aws-amplify - Fire TV with AWS Amplify
+- https://developer.amazon.com/apps-and-games/blogs/2025/05/how-to-use-amazon-q-for-fire-app-development - Amazon Q for development
+- https://developer.amazon.com/apps-and-games/blogs/2025/06/fireos-on-react-native-directory - Fire OS React Native
+- https://developer.amazon.com/apps-and-games/blogs/2025/06/monetizing-streaming-and-non-streaming-apps-for-amazon-firetv-and-tablets - Monetizing apps
+- https://developer.amazon.com/apps-and-games/blogs/2025/09/how-to-test-iap-pre-launch - Pre-launch IAP testing
+
+### Blog Categories and Authors
+- https://developer.amazon.com/apps-and-games/blogs/author.amazon-appstore-developer - Appstore Developer
+- https://developer.amazon.com/apps-and-games/blogs/author.anisha-malde - Anisha Malde
+- https://developer.amazon.com/apps-and-games/blogs/author.moses-roth - Moses Roth
+- https://developer.amazon.com/apps-and-games/blogs/tag.announcements - Announcements
+- https://developer.amazon.com/apps-and-games/blogs/tag.app-performance - App Performance
+- https://developer.amazon.com/apps-and-games/blogs/tag.best-practices - Best Practices
+- https://developer.amazon.com/apps-and-games/blogs/tag.fire-tablet - Fire Tablet
+- https://developer.amazon.com/apps-and-games/blogs/tag.fire-tv - Fire TV
+- https://developer.amazon.com/apps-and-games/blogs/tag.how-to - How-to Guides
+- https://developer.amazon.com/apps-and-games/blogs/tag.make-money - Monetization
+- https://developer.amazon.com/apps-and-games/blogs/tag.react-native - React Native
+- https://developer.amazon.com/apps-and-games/blogs/tag.test - Testing
+- https://developer.amazon.com/apps-and-games/blogs/tag.testing - Testing Resources
+
+### SDKs and Development Tools
+- https://developer.amazon.com/apps-and-games/sdks - SDKs overview
+- https://developer.amazon.com/docs/apps-and-games/sdk-external-compatible.html - Compatible Android SDKs
+
+## Cloud Services and Infrastructure
+*Cloud-based services and infrastructure solutions for scalable app deployment.*
+
+### Cloud App Program and Streaming Services
+- https://developer.amazon.com/docs/cloud-app-program/amazon-cap.html - Program overview
+- https://developer.amazon.com/docs/cloud-app-program/amazon-cap-faq.html - FAQ
+- https://developer.amazon.com/docs/cloud-app-program/amazon-cap-solution-details.html - Technical details
+- https://developer.amazon.com/docs/cloud-app-program/amazon-cap-update-published-app.html - Update published apps
+- https://developer.amazon.com/docs/cloud-app-program/amazon-cap-unlist-app.html - Remove apps
+
+## Device Specifications and Hardware Information
+*Technical specifications and hardware details for all Amazon devices and platforms.*
+
+### Fire TV Devices
+- https://developer.amazon.com/docs/device-specs/device-specifications-comparison-table.html - Comparison table
+- https://developer.amazon.com/docs/device-specs/identify-fire-tv-devices.html - Device identification
+- https://developer.amazon.com/docs/device-specs/device-specifications.html - Fire TV specifications
+- https://developer.amazon.com/docs/device-specs/device-specifications-fire-tv-edition-soundbar.html - Soundbar specifications
+- https://developer.amazon.com/docs/device-specs/device-specifications-echo-show.html - Echo Show specifications
+
+### Fire Tablets
+- https://developer.amazon.com/docs/device-specs/ft-device-specifications.html - Tablet specifications
+- https://developer.amazon.com/docs/device-specs/ft-identify-tablet-devices.html - Tablet identification
+
+## Developer Services and Integration APIs
+*Authentication, messaging, payment, and other core services for app integration.*
+
+### Authentication and Identity
+- https://developer.amazon.com/docs/login-with-amazon/documentation-overview.html - Login with Amazon
+- https://developer.amazon.com/docs/a3l/understanding-a3l-sdks.html - A3L SDKs
+- https://developer.amazon.com/docs/ssi/understanding-ssi.html - Simple Sign-in
+
+### Messaging and Notifications
+- https://developer.amazon.com/docs/adm/overview.html - Device Messaging
+- https://developer.amazon.com/docs/app-porting/device-messaging.html - Messaging overview
+
+### Payment Services
+- https://developer.amazon.com/docs/amazon-pay/intro.html - Amazon Pay
+- https://developer.amazon.com/docs/incentives-api/incentives-api.html - Incentives API
+
+### Data Services
+- https://developer.amazon.com/docs/amazon-data-portability/overview.html - Data Portability
+- https://developer.amazon.com/docs/catalog/getting-started-catalog-ingestion.html - Catalog ingestion
+
+### Device Setup
+- https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html - Frustration-Free Setup
+
+## Cross-Platform Development and App Porting
+*Tools and guides for migrating existing apps to Amazon platforms.*
+
+### Cross-Platform Development Tools and Frameworks
+- https://developer.amazon.com/docs/app-porting/port-existing-app.html - Port existing apps
+- https://developer.amazon.com/docs/apps-and-games/sdk-external-compatible.html - Compatible SDKs
+- https://developer.amazon.com/docs/in-app-purchasing/appstore-billing-compatibility.html - Billing compatibility
+- https://developer.amazon.com/docs/cross-platform-plugins/cpp-landing-page.html - Cross-platform plugins
+
+## Music and Media
+
+### Amazon Music
+- https://developer.amazon.com/docs/music/get_started_program-overview.html - Program overview
+- https://developer.amazon.com/docs/music/landing_home.html - Developer home
+
+## Physical Stores and Retail
+
+### Just Walk Out Technology
+- https://developer.amazon.com/docs/physicalstores/welcome.html - Just Walk Out overview
+
+## Portal Navigation
+*Main entry points and navigation hubs for accessing Amazon developer resources.*
+
+### Main Portals
+- https://developer.amazon.com/ - **Main Amazon Developer Portal**
+  *Primary entry point to Amazon's developer ecosystem with access to all platforms, services, documentation, and developer tools.*
+
+- https://developer.amazon.com/en-US/home - **Developer Home (Localized)**
+  *Localized version of the main developer portal with region-specific content, programs, and support resources.*
+
+- https://developer.amazon.com/apps-and-games - **Apps and Games Portal**
+  *Dedicated portal for mobile and TV app development covering Fire OS, Android compatibility, and Amazon Appstore distribution.*
+
+- https://developer.amazon.com/en-US/alexa - **Alexa Developer Portal**
+  *Comprehensive Alexa development portal with voice development resources, skills management, and device integration guides.*
+
+- https://developer.amazon.com/alexa - **Alexa Portal (Direct)**
+  *Direct access to Alexa development resources and documentation.*
+
+- https://developer.amazon.com/docs/apps-and-games/documentation.html - **Apps Documentation Hub**
+  *Centralized documentation portal for apps and games development with organized access to all technical resources.*
+
+### Support and Community
+- https://developer.amazon.com/en-US/support - Developer support
+- https://community.amazondeveloper.com/c/amazon-appstore/17 - Developer community
+- https://developer.amazon.com/apps-and-games/events - Developer events
+
+### Legal and Policies
+- https://developer.amazon.com/support/legal/da - Developer Services Agreement
+- https://developer.amazon.com/support/legal/pml - Program Materials License
+- https://developer.amazon.com/support/legal/tou - Terms of Use
+
+## Key Technologies Supported
+
+- **Web Technologies**: HTML5, CSS3, JavaScript, WebView
+- **Mobile Frameworks**: React Native, Android SDK
+- **Voice Technologies**: Alexa Skills Kit, Alexa Voice Service
+- **Media APIs**: W3C Media API, streaming protocols
+- **Cloud Services**: AWS integration, cloud app streaming
+- **Payment Systems**: Amazon Pay, In-App Purchasing
+- **Device Integration**: Fire TV, Fire Tablets, Echo devices
+
+## Development Workflow
+
+1. **Setup**: Install SDKs and development tools
+2. **Development**: Build apps using supported frameworks
+3. **Testing**: Use testing tools and quality assurance
+4. **Submission**: Submit to Amazon Appstore
+5. **Monetization**: Implement payment and advertising
+6. **Analytics**: Monitor performance and user engagement
+
+This documentation covers the complete Amazon developer ecosystem for building, testing, and distributing applications across Amazon's device and service portfolio.
+## Extended Developer Services and APIs
+*Comprehensive collection of specialized APIs and advanced developer services.*
+
+### Authentication and Identity Services
+- https://developer.amazon.com/docs/login-with-amazon/documentation-overview.html - Login with Amazon overview
+- https://developer.amazon.com/apps-and-games/login-with-amazon - Login with Amazon portal
+- https://developer.amazon.com/docs/a3l/understanding-a3l-sdks.html - A3L Authentication SDKs
+- https://developer.amazon.com/docs/ssi/understanding-ssi.html - Simple Sign-in service
+
+### Messaging and Push Notifications
+- https://developer.amazon.com/docs/adm/overview.html - Amazon Device Messaging overview
+- https://developer.amazon.com/device-messaging - Device Messaging portal
+- https://developer.amazon.com/docs/app-porting/device-messaging.html - Device messaging integration
+- https://developer.amazon.com/docs/app-porting/device-messaging-choose.html - Choose messaging solution
+- https://developer.amazon.com/docs/app-porting/device-messaging-explore.html - Explore messaging options
+- https://developer.amazon.com/docs/app-porting/device-messaging-fit-implement.html - Implement messaging
+- https://developer.amazon.com/docs/app-porting/device-messaging-fit-obtain-api-key.html - Obtain API key
+- https://developer.amazon.com/docs/app-porting/device-messaging-fit-update-manifest.html - Update manifest
+- https://developer.amazon.com/docs/app-porting/device-messaging-verify-push.html - Verify push notifications
+
+### Payment and Commerce Services
+- https://developer.amazon.com/docs/amazon-pay/intro.html - Amazon Pay introduction
+- https://developer.amazon.com/docs/amazon-pay/amazon-pay-overview.html - Amazon Pay overview
+- https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html - Amazon Pay API v2
+- https://developer.amazon.com/docs/amazon-pay-checkout/introduction.html - Amazon Pay Checkout
+- https://developer.amazon.com/docs/amazon-pay-checkout/get-set-up-for-integration.html - Checkout setup
+- https://developer.amazon.com/docs/amazon-pay-paymentmethodonfile/overview.html - Payment Method on File
+- https://developer.amazon.com/docs/amazon-pay-recurring-checkout/get-set-up-for-integration.html - Recurring checkout
+
+### Incentives and Gift Card APIs
+- https://developer.amazon.com/docs/incentives-api/incentives-api.html - Incentives API overview
+- https://developer.amazon.com/amazon-incentives-api - Incentives API portal
+- https://developer.amazon.com/apps-and-games/incentives-api - Apps Incentives API
+- https://developer.amazon.com/incentives-api - Incentives API main
+- https://developer.amazon.com/docs/incentives-api/balance-load.html - Balance load management
+- https://developer.amazon.com/docs/incentives-api/balance-view.html - Balance view operations
+- https://developer.amazon.com/docs/incentives-api/change-log.html - API change log
+- https://developer.amazon.com/docs/incentives-api/digital-gift-cards.html - Digital gift cards
+- https://developer.amazon.com/docs/incentives-api/gift-codes-errors.html - Gift code error handling
+- https://developer.amazon.com/docs/incentives-api/gift-codes-faq.html - Gift codes FAQ
+- https://developer.amazon.com/docs/incentives-api/gift-codes-on-demand.html - On-demand gift codes
+- https://developer.amazon.com/docs/incentives-api/gift-codes-web-activation.html - Web activation
+- https://developer.amazon.com/docs/incentives-api/incentives-portal.html - Incentives portal
+- https://developer.amazon.com/docs/incentives-api/login-and-receive.html - Login and receive
+- https://developer.amazon.com/docs/incentives-api/onboarding-process.html - Onboarding process
+- https://developer.amazon.com/docs/incentives-api/outage-management.html - Outage management
+- https://developer.amazon.com/docs/incentives-api/por-guide.html - Point of redemption guide
+- https://developer.amazon.com/docs/incentives-api/posa-gift-cards.html - Point of sale activation
+- https://developer.amazon.com/docs/incentives-api/product-voucher-guide.html - Product voucher guide
+- https://developer.amazon.com/docs/incentives-api/security.html - Security guidelines
+- https://developer.amazon.com/docs/incentives-api/test-accounts.html - Test accounts
+- https://developer.amazon.com/docs/incentives-api/test-plan.html - Testing plan
+
+### Data Services and Portability
+- https://developer.amazon.com/docs/amazon-data-portability/overview.html - Data Portability overview
+- https://developer.amazon.com/docs/amazon-data-portability/api-reference.html - Data Portability API
+- https://developer.amazon.com/docs/amazon-data-portability/available-scopes.html - Available data scopes
+- https://developer.amazon.com/docs/amazon-data-portability/call-create.html - Create export request
+- https://developer.amazon.com/docs/amazon-data-portability/call-list.html - List export requests
+- https://developer.amazon.com/docs/amazon-data-portability/dev-account.html - Developer account setup
+- https://developer.amazon.com/docs/amazon-data-portability/developer-data-handling-practices.html - Data handling practices
+- https://developer.amazon.com/docs/amazon-data-portability/identity-and-security.html - Identity and security
+- https://developer.amazon.com/docs/amazon-data-portability/import-customer-data.html - Import customer data
+- https://developer.amazon.com/docs/amazon-data-portability/intro-authorize.html - Authorization intro
+- https://developer.amazon.com/docs/amazon-data-portability/intro-configure.html - Configuration intro
+- https://developer.amazon.com/docs/amazon-data-portability/intro-connect.html - Connection intro
+- https://developer.amazon.com/docs/amazon-data-portability/intro-workflow.html - Workflow intro
+- https://developer.amazon.com/docs/amazon-data-portability/lwa-access-token.html - LWA access token
+- https://developer.amazon.com/docs/amazon-data-portability/lwa-integrate.html - LWA integration
+- https://developer.amazon.com/docs/amazon-data-portability/lwa-profile.html - LWA profile
+- https://developer.amazon.com/docs/amazon-data-portability/portability-allowlist.html - Portability allowlist
+- https://developer.amazon.com/docs/amazon-data-portability/portability-uri.html - Portability URI
+- https://developer.amazon.com/docs/amazon-data-portability/sample-queries.html - Sample queries
+- https://developer.amazon.com/docs/amazon-data-portability/upcoming-scopes.html - Upcoming scopes
+- https://developer.amazon.com/docs/amazon-data-portability/use-refresh-token.html - Use refresh token
+- https://developer.amazon.com/docs/amazon-data-portability/user-transfer-preferences.html - User transfer preferences
+- https://developer.amazon.com/docs/amazon-data-portability/wait-notification.html - Wait for notification
+
+### Catalog and Content Management
+- https://developer.amazon.com/docs/catalog/getting-started-catalog-ingestion.html - Catalog ingestion
+
+### Device Setup and IoT Services
+- https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html - Frustration-Free Setup overview
+- https://developer.amazon.com/frustration-free-setup - FFS portal
+- https://developer.amazon.com/docs/frustration-free-setup/asin-configuration.html - ASIN configuration
+- https://developer.amazon.com/docs/frustration-free-setup/bluetooth-mesh-barcode-specification.html - Bluetooth mesh barcode
+- https://developer.amazon.com/docs/frustration-free-setup/bluetooth-mesh-overview.html - Bluetooth mesh overview
+- https://developer.amazon.com/docs/frustration-free-setup/control-log-spec.html - Control log specification
+- https://developer.amazon.com/docs/frustration-free-setup/ffs-ux-3p-partners.html - FFS UX for partners
+- https://developer.amazon.com/docs/frustration-free-setup/matter-simple-setup-for-thread-overview.html - Matter Thread setup
+- https://developer.amazon.com/docs/frustration-free-setup/matter-simple-setup-for-wifi-overview.html - Matter WiFi setup
+- https://developer.amazon.com/docs/frustration-free-setup/matter-simple-setup-getting-started.html - Matter setup guide
+- https://developer.amazon.com/docs/frustration-free-setup/provisionee-1d-barcode-specification.html - 1D barcode spec
+- https://developer.amazon.com/docs/frustration-free-setup/provisionee-certification.html - Provisionee certification
+- https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing-barcode-specification.html - Manufacturing barcode
+- https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html - Provisionee manufacturing
+- https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html - WiFi simple setup
+- https://developer.amazon.com/docs/frustration-free-setup/wi-fi-provisionee-app-and-backend-integration-guide.html - WiFi app integration
+- https://developer.amazon.com/docs/frustration-free-setup/wi-fi-provisionee-c-sdk-integration-guide.html - WiFi C SDK integration
+- https://developer.amazon.com/docs/frustration-free-setup/wss-over-wifi-on-amazon-freertos.html - WSS over WiFi FreeRTOS
+- https://developer.amazon.com/docs/frustration-free-setup/zigbee-simple-setup-overview.html - Zigbee setup overview
+- https://developer.amazon.com/docs/frustration-free-setup/zigbee-simple-setup-provisionee-barcode-guide.html - Zigbee barcode guide
+
+## Music and Media Services
+*APIs and programs for music streaming and media content integration.*
+
+### Amazon Music Developer Program
+- https://developer.amazon.com/docs/music/get_started_program-overview.html - Program overview
+- https://developer.amazon.com/docs/music/landing_home.html - Developer home
+- https://developer.amazon.com/docs/alexa/music-skills/api-reference-overview.html - Music API reference
+
+## Physical Stores and Retail Technology
+*Technologies for physical retail environments and Just Walk Out solutions.*
+
+### Just Walk Out Technology
+- https://developer.amazon.com/docs/physicalstores/welcome.html - Just Walk Out overview
+
+### Amazon Merch on Demand
+- https://developer.amazon.com/apps-and-games/merch - Merch on Demand portal
+
+## Cross-Platform Development and Porting
+
+### App Porting and Migration
+- https://developer.amazon.com/docs/app-porting/port-existing-app.html - Port existing Android apps
+- https://developer.amazon.com/docs/apps-and-games/sdk-external-compatible.html - Compatible Android SDKs
+- https://developer.amazon.com/docs/in-app-purchasing/appstore-billing-compatibility.html - Billing compatibility SDK
+- https://developer.amazon.com/docs/cross-platform-plugins/cpp-landing-page.html - Cross-platform plugins
+
+## Community and Support Resources
+
+### Developer Community
+- https://community.amazondeveloper.com/c/amazon-appstore/17 - Amazon Appstore community
+- https://community.amazondeveloper.com/c/vega/6 - Vega community forum
+
+### Developer Support and Documentation
+- https://developer.amazon.com/en-US/support - Developer support portal
+- https://developer.amazon.com/apps-and-games/events - Developer events
+
+### Legal and Policy Documentation
+- https://developer.amazon.com/support/legal/da - Developer Services Agreement
+- https://developer.amazon.com/support/legal/pml - Program Materials License Agreement
+- https://developer.amazon.com/support/legal/tou - Terms of Use
+
+## Main Portal Navigation
+
+### Primary Developer Portals
+- https://developer.amazon.com/en-US/home - Main Amazon Developer Portal
+- https://developer.amazon.com/ - Developer Portal (alternate)
+- https://developer.amazon.com/apps-and-games - Apps and Games Portal
+- https://developer.amazon.com/en-US/alexa - Alexa Developer Portal
+- https://developer.amazon.com/alexa - Alexa Portal (alternate)
+
+## Technology Stack and Capabilities
+
+### Supported Development Frameworks
+- **Web Technologies**: HTML5, CSS3, JavaScript, TypeScript
+- **Mobile Frameworks**: React Native, Android SDK, Kotlin, Java
+- **Voice Technologies**: Alexa Skills Kit, Alexa Voice Service, APL
+- **Media Technologies**: W3C Media API, streaming protocols, codecs
+- **Cloud Integration**: AWS services, cloud app streaming
+- **Payment Systems**: Amazon Pay, In-App Purchasing, gift cards
+- **Device Integration**: Fire TV, Fire Tablets, Echo devices, smart home
+
+### Development Tools and SDKs
+- **Vega CLI**: Command-line tools for Vega development
+- **ASK CLI**: Alexa Skills Kit command-line interface
+- **Android Studio**: IDE support for Fire OS development
+- **VS Code Extensions**: Alexa Skills Toolkit, Vega extensions
+- **Testing Frameworks**: Live App Testing, DevTest, Quality Central
+- **Analytics Tools**: Revenue reports, app health insights, performance metrics
+
+### Platform Capabilities
+- **Cross-Platform Development**: Single codebase for multiple Amazon devices
+- **Voice Integration**: Natural language processing, voice commands
+- **Media Streaming**: 4K video, HDR support, audio codecs
+- **Smart Home Integration**: IoT device control, automation
+- **Commerce Integration**: One-click purchasing, subscription management
+- **Global Distribution**: Multi-language support, international markets
+
+## Additional Developer Services and Tools
+*Extended resources including porting guides, testing services, and business programs.*
+
+### App Porting and Migration Services
+- https://developer.amazon.com/apps-and-games/porting-your-app/guided-workflow-authentication - **Authentication Porting Guide**
+  *Step-by-step guide for migrating authentication systems from other platforms to Amazon's Login with Amazon service with code examples and best practices.*
+
+- https://developer.amazon.com/apps-and-games/porting-your-app/guided-workflow-device-messaging - **Device Messaging Migration**
+  *Comprehensive guide for migrating push notification systems to Amazon Device Messaging (ADM) including API mapping and implementation examples.*
+
+- https://developer.amazon.com/apps-and-games/porting-your-app/guided-workflow-location - **Location Services Porting**
+  *Guide for adapting location-based features when porting apps to Fire OS including privacy considerations and API differences.*
+
+### Developer Services and APIs
+- https://developer.amazon.com/apps-and-games/services-and-apis - **Services and APIs Hub**
+  *Central directory of all Amazon developer services including authentication, messaging, payments, analytics, and cloud services with integration guides.*
+
+- https://developer.amazon.com/apps-and-games/services-and-apis/monetization - **Monetization Services**
+  *Comprehensive monetization solutions including in-app purchasing, advertising, subscription management, and revenue optimization tools.*
+
+- https://developer.amazon.com/apps-and-games/small-business-program - **Small Business Accelerator Program**
+  *Support program for small businesses and indie developers including reduced fees, marketing support, and technical assistance.*
+
+- https://developer.amazon.com/apps-and-games/test - **Testing Services Hub**
+  *Centralized testing resources including device testing, quality assurance, automated testing, and certification support.*
+
+### Developer Blogs and Resources
+- https://developer.amazon.com/blogs/ - **Developer Blog Hub**
+  *Central hub for all Amazon developer blogs covering Alexa, Appstore, Fire TV, and general development topics with regular updates and tutorials.*
+
+- https://developer.amazon.com/blogs/alexa - **Alexa Developer Blog**
+  *Dedicated blog for Alexa development featuring tutorials, best practices, new feature announcements, and developer success stories.*
+
+- https://developer.amazon.com/blogs/appstore/tag/Announcements - **Appstore Announcements**
+  *Official announcements for Amazon Appstore including new features, policy updates, program launches, and important developer communications.*
+
+### Legacy and Migration Resources
+- https://developer.amazon.com/device-partners/firetv/ - **Fire TV Device Partners**
+  *Partnership program for Fire TV device manufacturers and OEMs including technical specifications, certification requirements, and business development resources.*
+
+### Developer Tools and SDKs
+- https://developer.amazon.com/dashboard - **Developer Dashboard**
+  *Unified dashboard for managing all Amazon developer accounts, applications, and services across Alexa, Appstore, and other Amazon platforms.*
+
+- https://developer.amazon.com/documentation - **Documentation Portal**
+  *Centralized documentation portal providing access to all Amazon developer documentation with search capabilities and organized by platform.*
+
+### Business and Partnership Programs
+- https://developer.amazon.com/ces - **CES Developer Showcase**
+  *Annual Consumer Electronics Show presence featuring Amazon developer technologies, partnership opportunities, and product demonstrations.*
+
+- https://developer.amazon.com/dash-services - **Dash Services**
+  *Amazon Dash replenishment services for IoT devices enabling automatic reordering of supplies and consumables with business integration options.*
+
+### Legal and Compliance
+- https://developer.amazon.com/appsandservices/support/legal/da - **Developer Services Agreement**
+  *Legal agreement governing the use of Amazon developer services including terms of service, privacy requirements, and compliance obligations.*
+
+This comprehensive documentation covers Amazon's complete developer ecosystem with over 500 URLs and detailed guidance for building, testing, and distributing applications across all Amazon platforms and services. The ecosystem supports multiple development frameworks, provides extensive monetization options, and offers global distribution capabilities for reaching millions of Amazon device users worldwide.
+### Alexa Development Platform
+**Platform Overview:** Alexa is Amazon's cloud-based voice service enabling developers to create voice-first experiences. The platform includes Alexa Skills Kit (ASK) for building voice applications, Alexa Voice Service (AVS) for device integration, and comprehensive smart home capabilities. Supports 15+ languages globally with millions of Alexa-enabled devices.
+
+**Core Capabilities:**
+- Natural language understanding and processing
+- Voice interaction models and dialog management
+- Smart home device control and automation
+- Music and media streaming integration
+- Multi-modal experiences with screens and voice
+- Global deployment with localization support
+- Advanced AI features including Alexa Conversations
+
+**Alexa Skills Kit (ASK) - Voice Application Development:**
+- https://developer.amazon.com/en-US/docs/alexa/ask-overviews/what-is-the-alexa-skills-kit.html - **Skills Kit Overview**
+  *Comprehensive introduction to Alexa Skills Kit including skill types (custom, smart home, flash briefing, music), development workflow, voice interaction models, and global deployment capabilities.*
+
+- https://developer.amazon.com/en-US/docs/alexa/conversations/about-alexa-conversations.html - **Alexa Conversations AI Dialog**
+  *Advanced AI-driven dialog management system enabling natural, context-aware conversations. Reduces development complexity while creating more engaging user experiences through machine learning.*
+
+- https://developer.amazon.com/en-US/docs/alexa/devconsole/about-the-developer-console.html - **Developer Console**
+  *Browser-based development environment for creating, testing, and managing Alexa skills. Includes voice model training, intent management, slot type creation, and direct publishing capabilities.*
+
+- https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/get-started-with-the-ask-toolkit-for-visual-studio-code.html - **VS Code Toolkit**
+  *Visual Studio Code extension for Alexa development providing integrated development environment with debugging, testing, and deployment capabilities.*
+
+- https://developer.amazon.com/en-US/docs/alexa/reference/custom-skill-developer-reference.html - **Custom Skills Reference**
+  *Complete API reference for custom Alexa skills including request/response formats, built-in intents, slot types, and skill configuration options.*
+
+- https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/apl-request-response-reference.html - **APL Reference**
+  *Alexa Presentation Language reference for creating visual interfaces on screen-enabled Alexa devices. Covers components, layouts, animations, and interactive elements.*
+
+**Alexa Voice Service (AVS) - Device Integration:**
+- https://developer.amazon.com/en-US/docs/alexa/documentation-home.html - **AVS Documentation Home**
+  *Central hub for Alexa Voice Service documentation covering device integration, SDK usage, certification requirements, and commercial deployment guidelines.*
+
+- https://developer.amazon.com/en-US/alexa/alexa-voice-service - **AVS Platform Overview**
+  *Introduction to integrating Alexa into custom devices including hardware requirements, software SDKs, certification process, and business considerations.*
+
+- https://developer.amazon.com/alexa-voice-service/build - **Build with AVS**
+  *Technical implementation guide for building Alexa-enabled devices including SDK integration, audio processing, wake word detection, and cloud connectivity.*
+
+- https://developer.amazon.com/alexa-voice-service/design - **Design AVS Products**
+  *Design guidelines for Alexa-enabled devices covering industrial design, user experience, voice interaction patterns, and hardware considerations.*
+
+- https://developer.amazon.com/alexa-voice-service/launch - **Launch AVS Products**
+  *Commercial launch process for Alexa-enabled devices including certification, compliance, marketing support, and go-to-market strategies.*
+
+- https://developer.amazon.com/alexa-voice-service/learn - **Learn AVS Development**
+  *Educational resources for AVS development including tutorials, best practices, case studies, and developer training materials.*
+
+- https://developer.amazon.com/alexa-voice-service/rqmts - **AVS Requirements**
+  *Technical and business requirements for AVS integration including hardware specifications, software requirements, certification criteria, and compliance standards.*
+
+- https://developer.amazon.com/alexa-voice-service/alexa-auto-sdk - **Alexa Auto SDK**
+  *Specialized SDK for automotive integration enabling voice control in vehicles with safety considerations and automotive-specific features.*
+
+- https://developer.amazon.com/alexa-voice-service/dev-kits - **Development Kits**
+  *Hardware development kits and reference designs for building Alexa-enabled devices with pre-validated components and accelerated development.*
+
+- https://developer.amazon.com/alexa-voice-service/sdk - **AVS SDK**
+  *Software development kit for integrating Alexa Voice Service into custom applications and devices with comprehensive API access.*
+
+**Smart Home Integration:**
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/what-is-smart-home.html - **Smart Home Overview**
+  *Introduction to Alexa smart home capabilities including device control, automation, scenes, routines, and integration with popular IoT platforms and protocols.*
+
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/dash-replenishment.html - **Dash Replenishment Service**
+  *Automated reordering service for smart devices enabling Alexa to monitor supplies and automatically reorder replacement parts or consumables.*
+
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/wwa-connection-options.html - **Local Connectivity Options**
+  *Local connectivity protocols for smart home devices including WiFi, Zigbee, Thread, Matter, and direct device communication without cloud dependency.*
+
+- https://developer.amazon.com/en-US/docs/alexa/smarthome/wwa-console.html - **Works with Alexa Certification**
+  *Certification process for smart home devices to achieve "Works with Alexa" status including testing procedures, compliance requirements, and marketing benefits.*
+
+**APIs and Development Tools:**
+- https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html - **REST API Reference**
+  *Complete REST API documentation for Alexa features including skill management, account linking, in-skill purchasing, and programmatic skill operations.*
+
+- https://developer.amazon.com/en-US/docs/alexa/smapi/ask-cli-command-reference.html - **ASK CLI Reference**
+  *Command-line interface reference for Alexa Skills Kit including skill creation, deployment, testing, and management commands with examples and best practices.*
+
+- https://developer.amazon.com/docs/alexa/custom-skills/certification-requirements-for-custom-skills.html - **Certification Requirements**
+  *Detailed certification criteria for custom Alexa skills including functional requirements, user experience standards, content policy compliance, and submission guidelines.*
+
+- https://developer.amazon.com/docs/alexa/music-skills/api-reference-overview.html - **Music Skills API Reference**
+  *API documentation for music streaming skills including playback control, playlist management, music catalog integration, and audio streaming protocols.*
+
+**Alexa Developer Consoles:**
+- https://developer.amazon.com/alexa/console/ask - **Alexa Skills Kit Console**
+  *Web-based development environment for creating and managing Alexa skills with visual interface builders, testing tools, and analytics dashboards.*
+
+- https://developer.amazon.com/alexa/console/ask/create-new-skill - **Create New Skill**
+  *Skill creation wizard guiding developers through skill setup, interaction model design, backend configuration, and initial testing.*
+
+- https://developer.amazon.com/alexa/console/avs - **AVS Console**
+  *Management console for Alexa Voice Service products including device registration, security profiles, and commercial deployment management.*
+
+- https://developer.amazon.com/alexa/console/ack - **Communications Kit Console**
+  *Console for Alexa Communications Kit enabling voice and video calling features in Alexa skills and devices.*
+
+- https://developer.amazon.com/alexa/console/wwa - **Works with Alexa Console**
+  *Management console for Works with Alexa certification process including device registration, testing coordination, and certification status tracking.*
+
+- https://developer.amazon.com/alexa/console/contact-us - **Developer Support Contact**
+  *Direct contact portal for Alexa developer support including technical assistance, certification help, and business inquiries.*
+
+- https://developer.amazon.com/alexa/console/get - **Console Access Portal**
+  *Entry point for accessing various Alexa developer consoles with authentication and account management features.*
+
+**Alexa Business Programs and Resources:**
+- https://developer.amazon.com/alexa - **Main Alexa Developer Portal**
+  *Primary entry point for all Alexa development resources including skills development, device integration, business programs, and developer support.*
+
+- https://developer.amazon.com/alexa-skills-kit - **Skills Kit Portal**
+  *Dedicated portal for Alexa Skills Kit with comprehensive resources for voice application development, tutorials, and skill management tools.*
+
+- https://developer.amazon.com/alexa/alexa-developer-documentation-welcome - **Documentation Welcome Center**
+  *Curated entry point to Alexa documentation with guided learning paths, popular resources, and quick access to essential development materials.*
+
+- https://developer.amazon.com/alexa/alexa-haus - **Alexa Haus**
+  *Amazon's voice design agency providing professional services for enterprise Alexa skill development, voice user interface design, and commercial deployment support.*
+
+- https://developer.amazon.com/alexa/alexa-haus/natural-speech - **Natural Speech Services**
+  *Advanced voice design services focusing on natural language processing, conversation design, and creating more human-like voice interactions.*
+
+- https://developer.amazon.com/alexa/agencies-and-tools - **Agencies and Development Tools**
+  *Directory of certified development agencies, third-party tools, and professional services for Alexa development including skill building, voice design, and deployment services.*
+
+- https://developer.amazon.com/alexa/alexa-gadgets - **Alexa Gadgets Program**
+  *Platform for creating Alexa-connected accessories and gadgets including toys, clocks, and interactive devices with Alexa integration.*
+
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund - **Alexa Fund for Startups**
+  *Venture capital fund investing in voice technology startups, providing funding, mentorship, and access to Amazon's voice technology ecosystem.*
+
+- https://developer.amazon.com/alexa/alexa-startups/alexa-fund/alexa-fellowship - **Alexa Fellowship Program**
+  *Fellowship program for early-stage startups working on voice technology with funding, mentorship, and technical support from Amazon.*
+
+- https://developer.amazon.com/alexa/champions - **Alexa Champions Program**
+  *Community program recognizing and supporting top Alexa developers with exclusive resources, early access to features, and direct communication with Amazon teams.*
+
+- https://developer.amazon.com/alexa/science - **Alexa Science**
+  *Research and development initiatives in voice technology, natural language processing, machine learning, and conversational AI.*
+
+- https://developer.amazon.com/alexa/skill-building-agencies - **Skill Building Agencies**
+  *Directory of certified agencies specializing in Alexa skill development for enterprises and businesses requiring professional voice application development.*
+
+- https://developer.amazon.com/alexa/solution-providers - **Solution Providers**
+  *Network of technology partners providing complementary services, integrations, and solutions for Alexa-enabled products and services.*
+
+- https://developer.amazon.com/alexaprize - **Alexa Prize Competition**
+  *Annual university competition challenging teams to build conversational AI systems, advancing the state of the art in voice technology and natural language understanding.*
+
+- https://developer.amazon.com/alexalive - **Alexa Live Conference**
+  *Annual developer conference featuring latest Alexa technologies, best practices, case studies, and networking opportunities with Amazon teams and developer community.*
+
+**Extended Alexa Resources:**
+- https://developer.amazon.com/en-US/alexa/alexa-ai - **Alexa AI Platform**
+  *Advanced AI capabilities and machine learning services for Alexa development including natural language understanding, conversation AI, and intelligent automation.*
+
+- https://developer.amazon.com/en-US/alexa/alexa-for-residential - **Alexa for Residential**
+  *Solutions for integrating Alexa into residential properties, apartment complexes, and smart buildings with property management features.*
+
+- https://developer.amazon.com/en-US/alexa/alexa-for-hospitality/solution-provider-logos - **Hospitality Solution Providers**
+  *Partner network for hospitality industry Alexa integrations including hotels, resorts, and guest experience solutions.*
+
+- https://developer.amazon.com/alexa-voice-service - **Alexa Voice Service Portal**
+  *Dedicated portal for AVS development with device integration guides, SDK downloads, and certification resources.*
+
+- https://developer.amazon.com/alexa-voice-service/rqmts - **AVS Requirements Documentation**
+  *Detailed technical and business requirements for Alexa Voice Service integration including compliance, certification, and commercial deployment standards.*
+
+## Technology Stack and Capabilities
+*Overview of supported frameworks, tools, and platform capabilities across the Amazon ecosystem.*
+
+### Supported Development Frameworks
+- **Web Technologies**: HTML5, CSS3, JavaScript, TypeScript
+- **Mobile Frameworks**: React Native, Android SDK, Kotlin, Java
+- **Voice Technologies**: Alexa Skills Kit, Alexa Voice Service, APL
+- **Media Technologies**: W3C Media API, streaming protocols, codecs
+- **Cloud Integration**: AWS services, cloud app streaming
+- **Payment Systems**: Amazon Pay, In-App Purchasing, gift cards
+- **Device Integration**: Fire TV, Fire Tablets, Echo devices, smart home
+
+### Development Tools and SDKs
+- **Vega CLI**: Command-line tools for Vega development
+- **ASK CLI**: Alexa Skills Kit command-line interface
+- **Android Studio**: IDE support for Fire OS development
+- **VS Code Extensions**: Alexa Skills Toolkit, Vega extensions
+- **Testing Frameworks**: Live App Testing, DevTest, Quality Central
+- **Analytics Tools**: Revenue reports, app health insights, performance metrics
+
+### Platform Capabilities
+- **Cross-Platform Development**: Single codebase for multiple Amazon devices
+- **Voice Integration**: Natural language processing, voice commands
+- **Media Streaming**: 4K video, HDR support, audio codecs
+- **Smart Home Integration**: IoT device control, automation
+- **Commerce Integration**: One-click purchasing, subscription management
+- **Global Distribution**: Multi-language support, international markets
+
+This comprehensive documentation covers Amazon's complete developer ecosystem with over 500 URLs and detailed guidance for building, testing, and distributing applications across all Amazon platforms and services. The ecosystem supports multiple development frameworks, provides extensive monetization options, and offers global distribution capabilities for reaching millions of Amazon device users worldwide.

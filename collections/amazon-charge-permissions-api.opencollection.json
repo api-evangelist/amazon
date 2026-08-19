@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Charge Permissions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charge Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Charge Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/chargePermissions/:chargePermissionId",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chargePermissionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details about the specified charge permission."
+        },
+        {
+          "info": {
+            "name": "Amazon Update Charge Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://advertising-api.amazon.com/chargePermissions/:chargePermissionId",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chargePermissionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified charge permission."
+        },
+        {
+          "info": {
+            "name": "Amazon Close Charge Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://advertising-api.amazon.com/chargePermissions/:chargePermissionId/close",
+            "headers": [
+              {
+                "name": "x-amz-pay-date",
+                "value": ""
+              },
+              {
+                "name": "x-amz-pay-region",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "chargePermissionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Closes the specified charge permission so no further charges can be made."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

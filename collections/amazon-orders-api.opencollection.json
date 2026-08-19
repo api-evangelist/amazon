@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Search Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/orders/2026-01-01/orders",
+            "params": [
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreatedBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "OrderStatuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxResultsPerPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns orders created or updated during the time frame indicated by the specified parameters. Supports filtering by marketplace, order status, fulfillment channel, and date ranges."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Order Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/orders/2026-01-01/orders/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the order indicated by the specified order ID."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Order Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/orders/2026-01-01/orders/:orderId/orderItems",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns detailed order item information for the order indicated by the specified order ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

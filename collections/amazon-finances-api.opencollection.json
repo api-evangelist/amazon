@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Advertising Ad Groups Finances API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Finances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Financial Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://advertising-api.amazon.com/finances/2024-06-19/transactions",
+            "params": [
+              {
+                "name": "postedAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "postedBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MarketplaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns financial transaction data for the selling partner account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
