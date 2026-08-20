@@ -41,6 +41,11 @@ apis:
   - Affiliates
   - Content Creators
   - E-Commerce
+  - Product
+  tags_raw:
+  - Affiliates
+  - Content Creators
+  - E-Commerce
   - Products
   humanURL: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction
   baseURL: https://affiliate-program.amazon.com/creatorsapi
@@ -70,6 +75,11 @@ apis:
 - aid: amazon:appstore-api
   name: Amazon Appstore API
   tags:
+  - App Store
+  - Application
+  - In-App Purchases
+  - Mobile
+  tags_raw:
   - App Store
   - Apps
   - In-App Purchases
@@ -288,6 +298,8 @@ apis:
   humanURL: https://developer-docs.amazon.com/sp-api
   baseURL: https://sellingpartnerapi-na.amazon.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
