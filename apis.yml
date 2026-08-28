@@ -7,6 +7,18 @@ description: Amazon is a global technology and e-commerce company offering a wid
   Creators API for affiliate publishers. These APIs power Amazon's ecosystem of sellers,
   developers, advertisers, and content creators.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
