@@ -1,23 +1,23 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Amazon Advertising Ad Groups Refunds API
-  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
-  version: '1.0'
+  title: Amazon Pay Refunds API
+  description: The Amazon Pay API enables merchants to integrate Amazon Pay for payment processing on their websites and mobile applications. It supports one-time purchases, subscriptions, and recurring payments. The API provides checkout session management, charge operations, and refund capabilities with both production and sandbox environments for testing.
+  version: '2.0'
   contact:
-    name: Amazon Advertising Support
-    url: https://advertising.amazon.com/API/docs/en-us
-  termsOfService: https://advertising.amazon.com/terms
+    name: Amazon Pay Developer Support
+    url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
+  termsOfService: https://pay.amazon.com/help/201751590
 servers:
-- url: https://advertising-api.amazon.com
-  description: North America
-- url: https://advertising-api-eu.amazon.com
-  description: Europe
-- url: https://advertising-api-fe.amazon.com
-  description: Far East
-- url: https://advertising-api-test.amazon.com
-  description: Test/Sandbox
+- url: https://pay-api.amazon.com/live/v2
+  description: US Production
+- url: https://pay-api.amazon.com/sandbox/v2
+  description: US Sandbox
+- url: https://pay-api.amazon.eu/live/v2
+  description: EU Production
+- url: https://pay-api.amazon.jp/live/v2
+  description: Japan Production
 security:
-- bearerAuth: []
+- amazonPaySignature: []
 tags:
 - name: Refunds
   description: Process refunds on captured charges
@@ -73,6 +73,30 @@ paths:
         '404':
           description: Not found
 components:
+  parameters:
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
   schemas:
     CreateRefundRequest:
       type: object
@@ -87,25 +111,6 @@ components:
         softDescriptor:
           type: string
           maxLength: 16
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
     Refund:
       type: object
       properties:
@@ -122,35 +127,31 @@ components:
         creationTimestamp:
           type: string
           format: date-time
-  parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: OAuth 2.0 access token from Login with Amazon
+    amazonPaySignature:
+      type: apiKey
+      in: header
+      name: authorization
+      description: AMZN-PAY-RSASSA-PSS-V2 signature using merchant private key
 externalDocs:
-  description: Amazon Advertising API Documentation
-  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  description: Amazon Pay API Documentation
+  url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html

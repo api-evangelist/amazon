@@ -1,42 +1,52 @@
 {
   "provider": "amazon",
   "sources": [
-    "amazon-ad-groups-api-openapi.yml",
-    "amazon-campaigns-api-openapi.yml",
-    "amazon-catalog-api-openapi.yml",
-    "amazon-charge-permissions-api-openapi.yml",
-    "amazon-charges-api-openapi.yml",
-    "amazon-checkout-sessions-api-openapi.yml",
-    "amazon-finances-api-openapi.yml",
-    "amazon-inventory-api-openapi.yml",
-    "amazon-keywords-api-openapi.yml",
-    "amazon-listings-api-openapi.yml",
-    "amazon-orders-api-openapi.yml",
-    "amazon-profiles-api-openapi.yml",
-    "amazon-refunds-api-openapi.yml",
-    "amazon-reports-api-openapi.yml",
-    "amazon-targets-api-openapi.yml"
+    "_original/amazon-advertising-api-openapi.yml",
+    "_original/amazon-pay-api-openapi.yml",
+    "_original/amazon-selling-partner-api-openapi.yml"
   ],
   "outputs": [
     "amazon-ad-groups-api-openapi.yml",
     "amazon-campaigns-api-openapi.yml",
-    "amazon-catalog-api-openapi.yml",
+    "amazon-keywords-api-openapi.yml",
+    "amazon-profiles-api-openapi.yml",
+    "amazon-reports-api-openapi.yml",
+    "amazon-targets-api-openapi.yml",
     "amazon-charge-permissions-api-openapi.yml",
     "amazon-charges-api-openapi.yml",
     "amazon-checkout-sessions-api-openapi.yml",
+    "amazon-refunds-api-openapi.yml",
+    "amazon-catalog-api-openapi.yml",
     "amazon-finances-api-openapi.yml",
     "amazon-inventory-api-openapi.yml",
-    "amazon-keywords-api-openapi.yml",
     "amazon-listings-api-openapi.yml",
-    "amazon-orders-api-openapi.yml",
-    "amazon-profiles-api-openapi.yml",
-    "amazon-refunds-api-openapi.yml",
-    "amazon-reports-api-openapi.yml",
-    "amazon-targets-api-openapi.yml"
+    "amazon-orders-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-advertising-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "amazon-pay-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "amazon-selling-partner-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "tag 'Reports' spans 2 source specs (amazon-advertising-api-openapi.yml, amazon-selling-partner-api-openapi.yml): per-path servers applied"
+  ],
+  "skipped": [
+    "amazon-ad-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-campaigns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-catalog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-charge-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-charges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-checkout-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-finances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-keywords-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-listings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-refunds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-targets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

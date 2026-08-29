@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Amazon Advertising Ad Groups Campaigns API
+  title: Amazon Advertising Campaigns API
   description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
   version: '1.0'
   contact:
@@ -159,6 +159,14 @@ paths:
         '404':
           description: Not found
 components:
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
   schemas:
     CreateCampaignRequest:
       type: object
@@ -187,19 +195,6 @@ components:
           enum:
           - manual
           - auto
-    UpdateCampaignRequest:
-      type: object
-      required:
-      - campaignId
-      properties:
-        campaignId:
-          type: string
-        name:
-          type: string
-        state:
-          type: string
-        dailyBudget:
-          type: number
     Campaign:
       type: object
       properties:
@@ -235,14 +230,19 @@ components:
           type: string
         description:
           type: string
-  parameters:
-    ProfileId:
-      name: Amazon-Advertising-API-Scope
-      in: header
-      required: true
-      description: The advertising profile ID
-      schema:
-        type: string
+    UpdateCampaignRequest:
+      type: object
+      required:
+      - campaignId
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        dailyBudget:
+          type: number
   securitySchemes:
     bearerAuth:
       type: http

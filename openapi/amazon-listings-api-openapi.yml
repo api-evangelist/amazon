@@ -1,21 +1,19 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Amazon Advertising Ad Groups Listings API
-  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
-  version: '1.0'
+  title: Amazon Selling Partner Listings API
+  description: The Amazon Selling Partner API (SP-API) is a RESTful API that enables Amazon sellers and vendors to programmatically manage their marketplace operations including listings, orders, payments, reports, and fulfillment. It replaces the deprecated Amazon Marketplace Web Service (MWS) and provides access to region-specific endpoints for North America, Europe, and Far East marketplaces.
+  version: '2026-01-01'
   contact:
-    name: Amazon Advertising Support
-    url: https://advertising.amazon.com/API/docs/en-us
-  termsOfService: https://advertising.amazon.com/terms
+    name: Amazon Seller Support
+    url: https://developer-docs.amazon.com/sp-api
+  termsOfService: https://developer-docs.amazon.com/sp-api/docs/terms-of-service
 servers:
-- url: https://advertising-api.amazon.com
+- url: https://sellingpartnerapi-na.amazon.com
   description: North America
-- url: https://advertising-api-eu.amazon.com
+- url: https://sellingpartnerapi-eu.amazon.com
   description: Europe
-- url: https://advertising-api-fe.amazon.com
+- url: https://sellingpartnerapi-fe.amazon.com
   description: Far East
-- url: https://advertising-api-test.amazon.com
-  description: Test/Sandbox
 security:
 - bearerAuth: []
 tags:
@@ -147,16 +145,6 @@ paths:
           description: Bad request
 components:
   schemas:
-    ListingsItemPutRequest:
-      type: object
-      required:
-      - productType
-      - attributes
-      properties:
-        productType:
-          type: string
-        attributes:
-          type: object
     ListingsItemPatchRequest:
       type: object
       required:
@@ -182,22 +170,6 @@ components:
                 type: array
                 items:
                   type: object
-    ListingsItemSubmissionResponse:
-      type: object
-      properties:
-        sku:
-          type: string
-        status:
-          type: string
-          enum:
-          - ACCEPTED
-          - INVALID
-        submissionId:
-          type: string
-        issues:
-          type: array
-          items:
-            type: object
     ListingsItem:
       type: object
       properties:
@@ -217,6 +189,32 @@ components:
           type: array
           items:
             type: object
+    ListingsItemSubmissionResponse:
+      type: object
+      properties:
+        sku:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACCEPTED
+          - INVALID
+        submissionId:
+          type: string
+        issues:
+          type: array
+          items:
+            type: object
+    ListingsItemPutRequest:
+      type: object
+      required:
+      - productType
+      - attributes
+      properties:
+        productType:
+          type: string
+        attributes:
+          type: object
   parameters:
     MarketplaceIds:
       name: MarketplaceIds
@@ -230,7 +228,7 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-      description: OAuth 2.0 access token from Login with Amazon
+      description: OAuth 2.0 access token obtained via Login with Amazon (LWA)
 externalDocs:
-  description: Amazon Advertising API Documentation
-  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
+  description: Amazon SP-API Documentation
+  url: https://developer-docs.amazon.com/sp-api
