@@ -1,0 +1,81 @@
+slug: amazon
+provider: Amazon
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Campaigns
+  spec_file: amazon-campaigns-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.82
+  evidence: '"Amazon Create Sponsored Products Campaigns", "Amazon Archive Campaign"; "manage budgets
+    and targeting through this REST API"'
+  reason: Full lifecycle management of paid advertising campaigns on Amazon is digital marketing (paid
+    media) management.
+- tag: Keywords
+  spec_file: amazon-keywords-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: The Amazon Advertising API enables programmatic management of advertising campaigns ... Sponsored
+    Products; GET /v2/sp/keywords listKeywords
+  reason: Keyword targeting objects within paid-search advertising campaigns — digital marketing / paid
+    media management.
+- tag: Targets
+  spec_file: amazon-targets-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: GET /v2/sp/targets  listTargets  Amazon List Product Targets; The Amazon Advertising API enables
+    programmatic management of advertising campaigns
+  reason: Product/audience targeting configuration for sponsored ad campaigns — paid media targeting within
+    digital marketing.
+- tag: Ad Groups
+  spec_file: amazon-ad-groups-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.78
+  evidence: '"Amazon Create Ad Groups"; "programmatic management of advertising campaigns ... Sponsored
+    Products, Sponsored Brands, and Sponsored Display"'
+  reason: Ad groups are targeting/bidding units inside paid-media campaigns, which is digital marketing
+    execution (paid media / marketing automation).
+- tag: Inventory
+  spec_file: amazon-inventory-api-openapi.yml
+  capability_id: BC-530.10
+  capability_id_l1: BC-530
+  capability_name: Stock Level Management
+  confidence: 0.75
+  evidence: GET /fba/inventory/v1/summaries  getInventorySummaries  Amazon Get Inventory Summaries
+  reason: Returns FBA stock-level summaries for seller inventory, i.e. visibility of stock quantities
+    in the fulfilment network.
+- tag: Orders
+  spec_file: amazon-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.75
+  evidence: GET /orders/2026-01-01/orders  searchOrders; GET /orders/2026-01-01/orders/{orderId}/orderItems  getOrderItems
+  reason: Retrieval of customer sales orders and their line items for fulfilment processing by the seller.
+- tag: Charges
+  spec_file: amazon-charges-api-openapi.yml
+  capability_id: BC-4250.40
+  capability_id_l1: BC-4250
+  capability_name: Payment Collection & Dunning
+  confidence: 0.7
+  evidence: '"Amazon Create a Charge", "Amazon Capture a Charge", "Amazon Cancel a Charge"; schema "Charge"'
+  reason: Authorisation, capture and cancellation of customer payments is payment collection processing;
+    no telecom-specific billing capability applies to a merchant payment gateway.

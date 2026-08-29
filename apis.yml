@@ -407,6 +407,9 @@ apis:
   - type: Documentation
     url: https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-capability-edges.yml
+  name: Amazon Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon/overview
 - type: AgenticAccess
