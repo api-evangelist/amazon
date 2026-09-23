@@ -140,31 +140,49 @@ paths:
         '400':
           description: Bad request
 components:
-  parameters:
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
   schemas:
+    CreateCheckoutSessionRequest:
+      type: object
+      required:
+      - webCheckoutDetails
+      - storeId
+      properties:
+        webCheckoutDetails:
+          type: object
+          required:
+          - checkoutReviewReturnUrl
+          properties:
+            checkoutReviewReturnUrl:
+              type: string
+              format: uri
+            checkoutResultReturnUrl:
+              type: string
+              format: uri
+        storeId:
+          type: string
+        chargePermissionType:
+          type: string
+          enum:
+          - OneTime
+          - Recurring
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
     MerchantMetadata:
       type: object
       properties:
@@ -210,15 +228,6 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
     UpdateCheckoutSessionRequest:
       type: object
       properties:
@@ -243,39 +252,6 @@ components:
         email:
           type: string
           format: email
-    CreateCheckoutSessionRequest:
-      type: object
-      required:
-      - webCheckoutDetails
-      - storeId
-      properties:
-        webCheckoutDetails:
-          type: object
-          required:
-          - checkoutReviewReturnUrl
-          properties:
-            checkoutReviewReturnUrl:
-              type: string
-              format: uri
-            checkoutResultReturnUrl:
-              type: string
-              format: uri
-        storeId:
-          type: string
-        chargePermissionType:
-          type: string
-          enum:
-          - OneTime
-          - Recurring
-        paymentDetails:
-          type: object
-          properties:
-            paymentIntent:
-              type: string
-            chargeAmount:
-              $ref: '#/components/schemas/Price'
-        merchantMetadata:
-          $ref: '#/components/schemas/MerchantMetadata'
     Address:
       type: object
       properties:
@@ -307,6 +283,30 @@ components:
           type: string
         currencyCode:
           type: string
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
   securitySchemes:
     amazonPaySignature:
       type: apiKey

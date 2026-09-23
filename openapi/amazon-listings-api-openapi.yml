@@ -144,6 +144,15 @@ paths:
         '400':
           description: Bad request
 components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
   schemas:
     ListingsItemPatchRequest:
       type: object
@@ -170,6 +179,32 @@ components:
                 type: array
                 items:
                   type: object
+    ListingsItemPutRequest:
+      type: object
+      required:
+      - productType
+      - attributes
+      properties:
+        productType:
+          type: string
+        attributes:
+          type: object
+    ListingsItemSubmissionResponse:
+      type: object
+      properties:
+        sku:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACCEPTED
+          - INVALID
+        submissionId:
+          type: string
+        issues:
+          type: array
+          items:
+            type: object
     ListingsItem:
       type: object
       properties:
@@ -189,41 +224,6 @@ components:
           type: array
           items:
             type: object
-    ListingsItemSubmissionResponse:
-      type: object
-      properties:
-        sku:
-          type: string
-        status:
-          type: string
-          enum:
-          - ACCEPTED
-          - INVALID
-        submissionId:
-          type: string
-        issues:
-          type: array
-          items:
-            type: object
-    ListingsItemPutRequest:
-      type: object
-      required:
-      - productType
-      - attributes
-      properties:
-        productType:
-          type: string
-        attributes:
-          type: object
-  parameters:
-    MarketplaceIds:
-      name: MarketplaceIds
-      in: query
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

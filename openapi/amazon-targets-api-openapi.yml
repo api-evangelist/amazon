@@ -70,26 +70,15 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
   schemas:
-    Target:
-      type: object
-      properties:
-        targetId:
-          type: string
-        campaignId:
-          type: string
-        adGroupId:
-          type: string
-        state:
-          type: string
-        bid:
-          type: number
-        expressionType:
-          type: string
-        expression:
-          type: array
-          items:
-            type: object
     CreateTargetRequest:
       type: object
       required:
@@ -122,14 +111,25 @@ components:
           type: string
         description:
           type: string
-  parameters:
-    ProfileId:
-      name: Amazon-Advertising-API-Scope
-      in: header
-      required: true
-      description: The advertising profile ID
-      schema:
-        type: string
+    Target:
+      type: object
+      properties:
+        targetId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        state:
+          type: string
+        bid:
+          type: number
+        expressionType:
+          type: string
+        expression:
+          type: array
+          items:
+            type: object
   securitySchemes:
     bearerAuth:
       type: http

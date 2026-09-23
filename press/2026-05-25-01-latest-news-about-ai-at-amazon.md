@@ -1,7 +1,9 @@
 ---
 title: Latest news about AI at Amazon
 url: https://www.aboutamazon.com/artificial-intelligence-ai-news
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amazon.com" press release artificial intelligence'
 position: 1
 source: serpapi-google

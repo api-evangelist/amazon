@@ -55,6 +55,15 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
   schemas:
     Money:
       type: object
@@ -83,15 +92,6 @@ components:
               totalAmount:
                 $ref: '#/components/schemas/Money'
         nextToken:
-          type: string
-  parameters:
-    MarketplaceIds:
-      name: MarketplaceIds
-      in: query
-      required: true
-      schema:
-        type: array
-        items:
           type: string
   securitySchemes:
     bearerAuth:

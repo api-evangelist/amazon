@@ -30,7 +30,8 @@
     "amazon-advertising-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "amazon-pay-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "amazon-selling-partner-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "tag 'Reports' spans 2 source specs (amazon-advertising-api-openapi.yml, amazon-selling-partner-api-openapi.yml): per-path servers applied"
+    "tag 'Reports' spans 2 source specs (amazon-advertising-api-openapi.yml, amazon-selling-partner-api-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "amazon-ad-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",

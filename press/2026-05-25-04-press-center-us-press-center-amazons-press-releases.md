@@ -1,7 +1,9 @@
 ---
 title: Press Center - US Press Center - Amazon's Press Releases
 url: https://press.aboutamazon.com/press-release-archive
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amazon.com" press release artificial intelligence'
 position: 4
 source: serpapi-google

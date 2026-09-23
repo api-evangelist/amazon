@@ -159,42 +159,20 @@ paths:
         '404':
           description: Not found
 components:
-  parameters:
-    ProfileId:
-      name: Amazon-Advertising-API-Scope
-      in: header
-      required: true
-      description: The advertising profile ID
-      schema:
-        type: string
   schemas:
-    CreateCampaignRequest:
+    UpdateCampaignRequest:
       type: object
       required:
-      - name
-      - state
-      - dailyBudget
-      - startDate
-      - targetingType
+      - campaignId
       properties:
+        campaignId:
+          type: string
         name:
           type: string
         state:
           type: string
-          enum:
-          - enabled
-          - paused
         dailyBudget:
           type: number
-        startDate:
-          type: string
-        endDate:
-          type: string
-        targetingType:
-          type: string
-          enum:
-          - manual
-          - auto
     Campaign:
       type: object
       properties:
@@ -230,19 +208,41 @@ components:
           type: string
         description:
           type: string
-    UpdateCampaignRequest:
+    CreateCampaignRequest:
       type: object
       required:
-      - campaignId
+      - name
+      - state
+      - dailyBudget
+      - startDate
+      - targetingType
       properties:
-        campaignId:
-          type: string
         name:
           type: string
         state:
           type: string
+          enum:
+          - enabled
+          - paused
         dailyBudget:
           type: number
+        startDate:
+          type: string
+        endDate:
+          type: string
+        targetingType:
+          type: string
+          enum:
+          - manual
+          - auto
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

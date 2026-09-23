@@ -83,23 +83,7 @@ paths:
         '404':
           description: Not found
 components:
-  parameters:
-    MarketplaceIds:
-      name: MarketplaceIds
-      in: query
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
   schemas:
-    Pagination:
-      type: object
-      properties:
-        nextToken:
-          type: string
-        previousToken:
-          type: string
     CatalogItem:
       type: object
       properties:
@@ -126,6 +110,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CatalogItem'
+    Pagination:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        previousToken:
+          type: string
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

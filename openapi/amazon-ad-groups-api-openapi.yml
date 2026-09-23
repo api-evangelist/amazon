@@ -79,15 +79,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    AdGroupResponse:
-      type: object
-      properties:
-        adGroupId:
-          type: string
-        code:
-          type: string
-        description:
-          type: string
     AdGroup:
       type: object
       properties:
@@ -117,6 +108,15 @@ components:
           type: string
         defaultBid:
           type: number
+    AdGroupResponse:
+      type: object
+      properties:
+        adGroupId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

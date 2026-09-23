@@ -145,30 +145,6 @@ paths:
         '400':
           description: Bad request
 components:
-  parameters:
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
   schemas:
     StatusDetails:
       type: object
@@ -179,6 +155,23 @@ components:
           type: string
         reasonDescription:
           type: string
+    CreateChargeRequest:
+      type: object
+      required:
+      - chargePermissionId
+      - chargeAmount
+      properties:
+        chargePermissionId:
+          type: string
+        chargeAmount:
+          $ref: '#/components/schemas/Price'
+        captureNow:
+          type: boolean
+        softDescriptor:
+          type: string
+          maxLength: 16
+        canHandlePendingAuthorization:
+          type: boolean
     Charge:
       type: object
       properties:
@@ -202,23 +195,6 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    CreateChargeRequest:
-      type: object
-      required:
-      - chargePermissionId
-      - chargeAmount
-      properties:
-        chargePermissionId:
-          type: string
-        chargeAmount:
-          $ref: '#/components/schemas/Price'
-        captureNow:
-          type: boolean
-        softDescriptor:
-          type: string
-          maxLength: 16
-        canHandlePendingAuthorization:
-          type: boolean
     Price:
       type: object
       required:
@@ -229,6 +205,30 @@ components:
           type: string
         currencyCode:
           type: string
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
   securitySchemes:
     amazonPaySignature:
       type: apiKey

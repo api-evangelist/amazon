@@ -63,7 +63,23 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    MarketplaceIds:
+      name: MarketplaceIds
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
   schemas:
+    Pagination:
+      type: object
+      properties:
+        nextToken:
+          type: string
+        previousToken:
+          type: string
     InventorySummaries:
       type: object
       properties:
@@ -97,22 +113,6 @@ components:
                     type: object
                   unfulfillableQuantity:
                     type: object
-    Pagination:
-      type: object
-      properties:
-        nextToken:
-          type: string
-        previousToken:
-          type: string
-  parameters:
-    MarketplaceIds:
-      name: MarketplaceIds
-      in: query
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

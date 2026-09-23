@@ -127,58 +127,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    Money:
-      type: object
-      properties:
-        CurrencyCode:
-          type: string
-        Amount:
-          type: string
-    OrderItemList:
-      type: object
-      properties:
-        payload:
-          type: object
-          properties:
-            OrderItems:
-              type: array
-              items:
-                $ref: '#/components/schemas/OrderItem'
-            NextToken:
-              type: string
-    ErrorList:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Error'
-    OrderItem:
-      type: object
-      properties:
-        ASIN:
-          type: string
-        OrderItemId:
-          type: string
-        SellerSKU:
-          type: string
-        Title:
-          type: string
-        QuantityOrdered:
-          type: integer
-        QuantityShipped:
-          type: integer
-        ItemPrice:
-          $ref: '#/components/schemas/Money'
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: string
     Order:
       type: object
       properties:
@@ -214,6 +162,18 @@ components:
           type: string
         MarketplaceId:
           type: string
+    OrderItemList:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            OrderItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/OrderItem'
+            NextToken:
+              type: string
     OrderList:
       type: object
       properties:
@@ -226,13 +186,47 @@ components:
                 $ref: '#/components/schemas/Order'
             NextToken:
               type: string
+    Money:
+      type: object
+      properties:
+        CurrencyCode:
+          type: string
+        Amount:
+          type: string
+    OrderItem:
+      type: object
+      properties:
+        ASIN:
+          type: string
+        OrderItemId:
+          type: string
+        SellerSKU:
+          type: string
+        Title:
+          type: string
+        QuantityOrdered:
+          type: integer
+        QuantityShipped:
+          type: integer
+        ItemPrice:
+          $ref: '#/components/schemas/Money'
+    ErrorList:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
   parameters:
-    OrderId:
-      name: orderId
-      in: path
-      required: true
-      schema:
-        type: string
     MarketplaceIds:
       name: MarketplaceIds
       in: query
@@ -241,6 +235,12 @@ components:
         type: array
         items:
           type: string
+    OrderId:
+      name: orderId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

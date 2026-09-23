@@ -79,15 +79,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    KeywordResponse:
-      type: object
-      properties:
-        keywordId:
-          type: string
-        code:
-          type: string
-        description:
-          type: string
     Keyword:
       type: object
       properties:
@@ -134,6 +125,15 @@ components:
           type: string
         bid:
           type: number
+    KeywordResponse:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

@@ -241,6 +241,22 @@ paths:
       description: Far East
 components:
   schemas:
+    ReportRequest:
+      type: object
+      properties:
+        reportDate:
+          type: string
+        metrics:
+          type: string
+        segment:
+          type: string
+    ReportRequestResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
     ReportStatus:
       type: object
       properties:
@@ -257,30 +273,6 @@ components:
           format: uri
         fileSize:
           type: integer
-    ReportRequestResponse:
-      type: object
-      properties:
-        reportId:
-          type: string
-        status:
-          type: string
-    ReportRequest:
-      type: object
-      properties:
-        reportDate:
-          type: string
-        metrics:
-          type: string
-        segment:
-          type: string
-    ReportDocument:
-      type: object
-      properties:
-        reportDocumentId:
-          type: string
-        url:
-          type: string
-          format: uri
     CreateReportResponse:
       type: object
       properties:
@@ -324,6 +316,14 @@ components:
         createdTime:
           type: string
           format: date-time
+    ReportDocument:
+      type: object
+      properties:
+        reportDocumentId:
+          type: string
+        url:
+          type: string
+          format: uri
     ReportList:
       type: object
       properties:

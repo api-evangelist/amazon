@@ -1,7 +1,9 @@
 ---
 title: Artificial Intelligence
 url: https://aws.amazon.com/blogs/machine-learning/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amazon.com" press release artificial intelligence'
 position: 5
 source: serpapi-google
