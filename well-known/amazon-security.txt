@@ -1,0 +1,8 @@
+Contact: https://hackerone.com/amazonvrp/reports/new
+Hiring: https://www.amazon.jobs/en/teams/infosec
+
+# Bug Bounty Policy:
+Policy: https://hackerone.com/amazonvrp
+
+# For vulnerabilities related to Amazon Web Services (AWS):
+# https://aws.amazon.com/security/vulnerability-reporting/

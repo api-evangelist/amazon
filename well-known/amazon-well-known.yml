@@ -1,0 +1,422 @@
+generated: '2026-09-24'
+method: searched
+description: 'Probe of the contract''s named /.well-known/ path list (plus /apis.json, /apis.yml and a
+  negative control) on every host the Amazon record knows: apex + www, the developer portal and docs hosts,
+  each apis.yml baseURL / OpenAPI servers[] host, the Amazon Ads MCP host (advertising-ai.amazon.com)
+  and the authorization server its protected-resource metadata names (lwa.amazon.com). Three real documents
+  saved verbatim: www.amazon.com security.txt, the Ads MCP RFC 9728 protected-resource metadata, and the
+  Login with Amazon RFC 8414 authorization-server metadata. Probed 2026-09-24 with curl -L.'
+hosts:
+- host: https://amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    redirect: https://www.amazon.com/.well-known/security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Apex redirects to www.amazon.com; security.txt followed to the www copy (recorded there).
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://www.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: amazon-security.txt
+    bytes: 283
+    type: text/plain
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Serves a real RFC 9116 security.txt (HackerOne amazonvrp). All other paths 404.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://developer.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Every path 404 (HTML page, ~80KB).
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://advertising.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Every path redirects to /page-not-found (404 HTML).
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://advertising-api.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 403
+  - path: /apis.yml
+    status: 403
+  note: Ads API host (OpenAPI servers[]); every path 403 JSON (42 bytes).
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 403
+  path_echo_control: passed
+- host: https://pay-api.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Amazon Pay host (OpenAPI servers[]); every path 404 JSON.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://sellingpartnerapi-na.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 403
+  - path: /apis.yml
+    status: 403
+  note: Selling Partner host (OpenAPI servers[]); every path 403 (143 bytes).
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 403
+  path_echo_control: passed
+- host: https://api.amazonalexa.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Alexa Skills Kit host; every path 404 HTML.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://affiliate-program.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Creators API host; every path 404 HTML.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 404
+  path_echo_control: passed
+- host: https://developer-docs.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 200
+    type: application/linkset+json
+    result: 'not credited: host negative control failed (catch-all); body looked genuine, see host note'
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /.well-known/ucp.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /.well-known/acp.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /.well-known/apis.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /apis.json
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  - path: /apis.yml
+    status: 200
+    type: text/html
+    result: 'soft-404: catch-all redirect to /sp-api/page/404'
+  note: 'Redirects to developer-docs.amazon (new TLD). CATCH-ALL: unknown paths redirect to /sp-api/page/404
+    and return 200 text/html (1,057,114 bytes), including the negative control, so per contract every
+    hit on this host is discarded. NOTE for review: /.well-known/api-catalog returned a distinct 279-byte
+    application/linkset+json RFC 9727 linkset (anchor https://developer-docs.amazon/sp-api, service-doc
+    /sp-api/reference) that looks genuine, but it is not credited here because the negative control failed;
+    it is Selling Partner API surface (see all/amazon-seller-central).'
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 200
+  path_echo_control: failed
+  hit_count: 0
+  soft_404_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 200
+    bytes: 1057114
+- host: https://advertising-ai.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: amazon-advertising-ai-oauth-protected-resource.json
+    bytes: 155
+    type: application/json
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 400
+  - path: /apis.yml
+    status: 400
+  note: Amazon Ads MCP server host (mcp/amazon-mcp.yml url). Serves RFC 9728 protected-resource metadata;
+    every other path 403 JSON; negative control 403.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 403
+  path_echo_control: passed
+- host: https://lwa.amazon.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: amazon-lwa-oauth-authorization-server.json
+    bytes: 611
+    type: application/json
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  note: Login with Amazon, named by authorization_servers in the Ads MCP protected-resource metadata.
+    Serves RFC 8414 metadata (no registration_endpoint; client_id_metadata_document_supported true; PKCE
+    S256). openid-configuration 403.
+  negative_control:
+    path: /.well-known/amazon-negative-control-7c2e91.json
+    status: 403
+  path_echo_control: passed

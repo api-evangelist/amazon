@@ -1,0 +1,58 @@
+generated: '2026-09-24'
+method: searched
+status: published
+source: https://advertising.amazon.com/API/docs/en-us/mcp/mcp-overview and https://advertising.amazon.com/API/docs/en-us/mcp/oauth
+description: Amazon Ads operates a first-party hosted MCP server, the Amazon Ads MCP Server, at https://advertising-ai.amazon.com/mcp.
+  Amazon's docs describe it as a standardized access layer that translates the Amazon Ads API into MCP primitives
+  so LLMs and agents can query campaigns, performance metrics, billing and account information in natural language.
+  The docs name two primitives, Tools and Skills (beta, pre-defined prompts provided by Amazon Ads that guide
+  AI applications through Ads workflows and tool usage). Open beta since 2026-02-02, after a closed beta from
+  November 2025 (dates from the parent session's verified evidence; the docs pages fetched here do not carry
+  them). The docs navigation also lists "MCP Tools (beta)" and a separate "Connecting to Ads MCP Lite" path.
+  No tool list was harvested because tools/list needs an authenticated session.
+servers:
+- name: amazon-ads-mcp
+  label: Amazon Ads MCP Server
+  transport: http
+  url: https://advertising-ai.amazon.com/mcp
+  auth: oauth2
+  auth_detail: OAuth 2.1 through Login with Amazon (authorization server https://lwa.amazon.com, PKCE S256,
+    scope advertising::campaign_management). Prerequisites are an approved application with access to the
+    Amazon Ads API and your own Client ID from a Login with Amazon security profile. A public client uses the
+    Client ID only (access token expires after one hour). A private client uses Client ID plus Client Secret
+    and refreshes automatically. Each MCP client's callback URL has to be added to the security profile's
+    Allowed Return URLs, or the flow fails with a redirect URI mismatch.
+  docs: https://advertising.amazon.com/API/docs/en-us/mcp/mcp-overview
+  auth_docs: https://advertising.amazon.com/API/docs/en-us/mcp/oauth
+  protected_resource_metadata: https://advertising-ai.amazon.com/.well-known/oauth-protected-resource
+  clients:
+  - Claude
+  - Claude Code
+  - Claude Desktop
+  - ChatGPT
+  - Amazon Kiro
+  - Amazon Bedrock
+  - Amazon AgentCore
+  - Amazon Quick
+  primitives:
+  - tools
+  - skills
+  use_cases:
+  - Query campaign performance
+  - Access account information and list advertising accounts
+  - Retrieve recent invoices
+  - Generate reports
+  - Update campaign settings such as budgets
+  - Advanced tools, create and launch a campaign across several marketplaces in one prompt
+  - Advanced tools, scale an existing campaign to a new marketplace
+  related_connection: Ads MCP Lite (listed in the docs navigation as "Connecting to Ads MCP Lite"; not fetched)
+deployment:
+  mode: remote
+  endpoint: https://advertising-ai.amazon.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-09-24'
+  probe_detail: 'Anonymous JSON-RPC initialize POST returned HTTP 401 with WWW-Authenticate: Bearer realm="mcp",
+    resource_metadata="https://advertising-ai.amazon.com/.well-known/oauth-protected-resource" and an HTML
+    (openresty) body, not a JSON-RPC error.'
+  source: well-known/amazon-well-known.yml

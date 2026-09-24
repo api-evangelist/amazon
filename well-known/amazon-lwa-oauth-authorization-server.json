@@ -1,0 +1,13 @@
+{
+  "issuer": "https://lwa.amazon.com",
+  "authorization_endpoint": "https://lwa.amazon.com/ap/oa",
+  "token_endpoint": "https://api.amazon.com/auth/o2/token",
+  "scopes_supported": ["profile"],
+  "response_types_supported": ["code"],
+  "response_modes_supported": ["query"],
+  "grant_types_supported": ["authorization_code", "refresh_token"],
+  "token_endpoint_auth_methods_supported": ["client_secret_basic", "private_key_jwt", "none"],
+  "token_endpoint_auth_signing_alg_values_supported": ["RS256", "ES256"],
+  "code_challenge_methods_supported": ["S256"],
+  "client_id_metadata_document_supported": true
+}
