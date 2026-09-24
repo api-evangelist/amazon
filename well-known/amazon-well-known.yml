@@ -1,5 +1,6 @@
 generated: '2026-09-24'
 method: searched
+source: live probe of 12 Amazon hosts on the named /.well-known paths, one negative control per host (2026-09-24)
 description: 'Probe of the contract''s named /.well-known/ path list (plus /apis.json, /apis.yml and a
   negative control) on every host the Amazon record knows: apex + www, the developer portal and docs hosts,
   each apis.yml baseURL / OpenAPI servers[] host, the Amazon Ads MCP host (advertising-ai.amazon.com)

@@ -1,8 +1,0 @@
-{
-  "payload": {
-    "OrderItems": [
-      "example-value"
-    ],
-    "NextToken": "example-value"
-  }
-}

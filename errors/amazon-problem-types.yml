@@ -1,0 +1,40 @@
+generated: '2026-09-24'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/amazon-ad-groups-api-openapi.yml
+- openapi/amazon-campaigns-api-openapi.yml
+- openapi/amazon-charge-permissions-api-openapi.yml
+- openapi/amazon-charges-api-openapi.yml
+- openapi/amazon-checkout-sessions-api-openapi.yml
+- openapi/amazon-keywords-api-openapi.yml
+- openapi/amazon-profiles-api-openapi.yml
+- openapi/amazon-refunds-api-openapi.yml
+- openapi/amazon-reports-api-openapi.yml
+- openapi/amazon-targets-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 27
+  statuses_declared: 3
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad request
+  operations: 9
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 12
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Not found
+  operations: 7
+  media_types: []
+  schema: null

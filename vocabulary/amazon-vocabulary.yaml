@@ -2,17 +2,12 @@ vocabulary: "1.0.0"
 
 info:
   provider: "Amazon"
-  description: "Vocabulary for Amazon consumer services including Selling Partner API, Advertising API, Amazon Pay, Alexa, and more."
+  description: "Vocabulary for Amazon consumer services including the Advertising API, Amazon Pay, Alexa, and more. The Selling Partner API is profiled in the amazon-seller-central repo."
   created: "2026-04-19"
   modified: "2026-04-19"
 
 operational:
   apis:
-    - namespace: selling-partner
-      name: Amazon Selling Partner API
-      version: "2022-04-01"
-      baseUrl: https://sellingpartnerapi-na.amazon.com
-      status: active
     - namespace: advertising
       name: Amazon Advertising API
       version: "2"
@@ -40,15 +35,6 @@ operational:
       status: active
 
   resources:
-    - name: orders
-      api: selling-partner
-      actions: [get, get-items, get-buyer-info]
-    - name: catalog-items
-      api: selling-partner
-      actions: [search, get]
-    - name: listings
-      api: selling-partner
-      actions: [get, put, delete, patch]
     - name: campaigns
       api: advertising
       actions: [list, create, update, delete]
@@ -145,7 +131,7 @@ capability:
       description: >-
         Unified workflow for Amazon sellers, advertisers, and merchants covering
         marketplace listings, orders, advertising campaigns, and payment processing.
-      apis: [selling-partner, advertising, pay]
+      apis: [advertising, pay]
       tool_count: 9
       personas: [Amazon Seller, Advertiser, Merchant]
       domains: [E-Commerce, Advertising, Payments]
@@ -174,7 +160,6 @@ capability:
 
   namespaces:
     consumed:
-      - selling-partner
       - advertising
       - pay
     rest:

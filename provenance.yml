@@ -30,12 +30,6 @@ artifacts:
   collections/amazon-campaigns-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-campaigns-api
-  collections/amazon-catalog-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-catalog-api
-  collections/amazon-catalog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-catalog-api
   collections/amazon-charge-permissions-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-charge-permissions-api
@@ -54,36 +48,12 @@ artifacts:
   collections/amazon-checkout-sessions-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-checkout-sessions-api
-  collections/amazon-finances-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-finances-api
-  collections/amazon-finances-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-finances-api
-  collections/amazon-inventory-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-inventory-api
-  collections/amazon-inventory-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-inventory-api
   collections/amazon-keywords-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-keywords-api
   collections/amazon-keywords-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-keywords-api
-  collections/amazon-listings-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-listings-api
-  collections/amazon-listings-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-listings-api
-  collections/amazon-orders-api.opencollection.json:
-    method: derived
-    evidence: openapi/amazon-orders-api
-  collections/amazon-orders-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-orders-api
   collections/amazon-pay-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -108,18 +78,21 @@ artifacts:
   collections/amazon-reports-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-reports-api
-  collections/amazon-selling-partner-api.opencollection.json:
-    method: unknown
-    evidence: no authorship recorded
-  collections/amazon-selling-partner-api.postman_collection.json:
-    method: unknown
-    evidence: no authorship recorded
   collections/amazon-targets-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-targets-api
   collections/amazon-targets-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-targets-api
+  conformance/amazon-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/amazon-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/advertising-ad-group-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -208,66 +181,6 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   examples/pay-update-checkout-session-request-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-catalog-item-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-catalog-item-list-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-create-report-response-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-create-report-specification-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-error-list-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-inventory-summaries-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-listings-item-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-listings-item-patch-request-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-listings-item-put-request-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-listings-item-submission-response-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-money-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-order-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-order-item-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-order-item-list-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-order-list-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-pagination-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-report-document-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-report-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-report-list-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/selling-partner-transaction-list-example.json:
     method: unknown
     evidence: no authorship recorded
   finops/amazon-finops.yml:
@@ -369,66 +282,6 @@ artifacts:
   json-schema/pay-update-checkout-session-request-schema.json:
     method: unknown
     evidence: no authorship recorded
-  json-schema/selling-partner-catalog-item-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-catalog-item-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-create-report-response-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-create-report-specification-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-error-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-inventory-summaries-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-listings-item-patch-request-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-listings-item-put-request-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-listings-item-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-listings-item-submission-response-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-money-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-order-item-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-order-item-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-order-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-order-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-pagination-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-report-document-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-report-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-report-schema.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-schema/selling-partner-transaction-list-schema.json:
-    method: unknown
-    evidence: no authorship recorded
   json-structure/advertising-ad-group-response-structure.json:
     method: unknown
     evidence: no authorship recorded
@@ -519,67 +372,7 @@ artifacts:
   json-structure/pay-update-checkout-session-request-structure.json:
     method: unknown
     evidence: no authorship recorded
-  json-structure/selling-partner-catalog-item-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-catalog-item-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-create-report-response-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-create-report-specification-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-error-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-inventory-summaries-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-listings-item-patch-request-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-listings-item-put-request-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-listings-item-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-listings-item-submission-response-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-money-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-order-item-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-order-item-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-order-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-order-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-pagination-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-report-document-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-report-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-report-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  json-structure/selling-partner-transaction-list-structure.json:
-    method: unknown
-    evidence: no authorship recorded
-  kin/checks-2026-09-24T064009.yml:
+  kin/checks-2026-09-24T090549.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -777,6 +570,9 @@ artifacts:
   kin/score-2026-09-24T064009.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   llms/amazon-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -791,17 +587,10 @@ artifacts:
     method: harvested
     evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
       to the provider's source is unverified
-  openapi/_original/amazon-selling-partner-api-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
   openapi/amazon-ad-groups-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/amazon-campaigns-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-catalog-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/amazon-charge-permissions-api-openapi.yml:
@@ -813,19 +602,7 @@ artifacts:
   openapi/amazon-checkout-sessions-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-finances-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-inventory-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/amazon-keywords-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-listings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/amazon-orders-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/amazon-profiles-api-openapi.yml:
@@ -849,9 +626,6 @@ artifacts:
   postman/amazon-campaigns-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-campaigns-api
-  postman/amazon-catalog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-catalog-api
   postman/amazon-charge-permissions-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-charge-permissions-api
@@ -861,30 +635,15 @@ artifacts:
   postman/amazon-checkout-sessions-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-checkout-sessions-api
-  postman/amazon-finances-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-finances-api
-  postman/amazon-inventory-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-inventory-api
   postman/amazon-keywords-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-keywords-api
-  postman/amazon-listings-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-listings-api
-  postman/amazon-orders-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-orders-api
   postman/amazon-profiles-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-profiles-api
   postman/amazon-refunds-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-refunds-api
-  postman/amazon-reports-api.postman_collection.json:
-    method: derived
-    evidence: openapi/amazon-reports-api
   postman/amazon-targets-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-targets-api
@@ -907,6 +666,9 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   rules/amazon-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-spectral-rules.yml:
@@ -936,6 +698,9 @@ artifacts:
   vocabulary/amazon-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
+  vocabulary/amazon-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
   well-known/amazon-advertising-ai-oauth-protected-resource.json:
     method: unknown
     evidence: no authorship recorded

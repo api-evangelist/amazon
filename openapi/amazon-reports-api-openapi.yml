@@ -1,8 +1,10 @@
 openapi: 3.2.0
 info:
-  title: Amazon Reports API
+  title: Amazon Ads Reports API
   version: '1.0'
-  description: 'Operations tagged Reports across 2 of this provider''s published API definitions: amazon-advertising-api-openapi.yml, amazon-selling-partner-api-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: Amazon Ads v2 reporting operations (request a performance report, get report status), split from
+    amazon-advertising-api-openapi.yml. The Selling Partner API Reports operations (/reports/2021-06-30) that this
+    file previously combined are profiled in the amazon-seller-central repo from Amazon's official selling-partner-api-models.
 servers:
 - url: https://advertising-api.amazon.com
   description: North America
@@ -12,12 +14,6 @@ servers:
   description: Far East
 - url: https://advertising-api-test.amazon.com
   description: Test/Sandbox
-- url: https://sellingpartnerapi-na.amazon.com
-  description: North America
-- url: https://sellingpartnerapi-eu.amazon.com
-  description: Europe
-- url: https://sellingpartnerapi-fe.amazon.com
-  description: Far East
 security:
 - bearerAuth: []
 tags:
@@ -101,144 +97,6 @@ paths:
       description: Far East
     - url: https://advertising-api-test.amazon.com
       description: Test/Sandbox
-  /reports/2021-06-30/reports:
-    get:
-      operationId: getReports
-      summary: Amazon List Reports
-      description: Returns report details for the reports that match the filters specified.
-      tags:
-      - Reports
-      parameters:
-      - name: reportTypes
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-      - name: processingStatuses
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - CANCELLED
-            - DONE
-            - FATAL
-            - IN_PROGRESS
-            - IN_QUEUE
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-          maximum: 100
-      - name: nextToken
-        in: query
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ReportList'
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-    post:
-      operationId: createReport
-      summary: Amazon Create a Report
-      description: Creates a report request. Reports are generated asynchronously and can be retrieved using the getReport and getReportDocument operations.
-      tags:
-      - Reports
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateReportSpecification'
-      responses:
-        '202':
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateReportResponse'
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-    servers:
-    - url: https://sellingpartnerapi-na.amazon.com
-      description: North America
-    - url: https://sellingpartnerapi-eu.amazon.com
-      description: Europe
-    - url: https://sellingpartnerapi-fe.amazon.com
-      description: Far East
-  /reports/2021-06-30/reports/{reportId}:
-    get:
-      operationId: getReport
-      summary: Amazon Get Report
-      description: Returns report details for the report indicated by the specified report ID.
-      tags:
-      - Reports
-      parameters:
-      - name: reportId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Report'
-        '400':
-          description: Bad request
-        '404':
-          description: Not found
-    servers:
-    - url: https://sellingpartnerapi-na.amazon.com
-      description: North America
-    - url: https://sellingpartnerapi-eu.amazon.com
-      description: Europe
-    - url: https://sellingpartnerapi-fe.amazon.com
-      description: Far East
-  /reports/2021-06-30/documents/{reportDocumentId}:
-    get:
-      operationId: getReportDocument
-      summary: Amazon Get Report Document
-      description: Returns the information required for retrieving a report document's contents.
-      tags:
-      - Reports
-      parameters:
-      - name: reportDocumentId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ReportDocument'
-        '400':
-          description: Bad request
-        '404':
-          description: Not found
-    servers:
-    - url: https://sellingpartnerapi-na.amazon.com
-      description: North America
-    - url: https://sellingpartnerapi-eu.amazon.com
-      description: Europe
-    - url: https://sellingpartnerapi-fe.amazon.com
-      description: Far East
 components:
   schemas:
     ReportRequest:
@@ -273,29 +131,6 @@ components:
           format: uri
         fileSize:
           type: integer
-    CreateReportResponse:
-      type: object
-      properties:
-        reportId:
-          type: string
-    CreateReportSpecification:
-      type: object
-      required:
-      - reportType
-      - marketplaceIds
-      properties:
-        reportType:
-          type: string
-        dataStartTime:
-          type: string
-          format: date-time
-        dataEndTime:
-          type: string
-          format: date-time
-        marketplaceIds:
-          type: array
-          items:
-            type: string
     Report:
       type: object
       properties:
@@ -316,23 +151,6 @@ components:
         createdTime:
           type: string
           format: date-time
-    ReportDocument:
-      type: object
-      properties:
-        reportDocumentId:
-          type: string
-        url:
-          type: string
-          format: uri
-    ReportList:
-      type: object
-      properties:
-        reports:
-          type: array
-          items:
-            $ref: '#/components/schemas/Report'
-        nextToken:
-          type: string
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

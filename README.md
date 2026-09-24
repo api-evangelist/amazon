@@ -91,26 +91,7 @@ Amazon is a global technology and e-commerce company offering a wide range of co
 
 ### Amazon Selling Partner API
 
-The Amazon Selling Partner API (SP-API) is a RESTful API that enables Amazon sellers and vendors to programmatically manage their marketplace operations including listings, orders, payments, reports, and fulfillment. It replaces the deprecated Amazon Marketplace Web Service (MWS) and provides access to region-specific endpoints for North America, Europe, and Far East marketplaces.
-
-- **Human URL:** [https://developer-docs.amazon.com/sp-api](https://developer-docs.amazon.com/sp-api)
-- **Base URL:** `https://sellingpartnerapi-na.amazon.com`
-
-#### Tags
-
-- E-Commerce
-- Fulfillment
-- Marketplace
-- Orders
-- Sellers
-
-#### Properties
-
-- [Documentation](https://developer-docs.amazon.com/sp-api)
-- [OpenAPI](openapi/amazon-selling-partner-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-selling-partner-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-selling-partner-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/selling-partner-order-schema.json) — [JSON Schema](https://json-schema.org/specification)
+The Selling Partner API (SP-API) is profiled in its own repository, [amazon-seller-central](https://github.com/api-evangelist/amazon-seller-central), from Amazon's official [selling-partner-api-models](https://github.com/amzn/selling-partner-api-models), alongside the first-party Amazon Selling Partner MCP server and Amazon's agent skills. This repository covers the Amazon Ads, Amazon Pay, Alexa, Appstore and Creators APIs.
 
 ### Amazon Advertising API
 
@@ -129,7 +110,7 @@ The Amazon Advertising API enables programmatic management of advertising campai
 #### Properties
 
 - [Documentation](https://advertising.amazon.com/API/docs/en-us/reference/api-overview)
-- [OpenAPI](openapi/amazon-advertising-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/_original/amazon-advertising-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/amazon-advertising-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -154,8 +135,6 @@ The Amazon Creators API provides programmatic access to Amazon product data for 
 - [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-selling-partner-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-selling-partner-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Amazon Pay API
 
@@ -174,7 +153,7 @@ The Amazon Pay API enables merchants to integrate Amazon Pay for payment process
 #### Properties
 
 - [Documentation](https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html)
-- [OpenAPI](openapi/amazon-pay-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/_original/amazon-pay-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -199,8 +178,6 @@ The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage, test, 
 - [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-selling-partner-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-selling-partner-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Amazon Appstore API
 
@@ -223,8 +200,6 @@ The Amazon Appstore Developer APIs provide tools for managing app submissions, t
 - [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-selling-partner-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-selling-partner-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
@@ -245,9 +220,6 @@ The Amazon Appstore Developer APIs provide tools for managing app submissions, t
 - [JSON-LD](json-ld/amazon-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
 - [Spectral Rules](rules/amazon-spectral-rules.yml)
 - [Vocabulary](vocabulary/amazon-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
 - [L L Ms Txt](https://developer.amazon.com/llms.txt)
 
 ## Maintainers

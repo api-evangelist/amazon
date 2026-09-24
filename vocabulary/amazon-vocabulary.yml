@@ -1,0 +1,224 @@
+generated: '2026-09-24'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/amazon-ad-groups-api-openapi.yml
+- openapi/amazon-campaigns-api-openapi.yml
+- openapi/amazon-charge-permissions-api-openapi.yml
+- openapi/amazon-charges-api-openapi.yml
+- openapi/amazon-checkout-sessions-api-openapi.yml
+vocabulary:
+  name: Amazon Domain Vocabulary
+  description: 'Terms declared by Amazon''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-09-24'
+  terms:
+  - term: Ad Groups
+    definition: Ad group management operations
+    tags:
+    - Resource Group
+    source: openapi/amazon-ad-groups-api-openapi.yml
+  - term: Campaigns
+    definition: Campaign management operations
+    tags:
+    - Resource Group
+    source: openapi/amazon-campaigns-api-openapi.yml
+  - term: Charge Permissions
+    definition: Manage buyer charge authorizations
+    tags:
+    - Resource Group
+    source: openapi/amazon-charge-permissions-api-openapi.yml
+  - term: Charges
+    definition: Create and manage payment charges
+    tags:
+    - Resource Group
+    source: openapi/amazon-charges-api-openapi.yml
+  - term: Checkout Sessions
+    definition: Manage buyer checkout sessions
+    tags:
+    - Resource Group
+    source: openapi/amazon-checkout-sessions-api-openapi.yml
+  - term: Keywords
+    definition: Keyword management operations
+    tags:
+    - Resource Group
+    source: openapi/amazon-keywords-api-openapi.yml
+  - term: Profiles
+    definition: Account profile management
+    tags:
+    - Resource Group
+    source: openapi/amazon-profiles-api-openapi.yml
+  - term: Refunds
+    definition: Process refunds on captured charges
+    tags:
+    - Resource Group
+    source: openapi/amazon-refunds-api-openapi.yml
+  - term: Reports
+    definition: Reporting and analytics
+    tags:
+    - Resource Group
+    source: openapi/amazon-reports-api-openapi.yml
+  - term: Targets
+    definition: Product targeting operations
+    tags:
+    - Resource Group
+    source: openapi/amazon-targets-api-openapi.yml
+  - term: AdGroup
+    definition: 'Object declared by the contract with fields: adGroupId, campaignId, name, state, defaultBid.'
+    tags:
+    - Object
+    source: openapi/amazon-ad-groups-api-openapi.yml#/components/schemas/AdGroup
+  - term: CreateAdGroupRequest
+    definition: 'Object declared by the contract with fields: campaignId, name, state, defaultBid.'
+    tags:
+    - Object
+    source: openapi/amazon-ad-groups-api-openapi.yml#/components/schemas/CreateAdGroupRequest
+  - term: AdGroupResponse
+    definition: 'Object declared by the contract with fields: adGroupId, code, description.'
+    tags:
+    - Object
+    source: openapi/amazon-ad-groups-api-openapi.yml#/components/schemas/AdGroupResponse
+  - term: UpdateCampaignRequest
+    definition: 'Object declared by the contract with fields: campaignId, name, state, dailyBudget.'
+    tags:
+    - Object
+    source: openapi/amazon-campaigns-api-openapi.yml#/components/schemas/UpdateCampaignRequest
+  - term: Campaign
+    definition: 'Object declared by the contract with fields: campaignId, name, state, dailyBudget, startDate, endDate, targetingType, premiumBidAdjustment.'
+    tags:
+    - Object
+    source: openapi/amazon-campaigns-api-openapi.yml#/components/schemas/Campaign
+  - term: CampaignResponse
+    definition: 'Object declared by the contract with fields: campaignId, code, description.'
+    tags:
+    - Object
+    source: openapi/amazon-campaigns-api-openapi.yml#/components/schemas/CampaignResponse
+  - term: CreateCampaignRequest
+    definition: 'Object declared by the contract with fields: name, state, dailyBudget, startDate, endDate, targetingType.'
+    tags:
+    - Object
+    source: openapi/amazon-campaigns-api-openapi.yml#/components/schemas/CreateCampaignRequest
+  - term: StatusDetails
+    definition: 'Object declared by the contract with fields: state, reasonCode, reasonDescription.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/StatusDetails
+  - term: MerchantMetadata
+    definition: 'Object declared by the contract with fields: merchantReferenceId, merchantStoreName, noteToBuyer.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/MerchantMetadata
+  - term: Buyer
+    definition: 'Object declared by the contract with fields: buyerId, name, email.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/Buyer
+  - term: Address
+    definition: 'Object declared by the contract with fields: name, addressLine1, addressLine2, addressLine3, city, stateOrRegion, postalCode,
+      countryCode, phoneNumber.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/Address
+  - term: ChargePermission
+    definition: 'Object declared by the contract with fields: chargePermissionId, chargePermissionType, buyer, shippingAddress, billingAddress,
+      statusDetails, limits, creationTimestamp, expirationTimestamp.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/ChargePermission
+  - term: Price
+    definition: 'Object declared by the contract with fields: amount, currencyCode.'
+    tags:
+    - Object
+    source: openapi/amazon-charge-permissions-api-openapi.yml#/components/schemas/Price
+  - term: CreateChargeRequest
+    definition: 'Object declared by the contract with fields: chargePermissionId, chargeAmount, captureNow, softDescriptor, canHandlePendingAuthorization.'
+    tags:
+    - Object
+    source: openapi/amazon-charges-api-openapi.yml#/components/schemas/CreateChargeRequest
+  - term: Charge
+    definition: 'Object declared by the contract with fields: chargeId, chargePermissionId, chargeAmount, captureAmount, refundedAmount, softDescriptor,
+      statusDetails, creationTimestamp, expirationTimestamp.'
+    tags:
+    - Object
+    source: openapi/amazon-charges-api-openapi.yml#/components/schemas/Charge
+  - term: CreateCheckoutSessionRequest
+    definition: 'Object declared by the contract with fields: webCheckoutDetails, storeId, chargePermissionType, paymentDetails, merchantMetadata.'
+    tags:
+    - Object
+    source: openapi/amazon-checkout-sessions-api-openapi.yml#/components/schemas/CreateCheckoutSessionRequest
+  - term: CheckoutSession
+    definition: 'Object declared by the contract with fields: checkoutSessionId, statusDetails, buyer, shippingAddress, billingAddress, paymentDetails,
+      merchantMetadata, chargePermissionId, chargeId, creationTimestamp, expirationTimestamp.'
+    tags:
+    - Object
+    source: openapi/amazon-checkout-sessions-api-openapi.yml#/components/schemas/CheckoutSession
+  - term: UpdateCheckoutSessionRequest
+    definition: 'Object declared by the contract with fields: paymentDetails, merchantMetadata, shippingAddress.'
+    tags:
+    - Object
+    source: openapi/amazon-checkout-sessions-api-openapi.yml#/components/schemas/UpdateCheckoutSessionRequest
+  - term: Keyword
+    definition: 'Object declared by the contract with fields: keywordId, campaignId, adGroupId, keywordText, matchType, state, bid.'
+    tags:
+    - Object
+    source: openapi/amazon-keywords-api-openapi.yml#/components/schemas/Keyword
+  - term: CreateKeywordRequest
+    definition: 'Object declared by the contract with fields: campaignId, adGroupId, keywordText, matchType, state, bid.'
+    tags:
+    - Object
+    source: openapi/amazon-keywords-api-openapi.yml#/components/schemas/CreateKeywordRequest
+  - term: KeywordResponse
+    definition: 'Object declared by the contract with fields: keywordId, code, description.'
+    tags:
+    - Object
+    source: openapi/amazon-keywords-api-openapi.yml#/components/schemas/KeywordResponse
+  - term: Profile
+    definition: 'Object declared by the contract with fields: profileId, countryCode, currencyCode, accountInfo.'
+    tags:
+    - Object
+    source: openapi/amazon-profiles-api-openapi.yml#/components/schemas/Profile
+  - term: CreateRefundRequest
+    definition: 'Object declared by the contract with fields: chargeId, refundAmount, softDescriptor.'
+    tags:
+    - Object
+    source: openapi/amazon-refunds-api-openapi.yml#/components/schemas/CreateRefundRequest
+  - term: Refund
+    definition: 'Object declared by the contract with fields: refundId, chargeId, refundAmount, softDescriptor, statusDetails, creationTimestamp.'
+    tags:
+    - Object
+    source: openapi/amazon-refunds-api-openapi.yml#/components/schemas/Refund
+  - term: ReportRequest
+    definition: 'Object declared by the contract with fields: reportDate, metrics, segment.'
+    tags:
+    - Object
+    source: openapi/amazon-reports-api-openapi.yml#/components/schemas/ReportRequest
+  - term: ReportRequestResponse
+    definition: 'Object declared by the contract with fields: reportId, status.'
+    tags:
+    - Object
+    source: openapi/amazon-reports-api-openapi.yml#/components/schemas/ReportRequestResponse
+  - term: ReportStatus
+    definition: 'Object declared by the contract with fields: reportId, status, location, fileSize.'
+    tags:
+    - Object
+    source: openapi/amazon-reports-api-openapi.yml#/components/schemas/ReportStatus
+  - term: Report
+    definition: 'Object declared by the contract with fields: reportId, reportType, processingStatus, reportDocumentId, createdTime.'
+    tags:
+    - Object
+    source: openapi/amazon-reports-api-openapi.yml#/components/schemas/Report
+  - term: CreateTargetRequest
+    definition: 'Object declared by the contract with fields: campaignId, adGroupId, state, bid, expression, expressionType.'
+    tags:
+    - Object
+    source: openapi/amazon-targets-api-openapi.yml#/components/schemas/CreateTargetRequest
+  - term: TargetResponse
+    definition: 'Object declared by the contract with fields: targetId, code, description.'
+    tags:
+    - Object
+    source: openapi/amazon-targets-api-openapi.yml#/components/schemas/TargetResponse
+  - term: Target
+    definition: 'Object declared by the contract with fields: targetId, campaignId, adGroupId, state, bid, expressionType, expression.'
+    tags:
+    - Object
+    source: openapi/amazon-targets-api-openapi.yml#/components/schemas/Target
