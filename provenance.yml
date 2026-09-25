@@ -372,7 +372,7 @@ artifacts:
   json-structure/pay-update-checkout-session-request-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T090549.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -570,7 +570,16 @@ artifacts:
   kin/score-2026-09-24T064009.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-24T090549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T092007.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   llms/amazon-llms.txt:
