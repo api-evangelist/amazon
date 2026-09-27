@@ -172,6 +172,16 @@ components:
           maxLength: 16
         canHandlePendingAuthorization:
           type: boolean
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
     Charge:
       type: object
       properties:
@@ -195,24 +205,7 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
   parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -223,6 +216,13 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
     IdempotencyKey:
       name: x-amz-pay-idempotency-key
       in: header

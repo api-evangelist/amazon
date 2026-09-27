@@ -79,27 +79,15 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    Keyword:
+    KeywordResponse:
       type: object
       properties:
         keywordId:
           type: string
-        campaignId:
+        code:
           type: string
-        adGroupId:
+        description:
           type: string
-        keywordText:
-          type: string
-        matchType:
-          type: string
-          enum:
-          - broad
-          - exact
-          - phrase
-        state:
-          type: string
-        bid:
-          type: number
     CreateKeywordRequest:
       type: object
       required:
@@ -125,15 +113,27 @@ components:
           type: string
         bid:
           type: number
-    KeywordResponse:
+    Keyword:
       type: object
       properties:
         keywordId:
           type: string
-        code:
+        campaignId:
           type: string
-        description:
+        adGroupId:
           type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+          - broad
+          - exact
+          - phrase
+        state:
+          type: string
+        bid:
+          type: number
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

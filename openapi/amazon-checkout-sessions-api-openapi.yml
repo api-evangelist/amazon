@@ -141,6 +141,38 @@ paths:
           description: Bad request
 components:
   schemas:
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    UpdateCheckoutSessionRequest:
+      type: object
+      properties:
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
     CreateCheckoutSessionRequest:
       type: object
       required:
@@ -174,24 +206,16 @@ components:
               $ref: '#/components/schemas/Price'
         merchantMetadata:
           $ref: '#/components/schemas/MerchantMetadata'
-    StatusDetails:
+    Buyer:
       type: object
       properties:
-        state:
+        buyerId:
           type: string
-        reasonCode:
+        name:
           type: string
-        reasonDescription:
+        email:
           type: string
-    MerchantMetadata:
-      type: object
-      properties:
-        merchantReferenceId:
-          type: string
-        merchantStoreName:
-          type: string
-        noteToBuyer:
-          type: string
+          format: email
     CheckoutSession:
       type: object
       properties:
@@ -228,30 +252,16 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    UpdateCheckoutSessionRequest:
+    Price:
       type: object
+      required:
+      - amount
+      - currencyCode
       properties:
-        paymentDetails:
-          type: object
-          properties:
-            paymentIntent:
-              type: string
-            chargeAmount:
-              $ref: '#/components/schemas/Price'
-        merchantMetadata:
-          $ref: '#/components/schemas/MerchantMetadata'
-        shippingAddress:
-          $ref: '#/components/schemas/Address'
-    Buyer:
-      type: object
-      properties:
-        buyerId:
+        amount:
           type: string
-        name:
+        currencyCode:
           type: string
-        email:
-          type: string
-          format: email
     Address:
       type: object
       properties:
@@ -273,24 +283,7 @@ components:
           type: string
         phoneNumber:
           type: string
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
   parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -301,6 +294,13 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
     IdempotencyKey:
       name: x-amz-pay-idempotency-key
       in: header

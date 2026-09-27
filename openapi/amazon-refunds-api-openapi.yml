@@ -74,6 +74,22 @@ paths:
           description: Not found
 components:
   schemas:
+    Refund:
+      type: object
+      properties:
+        refundId:
+          type: string
+        chargeId:
+          type: string
+        refundAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        creationTimestamp:
+          type: string
+          format: date-time
     StatusDetails:
       type: object
       properties:
@@ -96,22 +112,6 @@ components:
         softDescriptor:
           type: string
           maxLength: 16
-    Refund:
-      type: object
-      properties:
-        refundId:
-          type: string
-        chargeId:
-          type: string
-        refundAmount:
-          $ref: '#/components/schemas/Price'
-        softDescriptor:
-          type: string
-        statusDetails:
-          $ref: '#/components/schemas/StatusDetails'
-        creationTimestamp:
-          type: string
-          format: date-time
     Price:
       type: object
       required:
@@ -123,13 +123,6 @@ components:
         currencyCode:
           type: string
   parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -140,6 +133,13 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
     IdempotencyKey:
       name: x-amz-pay-idempotency-key
       in: header

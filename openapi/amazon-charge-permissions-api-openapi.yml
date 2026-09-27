@@ -124,15 +124,6 @@ components:
           type: string
         reasonDescription:
           type: string
-    MerchantMetadata:
-      type: object
-      properties:
-        merchantReferenceId:
-          type: string
-        merchantStoreName:
-          type: string
-        noteToBuyer:
-          type: string
     Buyer:
       type: object
       properties:
@@ -143,6 +134,25 @@ components:
         email:
           type: string
           format: email
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
     Address:
       type: object
       properties:
@@ -195,24 +205,7 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
   parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -223,6 +216,13 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
   securitySchemes:
     amazonPaySignature:
       type: apiKey

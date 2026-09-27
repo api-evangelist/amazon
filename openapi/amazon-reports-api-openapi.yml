@@ -1,10 +1,12 @@
 openapi: 3.2.0
 info:
-  title: Amazon Ads Reports API
+  title: Amazon Advertising Reports API
+  description: The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon. It provides access to Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize advertising campaigns, access reporting data, and manage budgets and targeting through this REST API.
   version: '1.0'
-  description: Amazon Ads v2 reporting operations (request a performance report, get report status), split from
-    amazon-advertising-api-openapi.yml. The Selling Partner API Reports operations (/reports/2021-06-30) that this
-    file previously combined are profiled in the amazon-seller-central repo from Amazon's official selling-partner-api-models.
+  contact:
+    name: Amazon Advertising Support
+    url: https://advertising.amazon.com/API/docs/en-us
+  termsOfService: https://advertising.amazon.com/terms
 servers:
 - url: https://advertising-api.amazon.com
   description: North America
@@ -56,15 +58,6 @@ paths:
                 $ref: '#/components/schemas/ReportRequestResponse'
         '401':
           description: Unauthorized
-    servers:
-    - url: https://advertising-api.amazon.com
-      description: North America
-    - url: https://advertising-api-eu.amazon.com
-      description: Europe
-    - url: https://advertising-api-fe.amazon.com
-      description: Far East
-    - url: https://advertising-api-test.amazon.com
-      description: Test/Sandbox
   /v2/reports/{reportId}:
     get:
       operationId: getReport
@@ -88,15 +81,6 @@ paths:
                 $ref: '#/components/schemas/ReportStatus'
         '404':
           description: Not found
-    servers:
-    - url: https://advertising-api.amazon.com
-      description: North America
-    - url: https://advertising-api-eu.amazon.com
-      description: Europe
-    - url: https://advertising-api-fe.amazon.com
-      description: Far East
-    - url: https://advertising-api-test.amazon.com
-      description: Test/Sandbox
 components:
   schemas:
     ReportRequest:
@@ -131,26 +115,6 @@ components:
           format: uri
         fileSize:
           type: integer
-    Report:
-      type: object
-      properties:
-        reportId:
-          type: string
-        reportType:
-          type: string
-        processingStatus:
-          type: string
-          enum:
-          - CANCELLED
-          - DONE
-          - FATAL
-          - IN_PROGRESS
-          - IN_QUEUE
-        reportDocumentId:
-          type: string
-        createdTime:
-          type: string
-          format: date-time
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope
@@ -164,6 +128,6 @@ components:
       type: http
       scheme: bearer
       description: OAuth 2.0 access token from Login with Amazon
-x-refined-from:
-- amazon-advertising-api-openapi.yml
-- amazon-selling-partner-api-openapi.yml
+externalDocs:
+  description: Amazon Advertising API Documentation
+  url: https://advertising.amazon.com/API/docs/en-us/reference/api-overview
