@@ -145,16 +145,31 @@ paths:
         '400':
           description: Bad request
 components:
+  parameters:
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
   schemas:
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
     CreateChargeRequest:
       type: object
       required:
@@ -172,15 +187,14 @@ components:
           maxLength: 16
         canHandlePendingAuthorization:
           type: boolean
-    Price:
+    StatusDetails:
       type: object
-      required:
-      - amount
-      - currencyCode
       properties:
-        amount:
+        state:
           type: string
-        currencyCode:
+        reasonCode:
+          type: string
+        reasonDescription:
           type: string
     Charge:
       type: object
@@ -205,30 +219,16 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-  parameters:
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
   securitySchemes:
     amazonPaySignature:
       type: apiKey

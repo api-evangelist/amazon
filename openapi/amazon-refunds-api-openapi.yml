@@ -73,56 +73,13 @@ paths:
         '404':
           description: Not found
 components:
-  schemas:
-    Refund:
-      type: object
-      properties:
-        refundId:
-          type: string
-        chargeId:
-          type: string
-        refundAmount:
-          $ref: '#/components/schemas/Price'
-        softDescriptor:
-          type: string
-        statusDetails:
-          $ref: '#/components/schemas/StatusDetails'
-        creationTimestamp:
-          type: string
-          format: date-time
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
-    CreateRefundRequest:
-      type: object
-      required:
-      - chargeId
-      - refundAmount
-      properties:
-        chargeId:
-          type: string
-        refundAmount:
-          $ref: '#/components/schemas/Price'
-        softDescriptor:
-          type: string
-          maxLength: 16
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
   parameters:
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -140,12 +97,55 @@ components:
       schema:
         type: string
         format: date-time
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
+  schemas:
+    CreateRefundRequest:
+      type: object
+      required:
+      - chargeId
+      - refundAmount
+      properties:
+        chargeId:
+          type: string
+        refundAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+          maxLength: 16
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    Refund:
+      type: object
+      properties:
+        refundId:
+          type: string
+        chargeId:
+          type: string
+        refundAmount:
+          $ref: '#/components/schemas/Price'
+        softDescriptor:
+          type: string
+        statusDetails:
+          $ref: '#/components/schemas/StatusDetails'
+        creationTimestamp:
+          type: string
+          format: date-time
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
   securitySchemes:
     amazonPaySignature:
       type: apiKey

@@ -90,15 +90,6 @@ components:
           type: array
           items:
             type: object
-    TargetResponse:
-      type: object
-      properties:
-        targetId:
-          type: string
-        code:
-          type: string
-        description:
-          type: string
     CreateTargetRequest:
       type: object
       required:
@@ -121,6 +112,15 @@ components:
           items:
             type: object
         expressionType:
+          type: string
+    TargetResponse:
+      type: object
+      properties:
+        targetId:
+          type: string
+        code:
+          type: string
+        description:
           type: string
   parameters:
     ProfileId:
