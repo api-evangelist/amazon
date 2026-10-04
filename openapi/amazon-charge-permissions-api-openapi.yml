@@ -114,55 +114,7 @@ paths:
         '400':
           description: Bad request
 components:
-  parameters:
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
   schemas:
-    Address:
-      type: object
-      properties:
-        name:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateOrRegion:
-          type: string
-        postalCode:
-          type: string
-        countryCode:
-          type: string
-        phoneNumber:
-          type: string
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
     ChargePermission:
       type: object
       properties:
@@ -194,15 +146,26 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    Price:
+    Address:
       type: object
-      required:
-      - amount
-      - currencyCode
       properties:
-        amount:
+        name:
           type: string
-        currencyCode:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateOrRegion:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        phoneNumber:
           type: string
     MerchantMetadata:
       type: object
@@ -223,6 +186,43 @@ components:
         email:
           type: string
           format: email
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+  parameters:
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
   securitySchemes:
     amazonPaySignature:
       type: apiKey

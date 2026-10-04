@@ -83,6 +83,13 @@ paths:
           description: Not found
 components:
   schemas:
+    ReportRequestResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
     ReportRequest:
       type: object
       properties:
@@ -91,13 +98,6 @@ components:
         metrics:
           type: string
         segment:
-          type: string
-    ReportRequestResponse:
-      type: object
-      properties:
-        reportId:
-          type: string
-        status:
           type: string
     ReportStatus:
       type: object

@@ -140,75 +140,7 @@ paths:
         '400':
           description: Bad request
 components:
-  parameters:
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
-    PayRegion:
-      name: x-amz-pay-region
-      in: header
-      required: true
-      schema:
-        type: string
-        enum:
-        - us
-        - eu
-        - jp
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
   schemas:
-    Address:
-      type: object
-      properties:
-        name:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateOrRegion:
-          type: string
-        postalCode:
-          type: string
-        countryCode:
-          type: string
-        phoneNumber:
-          type: string
-    UpdateCheckoutSessionRequest:
-      type: object
-      properties:
-        paymentDetails:
-          type: object
-          properties:
-            paymentIntent:
-              type: string
-            chargeAmount:
-              $ref: '#/components/schemas/Price'
-        merchantMetadata:
-          $ref: '#/components/schemas/MerchantMetadata'
-        shippingAddress:
-          $ref: '#/components/schemas/Address'
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
     CheckoutSession:
       type: object
       properties:
@@ -245,6 +177,60 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
+    Address:
+      type: object
+      properties:
+        name:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateOrRegion:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        phoneNumber:
+          type: string
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    Buyer:
+      type: object
+      properties:
+        buyerId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+    UpdateCheckoutSessionRequest:
+      type: object
+      properties:
+        paymentDetails:
+          type: object
+          properties:
+            paymentIntent:
+              type: string
+            chargeAmount:
+              $ref: '#/components/schemas/Price'
+        merchantMetadata:
+          $ref: '#/components/schemas/MerchantMetadata'
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
     Price:
       type: object
       required:
@@ -254,6 +240,15 @@ components:
         amount:
           type: string
         currencyCode:
+          type: string
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
           type: string
     CreateCheckoutSessionRequest:
       type: object
@@ -288,25 +283,30 @@ components:
               $ref: '#/components/schemas/Price'
         merchantMetadata:
           $ref: '#/components/schemas/MerchantMetadata'
-    MerchantMetadata:
-      type: object
-      properties:
-        merchantReferenceId:
-          type: string
-        merchantStoreName:
-          type: string
-        noteToBuyer:
-          type: string
-    Buyer:
-      type: object
-      properties:
-        buyerId:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
+  parameters:
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    PayRegion:
+      name: x-amz-pay-region
+      in: header
+      required: true
+      schema:
+        type: string
+        enum:
+        - us
+        - eu
+        - jp
   securitySchemes:
     amazonPaySignature:
       type: apiKey
