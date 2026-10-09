@@ -56,3 +56,16 @@ deployment:
     resource_metadata="https://advertising-ai.amazon.com/.well-known/oauth-protected-resource" and an HTML
     (openresty) body, not a JSON-RPC error.'
   source: well-known/amazon-well-known.yml
+rfc9728:
+  endpoint: https://advertising-ai.amazon.com/mcp
+  metadata_url: https://advertising-ai.amazon.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://advertising-ai.amazon.com
+    authorization_servers:
+    - https://lwa.amazon.com
+    scopes_supported:
+    - advertising::campaign_management
