@@ -1,0 +1,71 @@
+arazzo: 1.0.1
+info:
+  title: 'amazon through trend: CampaignController_submitCampaign preconfigured with amazon'
+  summary: Calls trend's CampaignController_submitCampaign with `amazon` preset, the way amazon is used inside trend.
+  description: 'A PRECONFIGURATION, not an orchestration: amazon is a processor-connection inside trend, so the
+    integration is trend''s own operation with amazon''s enum value set. Derived from trend''s contract (trend-campaign-api-openapi.yml);
+    required properties are inputs.'
+  version: 1.0.0
+x-integration:
+  partner: trend
+  relationship: processor-connection
+  preconfig: true
+  edge_evidence: https://github.com/api-evangelist/trend/blob/main/openapi/trend-campaign-api-openapi.yml
+  edge_type: contract
+  preset:
+    platform: amazon
+  method: derived
+  generated: '2026-10-12'
+  generator: build-integration-preconfigs.py
+sourceDescriptions:
+- name: trendCampaignApiOpenapi
+  url: https://raw.githubusercontent.com/api-evangelist/trend/refs/heads/main/openapi/trend-campaign-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: amazon-via-trend-campaigncontroller-submitcampaign
+  summary: CampaignController_submitCampaign with amazon preset
+  inputs:
+    type: object
+    required:
+    - type
+    - category
+    - styleCategory
+    - gender
+    - name
+    - url
+    - value
+    properties:
+      type:
+        type: string
+      category:
+        type: string
+      styleCategory:
+        type: string
+      gender:
+        type: string
+      name:
+        type: string
+      url:
+        type: string
+      value:
+        type: string
+  steps:
+  - stepId: call-with-preset
+    operationId: $sourceDescriptions.trendCampaignApiOpenapi.CampaignController_submitCampaign
+    requestBody:
+      contentType: application/json
+      payload:
+        type: $inputs.type
+        category: $inputs.category
+        styleCategory: $inputs.styleCategory
+        gender: $inputs.gender
+        name: $inputs.name
+        url: $inputs.url
+        value: $inputs.value
+        platform: amazon
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      id: $response.body#/id
+  outputs:
+    id: $steps.call-with-preset.outputs.id

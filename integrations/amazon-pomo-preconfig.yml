@@ -1,0 +1,53 @@
+arazzo: 1.0.1
+info:
+  title: 'amazon through pomo: upsert_trend_suppression_api_market_intelligence_trend_suppressions_put preconfigured
+    with amazon'
+  summary: Calls pomo's upsert_trend_suppression_api_market_intelligence_trend_suppressions_put with `amazon` preset,
+    the way amazon is used inside pomo.
+  description: 'A PRECONFIGURATION, not an orchestration: amazon is a processor-connection inside pomo, so the integration
+    is pomo''s own operation with amazon''s enum value set. Derived from pomo''s contract (pomo-market-intelligence-api-openapi.yml);
+    required properties are inputs.'
+  version: 1.0.0
+x-integration:
+  partner: pomo
+  relationship: processor-connection
+  preconfig: true
+  edge_evidence: https://github.com/api-evangelist/pomo/blob/main/openapi/pomo-market-intelligence-api-openapi.yml
+  edge_type: contract
+  preset:
+    platform: amazon
+  method: derived
+  generated: '2026-10-12'
+  generator: build-integration-preconfigs.py
+sourceDescriptions:
+- name: pomoMarketIntelligenceApiOpenapi
+  url: https://raw.githubusercontent.com/api-evangelist/pomo/refs/heads/main/openapi/pomo-market-intelligence-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: amazon-via-pomo-upsert-trend-suppression-api-market-intelligence-trend-suppressions-put
+  summary: upsert_trend_suppression_api_market_intelligence_trend_suppressions_put with amazon preset
+  inputs:
+    type: object
+    required:
+    - source_record_id
+    - reason
+    properties:
+      source_record_id:
+        type: string
+      reason:
+        type: string
+  steps:
+  - stepId: call-with-preset
+    operationId: $sourceDescriptions.pomoMarketIntelligenceApiOpenapi.upsert_trend_suppression_api_market_intelligence_trend_suppressions_put
+    requestBody:
+      contentType: application/json
+      payload:
+        source_record_id: $inputs.source_record_id
+        reason: $inputs.reason
+        platform: amazon
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      id: $response.body#/id
+  outputs:
+    id: $steps.call-with-preset.outputs.id

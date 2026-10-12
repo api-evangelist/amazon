@@ -1,0 +1,41 @@
+# DERIVED by build-integration-preconfigs.py (roadmap#949). Overlay on the PARTNER's contract:
+# where trend's enum names amazon, and what that value is.
+overlay: 1.0.0
+info:
+  title: amazon as a processor-connection in trend's contract
+  version: 1.0.0
+extends: https://raw.githubusercontent.com/api-evangelist/trend/refs/heads/main/openapi/trend-campaign-api-openapi.yml
+actions:
+- target: $.components.schemas.SubmitCampaignDto.properties.platform
+  update:
+    x-apievangelist-integration:
+      values:
+        amazon:
+          provider: amazon
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/trend/blob/main/openapi/trend-campaign-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py
+- target: $.components.schemas.UpdateActiveCampaign.properties.platform
+  update:
+    x-apievangelist-integration:
+      values:
+        amazon:
+          provider: amazon
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/trend/blob/main/openapi/trend-campaign-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py
+- target: $.components.schemas.UpdateDraftCampaignDto.properties.platform
+  update:
+    x-apievangelist-integration:
+      values:
+        amazon:
+          provider: amazon
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/trend/blob/main/openapi/trend-campaign-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py

@@ -1,0 +1,19 @@
+# DERIVED by build-integration-preconfigs.py (roadmap#949). Overlay on the PARTNER's contract:
+# where auth0's enum names amazon, and what that value is.
+overlay: 1.0.0
+info:
+  title: amazon as a processor-connection in auth0's contract
+  version: 1.0.0
+extends: https://raw.githubusercontent.com/api-evangelist/auth0/refs/heads/main/openapi/auth0-users-by-email-api-openapi.yml
+actions:
+- target: $.components.schemas.UserIdentityProviderEnum
+  update:
+    x-apievangelist-integration:
+      values:
+        amazon:
+          provider: amazon
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/auth0/blob/main/openapi/auth0-users-by-email-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py
