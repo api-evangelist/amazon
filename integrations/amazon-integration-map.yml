@@ -1,0 +1,55 @@
+# DERIVED by derive-integration-map.py (roadmap#949): each integration workflow, step by step,
+# resolved to spec file -> tag -> business capability (Turbo EA, CC BY 4.0) and the operation's
+# phrasing intent. Read from our own files; an unmapped link says why.
+slug: amazon
+workflows:
+- file: amazon-pomo-preconfig.yml
+  title: 'amazon through pomo: upsert_trend_suppression_api_market_intelligence_trend_suppressions_put preconfigured
+    with amazon'
+  partner: pomo
+  template: null
+  repos:
+  - pomo
+  steps:
+  - step: call-with-preset
+    repo: pomo
+    spec_file: pomo-market-intelligence-api-openapi.yml
+    operationId: upsert_trend_suppression_api_market_intelligence_trend_suppressions_put
+    tag: market-intelligence
+    capability_id: BC-400.30
+    capability: Market Intelligence Management
+    capability_l1: BC-400
+    intent: null
+    effect: null
+    unmapped: null
+  connects:
+    pomo:
+      capabilities:
+      - BC-400.30
+      tags:
+      - market-intelligence
+  intents: []
+- file: amazon-trend-preconfig.yml
+  title: 'amazon through trend: CampaignController_submitCampaign preconfigured with amazon'
+  partner: trend
+  template: null
+  repos:
+  - trend
+  steps:
+  - step: call-with-preset
+    repo: trend
+    spec_file: trend-campaign-api-openapi.yml
+    operationId: CampaignController_submitCampaign
+    tag: Campaign
+    capability_id: null
+    capability: null
+    capability_l1: null
+    intent: null
+    effect: null
+    unmapped: no capability edge for this spec file
+  connects:
+    trend:
+      capabilities: []
+      tags:
+      - Campaign
+  intents: []
