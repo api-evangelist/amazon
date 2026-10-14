@@ -14,6 +14,7 @@ checked:
 - https://monid.ai/tools/amazon
 - https://n8n.io/integrations/amazon/
 - https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
+- https://registry.financialdataexchange.org/
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/apps/amazon/integrations
 summary: null
@@ -1134,4 +1135,28 @@ edges:
     signal_note: certified_products = one entry per device type (diversity), not per model
     detected_by: sweep-iot.py
     detected: '2026-10-14'
+- partner_name: FDX (Financial Data Exchange)
+  partner: fdx
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.financialdataexchange.org/
+  contract_reference:
+    register: FDX Registry
+    standard: FDX API
+    spec_file: null
+    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
+    role: data-provider
+    member_type: MEMBER
+    registered_name: Amazon
+    register_id: 424
+    registered_website: www.amazon.com
+    country: United States
+    fdx_version: null
+    matched_by: domain+name-among-holders:amazon.com
+    detected_by: sweep-fdx.py
+    detected: '2026-10-14'
+  detected_by: sweep-fdx.py
+  first_seen: '2026-10-14'
 templates: []
