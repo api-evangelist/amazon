@@ -75,3 +75,63 @@
     detected: '2026-10-12'
   arazzo: amazon-trend-preconfig.yml
   status: arazzo
+- slug: amazon-twilio-segment
+  label: Twilio Segment
+  partner: segment
+  partner_name: Twilio Segment
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-rudderstack
+  label: RudderStack
+  partner: rudderstack
+  partner_name: RudderStack
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-mparticle
+  label: mParticle
+  partner: mparticle
+  partner_name: mParticle
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://docs.mparticle.com/integrations/amazon-advertising/audience/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-hightouch
+  label: Hightouch
+  partner: hightouch
+  partner_name: Hightouch
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://hightouch.com/docs/destinations/amazon-ads
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-census
+  label: Census
+  partner: getcensus
+  partner_name: Census
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null

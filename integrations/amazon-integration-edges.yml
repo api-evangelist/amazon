@@ -5,8 +5,13 @@ source:
 - https://monid.ai/tools/amazon
 checked:
 - https://composio.dev/toolkits/amazon
+- https://docs.mparticle.com/integrations/amazon-advertising/audience/
+- https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+- https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
+- https://hightouch.com/docs/destinations/amazon-ads
 - https://monid.ai/tools/amazon
 - https://n8n.io/integrations/amazon/
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/apps/amazon/integrations
 summary: null
 marketplace_apps:
@@ -827,4 +832,123 @@ edges:
     property: schemas.SubmitCampaignDto.platform
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - actions-amazon-amc
+      - amazon-lambda
+      status: PUBLIC_BETA
+      partner_owned: false
+      connection_modes:
+      - cloud:mobile
+      - cloud:server
+      - cloud:web
+      accepted_methods:
+      - Alias
+      - Group
+      - Identify
+      - Page
+      - Track
+      component_owners:
+      - SEGMENT
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: RudderStack
+  partner: rudderstack
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon_audience
+      connection_modes:
+      - cloud
+      cloud_event_types:
+      - record
+      audience: true
+      source_types: 1
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: mParticle
+  partner: mparticle
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://docs.mparticle.com/integrations/amazon-advertising/audience/
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-advertising
+      integration_types:
+      - audience
+      - event
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/amazon-ads
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-ads
+      status: released
+      sync_types:
+      - Events (deprecated)
+      - Events V2
+      - Segment
+      sync_modes:
+      - add
+      - insert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Census
+  partner: getcensus
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-ads-dsp-amc
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 templates: []
