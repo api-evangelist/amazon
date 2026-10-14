@@ -135,3 +135,15 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
+- slug: amazon-github-marketplace-apps
+  label: GitHub Marketplace (apps)
+  partner: github
+  partner_name: GitHub Marketplace (apps)
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  evidence: https://github.com/marketplace/amazon-q-developer
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

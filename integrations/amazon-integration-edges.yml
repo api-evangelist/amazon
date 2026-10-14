@@ -7,6 +7,7 @@ checked:
 - https://composio.dev/toolkits/amazon
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+- https://github.com/marketplace?type=apps
 - https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
 - https://hightouch.com/docs/destinations/amazon-ads
 - https://monid.ai/tools/amazon
@@ -951,4 +952,22 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/amazon-q-developer
+  listing_count: 1
+  apps:
+  - Amazon Q Developer
+  publisher_name: Amazon Q Developer
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 templates: []
