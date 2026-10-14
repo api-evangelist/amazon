@@ -147,19 +147,6 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
-- slug: amazon-clever-clever-app-gallery
-  label: Clever (clever-app-gallery)
-  partner: clever
-  partner_name: Clever (clever-app-gallery)
-  category: other
-  type: marketplace
-  marketplace: clever-app-gallery
-  channel: partner-built
-  evidence: https://clever.com/app-gallery
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: amazon-connectivity-standards-alliance-matter
   label: Connectivity Standards Alliance (Matter)
   partner_name: Connectivity Standards Alliance (Matter)
@@ -233,5 +220,18 @@
     matched_by: domain+name-among-holders:amazon.com
     detected_by: sweep-fdx.py
     detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-clever-clever-app-gallery
+  label: Clever (clever-app-gallery)
+  partner: clever
+  partner_name: Clever (clever-app-gallery)
+  category: other
+  type: marketplace
+  marketplace: clever-app-gallery
+  channel: partner-built
+  evidence: https://clever.com/app-gallery
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
