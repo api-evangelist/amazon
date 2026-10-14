@@ -4,6 +4,7 @@ source:
 - https://n8n.io/integrations/amazon/
 - https://monid.ai/tools/amazon
 checked:
+- clever/integrations/clever-integration-edges.yml
 - https://composio.dev/toolkits/amazon
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
@@ -833,6 +834,24 @@ edges:
     property: schemas.SubmitCampaignDto.platform
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/amazon-q-developer
+  listing_count: 1
+  apps:
+  - Amazon Q Developer
+  publisher_name: Amazon Q Developer
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 - partner_name: Twilio Segment
   partner: segment
   partner_match: aggregator
@@ -952,22 +971,22 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
+- partner_name: Clever (clever-app-gallery)
+  partner: clever
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
   type: marketplace
-  marketplace: github-apps
-  channel: partner-built
   relationship: platform-app
   direction: third-party
-  evidence: https://github.com/marketplace/amazon-q-developer
+  channel: partner-built
+  marketplace: clever-app-gallery
+  evidence: https://clever.com/app-gallery
+  mirror_of: clever/integrations/clever-integration-edges.yml
+  apps: []
   listing_count: 1
-  apps:
-  - Amazon Q Developer
-  publisher_name: Amazon Q Developer
-  badges:
-  - Verified creator
-  - Verified domain
-  detected_by: sweep-devtools.py
   detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: other
+  features:
+  - instant_login
 templates: []

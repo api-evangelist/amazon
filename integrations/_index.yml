@@ -75,6 +75,18 @@
     detected: '2026-10-12'
   arazzo: amazon-trend-preconfig.yml
   status: arazzo
+- slug: amazon-github-marketplace-apps
+  label: GitHub Marketplace (apps)
+  partner: github
+  partner_name: GitHub Marketplace (apps)
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  evidence: https://github.com/marketplace/amazon-q-developer
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: amazon-twilio-segment
   label: Twilio Segment
   partner: segment
@@ -135,14 +147,15 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
-- slug: amazon-github-marketplace-apps
-  label: GitHub Marketplace (apps)
-  partner: github
-  partner_name: GitHub Marketplace (apps)
+- slug: amazon-clever-clever-app-gallery
+  label: Clever (clever-app-gallery)
+  partner: clever
+  partner_name: Clever (clever-app-gallery)
+  category: other
   type: marketplace
-  marketplace: github-apps
+  marketplace: clever-app-gallery
   channel: partner-built
-  evidence: https://github.com/marketplace/amazon-q-developer
+  evidence: https://clever.com/app-gallery
   source: edge
   relationship: platform-app
   status: not-a-workflow
