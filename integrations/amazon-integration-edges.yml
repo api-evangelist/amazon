@@ -13,6 +13,7 @@ checked:
 - https://hightouch.com/docs/destinations/amazon-ads
 - https://monid.ai/tools/amazon
 - https://n8n.io/integrations/amazon/
+- https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/apps/amazon/integrations
 summary: null
@@ -989,4 +990,148 @@ edges:
   category: other
   features:
   - instant_login
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4631
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4631
+    registered_name: Alexa Elements
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 3
+    certified_products:
+    - product: Extended Color Light
+      device_type_id: 269
+      models: 1
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Bulb Pro A19
+      lapsed: false
+    - product: unspecified device type
+      device_type_id: null
+      models: 2
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples: null
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-14'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4987
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4987
+    registered_name: Amazon Basics
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 23
+    certified_products:
+    - product: On/Off Light
+      device_type_id: 256
+      models: 3
+      revoked_models: 0
+      latest_certification: '2026-08-27'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Switch
+      lapsed: false
+    - product: Dimmable Light
+      device_type_id: 257
+      models: 6
+      revoked_models: 0
+      latest_certification: '2026-08-27'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart A19 Dimmable Bulb
+      - Smart A60 Dimmable Bulb
+      - Smart Dimmer
+      lapsed: false
+    - product: On/Off Plug-in Unit
+      device_type_id: 266
+      models: 5
+      revoked_models: 0
+      latest_certification: '2025-03-16'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Indoor Plug - Single outlet
+      lapsed: false
+    - product: Extended Color Light
+      device_type_id: 269
+      models: 9
+      revoked_models: 0
+      latest_certification: '2026-08-07'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart A19 Color Bulb
+      - Smart A60 Color Bulb
+      - Smart Ceiling LED light
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-14'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4993
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter vendor ID holder (no certified product)
+    vendor_id: 4993
+    registered_name: Amazon Prime Video
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 0
+    certified_products: []
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-14'
 templates: []

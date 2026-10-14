@@ -160,3 +160,52 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amazon-connectivity-standards-alliance-matter
+  label: Connectivity Standards Alliance (Matter)
+  partner_name: Connectivity Standards Alliance (Matter)
+  category: Matter certified products
+  type: contract
+  channel: standard-directory
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4631
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4631
+    registered_name: Alexa Elements
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 3
+    certified_products:
+    - product: Extended Color Light
+      device_type_id: 269
+      models: 1
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Bulb Pro A19
+      lapsed: false
+    - product: unspecified device type
+      device_type_id: null
+      models: 2
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples: null
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
