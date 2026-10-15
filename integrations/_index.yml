@@ -235,3 +235,26 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amazon-ddex-digital-data-exchange
+  label: DDEX (Digital Data Exchange)
+  partner_name: DDEX (Digital Data Exchange)
+  category: music metadata and rights messaging standard
+  type: register
+  channel: standard-directory
+  evidence: https://ddex.net/membership/current-members/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: DDEX current members (ddex.net/membership/current-members)
+    spec_file: null
+    role: ddex-charter-member
+    registered_name: Amazon
+    register_id: Amazon
+    tier: charter
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q3884 'Amazon' P856 https://www.amazon.com/
+    detected_by: sweep-media.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null

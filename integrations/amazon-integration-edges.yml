@@ -6,6 +6,7 @@ source:
 checked:
 - clever/integrations/clever-integration-edges.yml
 - https://composio.dev/toolkits/amazon
+- https://ddex.net/membership/current-members/
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
 - https://github.com/marketplace?type=apps
@@ -14,6 +15,7 @@ checked:
 - https://monid.ai/tools/amazon
 - https://n8n.io/integrations/amazon/
 - https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
+- https://raw.githubusercontent.com/c2pa-org/conformance-public/main/conforming-products/conforming-products-list.json
 - https://registry.financialdataexchange.org/
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/apps/amazon/integrations
@@ -1159,4 +1161,27 @@ edges:
   category: other
   features:
   - instant_login
+- partner_name: DDEX (Digital Data Exchange)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://ddex.net/membership/current-members/
+  category: music metadata and rights messaging standard
+  contract_reference:
+    register: DDEX current members (ddex.net/membership/current-members)
+    spec_file: null
+    role: ddex-charter-member
+    registered_name: Amazon
+    register_id: Amazon
+    tier: charter
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q3884 'Amazon' P856 https://www.amazon.com/
+    detected_by: sweep-media.py
+    detected: '2026-10-15'
+  detected_by: sweep-media.py
+  first_seen: '2026-10-15'
 templates: []
