@@ -331,7 +331,7 @@
     - amazon-ads
     - amazon-alexa
     - amazon-drive
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: amazon-pipedream
   label: Pipedream
@@ -357,7 +357,7 @@
     actions: true
     sources: false
     builder: Pipedream repo (component)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: amazon-fincen-msb-registration
   label: FinCEN (MSB registration)
@@ -389,19 +389,6 @@
       are context, never counted'
     detected_by: sweep-regtech-aml.py
     detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/amazon-payment-services/
-  source: edge
-  relationship: platform-app
   status: not-a-workflow
   arazzo: null
 - slug: amazon-fedramp
@@ -448,5 +435,18 @@
       impact_level: High
       lapsed: false
       latest_authorization: '2016-06-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/amazon-payment-services/
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
