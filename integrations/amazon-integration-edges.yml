@@ -16,15 +16,19 @@ checked:
 - https://github.com/mlcommons
 - https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
 - https://hightouch.com/docs/destinations/amazon-ads
+- https://kantarainitiative.org/trust-status-list/
 - https://monid.ai/tools/amazon
+- https://msb.fincen.gov/
 - https://n8n.io/integrations/amazon/
 - https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors
 - https://raw.githubusercontent.com/c2pa-org/conformance-public/main/conforming-products/conforming-products-list.json
 - https://registry.financialdataexchange.org/
+- https://www.access-dvs-register.service.gov.uk/register/download-register
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/amazon/integrations
 - woocommerce/integrations/woocommerce-integration-edges.yml
+- wordpress/integrations/wordpress-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -1294,4 +1298,53 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: FinCEN (MSB registration)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://msb.fincen.gov/
+  category: Money services business
+  contract_reference:
+    register: FinCEN MSB Registrant Search (msb.fincen.gov, full list export)
+    spec_file: null
+    standard: FinCEN MSB registration (US Bank Secrecy Act)
+    role: fincen-msb-registrant
+    registered_name: Amazon Payments, Inc.
+    dba_name: null
+    register_id: Amazon Payments, Inc.
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q4740864 'Amazon Pay' P856 https://pay.amazon.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+    msb_activities:
+    - 409 money transmitter
+    - 414 provider of prepaid access
+    states_of_activity: 52
+    received_date: 06/19/2026
+    signal_note: 'participation only: an MSB registration is not a licence or a certification; activities and states
+      are context, never counted'
+    detected_by: sweep-regtech-aml.py
+    detected: '2026-10-15'
+  detected_by: sweep-regtech-aml.py
+  first_seen: '2026-10-15'
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/amazon-payment-services/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Amazon payment services
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 templates: []
