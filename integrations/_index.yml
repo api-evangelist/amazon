@@ -404,3 +404,49 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amazon-fedramp
+  label: FedRAMP
+  partner_name: FedRAMP
+  category: FedRAMP authorization
+  type: contract
+  channel: regulator-register
+  evidence: https://marketplace.fedramp.gov/products/AGENCYAMAZONEW
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
+    standard: FedRAMP
+    spec_file: null
+    role: fedramp-authorized
+    registered_name: Amazon
+    register_id: AGENCYAMAZONEW
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    domain_source: website
+    designations:
+    - Compliant
+    packages:
+    - AWS GovCloud
+    - AWS US East/West
+    service_models:
+    - IaaS
+    - PaaS
+    - SaaS
+    paths:
+    - JAB
+    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
+      models, paths and leveraging agencies are context, never counted. The register lists current designations
+      only (revoked / expired are removed), so lapsed is always false
+    detected_by: sweep-gov-cloud.py
+    detected: '2026-10-15'
+    certified_products:
+    - product: FedRAMP Moderate
+      impact_level: Moderate
+      lapsed: false
+      latest_authorization: '2017-11-13'
+    - product: FedRAMP High
+      impact_level: High
+      lapsed: false
+      latest_authorization: '2016-06-21'
+  status: not-a-workflow
+  arazzo: null
