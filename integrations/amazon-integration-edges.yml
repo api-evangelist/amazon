@@ -9,7 +9,11 @@ checked:
 - https://ddex.net/membership/current-members/
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+- https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/kubeflow/website
+- https://github.com/lfai/landscape
 - https://github.com/marketplace?type=apps
+- https://github.com/mlcommons
 - https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
 - https://hightouch.com/docs/destinations/amazon-ads
 - https://monid.ai/tools/amazon
@@ -18,6 +22,7 @@ checked:
 - https://raw.githubusercontent.com/c2pa-org/conformance-public/main/conforming-products/conforming-products-list.json
 - https://registry.financialdataexchange.org/
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
+- https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/amazon/integrations
 - woocommerce/integrations/woocommerce-integration-edges.yml
 summary: null
@@ -1202,4 +1207,91 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: extension
+- partner_name: LF AI & Data (Landscape)
+  partner: lf-ai-data
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: AI & data landscape
+  evidence: https://github.com/lfai/landscape/blob/95d361b8abfdd04a8c76bf38a012778d13621b5e/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @95d361b8ab)
+    spec_file: null
+    standard: LF AI & Data
+    role: lfai-project-host
+    registered_name: Amazon (hosting)
+    registered_names:
+    - Amazon (hosting)
+    website: https://amazon.com/
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    member_tier: null
+    hosting_company: true
+    lfai_projects: []
+    landscape_categories:
+    - Hosting Companies / Hosting Companies
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-mlops.py
+    detected: '2026-10-15'
+  detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/amazon-seller-central/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Amazon Seller Central
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: amazon-seller-central
+    beta: false
+    builder: unknown (not in the directory record)
+    other_apps:
+    - amazon-ads
+    - amazon-alexa
+    - amazon-drive
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/amazon_alexa
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: amazon alexa
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: amazon_alexa
+    actions: true
+    sources: false
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates: []
