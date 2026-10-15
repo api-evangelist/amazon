@@ -222,19 +222,6 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
-- slug: amazon-clever-clever-app-gallery
-  label: Clever (clever-app-gallery)
-  partner: clever
-  partner_name: Clever (clever-app-gallery)
-  category: other
-  type: marketplace
-  marketplace: clever-app-gallery
-  channel: partner-built
-  evidence: https://clever.com/app-gallery
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: amazon-ddex-digital-data-exchange
   label: DDEX (Digital Data Exchange)
   partner_name: DDEX (Digital Data Exchange)
@@ -256,5 +243,31 @@
     identity: wikidata Q3884 'Amazon' P856 https://www.amazon.com/
     detected_by: sweep-media.py
     detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-clever-clever-app-gallery
+  label: Clever (clever-app-gallery)
+  partner: clever
+  partner_name: Clever (clever-app-gallery)
+  category: other
+  type: marketplace
+  marketplace: clever-app-gallery
+  channel: partner-built
+  evidence: https://clever.com/app-gallery
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/pay-with-amazon/
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
