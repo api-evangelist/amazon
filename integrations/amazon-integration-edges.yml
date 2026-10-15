@@ -1333,23 +1333,6 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-regtech-aml.py
   first_seen: '2026-10-15'
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/amazon-payment-services/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Amazon payment services
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -1396,4 +1379,21 @@ edges:
       latest_authorization: '2016-06-21'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/amazon-payment-services/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Amazon payment services
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 templates: []
