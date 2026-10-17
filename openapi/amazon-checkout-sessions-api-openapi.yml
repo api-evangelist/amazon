@@ -177,46 +177,15 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
-    Address:
+    StatusDetails:
       type: object
       properties:
-        name:
+        state:
           type: string
-        addressLine1:
+        reasonCode:
           type: string
-        addressLine2:
+        reasonDescription:
           type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateOrRegion:
-          type: string
-        postalCode:
-          type: string
-        countryCode:
-          type: string
-        phoneNumber:
-          type: string
-    MerchantMetadata:
-      type: object
-      properties:
-        merchantReferenceId:
-          type: string
-        merchantStoreName:
-          type: string
-        noteToBuyer:
-          type: string
-    Buyer:
-      type: object
-      properties:
-        buyerId:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
     UpdateCheckoutSessionRequest:
       type: object
       properties:
@@ -231,24 +200,14 @@ components:
           $ref: '#/components/schemas/MerchantMetadata'
         shippingAddress:
           $ref: '#/components/schemas/Address'
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
-    StatusDetails:
+    MerchantMetadata:
       type: object
       properties:
-        state:
+        merchantReferenceId:
           type: string
-        reasonCode:
+        merchantStoreName:
           type: string
-        reasonDescription:
+        noteToBuyer:
           type: string
     CreateCheckoutSessionRequest:
       type: object
@@ -283,20 +242,48 @@ components:
               $ref: '#/components/schemas/Price'
         merchantMetadata:
           $ref: '#/components/schemas/MerchantMetadata'
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
+    Buyer:
+      type: object
+      properties:
+        buyerId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+    Address:
+      type: object
+      properties:
+        name:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateOrRegion:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+        phoneNumber:
+          type: string
   parameters:
-    IdempotencyKey:
-      name: x-amz-pay-idempotency-key
-      in: header
-      required: true
-      schema:
-        type: string
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -307,6 +294,19 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
+    IdempotencyKey:
+      name: x-amz-pay-idempotency-key
+      in: header
+      required: true
+      schema:
+        type: string
   securitySchemes:
     amazonPaySignature:
       type: apiKey

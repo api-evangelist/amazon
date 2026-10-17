@@ -115,6 +115,34 @@ paths:
           description: Bad request
 components:
   schemas:
+    StatusDetails:
+      type: object
+      properties:
+        state:
+          type: string
+        reasonCode:
+          type: string
+        reasonDescription:
+          type: string
+    MerchantMetadata:
+      type: object
+      properties:
+        merchantReferenceId:
+          type: string
+        merchantStoreName:
+          type: string
+        noteToBuyer:
+          type: string
+    Price:
+      type: object
+      required:
+      - amount
+      - currencyCode
+      properties:
+        amount:
+          type: string
+        currencyCode:
+          type: string
     ChargePermission:
       type: object
       properties:
@@ -146,6 +174,16 @@ components:
         expirationTimestamp:
           type: string
           format: date-time
+    Buyer:
+      type: object
+      properties:
+        buyerId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
     Address:
       type: object
       properties:
@@ -167,52 +205,7 @@ components:
           type: string
         phoneNumber:
           type: string
-    MerchantMetadata:
-      type: object
-      properties:
-        merchantReferenceId:
-          type: string
-        merchantStoreName:
-          type: string
-        noteToBuyer:
-          type: string
-    Buyer:
-      type: object
-      properties:
-        buyerId:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-    Price:
-      type: object
-      required:
-      - amount
-      - currencyCode
-      properties:
-        amount:
-          type: string
-        currencyCode:
-          type: string
-    StatusDetails:
-      type: object
-      properties:
-        state:
-          type: string
-        reasonCode:
-          type: string
-        reasonDescription:
-          type: string
   parameters:
-    PayDate:
-      name: x-amz-pay-date
-      in: header
-      required: true
-      schema:
-        type: string
-        format: date-time
     PayRegion:
       name: x-amz-pay-region
       in: header
@@ -223,6 +216,13 @@ components:
         - us
         - eu
         - jp
+    PayDate:
+      name: x-amz-pay-date
+      in: header
+      required: true
+      schema:
+        type: string
+        format: date-time
   securitySchemes:
     amazonPaySignature:
       type: apiKey

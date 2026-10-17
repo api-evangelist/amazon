@@ -71,6 +71,15 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    TargetResponse:
+      type: object
+      properties:
+        targetId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
     Target:
       type: object
       properties:
@@ -112,15 +121,6 @@ components:
           items:
             type: object
         expressionType:
-          type: string
-    TargetResponse:
-      type: object
-      properties:
-        targetId:
-          type: string
-        code:
-          type: string
-        description:
           type: string
   parameters:
     ProfileId:

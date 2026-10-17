@@ -160,6 +160,46 @@ paths:
           description: Not found
 components:
   schemas:
+    UpdateCampaignRequest:
+      type: object
+      required:
+      - campaignId
+      properties:
+        campaignId:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        dailyBudget:
+          type: number
+    CreateCampaignRequest:
+      type: object
+      required:
+      - name
+      - state
+      - dailyBudget
+      - startDate
+      - targetingType
+      properties:
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+          - enabled
+          - paused
+        dailyBudget:
+          type: number
+        startDate:
+          type: string
+        endDate:
+          type: string
+        targetingType:
+          type: string
+          enum:
+          - manual
+          - auto
     CampaignResponse:
       type: object
       properties:
@@ -195,46 +235,6 @@ components:
           - auto
         premiumBidAdjustment:
           type: boolean
-    CreateCampaignRequest:
-      type: object
-      required:
-      - name
-      - state
-      - dailyBudget
-      - startDate
-      - targetingType
-      properties:
-        name:
-          type: string
-        state:
-          type: string
-          enum:
-          - enabled
-          - paused
-        dailyBudget:
-          type: number
-        startDate:
-          type: string
-        endDate:
-          type: string
-        targetingType:
-          type: string
-          enum:
-          - manual
-          - auto
-    UpdateCampaignRequest:
-      type: object
-      required:
-      - campaignId
-      properties:
-        campaignId:
-          type: string
-        name:
-          type: string
-        state:
-          type: string
-        dailyBudget:
-          type: number
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

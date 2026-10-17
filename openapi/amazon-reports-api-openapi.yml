@@ -83,22 +83,6 @@ paths:
           description: Not found
 components:
   schemas:
-    ReportRequestResponse:
-      type: object
-      properties:
-        reportId:
-          type: string
-        status:
-          type: string
-    ReportRequest:
-      type: object
-      properties:
-        reportDate:
-          type: string
-        metrics:
-          type: string
-        segment:
-          type: string
     ReportStatus:
       type: object
       properties:
@@ -115,6 +99,22 @@ components:
           format: uri
         fileSize:
           type: integer
+    ReportRequest:
+      type: object
+      properties:
+        reportDate:
+          type: string
+        metrics:
+          type: string
+        segment:
+          type: string
+    ReportRequestResponse:
+      type: object
+      properties:
+        reportId:
+          type: string
+        status:
+          type: string
   parameters:
     ProfileId:
       name: Amazon-Advertising-API-Scope

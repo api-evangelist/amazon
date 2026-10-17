@@ -78,7 +78,45 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    ProfileId:
+      name: Amazon-Advertising-API-Scope
+      in: header
+      required: true
+      description: The advertising profile ID
+      schema:
+        type: string
   schemas:
+    KeywordResponse:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+    Keyword:
+      type: object
+      properties:
+        keywordId:
+          type: string
+        campaignId:
+          type: string
+        adGroupId:
+          type: string
+        keywordText:
+          type: string
+        matchType:
+          type: string
+          enum:
+          - broad
+          - exact
+          - phrase
+        state:
+          type: string
+        bid:
+          type: number
     CreateKeywordRequest:
       type: object
       required:
@@ -104,44 +142,6 @@ components:
           type: string
         bid:
           type: number
-    Keyword:
-      type: object
-      properties:
-        keywordId:
-          type: string
-        campaignId:
-          type: string
-        adGroupId:
-          type: string
-        keywordText:
-          type: string
-        matchType:
-          type: string
-          enum:
-          - broad
-          - exact
-          - phrase
-        state:
-          type: string
-        bid:
-          type: number
-    KeywordResponse:
-      type: object
-      properties:
-        keywordId:
-          type: string
-        code:
-          type: string
-        description:
-          type: string
-  parameters:
-    ProfileId:
-      name: Amazon-Advertising-API-Scope
-      in: header
-      required: true
-      description: The advertising profile ID
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
