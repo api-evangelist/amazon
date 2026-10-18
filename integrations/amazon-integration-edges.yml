@@ -6,13 +6,18 @@ source:
 checked:
 - clever/integrations/clever-integration-edges.yml
 - https://composio.dev/toolkits/amazon
+- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
+- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
 - https://ddex.net/membership/current-members/
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
+- https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+- https://fivetran.com/docs/connectors/partner-built-program
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://github.com/kubeflow/website
 - https://github.com/lfai/landscape
 - https://github.com/marketplace?type=apps
+- https://github.com/meltano/hub
 - https://github.com/mlcommons
 - https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
 - https://govramp.org/program-participants
@@ -1396,4 +1401,110 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: WordPress plugin
+- partner_name: Airbyte
+  partner: airbyte
+  partner_match: aggregator
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://docs.airbyte.com/integrations/sources/amazon-ads
+  category: null
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-certified
+    registered_name: Amazon Ads
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-amazon-ads
+    - airbyte/source-amazon-seller-partner
+    support_level:
+    - certified
+    release_stage:
+    - generally_available
+    in_cloud: true
+    builder: Airbyte (certified)
+    standard: Airbyte certified connector
+    certified_products:
+    - product: Airbyte certified source
+      type: source
+      lapsed: false
+      cloud: true
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/applications/amazon-ads
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: Amazon Ads
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/applications/amazon-ads
+    - connectors/applications/amazon-appstore
+    - connectors/applications/amazon-attribution
+    - connectors/applications/amazon-dsp
+    vendor_link: https://advertising.amazon.com/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-amazon-ads-dsp--goes-funky
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Amazon Advertising DSP
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-amazon-ads-dsp--goes-funky
+    - tap-amazon-ads-dsp--schonfeld
+    - tap-amazon-ads-dsp--singer-io
+    - tap-amazon-advertising--dbt-labs
+    - tap-amazon-associates--voxmedia
+    - tap-amazon-sp--hotgluexyz
+    - tap-amazon-sp--singer-io
+    maintenance_status:
+    - active
+    - inactive
+    - unknown
+    quality:
+    - bronze
+    - gold
+    - silver
+    - unknown
+    builder: 'community (Meltano Hub variant maintainers: dbt-labs, goes-funky, hotgluexyz, schonfeld, singer-io)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 templates: []
