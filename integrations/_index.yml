@@ -485,7 +485,7 @@
       type: source
       lapsed: false
       cloud: true
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: amazon-fivetran
   label: Fivetran
@@ -514,7 +514,7 @@
     - connectors/applications/amazon-dsp
     vendor_link: https://advertising.amazon.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: amazon-meltano
   label: Meltano
@@ -554,7 +554,7 @@
     - silver
     - unknown
     builder: 'community (Meltano Hub variant maintainers: dbt-labs, goes-funky, hotgluexyz, schonfeld, singer-io)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: amazon-microsoft-teams-own
   label: Microsoft Teams (own)
