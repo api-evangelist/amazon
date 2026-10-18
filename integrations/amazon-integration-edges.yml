@@ -35,6 +35,7 @@ checked:
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/amazon/integrations
+- microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 - woocommerce/integrations/woocommerce-integration-edges.yml
 - wordpress/integrations/wordpress-integration-edges.yml
 summary: null
@@ -1507,4 +1508,23 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: dbt-labs, goes-funky, hotgluexyz, schonfeld, singer-io)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - AWS DevOps Agent
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Publisher Attestation
 templates: []
