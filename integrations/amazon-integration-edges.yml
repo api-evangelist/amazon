@@ -10,10 +10,12 @@ checked:
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
 - https://ddex.net/membership/current-members/
 - https://docs.mparticle.com/integrations/amazon-advertising/audience/
+- https://docs.mparticle.com/integrations/amazon-advertising/event/
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://github.com/kubeflow/website
 - https://github.com/lfai/landscape
 - https://github.com/marketplace?type=apps
@@ -857,334 +859,6 @@ edges:
     property: schemas.SubmitCampaignDto.platform
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/amazon-q-developer
-  listing_count: 1
-  apps:
-  - Amazon Q Developer
-  publisher_name: Amazon Q Developer
-  badges:
-  - Verified creator
-  - Verified domain
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: Twilio Segment
-  partner: segment
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - actions-amazon-amc
-      - amazon-lambda
-      status: PUBLIC_BETA
-      partner_owned: false
-      connection_modes:
-      - cloud:mobile
-      - cloud:server
-      - cloud:web
-      accepted_methods:
-      - Alias
-      - Group
-      - Identify
-      - Page
-      - Track
-      component_owners:
-      - SEGMENT
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: RudderStack
-  partner: rudderstack
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - amazon_audience
-      connection_modes:
-      - cloud
-      cloud_event_types:
-      - record
-      audience: true
-      source_types: 1
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: mParticle
-  partner: mparticle
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://docs.mparticle.com/integrations/amazon-advertising/audience/
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - amazon-advertising
-      integration_types:
-      - audience
-      - event
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: Hightouch
-  partner: hightouch
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://hightouch.com/docs/destinations/amazon-ads
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - amazon-ads
-      status: released
-      sync_types:
-      - Events (deprecated)
-      - Events V2
-      - Segment
-      sync_modes:
-      - add
-      - insert
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: Census
-  partner: getcensus
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - amazon-ads-dsp-amc
-      sync_behaviours:
-      - update or create
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: Connectivity Standards Alliance (Matter)
-  partner: null
-  type: contract
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4631
-  category: Matter certified products
-  contract_reference:
-    register: CSA Distributed Compliance Ledger (Matter certification)
-    spec_file: null
-    standard: Matter
-    role: Matter certified vendor
-    vendor_id: 4631
-    registered_name: Alexa Elements
-    legal_name: Amazon.com, Inc.
-    landing_page: https://www.amazon.com
-    identity_source: vendorLandingPageURL
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    certified_models: 3
-    certified_products:
-    - product: Extended Color Light
-      device_type_id: 269
-      models: 1
-      revoked_models: 0
-      latest_certification: '2026-09-04'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples:
-      - Smart Bulb Pro A19
-      lapsed: false
-    - product: unspecified device type
-      device_type_id: null
-      models: 2
-      revoked_models: 0
-      latest_certification: '2026-09-04'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples: null
-      lapsed: false
-    signal_note: certified_products = one entry per device type (diversity), not per model
-    detected_by: sweep-iot.py
-    detected: '2026-10-14'
-- partner_name: Connectivity Standards Alliance (Matter)
-  partner: null
-  type: contract
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4987
-  category: Matter certified products
-  contract_reference:
-    register: CSA Distributed Compliance Ledger (Matter certification)
-    spec_file: null
-    standard: Matter
-    role: Matter certified vendor
-    vendor_id: 4987
-    registered_name: Amazon Basics
-    legal_name: Amazon.com, Inc.
-    landing_page: https://www.amazon.com
-    identity_source: vendorLandingPageURL
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    certified_models: 23
-    certified_products:
-    - product: On/Off Light
-      device_type_id: 256
-      models: 3
-      revoked_models: 0
-      latest_certification: '2026-08-27'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples:
-      - Smart Switch
-      lapsed: false
-    - product: Dimmable Light
-      device_type_id: 257
-      models: 6
-      revoked_models: 0
-      latest_certification: '2026-08-27'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples:
-      - Smart A19 Dimmable Bulb
-      - Smart A60 Dimmable Bulb
-      - Smart Dimmer
-      lapsed: false
-    - product: On/Off Plug-in Unit
-      device_type_id: 266
-      models: 5
-      revoked_models: 0
-      latest_certification: '2025-03-16'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples:
-      - Smart Indoor Plug - Single outlet
-      lapsed: false
-    - product: Extended Color Light
-      device_type_id: 269
-      models: 9
-      revoked_models: 0
-      latest_certification: '2026-08-07'
-      transports:
-      - bluetooth
-      - wi-fi
-      examples:
-      - Smart A19 Color Bulb
-      - Smart A60 Color Bulb
-      - Smart Ceiling LED light
-      lapsed: false
-    signal_note: certified_products = one entry per device type (diversity), not per model
-    detected_by: sweep-iot.py
-    detected: '2026-10-14'
-- partner_name: Connectivity Standards Alliance (Matter)
-  partner: null
-  type: contract
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4993
-  category: Matter certified products
-  contract_reference:
-    register: CSA Distributed Compliance Ledger (Matter certification)
-    spec_file: null
-    standard: Matter
-    role: Matter vendor ID holder (no certified product)
-    vendor_id: 4993
-    registered_name: Amazon Prime Video
-    legal_name: Amazon.com, Inc.
-    landing_page: https://www.amazon.com
-    identity_source: vendorLandingPageURL
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    certified_models: 0
-    certified_products: []
-    signal_note: certified_products = one entry per device type (diversity), not per model
-    detected_by: sweep-iot.py
-    detected: '2026-10-14'
-- partner_name: FDX (Financial Data Exchange)
-  partner: fdx
-  type: contract
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://registry.financialdataexchange.org/
-  contract_reference:
-    register: FDX Registry
-    standard: FDX API
-    spec_file: null
-    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
-    role: data-provider
-    member_type: MEMBER
-    registered_name: Amazon
-    register_id: 424
-    registered_website: www.amazon.com
-    country: United States
-    fdx_version: null
-    matched_by: domain+name-among-holders:amazon.com
-    detected_by: sweep-fdx.py
-    detected: '2026-10-14'
-  detected_by: sweep-fdx.py
-  first_seen: '2026-10-14'
-- partner_name: DDEX (Digital Data Exchange)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  channel: standard-directory
-  relationship: standard-participant
-  evidence: https://ddex.net/membership/current-members/
-  category: music metadata and rights messaging standard
-  contract_reference:
-    register: DDEX current members (ddex.net/membership/current-members)
-    spec_file: null
-    role: ddex-charter-member
-    registered_name: Amazon
-    register_id: Amazon
-    tier: charter
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    identity: wikidata Q3884 'Amazon' P856 https://www.amazon.com/
-    detected_by: sweep-media.py
-    detected: '2026-10-15'
-  detected_by: sweep-media.py
-  first_seen: '2026-10-15'
 - partner_name: Clever (clever-app-gallery)
   partner: clever
   partner_match: mirror
@@ -1220,93 +894,6 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: extension
-- partner_name: LF AI & Data (Landscape)
-  partner: lf-ai-data
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: AI & data landscape
-  evidence: https://github.com/lfai/landscape/blob/95d361b8abfdd04a8c76bf38a012778d13621b5e/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @95d361b8ab)
-    spec_file: null
-    standard: LF AI & Data
-    role: lfai-project-host
-    registered_name: Amazon (hosting)
-    registered_names:
-    - Amazon (hosting)
-    website: https://amazon.com/
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    member_tier: null
-    hosting_company: true
-    lfai_projects: []
-    landscape_categories:
-    - Hosting Companies / Hosting Companies
-    landscape_entries: 1
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-mlops.py
-    detected: '2026-10-15'
-  detected_by: sweep-mlops.py
-  first_seen: '2026-10-15'
-- partner_name: Zapier
-  partner: zapier
-  partner_match: aggregator
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://zapier.com/apps/amazon-seller-central/integrations
-  category: null
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: Amazon Seller Central
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: amazon-seller-central
-    beta: false
-    builder: unknown (not in the directory record)
-    other_apps:
-    - amazon-ads
-    - amazon-alexa
-    - amazon-drive
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/amazon_alexa
-  category: null
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: amazon alexa
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: amazon_alexa
-    actions: true
-    sources: false
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
 - partner_name: FinCEN (MSB registration)
   partner: null
   partner_match: register
@@ -1339,52 +926,6 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-regtech-aml.py
   first_seen: '2026-10-15'
-- partner_name: FedRAMP
-  partner: null
-  partner_match: register
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://marketplace.fedramp.gov/products/AGENCYAMAZONEW
-  category: FedRAMP authorization
-  contract_reference:
-    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
-    standard: FedRAMP
-    spec_file: null
-    role: fedramp-authorized
-    registered_name: Amazon
-    register_id: AGENCYAMAZONEW
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    domain_source: website
-    designations:
-    - Compliant
-    packages:
-    - AWS GovCloud
-    - AWS US East/West
-    service_models:
-    - IaaS
-    - PaaS
-    - SaaS
-    paths:
-    - JAB
-    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
-      models, paths and leveraging agencies are context, never counted. The register lists current designations
-      only (revoked / expired are removed), so lapsed is always false
-    detected_by: sweep-gov-cloud.py
-    detected: '2026-10-15'
-    certified_products:
-    - product: FedRAMP Moderate
-      impact_level: Moderate
-      lapsed: false
-      latest_authorization: '2017-11-13'
-    - product: FedRAMP High
-      impact_level: High
-      lapsed: false
-      latest_authorization: '2016-06-21'
-  detected_by: sweep-gov-cloud.py
-  first_seen: '2026-10-15'
 - partner_name: WordPress (own)
   partner: wordpress
   partner_match: mirror
@@ -1402,6 +943,25 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: WordPress plugin
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - AWS DevOps Agent
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Publisher Attestation
 - partner_name: Airbyte
   partner: airbyte
   partner_match: aggregator
@@ -1508,23 +1068,455 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: dbt-labs, goes-funky, hotgluexyz, schonfeld, singer-io)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
+- partner_name: FDX (Financial Data Exchange)
+  partner: fdx
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.financialdataexchange.org/
+  contract_reference:
+    register: FDX Registry
+    standard: FDX API
+    spec_file: null
+    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
+    role: data-provider
+    member_type: MEMBER
+    registered_name: Amazon
+    register_id: 424
+    registered_website: www.amazon.com
+    country: United States
+    fdx_version: null
+    matched_by: domain+name-among-holders:amazon.com
+    detected_by: sweep-fdx.py
+    detected: '2026-10-19'
+  detected_by: sweep-fdx.py
+  first_seen: '2026-10-19'
+- partner_name: FedRAMP
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://marketplace.fedramp.gov/products/AGENCYAMAZONEW
+  category: FedRAMP authorization
+  contract_reference:
+    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
+    standard: FedRAMP
+    spec_file: null
+    role: fedramp-authorized
+    registered_name: Amazon
+    register_id: AGENCYAMAZONEW
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    domain_source: website
+    designations:
+    - Compliant
+    packages:
+    - AWS GovCloud
+    - AWS US East/West
+    service_models:
+    - IaaS
+    - PaaS
+    - SaaS
+    paths:
+    - JAB
+    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
+      models, paths and leveraging agencies are context, never counted. The register lists current designations
+      only (revoked / expired are removed), so lapsed is always false
+    detected_by: sweep-gov-cloud.py
+    detected: '2026-10-15'
+    certified_products:
+    - product: FedRAMP Moderate
+      impact_level: Moderate
+      lapsed: false
+      latest_authorization: '2017-11-13'
+    - product: FedRAMP High
+      impact_level: High
+      lapsed: false
+      latest_authorization: '2016-06-21'
+  detected_by: sweep-gov-cloud.py
+  first_seen: '2026-10-15'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4631
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4631
+    registered_name: Alexa Elements
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 8
+    certified_products:
+    - product: Extended Color Light
+      device_type_id: 269
+      models: 1
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Bulb Pro A19
+      lapsed: false
+    - product: unspecified device type
+      device_type_id: null
+      models: 7
+      revoked_models: 0
+      latest_certification: '2026-09-04'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples: null
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-19'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4987
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4987
+    registered_name: Amazon Basics
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 23
+    certified_products:
+    - product: On/Off Light
+      device_type_id: 256
+      models: 3
+      revoked_models: 0
+      latest_certification: '2026-08-27'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Switch
+      lapsed: false
+    - product: Dimmable Light
+      device_type_id: 257
+      models: 6
+      revoked_models: 0
+      latest_certification: '2026-08-27'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart A19 Dimmable Bulb
+      - Smart A60 Dimmable Bulb
+      - Smart Dimmer
+      lapsed: false
+    - product: On/Off Plug-in Unit
+      device_type_id: 266
+      models: 5
+      revoked_models: 0
+      latest_certification: '2025-03-16'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart Indoor Plug - Single outlet
+      lapsed: false
+    - product: Extended Color Light
+      device_type_id: 269
+      models: 9
+      revoked_models: 0
+      latest_certification: '2026-08-07'
+      transports:
+      - bluetooth
+      - wi-fi
+      examples:
+      - Smart A19 Color Bulb
+      - Smart A60 Color Bulb
+      - Smart Ceiling LED light
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-19'
+- partner_name: Connectivity Standards Alliance (Matter)
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://on.dcl.csa-iot.org/dcl/vendorinfo/vendors/4993
+  category: Matter certified products
+  contract_reference:
+    register: CSA Distributed Compliance Ledger (Matter certification)
+    spec_file: null
+    standard: Matter
+    role: Matter certified vendor
+    vendor_id: 4993
+    registered_name: Amazon Prime Video
+    legal_name: Amazon.com, Inc.
+    landing_page: https://www.amazon.com
+    identity_source: vendorLandingPageURL
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_models: 2
+    certified_products:
+    - product: unspecified device type
+      device_type_id: null
+      models: 2
+      revoked_models: 0
+      latest_certification: '2023-04-19'
+      transports: null
+      examples: null
+      lapsed: false
+    signal_note: certified_products = one entry per device type (diversity), not per model
+    detected_by: sweep-iot.py
+    detected: '2026-10-19'
+- partner_name: DDEX (Digital Data Exchange)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://ddex.net/membership/current-members/
+  category: music metadata and rights messaging standard
+  contract_reference:
+    register: DDEX current members (ddex.net/membership/current-members)
+    spec_file: null
+    role: ddex-charter-member
+    registered_name: Amazon
+    register_id: Amazon
+    tier: charter
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q3884 'Amazon' P856 https://www.amazon.com/
+    detected_by: sweep-media.py
+    detected: '2026-10-19'
+  detected_by: sweep-media.py
+  first_seen: '2026-10-15'
+- partner_name: LF AI & Data (Landscape)
+  partner: lf-ai-data
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: AI & data landscape
+  evidence: https://github.com/lfai/landscape/blob/3893e0631e1d12921a9b0ac25ffc78a2ac26239d/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @3893e0631e)
+    spec_file: null
+    standard: LF AI & Data
+    role: lfai-project-host
+    registered_name: Amazon (hosting)
+    registered_names:
+    - Amazon (hosting)
+    website: https://amazon.com/
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    member_tier: null
+    hosting_company: true
+    lfai_projects: []
+    landscape_categories:
+    - Hosting Companies / Hosting Companies
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-mlops.py
+    detected: '2026-10-19'
+  detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
   channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - AWS DevOps Agent
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Publisher Attestation
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-amazon-amc
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - actions-amazon-amc
+      - amazon-lambda
+      status: PUBLIC_BETA
+      partner_owned: false
+      connection_modes:
+      - cloud:mobile
+      - cloud:server
+      - cloud:web
+      accepted_methods:
+      - Alias
+      - Group
+      - Identify
+      - Page
+      - Track
+      component_owners:
+      - SEGMENT
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: RudderStack
+  partner: rudderstack
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://github.com/rudderlabs/rudder-integrations-config/tree/main/src/configurations/destinations/amazon_audience
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon_audience
+      connection_modes:
+      - cloud
+      cloud_event_types:
+      - record
+      audience: true
+      source_types: 1
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: mParticle
+  partner: mparticle
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://docs.mparticle.com/integrations/amazon-advertising/event/
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-advertising
+      integration_types:
+      - audience
+      - event
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/amazon-ads
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-ads
+      status: released
+      sync_types:
+      - Events (deprecated)
+      - Events V2
+      - Segment
+      sync_modes:
+      - add
+      - insert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Census
+  partner: getcensus
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-ads-dsp-amc
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/amazon-seller-central/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Amazon Seller Central
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: amazon-seller-central
+    beta: false
+    builder: unknown (not in the directory record)
+    other_apps:
+    - amazon-ads
+    - amazon-alexa
+    - amazon-drive
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/amazon_alexa
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: amazon alexa
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: amazon_alexa
+    actions: true
+    sources: false
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates: []
