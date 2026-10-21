@@ -525,110 +525,6 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
-- slug: amazon-clever-clever-app-gallery
-  label: Clever (clever-app-gallery)
-  partner: clever
-  partner_name: Clever (clever-app-gallery)
-  category: other
-  type: marketplace
-  marketplace: clever-app-gallery
-  channel: partner-built
-  evidence: https://clever.com/app-gallery
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-woocommerce-own
-  label: WooCommerce (own)
-  partner: woocommerce
-  partner_name: WooCommerce (own)
-  category: extension
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://woocommerce.com/products/pay-with-amazon/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/amazon-payment-services/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-microsoft-teams-own
-  label: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_name: Microsoft Teams (own)
-  category: Microsoft Teams app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-eclipse-foundation-open-vsx
-  label: Eclipse Foundation (open-vsx)
-  partner: eclipse
-  partner_name: Eclipse Foundation (open-vsx)
-  category: IDE / developer extension marketplace listing
-  type: marketplace
-  marketplace: open-vsx
-  channel: partner-built
-  evidence: https://open-vsx.org/namespace/AmazonWebServices-AISolutionsArchitecture
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-vs-code-marketplace-vs-code-marketplace
-  label: VS Code Marketplace (vs-code-marketplace)
-  partner: vs-code-marketplace
-  partner_name: VS Code Marketplace (vs-code-marketplace)
-  category: IDE / developer extension marketplace listing
-  type: marketplace
-  marketplace: vs-code-marketplace
-  channel: partner-built
-  evidence: https://marketplace.visualstudio.com/publishers/amazon-devices
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-bigcommerce-own
-  label: BigCommerce (own)
-  partner: bigcommerce
-  partner_name: BigCommerce (own)
-  category: Payments & Security, Payment Processors & Gateways
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.bigcommerce.com/apps/amazon-pay/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-hubspot-own
-  label: HubSpot (own)
-  partner: hubspot
-  partner_name: HubSpot (own)
-  category: CONNECTOR
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: amazon-feedvisor-inc
   label: Feedvisor Inc.
   partner: feedvisor
@@ -1041,6 +937,189 @@
   marketplace: own
   channel: partner-built
   evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-cocoapods-trunk
+  label: CocoaPods trunk
+  partner_name: CocoaPods trunk
+  category: iOS SDK (CocoaPods)
+  type: register
+  channel: package-registry
+  evidence: https://cocoapods.org/pods/AmazonAd
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: CocoaPods trunk (cdn.cocoapods.org Specs; github.com/CocoaPods/Specs)
+    spec_file: null
+    role: cocoapods-publisher
+    registered_name: aps-github
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    pods:
+    - pod: AmazonAd
+      version: 3.1.0
+      homepage: https://developer.amazon.com/public/apis/earn/mobile-ads
+      deprecated: false
+    - pod: AmazonAdSDK
+      version: 2.0.16
+      homepage: https://developer.amazon.com/public/apis/earn/mobile-ads
+      deprecated: false
+    - pod: AmazonIVSBroadcast
+      version: 1.38.0
+      homepage: https://aws.amazon.com/ivs/
+      deprecated: false
+    - pod: AmazonIVSChat
+      version: 1.0.1
+      homepage: https://aws.amazon.com/ivs
+      deprecated: false
+    - pod: AmazonIVSPlayer
+      version: 1.49.0-rc.1.1
+      homepage: https://aws.amazon.com/ivs/
+      deprecated: false
+    - pod: AmazonPublisherServicesAdMobAdapter
+      version: 5.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesInMobiAdapter
+      version: 1.1.1
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesMoPubAdapter
+      version: 2.1.2
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesMobileFuseAdapter
+      version: 1.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesSDK
+      version: 5.6.6
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesVerveAdapter
+      version: 1.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    signal_note: latest podspec homepage (domain) + authors (name); pods, versions and counts are context
+    detected_by: sweep-mobile-sdk-index.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-clever-clever-app-gallery
+  label: Clever (clever-app-gallery)
+  partner: clever
+  partner_name: Clever (clever-app-gallery)
+  category: other
+  type: marketplace
+  marketplace: clever-app-gallery
+  channel: partner-built
+  evidence: https://clever.com/app-gallery
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/pay-with-amazon/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/amazon-payment-services/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-microsoft-teams-own
+  label: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_name: Microsoft Teams (own)
+  category: Microsoft Teams app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-eclipse-foundation-open-vsx
+  label: Eclipse Foundation (open-vsx)
+  partner: eclipse
+  partner_name: Eclipse Foundation (open-vsx)
+  category: IDE / developer extension marketplace listing
+  type: marketplace
+  marketplace: open-vsx
+  channel: partner-built
+  evidence: https://open-vsx.org/namespace/AmazonWebServices-AISolutionsArchitecture
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-vs-code-marketplace-vs-code-marketplace
+  label: VS Code Marketplace (vs-code-marketplace)
+  partner: vs-code-marketplace
+  partner_name: VS Code Marketplace (vs-code-marketplace)
+  category: IDE / developer extension marketplace listing
+  type: marketplace
+  marketplace: vs-code-marketplace
+  channel: partner-built
+  evidence: https://marketplace.visualstudio.com/publishers/amazon-devices
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-bigcommerce-own
+  label: BigCommerce (own)
+  partner: bigcommerce
+  partner_name: BigCommerce (own)
+  category: Payments & Security, Payment Processors & Gateways
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.bigcommerce.com/apps/amazon-pay/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: CONNECTOR
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-google-play-developer-google-play-sdk-index
+  label: Google Play Developer (Google Play SDK Index)
+  partner: google-play
+  partner_name: Google Play Developer (Google Play SDK Index)
+  category: mobile SDK (ads, data-management, marketing-and-engagement, payments)
+  type: marketplace
+  marketplace: Google Play SDK Index
+  channel: partner-built
+  evidence: https://play.google.com/sdks/details/com-amazon-android-aps-admob-adapter
   source: edge
   relationship: platform-app
   status: not-a-workflow

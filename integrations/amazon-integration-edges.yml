@@ -53,6 +53,11 @@ checked:
 - https://advertising.amazon.com/partners/directory
 - https://sellercentral.amazon.com/gspn
 - https://sellercentral.amazon.com/selling-partner-appstore
+- https://cdn.cocoapods.org/all_pods.txt
+- https://cert.appdefensealliance.org/certifications
+- https://play.google.com/sdks
+- https://search.maven.org/solrsearch/select
+- google-play/integrations/google-play-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -764,150 +769,6 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
-- partner_name: Clever (clever-app-gallery)
-  partner: clever
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: clever-app-gallery
-  evidence: https://clever.com/app-gallery
-  mirror_of: clever/integrations/clever-integration-edges.yml
-  apps: []
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: other
-  features:
-  - instant_login
-- partner_name: WooCommerce (own)
-  partner: woocommerce
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://woocommerce.com/products/pay-with-amazon/
-  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
-  apps:
-  - Amazon Pay
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: extension
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/amazon-payment-services/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Amazon payment services
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - AWS DevOps Agent
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Publisher Attestation
-- partner_name: Eclipse Foundation (open-vsx)
-  partner: eclipse
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: open-vsx
-  evidence: https://open-vsx.org/namespace/AmazonWebServices-AISolutionsArchitecture
-  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
-  apps:
-  - Bedrock Visual Studio Code Playground
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: IDE / developer extension marketplace listing
-  badges:
-  - Verified namespace
-- partner_name: VS Code Marketplace (vs-code-marketplace)
-  partner: vs-code-marketplace
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: vs-code-marketplace
-  evidence: https://marketplace.visualstudio.com/publishers/amazon-devices
-  mirror_of: vs-code-marketplace/integrations/vs-code-marketplace-integration-edges.yml
-  apps:
-  - Vega Studio
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: IDE / developer extension marketplace listing
-  badges:
-  - Verified publisher
-  - Verified domain
-- partner_name: BigCommerce (own)
-  partner: bigcommerce
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.bigcommerce.com/apps/amazon-pay/
-  mirror_of: bigcommerce/integrations/bigcommerce-integration-edges.yml
-  apps:
-  - Amazon Pay
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Payments & Security, Payment Processors & Gateways
-- partner_name: HubSpot (own)
-  partner: hubspot
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
-  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
-  apps:
-  - Amazon Quick
-  listing_count: 1
-  detected: '2026-10-21'
-  detected_by: mirror-platform-listings.py
-  category: CONNECTOR
 - partner_name: Feedvisor Inc.
   app: Feedvisor
   partner: feedvisor
@@ -1592,4 +1453,235 @@ edges:
   detected: '2026-10-21'
   partner_tier:
   - PARTNER
+- partner_name: CocoaPods trunk
+  partner: null
+  partner_match: register
+  type: register
+  channel: package-registry
+  relationship: distribution-channel
+  direction: provider-built
+  evidence: https://cocoapods.org/pods/AmazonAd
+  category: iOS SDK (CocoaPods)
+  contract_reference:
+    register: CocoaPods trunk (cdn.cocoapods.org Specs; github.com/CocoaPods/Specs)
+    spec_file: null
+    role: cocoapods-publisher
+    registered_name: aps-github
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    pods:
+    - pod: AmazonAd
+      version: 3.1.0
+      homepage: https://developer.amazon.com/public/apis/earn/mobile-ads
+      deprecated: false
+    - pod: AmazonAdSDK
+      version: 2.0.16
+      homepage: https://developer.amazon.com/public/apis/earn/mobile-ads
+      deprecated: false
+    - pod: AmazonIVSBroadcast
+      version: 1.38.0
+      homepage: https://aws.amazon.com/ivs/
+      deprecated: false
+    - pod: AmazonIVSChat
+      version: 1.0.1
+      homepage: https://aws.amazon.com/ivs
+      deprecated: false
+    - pod: AmazonIVSPlayer
+      version: 1.49.0-rc.1.1
+      homepage: https://aws.amazon.com/ivs/
+      deprecated: false
+    - pod: AmazonPublisherServicesAdMobAdapter
+      version: 5.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesInMobiAdapter
+      version: 1.1.1
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesMoPubAdapter
+      version: 2.1.2
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesMobileFuseAdapter
+      version: 1.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesSDK
+      version: 5.6.6
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    - pod: AmazonPublisherServicesVerveAdapter
+      version: 1.0.0
+      homepage: https://aps.amazon.com/aps/solutions-for-mobile-app-developers/
+      deprecated: false
+    signal_note: latest podspec homepage (domain) + authors (name); pods, versions and counts are context
+    detected_by: sweep-mobile-sdk-index.py
+    detected: '2026-10-21'
+  detected_by: sweep-mobile-sdk-index.py
+  first_seen: '2026-10-21'
+- partner_name: Clever (clever-app-gallery)
+  partner: clever
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: clever-app-gallery
+  evidence: https://clever.com/app-gallery
+  mirror_of: clever/integrations/clever-integration-edges.yml
+  apps: []
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: other
+  features:
+  - instant_login
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/pay-with-amazon/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Amazon Pay
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/amazon-payment-services/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Amazon payment services
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200012010
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - AWS DevOps Agent
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Publisher Attestation
+- partner_name: Eclipse Foundation (open-vsx)
+  partner: eclipse
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: open-vsx
+  evidence: https://open-vsx.org/namespace/AmazonWebServices-AISolutionsArchitecture
+  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
+  apps:
+  - Bedrock Visual Studio Code Playground
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified namespace
+- partner_name: VS Code Marketplace (vs-code-marketplace)
+  partner: vs-code-marketplace
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: vs-code-marketplace
+  evidence: https://marketplace.visualstudio.com/publishers/amazon-devices
+  mirror_of: vs-code-marketplace/integrations/vs-code-marketplace-integration-edges.yml
+  apps:
+  - Vega Studio
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified publisher
+  - Verified domain
+- partner_name: BigCommerce (own)
+  partner: bigcommerce
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.bigcommerce.com/apps/amazon-pay/
+  mirror_of: bigcommerce/integrations/bigcommerce-integration-edges.yml
+  apps:
+  - Amazon Pay
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Payments & Security, Payment Processors & Gateways
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Amazon Quick
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: CONNECTOR
+- partner_name: Google Play Developer (Google Play SDK Index)
+  partner: google-play
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: Google Play SDK Index
+  evidence: https://play.google.com/sdks/details/com-amazon-android-aps-admob-adapter
+  mirror_of: google-play/integrations/google-play-integration-edges.yml
+  apps:
+  - APS AdMob Adapter
+  - APS Android SDK
+  - AWS SDK For Android
+  - Amazon Appstore SDK
+  - Amazon IVS Player SDK
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: mobile SDK (ads, data-management, marketing-and-engagement, payments)
 templates: []
