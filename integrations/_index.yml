@@ -616,3 +616,432 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amazon-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: CONNECTOR
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-feedvisor-inc
+  label: Feedvisor Inc.
+  partner: feedvisor
+  partner_name: Feedvisor Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-skai
+  label: Skai
+  partner: skai-kenshoo
+  partner_name: Skai
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-teikametrics
+  label: Teikametrics
+  partner: teikametrics
+  partner_name: Teikametrics
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-boomerang-commerce-inc-d-b-a-commerceiq
+  label: Boomerang Commerce, Inc. d/b/a CommerceIQ
+  partner: commerceiq
+  partner_name: Boomerang Commerce, Inc. d/b/a CommerceIQ
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-publicis-media-spain-s-l-u
+  label: Publicis Media Spain, S.L.U.
+  partner: publicis-groupe
+  partner_name: Publicis Media Spain, S.L.U.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-rithum-corporation
+  label: Rithum Corporation
+  partner: rithum
+  partner_name: Rithum Corporation
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-adverity-gmbh
+  label: Adverity GmbH
+  partner: adverity
+  partner_name: Adverity GmbH
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-funnel-ab
+  label: Funnel AB
+  partner: funnel
+  partner_name: Funnel AB
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-marin-software
+  label: Marin Software
+  partner: marin-software
+  partner_name: Marin Software
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-habu-inc
+  label: Habu, Inc.
+  partner: habu
+  partner_name: Habu, Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-choozle-inc
+  label: Choozle, Inc.
+  partner: choozle
+  partner_name: Choozle, Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-comscore-inc
+  label: Comscore, Inc
+  partner: comscore
+  partner_name: Comscore, Inc
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-liveramp-holdings-inc
+  label: LiveRamp Holdings, Inc.
+  partner: liveramp
+  partner_name: LiveRamp Holdings, Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-p39-tech-llc
+  label: P39, Tech, LLC
+  partner: peer39
+  partner_name: P39, Tech, LLC
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-samba-tv-inc
+  label: SAMBA TV, INC.
+  partner: sambatv
+  partner_name: SAMBA TV, INC.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-scope3-pbc
+  label: Scope3 PBC
+  partner: scope3
+  partner_name: Scope3 PBC
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-simon-ai
+  label: Simon AI
+  partner: simon-data
+  partner_name: Simon AI
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-the-growth-team
+  label: THE GROWTH TEAM
+  partner: polar-analytics
+  partner_name: THE GROWTH TEAM
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-triplelift
+  label: TripleLift
+  partner: triplelift
+  partner_name: TripleLift
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-vidmob
+  label: VidMob
+  partner: vidmob
+  partner_name: VidMob
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-channelengine-com-b-v
+  label: ChannelEngine.com B.V.
+  partner: channelengine
+  partner_name: ChannelEngine.com B.V.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-productimpulse-bv
+  label: ProductImpulse BV
+  partner: channable
+  partner_name: ProductImpulse BV
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-unified-enterprises-corp
+  label: UNIFIED ENTERPRISES CORP.
+  partner: unified
+  partner_name: UNIFIED ENTERPRISES CORP.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-appsflyer
+  label: AppsFlyer
+  partner: appsflyer
+  partner_name: AppsFlyer
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-doubleverify
+  label: DoubleVerify
+  partner: doubleverify
+  partner_name: DoubleVerify
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-gamesight-inc
+  label: Gamesight Inc
+  partner: gamesight
+  partner_name: Gamesight Inc
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-haus-analytics-inc
+  label: Haus Analytics, Inc.
+  partner: haus
+  partner_name: Haus Analytics, Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-integral-ad-science-inc
+  label: Integral Ad Science, Inc.
+  partner: integral-ad-science
+  partner_name: Integral Ad Science, Inc.
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-all3d
+  label: ALL3D
+  partner: all3d
+  partner_name: ALL3D
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-dreamdata-io-aps
+  label: Dreamdata.io ApS
+  partner: dreamdata
+  partner_name: Dreamdata.io ApS
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-invoca
+  label: Invoca
+  partner: invoca
+  partner_name: Invoca
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-singular-labs
+  label: Singular labs
+  partner: singular
+  partner_name: Singular labs
+  category: Amazon Ads partner (technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

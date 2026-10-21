@@ -49,6 +49,10 @@ checked:
 - eclipse/integrations/eclipse-integration-edges.yml
 - vs-code-marketplace/integrations/vs-code-marketplace-integration-edges.yml
 - bigcommerce/integrations/bigcommerce-integration-edges.yml
+- hubspot/integrations/hubspot-integration-edges.yml
+- https://advertising.amazon.com/partners/directory
+- https://sellercentral.amazon.com/gspn
+- https://sellercentral.amazon.com/selling-partner-appstore
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -887,4 +891,705 @@ edges:
   detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
   category: Payments & Security, Payment Processors & Gateways
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/amazonquick
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Amazon Quick
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: CONNECTOR
+- partner_name: Feedvisor Inc.
+  app: Feedvisor
+  partner: feedvisor
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://feedvisor.com/
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - STORES
+  - VIDEO_ADS
+  - AMAZON_MARKETING_CLOUD
+  - AUDIO_ADS
+  - AMAZON_LIVE
+  - AMAZON_ATTRIBUTION
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Skai
+  app: Skai
+  partner: skai-kenshoo
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.skai.io
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - STORES
+  - VIDEO_ADS
+  - AMAZON_ATTRIBUTION
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Teikametrics
+  app: Teikametrics
+  partner: teikametrics
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://teikametrics.com
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - VIDEO_ADS
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Boomerang Commerce, Inc. d/b/a CommerceIQ
+  app: CommerceIQ
+  partner: commerceiq
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.commerceiq.ai
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - VIDEO_ADS
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Publicis Media Spain, S.L.U.
+  app: Publicis Groupe
+  partner: publicis-groupe
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.publicisgroupe.com/
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - STORES
+  - VIDEO_ADS
+  - AMAZON_LIVE
+  - AUDIO_ADS
+  - AMAZON_ATTRIBUTION
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Rithum Corporation
+  app: ChannelAdvisor
+  partner: rithum
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.rithum.com/
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - STORES
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - ADVANCED_PARTNER
+- partner_name: Adverity GmbH
+  app: Adverity
+  partner: adverity
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.adverity.com/
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_PRODUCTS
+  - AMAZON_MARKETING_CLOUD
+  - SPONSORED_DISPLAY
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Funnel AB
+  app: Funnel
+  partner: funnel
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://funnel.io
+  ads_products:
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Marin Software
+  app: Marin Software
+  partner: marin-software
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.marinsoftware.com/lp/amazon-ads
+  ads_products:
+  - AMAZON_DSP
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Habu, Inc.
+  app: Habu
+  partner: habu
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://habu.com
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_MARKETING_CLOUD
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Choozle, Inc.
+  app: Choozle
+  partner: choozle
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://choozle.com
+  ads_products:
+  - AMAZON_DSP
+  - AUDIO_ADS
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Comscore, Inc
+  app: Comscore
+  partner: comscore
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.comscore.com
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: LiveRamp Holdings, Inc.
+  app: LiveRamp
+  partner: liveramp
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.liveramp.com/
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_MARKETING_CLOUD
+  - AMAZON_ATTRIBUTION
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: P39, Tech, LLC
+  app: Peer39
+  partner: peer39
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.peer39.com
+  ads_products:
+  - AMAZON_DSP
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: SAMBA TV, INC.
+  app: Samba TV
+  partner: sambatv
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.samba.tv/business
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_ATTRIBUTION
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Scope3 PBC
+  app: Scope3
+  partner: scope3
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://scope3.com/
+  ads_products:
+  - AMAZON_DSP
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: Simon AI
+  app: Simon Data
+  partner: simon-data
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.simon.ai/
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_MARKETING_CLOUD
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: THE GROWTH TEAM
+  app: Polar Analytics
+  partner: polar-analytics
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.polaranalytics.com
+  ads_products:
+  - SPONSORED_BRANDS
+  - STORES
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: TripleLift
+  app: TripleLift
+  partner: triplelift
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://triplelift.com/
+  ads_products:
+  - SPONSORED_DISPLAY
+  - VIDEO_ADS
+  - AMAZON_DSP
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: VidMob
+  app: VidMob
+  partner: vidmob
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.vidmob.com/
+  ads_products:
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - STORES
+  - VIDEO_ADS
+  - AMAZON_DSP
+  - AMAZON_ATTRIBUTION
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: ChannelEngine.com B.V.
+  app: ChannelEngine
+  partner: channelengine
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.channelengine.com
+  ads_products:
+  - SPONSORED_PRODUCTS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: ProductImpulse BV
+  app: Channable
+  partner: channable
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.channable.com
+  ads_products:
+  - SPONSORED_PRODUCTS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - VERIFIED_PARTNER
+- partner_name: UNIFIED ENTERPRISES CORP.
+  app: Unified Enterpirses Corp
+  partner: unified
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.unified.com/
+  ads_products:
+  - SPONSORED_BRANDS
+  - SPONSORED_DISPLAY
+  - SPONSORED_PRODUCTS
+  - VIDEO_ADS
+  - AUDIO_ADS
+  - AMAZON_DSP
+  - AMAZON_ATTRIBUTION
+  - STORES
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: AppsFlyer
+  app: AppsFlyer
+  partner: appsflyer
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.appsflyer.com/
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_ATTRIBUTION
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: DoubleVerify
+  app: Doubleverify Inc.
+  partner: doubleverify
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://doubleverify.com/
+  ads_products:
+  - AMAZON_DSP
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Gamesight Inc
+  app: Gamesight
+  partner: gamesight
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://gamesight.io
+  ads_products:
+  - AMAZON_ATTRIBUTION
+  - AMAZON_DSP
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Haus Analytics, Inc.
+  app: Haus
+  partner: haus
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.haus.io/
+  ads_products:
+  - AMAZON_DSP
+  - VIDEO_ADS
+  - AUDIO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Hightouch
+  app: Hightouch
+  partner: hightouch
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://hightouch.com/
+  ads_products:
+  - AMAZON_DSP
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Integral Ad Science, Inc.
+  app: Integral Ad Science
+  partner: integral-ad-science
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://integralads.com/
+  ads_products:
+  - AMAZON_DSP
+  - AMAZON_MARKETING_CLOUD
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: ALL3D
+  app: ALL3D Inc
+  partner: all3d
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.all3d.ai/
+  ads_products:
+  - STORES
+  - SPONSORED_DISPLAY
+  - SPONSORED_BRANDS
+  - SPONSORED_PRODUCTS
+  - VIDEO_ADS
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Dreamdata.io ApS
+  app: Dreamdata
+  partner: dreamdata
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://dreamdata.io
+  ads_products:
+  - SPONSORED_DISPLAY
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Invoca
+  app: Invoca
+  partner: invoca
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.Invoca.com
+  ads_products:
+  - STORES
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
+- partner_name: Singular labs
+  app: Singular Labs
+  partner: singular
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  category: Amazon Ads partner (technology)
+  partner_url: https://www.singular.net
+  ads_products:
+  - STORES
+  - AMAZON_LIVE
+  detected_by: sweep-amazon-sp-api-appstore.py
+  detected: '2026-10-21'
+  partner_tier:
+  - PARTNER
 templates: []
