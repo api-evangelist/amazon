@@ -1165,3 +1165,39 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amazon-tag-registry-trustworthy-accountability-group
+  label: TAG Registry (Trustworthy Accountability Group)
+  partner_name: TAG Registry (Trustworthy Accountability Group)
+  category: Ad fraud / brand safety certification (TAG)
+  type: register
+  channel: standard-directory
+  evidence: https://www.tagtoday.net/registry
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: TAG Registry (tagtoday.net/registry; registry-search public endpoint)
+    spec_file: null
+    standard: TAG certification programs (Trustworthy Accountability Group)
+    role: tag-registered
+    registrations:
+    - registered_name: Amazon
+      register_id: https://hubgloo.opxar.com/company/543268315
+      verified_by_tag: true
+      seals: []
+      matched_domain: null
+      matched_by: register-name
+      register_name_note: register-name 'amazon' = amazon; wikidata P856 amazon.co.jp, amazon.co.uk, amazon.com,
+        amazon.com.au, amazon.com.br, amazon.com.mx, amazon.com.tr, amazon.de, amazon.es, amazon.in, amazon.it,
+        amazon.nl, amazon.sa agrees or unheld
+    signal_note: certified_products = one entry per TAG seal held (CAF, BSC, CAM, CAP, CFT), never per registration;
+      validation route (third-party auditor / TAG Validation / self-attestation) and category are context. The registry
+      shows current seals only and marks none expired, so lapsed is false. Verified by TAG with no seal = listing
+      only (participation)
+    detected_by: sweep-tag-certified-ad-fraud.py
+    detected: '2026-10-23'
+    matched_by: register-name
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
