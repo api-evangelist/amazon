@@ -1,4 +1,4 @@
-# Amazon (amazon)
+# Amazon
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,163 +66,284 @@
 
 Amazon is a global technology and e-commerce company offering a wide range of consumer and developer APIs including the Selling Partner API for marketplace sellers, Advertising API for campaign management, Amazon Pay for payments, Alexa Skills Kit for voice experiences, Amazon Appstore for mobile applications, and the Creators API for affiliate publishers. These APIs power Amazon's ecosystem of sellers, developers, advertisers, and content creators.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amazon/refs/heads/main/apis.yml)
+**Areas:** Amazon · Advertising · Alexa · E-Commerce · Marketplace · Payments · Voice · Fortune 100 · Agentic Commerce
 
-## Scope
+## Amazon on APIs.io
 
-- **Type:** Index
+Everything profiled for Amazon is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon/](https://apis.io/providers/amazon/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- Amazon
-- Advertising
-- Alexa
-- E-Commerce
-- Marketplace
-- Payments
-- Voice
+- [Amazon Creators API](https://apis.io/apis/amazon/creators-api/) — The Amazon Creators API provides programmatic access to Amazon product data for publishers, influencers, and affiliate partners. It is the recommended…
+- [Amazon Alexa Skills Kit API](https://apis.io/apis/amazon/alexa-skills-kit-api/) — The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage, test, and deploy custom voice skills for Alexa-enabled devices including skill…
+- [Amazon Appstore API](https://apis.io/apis/amazon/appstore-api/) — The Amazon Appstore Developer APIs provide tools for managing app submissions, testing, and monetization through in-app purchases on the Amazon Appstore for…
+- [Amazon Ad Groups API](https://apis.io/apis/amazon/amazon-ad-groups-api/) — Ad group management operations
+- [Amazon Campaigns API](https://apis.io/apis/amazon/amazon-campaigns-api/) — Campaign management operations
+- [Amazon Charge Permissions API](https://apis.io/apis/amazon/amazon-charge-permissions-api/) — Manage buyer charge authorizations
+- [Amazon Charges API](https://apis.io/apis/amazon/amazon-charges-api/) — Create and manage payment charges
+- [Amazon Checkout Sessions API](https://apis.io/apis/amazon/amazon-checkout-sessions-api/) — Manage buyer checkout sessions
+- [Amazon Keywords API](https://apis.io/apis/amazon/amazon-keywords-api/) — Keyword management operations
+- [Amazon Profiles API](https://apis.io/apis/amazon/amazon-profiles-api/) — Account profile management
+- [Amazon Refunds API](https://apis.io/apis/amazon/amazon-refunds-api/) — Process refunds on captured charges
+- [Amazon Ads Reports API](https://apis.io/apis/amazon/amazon-reports-api/) — Request Amazon Ads (Sponsored Products) performance reports by record type and poll report status. The Selling Partner API Reports operations are profiled…
+- [Amazon Targets API](https://apis.io/apis/amazon/amazon-targets-api/) — Product targeting operations
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Amazon Selling Partner API
+GraphQL schemas.
 
-The Selling Partner API (SP-API) is profiled in its own repository, [amazon-seller-central](https://github.com/api-evangelist/amazon-seller-central), from Amazon's official [selling-partner-api-models](https://github.com/amzn/selling-partner-api-models), alongside the first-party Amazon Selling Partner MCP server and Amazon's agent skills. This repository covers the Amazon Ads, Amazon Pay, Alexa, Appstore and Creators APIs.
+- [Moved to /providers/amazon/](https://apis.io/graphqls/amazon/amazon-graphql/)
 
-### Amazon Advertising API
+#### MCP servers (1)
 
-The Amazon Advertising API enables programmatic management of advertising campaigns on Amazon including Sponsored Products, Sponsored Brands, and Sponsored Display campaigns across various marketplaces. Developers can create, manage, and optimize campaigns, access reporting data, and manage budgets and targeting.
+Model Context Protocol servers that expose the API to agents.
 
-- **Human URL:** [https://advertising.amazon.com/API/docs/en-us/reference/api-overview](https://advertising.amazon.com/API/docs/en-us/reference/api-overview)
-- **Base URL:** `https://advertising-api.amazon.com`
+- [amazon-mcp.yml](https://apis.io/servers/amazon/amazon-mcp-yml/)
 
-#### Tags
+#### Agentic access (1)
 
-- Advertising
-- Campaigns
-- Marketing
-- Sponsored Products
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Amazon Agentic Access](https://apis.io/agentic-access/amazon/amazon-agentic-access/)
 
-- [Documentation](https://advertising.amazon.com/API/docs/en-us/reference/api-overview)
-- [OpenAPI](openapi/_original/amazon-advertising-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-advertising-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### JSON Schema (50)
 
-### Amazon Creators API
+The data models the API reads and writes.
 
-The Amazon Creators API provides programmatic access to Amazon product data for publishers, influencers, and affiliate partners. It is the recommended replacement for the Product Advertising API and requires Amazon Associates membership with qualifying sales history.
+- [AdGroup](https://apis.io/schemas/amazon/advertising-ad-group/)
+- [AdGroupResponse](https://apis.io/schemas/amazon/advertising-ad-group-response/)
+- [Campaign](https://apis.io/schemas/amazon/advertising-campaign/)
+- [CampaignResponse](https://apis.io/schemas/amazon/advertising-campaign-response/)
+- [CreateAdGroupRequest](https://apis.io/schemas/amazon/advertising-create-ad-group-request/)
+- [CreateCampaignRequest](https://apis.io/schemas/amazon/advertising-create-campaign-request/)
+- [CreateKeywordRequest](https://apis.io/schemas/amazon/advertising-create-keyword-request/)
+- [CreateTargetRequest](https://apis.io/schemas/amazon/advertising-create-target-request/)
+- [Keyword](https://apis.io/schemas/amazon/advertising-keyword/)
+- [KeywordResponse](https://apis.io/schemas/amazon/advertising-keyword-response/)
+- [Profile](https://apis.io/schemas/amazon/advertising-profile/)
+- [ReportRequest](https://apis.io/schemas/amazon/advertising-report-request/)
+- [ReportRequestResponse](https://apis.io/schemas/amazon/advertising-report-request-response/)
+- [ReportStatus](https://apis.io/schemas/amazon/advertising-report-status/)
+- [Target](https://apis.io/schemas/amazon/advertising-target/)
+- [TargetResponse](https://apis.io/schemas/amazon/advertising-target-response/)
+- [UpdateCampaignRequest](https://apis.io/schemas/amazon/advertising-update-campaign-request/)
+- [Address](https://apis.io/schemas/amazon/pay-address/)
+- [Buyer](https://apis.io/schemas/amazon/pay-buyer/)
+- [Charge](https://apis.io/schemas/amazon/pay-charge/)
+- [ChargePermission](https://apis.io/schemas/amazon/pay-charge-permission/)
+- [CheckoutSession](https://apis.io/schemas/amazon/pay-checkout-session/)
+- [CreateChargeRequest](https://apis.io/schemas/amazon/pay-create-charge-request/)
+- [CreateCheckoutSessionRequest](https://apis.io/schemas/amazon/pay-create-checkout-session-request/)
+- [CreateRefundRequest](https://apis.io/schemas/amazon/pay-create-refund-request/)
+- …and 25 more published on APIs.io
 
-- **Human URL:** [https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction)
-- **Base URL:** `https://affiliate-program.amazon.com/creatorsapi`
+#### JSON Structure (50)
 
-#### Tags
+Data models expressed in JSON Structure.
 
-- Affiliates
-- Content Creators
-- E-Commerce
-- Products
+- [Advertising Ad Group Response Structure](https://apis.io/json-structure/amazon/advertising-ad-group-response-structure/)
+- [Advertising Ad Group Structure](https://apis.io/json-structure/amazon/advertising-ad-group-structure/)
+- [Advertising Campaign Response Structure](https://apis.io/json-structure/amazon/advertising-campaign-response-structure/)
+- [Advertising Campaign Structure](https://apis.io/json-structure/amazon/advertising-campaign-structure/)
+- [Advertising Create Ad Group Request Structure](https://apis.io/json-structure/amazon/advertising-create-ad-group-request-structure/)
+- [Advertising Create Campaign Request Structure](https://apis.io/json-structure/amazon/advertising-create-campaign-request-structure/)
+- [Advertising Create Keyword Request Structure](https://apis.io/json-structure/amazon/advertising-create-keyword-request-structure/)
+- [Advertising Create Target Request Structure](https://apis.io/json-structure/amazon/advertising-create-target-request-structure/)
+- [Advertising Keyword Response Structure](https://apis.io/json-structure/amazon/advertising-keyword-response-structure/)
+- [Advertising Keyword Structure](https://apis.io/json-structure/amazon/advertising-keyword-structure/)
+- [Advertising Profile Structure](https://apis.io/json-structure/amazon/advertising-profile-structure/)
+- [Advertising Report Request Response Structure](https://apis.io/json-structure/amazon/advertising-report-request-response-structure/)
+- [Advertising Report Request Structure](https://apis.io/json-structure/amazon/advertising-report-request-structure/)
+- [Advertising Report Status Structure](https://apis.io/json-structure/amazon/advertising-report-status-structure/)
+- [Advertising Target Response Structure](https://apis.io/json-structure/amazon/advertising-target-response-structure/)
+- [Advertising Target Structure](https://apis.io/json-structure/amazon/advertising-target-structure/)
+- [Advertising Update Campaign Request Structure](https://apis.io/json-structure/amazon/advertising-update-campaign-request-structure/)
+- [Pay Address Structure](https://apis.io/json-structure/amazon/pay-address-structure/)
+- [Pay Buyer Structure](https://apis.io/json-structure/amazon/pay-buyer-structure/)
+- [Pay Charge Permission Structure](https://apis.io/json-structure/amazon/pay-charge-permission-structure/)
+- [Pay Charge Structure](https://apis.io/json-structure/amazon/pay-charge-structure/)
+- [Pay Checkout Session Structure](https://apis.io/json-structure/amazon/pay-checkout-session-structure/)
+- [Pay Create Charge Request Structure](https://apis.io/json-structure/amazon/pay-create-charge-request-structure/)
+- [Pay Create Checkout Session Request Structure](https://apis.io/json-structure/amazon/pay-create-checkout-session-request-structure/)
+- [Pay Create Refund Request Structure](https://apis.io/json-structure/amazon/pay-create-refund-request-structure/)
+- …and 25 more published on APIs.io
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction)
-- [Postman Collection](collections/amazon-advertising-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### Amazon Pay API
+- [Amazon Context](https://apis.io/jsonld/amazon/amazon-context/)
 
-The Amazon Pay API enables merchants to integrate Amazon Pay for payment processing on their websites and mobile applications. It supports one-time purchases, subscriptions, and recurring payments with checkout session management, charge operations, and refund capabilities.
+#### Vocabulary (1)
 
-- **Human URL:** [https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html](https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html)
-- **Base URL:** `https://pay-api.amazon.com`
+The provider's domain terms, defined.
 
-#### Tags
+- [Amazon Vocabulary](https://apis.io/vocabularies/amazon/amazon-vocabulary/)
 
-- Checkout
-- E-Commerce
-- Payments
-- Subscriptions
+#### Examples (50)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://developer.amazon.com/docs/amazon-pay-api-v2/introduction.html)
-- [OpenAPI](openapi/_original/amazon-pay-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Advertising Ad Group Example](https://apis.io/examples/amazon/advertising-ad-group-example/)
+- [Advertising Ad Group Response Example](https://apis.io/examples/amazon/advertising-ad-group-response-example/)
+- [Advertising Campaign Example](https://apis.io/examples/amazon/advertising-campaign-example/)
+- [Advertising Campaign Response Example](https://apis.io/examples/amazon/advertising-campaign-response-example/)
+- [Advertising Create Ad Group Request Example](https://apis.io/examples/amazon/advertising-create-ad-group-request-example/)
+- [Advertising Create Campaign Request Example](https://apis.io/examples/amazon/advertising-create-campaign-request-example/)
+- [Advertising Create Keyword Request Example](https://apis.io/examples/amazon/advertising-create-keyword-request-example/)
+- [Advertising Create Target Request Example](https://apis.io/examples/amazon/advertising-create-target-request-example/)
+- [Advertising Keyword Example](https://apis.io/examples/amazon/advertising-keyword-example/)
+- [Advertising Keyword Response Example](https://apis.io/examples/amazon/advertising-keyword-response-example/)
+- [Advertising Profile Example](https://apis.io/examples/amazon/advertising-profile-example/)
+- [Advertising Report Request Example](https://apis.io/examples/amazon/advertising-report-request-example/)
+- [Advertising Report Request Response Example](https://apis.io/examples/amazon/advertising-report-request-response-example/)
+- [Advertising Report Status Example](https://apis.io/examples/amazon/advertising-report-status-example/)
+- [Advertising Target Example](https://apis.io/examples/amazon/advertising-target-example/)
+- [Advertising Target Response Example](https://apis.io/examples/amazon/advertising-target-response-example/)
+- [Advertising Update Campaign Request Example](https://apis.io/examples/amazon/advertising-update-campaign-request-example/)
+- [Pay Address Example](https://apis.io/examples/amazon/pay-address-example/)
+- [Pay Buyer Example](https://apis.io/examples/amazon/pay-buyer-example/)
+- [Pay Charge Example](https://apis.io/examples/amazon/pay-charge-example/)
+- [Pay Charge Permission Example](https://apis.io/examples/amazon/pay-charge-permission-example/)
+- [Pay Checkout Session Example](https://apis.io/examples/amazon/pay-checkout-session-example/)
+- [Pay Create Charge Request Example](https://apis.io/examples/amazon/pay-create-charge-request-example/)
+- [Pay Create Checkout Session Request Example](https://apis.io/examples/amazon/pay-create-checkout-session-request-example/)
+- [Pay Create Refund Request Example](https://apis.io/examples/amazon/pay-create-refund-request-example/)
+- …and 25 more published on APIs.io
 
-### Amazon Alexa Skills Kit API
+#### Collections (33)
 
-The Alexa Skills Kit (ASK) REST APIs enable developers to create, manage, test, and deploy custom voice skills for Alexa-enabled devices including skill manifest management, interaction model building, and hosted skill management for voice experiences and smart home integrations.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html](https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html)
-- **Base URL:** `https://api.amazonalexa.com`
+- [Amazon Advertising Ad Groups API](https://apis.io/collections/amazon/open-amazon-ad-groups-api/)
+- [Amazon Advertising API](https://apis.io/collections/amazon/open-amazon-advertising-api/)
+- [Amazon Advertising Ad Groups Campaigns API](https://apis.io/collections/amazon/open-amazon-campaigns-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-catalog-api/)
+- [Amazon Advertising Ad Groups Charge Permissions API](https://apis.io/collections/amazon/open-amazon-charge-permissions-api/)
+- [Amazon Advertising Ad Groups Charges API](https://apis.io/collections/amazon/open-amazon-charges-api/)
+- [Amazon Advertising Ad Groups Checkout Sessions API](https://apis.io/collections/amazon/open-amazon-checkout-sessions-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-finances-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-inventory-api/)
+- [Amazon Advertising Ad Groups Keywords API](https://apis.io/collections/amazon/open-amazon-keywords-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-listings-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-orders-api/)
+- [Amazon Pay API](https://apis.io/collections/amazon/open-amazon-pay-api/)
+- [Amazon Advertising Ad Groups Profiles API](https://apis.io/collections/amazon/open-amazon-profiles-api/)
+- [Amazon Advertising Ad Groups Refunds API](https://apis.io/collections/amazon/open-amazon-refunds-api/)
+- [Amazon Ads Reports API](https://apis.io/collections/amazon/open-amazon-reports-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/open-amazon-selling-partner-api/)
+- [Amazon Advertising Ad Groups Targets API](https://apis.io/collections/amazon/open-amazon-targets-api/)
+- [Amazon Advertising Ad Groups API](https://apis.io/collections/amazon/postman-amazon-ad-groups-api/)
+- [Amazon Advertising Ad Groups Campaigns API](https://apis.io/collections/amazon/postman-amazon-campaigns-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/postman-amazon-catalog-api/)
+- [Amazon Advertising Ad Groups Charge Permissions API](https://apis.io/collections/amazon/postman-amazon-charge-permissions-api/)
+- [Amazon Advertising Ad Groups Charges API](https://apis.io/collections/amazon/postman-amazon-charges-api/)
+- [Amazon Advertising Ad Groups Checkout Sessions API](https://apis.io/collections/amazon/postman-amazon-checkout-sessions-api/)
+- [Moved to /providers/amazon/](https://apis.io/collections/amazon/postman-amazon-finances-api/)
+- …and 8 more published on APIs.io
 
-#### Tags
+#### Governance rules (3)
 
-- Alexa
-- Skills
-- Smart Home
-- Voice
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Amazon — jsonschema rules](https://apis.io/rules/amazon/amazon-jsonschema-spectral-rules/)
+- [Amazon API Rules](https://apis.io/rules/amazon/amazon-rules/)
+- [Amazon API Rules](https://apis.io/rules/amazon/amazon-spectral-rules/)
 
-- [Documentation](https://developer.amazon.com/en-US/docs/alexa/rest-apis/rest-apis.html)
-- [Postman Collection](collections/amazon-advertising-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (3)
 
-### Amazon Appstore API
+Authentication, trust centre, and vulnerability disclosure.
 
-The Amazon Appstore Developer APIs provide tools for managing app submissions, testing, and monetization through in-app purchases on the Amazon Appstore for Android and Fire OS applications.
+- [Amazon Authentication](https://apis.io/security/amazon/amazon-authentication/)
+- [Amazon Domain Security](https://apis.io/security/amazon/amazon-domain-security/)
+- [Amazon Vulnerability Disclosure](https://apis.io/security/amazon/amazon-vulnerability-disclosure/)
 
-- **Human URL:** [https://www.developer.amazon.com/docs/apps-and-games/documentation.html](https://www.developer.amazon.com/docs/apps-and-games/documentation.html)
-- **Base URL:** `https://developer.amazon.com/api/appstore`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- App Store
-- Apps
-- In-App Purchases
-- Mobile
+- [Amazon Plans Pricing](https://apis.io/plans/amazon/amazon-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://www.developer.amazon.com/docs/apps-and-games/documentation.html)
-- [Postman Collection](collections/amazon-advertising-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-advertising-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/amazon-pay-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-pay-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-## Common Properties
+- [Amazon Rate Limits](https://apis.io/rate-limits/amazon/amazon-rate-limits/)
 
-- [LinkedIn](https://www.linkedin.com/company/amazon)
-- [Portal](https://developer.amazon.com/)
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Finops](https://apis.io/finops/amazon/amazon-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.amazon.com/)
 - [Documentation](https://developer.amazon.com/docs/)
-- [Terms of Service](https://developer.amazon.com/support/legal/da)
-- [Privacy Policy](https://www.amazon.com/gp/help/customer/display.html?nodeId=468496)
 - [Support](https://developer.amazon.com/support)
-- [GitHub Organization](https://github.com/amzn)
-- [Console](https://developer.amazon.com/dashboard)
-- [Sign Up](https://www.amazon.com/ap/register?openid.assoc_handle=aws)
-- [Login](https://developer.amazon.com/login)
 - [Blog](https://developer.amazon.com/blogs/)
-- [YouTube](https://www.youtube.com/c/AmazonDeveloper)
-- [Contact](https://www.amazon.com/gp/help/customer/contact-us)
-- [JSON-LD](json-ld/amazon-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](rules/amazon-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-vocabulary.yaml)
-- [L L Ms Txt](https://developer.amazon.com/llms.txt)
+- [Security](https://hackerone.com/amazonvrp)
+- [Terms of service](https://developer.amazon.com/support/legal/da)
+- [Privacy policy](https://www.amazon.com/gp/help/customer/display.html?nodeId=468496)
+- [GitHub](https://github.com/amzn)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 47.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 66.9 |
+| Contract governance | 31.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 46.4 |
+| Access clarity | 35.5 |
+
+**Agent readiness 46.8** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | verified |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon/](https://apis.io/providers/amazon/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
