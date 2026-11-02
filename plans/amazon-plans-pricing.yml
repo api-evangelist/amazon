@@ -96,7 +96,7 @@ plans:
       - name: Always-free quotas
       - name: New account credits
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
