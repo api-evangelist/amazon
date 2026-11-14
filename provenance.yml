@@ -11,6 +11,15 @@ artifacts:
   capabilities/amazon-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-ad-groups-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-ad-groups-api
@@ -86,8 +95,20 @@ artifacts:
   conformance/amazon-conformance.yml:
     method: derived
     evidence: declared in the artifact
+  conventions/amazon-conventions.yml:
+    method: searched
+    evidence: declared in the artifact
+  data-license/amazon-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/amazon-data-model.yml:
     method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-error-codes.yml:
+    method: searched
     evidence: declared in the artifact
   errors/amazon-problem-types.yml:
     method: derived
@@ -188,6 +209,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -401,7 +425,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -476,6 +500,12 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  llms/amazon-llms-provenance.yml:
+    method: searched
+    evidence: 'derive-llms-provenance.py: harvested'
   llms/amazon-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -520,6 +550,12 @@ artifacts:
   openapi/amazon-targets-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  packages/amazon-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-plans-pricing.yml:
     method: generated
     evidence: declared in the artifact
@@ -565,8 +601,11 @@ artifacts:
   press/2026-05-25-05-artificial-intelligence.md:
     method: unknown
     evidence: no authorship recorded
+  privacy/amazon-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-jsonschema-spectral-rules.yml:
     method: generated
@@ -576,6 +615,9 @@ artifacts:
     evidence: declared in the artifact
   rules/amazon-spectral-rules.yml:
     method: generated
+    evidence: declared in the artifact
+  sandbox/amazon-sandbox.yml:
+    method: searched
     evidence: declared in the artifact
   search/2026-05-25-01-artificial-intelligence-books.md:
     method: unknown
@@ -601,6 +643,12 @@ artifacts:
   sla/amazon-sla.yml:
     method: generated
     evidence: declared in the artifact
+  terms/amazon-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/amazon-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
