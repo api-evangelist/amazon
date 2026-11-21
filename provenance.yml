@@ -425,7 +425,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-06T143934.yml:
+  kin/checks-2026-11-13T214628.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -503,6 +503,9 @@ artifacts:
   kin/score-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-13T214628.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   llms/amazon-llms-provenance.yml:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -550,6 +553,36 @@ artifacts:
   openapi/amazon-targets-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/amazon-ad-groups-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-campaigns-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-charge-permissions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-charges-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-checkout-sessions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-keywords-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-profiles-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-refunds-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-reports-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-targets-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   packages/amazon-packages.yml:
     method: searched
     evidence: declared in the artifact
@@ -639,9 +672,6 @@ artifacts:
     evidence: no authorship recorded
   security/amazon-vulnerability-disclosure.yml:
     method: searched
-    evidence: declared in the artifact
-  sla/amazon-sla.yml:
-    method: generated
     evidence: declared in the artifact
   terms/amazon-terms-of-service.yml:
     method: harvested
